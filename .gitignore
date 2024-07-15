@@ -1,3 +1,11 @@
+# Course files/directories
+counts/
+fastq/
+genome/
+mapping
+multiqc_data/
+multiqc_report.html
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

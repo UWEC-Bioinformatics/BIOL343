@@ -1,0 +1,11 @@
+name: biol343
+channels:
+ - conda-forge
+ - bioconda
+dependencies:
+ - python=3.12.4
+ - cutadapt
+ - snakemake
+ - snakedeploy
+ - pydeseq2
+ - star
