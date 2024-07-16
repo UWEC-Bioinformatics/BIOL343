@@ -6,6 +6,9 @@ mapping
 multiqc_data/
 multiqc_report.html
 
+# VS Code
+.vscode/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
