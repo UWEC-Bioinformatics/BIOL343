@@ -5,6 +5,7 @@ genome/
 mapping
 multiqc_data/
 multiqc_report.html
+**/.snakemake/
 
 # VS Code
 .vscode/
