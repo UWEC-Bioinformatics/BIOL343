@@ -6,6 +6,7 @@ mapping
 multiqc_data/
 multiqc_report.html
 **/.snakemake/
+3_snakemake/snakemake-tutorial/
 
 # VS Code
 .vscode/
