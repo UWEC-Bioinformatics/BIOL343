@@ -8,14 +8,14 @@
 ![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white)  
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png" alt="logo" align = "left" width="30" />
 ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
-![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
-<br>
+![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)  
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png" alt="logo" align = "left" width="30" />
+[![Snakemake](https://img.shields.io/badge/snakemake-≥5.6.0-brightgreen.svg?style=for-the-badge)](https://snakemake.readthedocs.io)
+
 <br>
 
 # BIOL 343
-All the files associated with BIOL 343 at UW-Eau Claire. First time here? Click the Slack button above to join the class workspace.
-
-
+All the files associated with BIOL 343 at UW-Eau Claire. First time here? Click the Slack button above to join the class workspace. **Note:** This repo is for UWEC students only.
 
 - [BIOL 343](#biol-343)
   - [General information](#general-information)
