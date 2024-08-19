@@ -1,5 +1,5 @@
 <img src="assets/logo.png" alt="logo" align = "left" width="130" />  
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png" alt="logo" align = "left" width="30" />  
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png" alt="logo" align = "left" width="30" />
 
 [![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)](https://join.slack.com/t/biol343/shared_invite/zt-2p4931oxd-GpKenwjpeaMdzdheUGCVSw)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)  
