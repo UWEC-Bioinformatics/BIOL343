@@ -12,8 +12,6 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png" alt="logo" align = "left" width="30" />
 [![Snakemake](https://img.shields.io/badge/snakemake-≥5.6.0-brightgreen.svg?style=for-the-badge)](https://snakemake.readthedocs.io)
 
-<br>
-
 # BIOL 343
 All the files associated with BIOL 343 at UW-Eau Claire. First time here? Click the Slack button above to join the class workspace. **Note:** This repo is for UWEC students only.
 
