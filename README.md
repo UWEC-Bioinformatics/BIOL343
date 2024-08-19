@@ -1,5 +1,13 @@
 # BIOL 343
-All the files associated with BIOL 343 at UW-Eau Claire
+All the files associated with BIOL 343 at UW-Eau Claire. First time here? Click the Slack button below to join the class workspace.
+
+[![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)](https://join.slack.com/t/biol343/shared_invite/zt-2p4931oxd-GpKenwjpeaMdzdheUGCVSw)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Anaconda](https://img.shields.io/badge/Anaconda-%2344A833.svg?style=for-the-badge&logo=anaconda&logoColor=white)
+![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white)
+![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
+![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
+
 
 - [BIOL 343](#biol-343)
   - [General information](#general-information)
@@ -45,7 +53,7 @@ After completing this course, you will be able to:
 
 ## How is this class structured and how should I prepare for class?
 
-This course is structured such that the nine weeks are “RNA sequencing bootcamp,” and the rest of the semester will be spent on a course-based undergraduate research experience, during which you will analyze novel, unpublished RNA-seq data. During bootcamp, each Monday will consist of a lecture about one step of an RNA-seq experiment (see the schedule at the end of the syllabus for a topic list). Tuesdays will consist of learning to use a new bioinformatics tool, working along with the instructor. Thursdays will include independent work time to use the new tools to analyze and reproduce a published dataset. You should set aside 3-5 hours per week to finish this work. Time in class will be provided for completing some of these projects, and it’s possible that an intrepid student can finish all their work within class.
+This course is structured such that the eight weeks are “RNA sequencing bootcamp,” and the rest of the semester will be spent on a course-based undergraduate research experience, during which you will analyze novel, unpublished RNA-seq data. During bootcamp, each Monday will consist of a lecture about one step of an RNA-seq experiment (see the schedule at the end of the syllabus for a topic list). Tuesdays will consist of learning to use a new bioinformatics tool, working along with the instructor. Thursdays will include independent work time to use the new tools to analyze and reproduce a published dataset. You should set aside 3-5 hours per week to finish this work. Time in class will be provided for completing some of these projects, and it’s possible that an intrepid student can finish all their work within class.
 
 ## How will this class be graded?
 
