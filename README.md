@@ -1,6 +1,21 @@
 # BIOL 343
 All the files associated with BIOL 343 at UW-Eau Claire
 
+- [BIOL 343](#biol-343)
+  - [General information](#general-information)
+    - [Learning objectives](#learning-objectives)
+  - [How is this class structured and how should I prepare for class?](#how-is-this-class-structured-and-how-should-i-prepare-for-class)
+  - [How will this class be graded?](#how-will-this-class-be-graded)
+  - [Am I expected to come to class?](#am-i-expected-to-come-to-class)
+  - [How do I get help and special accommodations for the class?](#how-do-i-get-help-and-special-accommodations-for-the-class)
+    - [Students requiring special accommodations](#students-requiring-special-accommodations)
+    - [Students who are non-native speakers of English](#students-who-are-non-native-speakers-of-english)
+  - [How do I get help with non-class issues?](#how-do-i-get-help-with-non-class-issues)
+  - [Miscellaneous](#miscellaneous)
+    - [Academic Integrity](#academic-integrity)
+    - [Dropping the Class](#dropping-the-class)
+  - [Schedule and topical outline](#schedule-and-topical-outline)
+
 ## General information
 
 Dr. Nic Wheeler
