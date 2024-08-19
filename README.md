@@ -1,3 +1,12 @@
+<img src="assets/logo.png" alt="logo" align = "left" width="130" />
+
+<br>  
+<br>  
+<br>  
+<br>  
+<br>  
+<br>  
+
 # BIOL 343
 All the files associated with BIOL 343 at UW-Eau Claire. First time here? Click the Slack button below to join the class workspace.
 
