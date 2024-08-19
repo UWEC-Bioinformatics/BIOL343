@@ -1,21 +1,20 @@
-<img src="assets/logo.png" alt="logo" align = "left" width="130" />
+<img src="assets/logo.png" alt="logo" align = "left" width="130" />  
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png" alt="logo" align = "left" width="30" />  
 
-<br>  
-<br>  
-<br>  
-<br>  
-<br>  
-<br>  
+[![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)](https://join.slack.com/t/biol343/shared_invite/zt-2p4931oxd-GpKenwjpeaMdzdheUGCVSw)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)  
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png" alt="logo" align = "left" width="30" />
+![Anaconda](https://img.shields.io/badge/Anaconda-%2344A833.svg?style=for-the-badge&logo=anaconda&logoColor=white)
+![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white)  
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Empty.png" alt="logo" align = "left" width="30" />
+![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
+![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
+<br>
+<br>
 
 # BIOL 343
 All the files associated with BIOL 343 at UW-Eau Claire. First time here? Click the Slack button below to join the class workspace.
 
-[![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)](https://join.slack.com/t/biol343/shared_invite/zt-2p4931oxd-GpKenwjpeaMdzdheUGCVSw)
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Anaconda](https://img.shields.io/badge/Anaconda-%2344A833.svg?style=for-the-badge&logo=anaconda&logoColor=white)
-![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white)
-![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
-![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
 
 
 - [BIOL 343](#biol-343)
