@@ -111,21 +111,21 @@ The last day to drop the class without record is September 17.  The last day to 
 ## Schedule and topical outline
 *Schedule subject to change.*
 
-Week | Week Of...   | Topic(s)                                   | Tool(s)                     | Homework Link                                            |
------|--------------|--------------------------------------------|-----------------------------|----------------------------------------------------------|
-0    | September 5  | Syllabus and Introduction                   | GitHub                     | [Week 1 Homework](1_paper_selection/1_homework.ipynb)    |
-1    | September 9  | RNA extraction                              | VS Code & Anaconda         | [Week 2 Homework](2_genome_exploration/2_homework.ipynb) |
-2    | September 16 | Sequencing library preparation              | Command line & Jbrowse2    | [Week 2 Homework](2_genome_exploration/2_homework.ipynb) |
-3    | September 23 | Sequencing library preparation (continued)  | Bash scripting & snakemake | [Week 3 Homework](3_snakemake/3_homework.ipynb)          |
-4    | September 30 | Sequencing-by-synthesis                     | FastQ files and read QC    |                                                          |
-5    | October 7    | Alignment                                   | STAR/HISAT2                |                                                          |
-6    | October 14   | BAM files and post-alignment QC             | samtools & MultiQC         |                                                          |
-7    | October 21   | Differential expression analysis            | DESeq2                     |                                                          |
-8    | October 28   | Exploration and visualization of DEGs       | tidyverse & topGO          |                                                          |
-9    | November 4   | Intro to final project                      |                            |                                                          |
-10   | November 11  |Final project                                |                            |                                                          |
-11   | November 18  |Final project                                |                            |                                                          |
-12   | November 25  |Final project                                |                            |                                                          |
-13   | December 2   |Final project                                |                            |                                                          |
-14   | December 9   |Final project                                |                            |                                                          |
-15   | December 16  |Finals week                                  |                            |                                                          |
+Week | Week Of...   | Topic(s)                                    | Slide Deck Link                                | Tool(s)                    | Homework Link                                            |
+-----|--------------|---------------------------------------------|------------------------------------------------|----------------------------|----------------------------------------------------------|
+0    | September 5  | Syllabus and Introduction                   | [Week 0 Slides](lectures/0_intro.pdf)          | GitHub                     |                                                          |
+1    | September 9  | RNA extraction                              | [Week 1 Slides](lectures/1_rna_extraction.pdf) | VS Code & Anaconda         | [Week 1 Homework](1_paper_selection/1_homework.ipynb)    |
+2    | September 16 | Sequencing library preparation              | [Week 2 Slides](lectures/2_library_prep.pdf)   | Command line & Jbrowse2    | [Week 2 Homework](2_genome_exploration/2_homework.ipynb) |
+3    | September 23 | Sequencing library preparation (continued)  |                                                | Bash scripting & snakemake | [Week 3 Homework](3_snakemake/3_homework.ipynb)          |
+4    | September 30 | Sequencing-by-synthesis                     | [Week 4 Slides](lectures/4_sequencing.pdf)     | FastQ files and read QC    | [Week 4 Homework](4_fastq/4_homework.ipynb)              |
+5    | October 7    | Alignment                                   | [Week 5 Slides](lectures/5_alignment.pdf)      | STAR/HISAT2                |                                                          |
+6    | October 14   | BAM files and post-alignment QC             |                                                | samtools & MultiQC         |                                                          |
+7    | October 21   | Differential expression analysis            |                                                | DESeq2                     |                                                          |
+8    | October 28   | Exploration and visualization of DEGs       |                                                | tidyverse & topGO          |                                                          |
+9    | November 4   | Intro to final project                      |                                                |                            |                                                          |
+10   | November 11  |Final project                                |                                                |                            |                                                          |
+11   | November 18  |Final project                                |                                                |                            |                                                          |
+12   | November 25  |Final project                                |                                                |                            |                                                          |
+13   | December 2   |Final project                                |                                                |                            |                                                          |
+14   | December 9   |Final project                                |                                                |                            |                                                          |
+15   | December 16  |Finals week                                  |                                                |                            |                                                          |
