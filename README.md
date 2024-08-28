@@ -25,6 +25,7 @@ All the files associated with BIOL 343 at UW-Eau Claire. First time here? Click 
     - [Students requiring special accommodations](#students-requiring-special-accommodations)
     - [Students who are non-native speakers of English](#students-who-are-non-native-speakers-of-english)
   - [How do I get help with non-class issues?](#how-do-i-get-help-with-non-class-issues)
+  - [Can I use generative AI to help me write code?](#can-i-use-generative-ai-to-help-me-write-code)
   - [Miscellaneous](#miscellaneous)
     - [Academic Integrity](#academic-integrity)
     - [Dropping the Class](#dropping-the-class)
@@ -91,13 +92,20 @@ UWEC has numerous resources on campus to help students learn and succeed in thei
 It is important to me that every student has every opportunity to succeed in this course. Any student who has a disability and needs classroom accommodations should contact me and the Services for Students with Disabilities Office in Centennial Hall 2106 at the beginning of the semester.
 
 ### Students who are non-native speakers of English
+
 All quizzes and exams will be administered in class on Canvas. Any student who is a non-native speaker of English may request extended test-taking time if approved by the Academic Skills Center or Department of Languages. Verification is required at least one week before any quiz or exam for which the accommodation is requested.
 
 ## How do I get help with non-class issues?
 
 As your instructor, I am very concerned with your success in this class. As a human, I am more concerned with your flourishing as a student and unique, valuable individual. If there are ways in which you think I can specifically assist you, please reach out to me privately. When we talk, I resolve to listen, to create a safe and non-judgmental space, and to do what I can to help. At that meeting, it’s also likely that I will refer you to other on-campus resources, such as those listed at: https://www.uwec.edu/dean-of-students/support-resources/. 
 
-As a Wisconsin State employee, I am obligated to report any claims of sexual harassment or sexual assault. Please know that any such information revealed to me will be forwarded to the Dean of Students. The Dean of Students office may reach out to you to offer resources and support. If you wish to disclose this information to a confidential resource, you may speak to someone in the Center for Awareness of Sexual Assault, Counseling Services, or Student Health Services. 
+As a Wisconsin State employee, I am obligated to report any claims of sexual harassment or sexual assault. Please know that any such information revealed to me will be forwarded to the Dean of Students. The Dean of Students office may reach out to you to offer resources and support. If you wish to disclose this information to a confidential resource, you may speak to someone in the Center for Awareness of Sexual Assault, Counseling Services, or Student Health Services.
+
+## Can I use generative AI to help me write code?
+
+In short, no. Co-coding AI tools like ChatGPT or Microsoft Copilot can be useful, and I have used them before. There may be a time when I show you how to install the Copilot extension for VS Code and provide instruction on how to use it, noting where it’s useful and not so useful. However, the goal of this class it to learn to develop and use bioinformatics tools, and using AI to quickly write code or build pipelines circumnavigates the learning experience. It will also not help you get a better grade, because your code will never be graded for elegance or cleverness, and a good deal of coding will be done in class.
+
+It's very likely I’ll be able to detect AI generated material. Any use of generative AI to complete homework assignments or projects will be treated as academic misconduct. See below for further details.
 
 ## Miscellaneous
 
