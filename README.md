@@ -75,7 +75,7 @@ We will use an alternative grading approach known as specifications grading. Thi
 
 The Final Grade will be equal to the Final Project grade. Plus/minus grades will be decided by the other two categories: if both category grades are higher than the Final Project, the Final Grade will be Final Project+; if both category grades are lower than the Final Project, the Final Grade will be Final Project-. 
 
-Homework submitted after the due date/time will be marked unsatisfactory.
+Homework submitted after the due date/time will be marked Missing and will not be able to be revised. If submitted prior to the due date/time, homework marked as Needs Revision can be revised as many times as needed in order to achieve a Satisfactory mark. Rubrics and grades will be tracked on Canvas.
 
 ## Am I expected to come to class?
 
