@@ -41,7 +41,8 @@ M 9:00-9:50 a.m.
 Tu/Th 3:30-4:45 p.m.
 
 *Student drop-in hours*:  
-XXX  
+Monday 4:00-5:00 a.m.
+Wednesday 9:00-11:00 a.m.
 By appointment
 
 *Contact*:  
