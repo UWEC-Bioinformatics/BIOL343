@@ -71,7 +71,7 @@ We will use an alternative grading approach known as specifications grading. Thi
 |-|-|-|-|-|-|
 | Attendance    | >=13/14 perfect weeks | 12/14 perfect weeks | 11/14 perfect weeks | 10/14 perfect weeks | Less than 10/14 perfect weeks |
 | Homework      | >=8/9 satisfactory homework submissions | 7/9 satisfactory homework submissions | 6/9 satisfactory homework submissions |  5/9 satisfactory homework submissions | Less than 5 satisfactory homework submissions |
-| Final Project | Requirements for (B), plus a snakemake'd pipeline | Requirements for (C), plus version controlled work | Generation of a count matrix | Partial progress toward a count matrix | Unsatisfactory progress towards a count matrix |
+| Final Project | Requirements for (B), plus a snakemake'd pipeline | Requirements for (C), plus version controlled work | Generation of a count matrix using a notebook with QC evaluation and parameter justification | Partial progress toward a count matrix | Unsatisfactory progress towards a count matrix |
 
 The Final Grade will be equal to the Final Project grade. Plus/minus grades will be decided by the other two categories: if both category grades are higher than the Final Project, the Final Grade will be Final Project+; if both category grades are lower than the Final Project, the Final Grade will be Final Project-. 
 
