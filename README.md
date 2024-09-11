@@ -31,6 +31,18 @@ All the files associated with BIOL 343 at UW-Eau Claire. First time here? Click 
     - [Dropping the Class](#dropping-the-class)
   - [Schedule and topical outline](#schedule-and-topical-outline)
 
+## How to use this repository (UWEC students)
+
+1. Make your own branch with your first name: `git checkout -b {first name}` (don't include curly braces).
+2. Make sure you're apart of the BIOL 343 Slack workspace, so that you receive notifications whenever a commit is pushed to the `main` branch.
+3. Whenever `main` is updated, merge the updates into your own branch: 
+    ```
+    git switch main
+    git pull
+    git checkout {first name}
+    git merge main
+    ```
+
 ## General information
 
 Dr. Nic Wheeler
