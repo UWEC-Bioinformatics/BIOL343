@@ -12,7 +12,8 @@ multiqc*
 4_fastq/multiqc_data
 4_fastq/fastq/
 4_fastq/multiqc_report.html
-5_alignment/alignment/
+6_alignment/alignment/
+7_alignment_qc/*stats*
 
 whole_pipeline.ipynb
 
