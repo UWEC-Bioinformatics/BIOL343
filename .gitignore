@@ -1,4 +1,6 @@
 # Course files/directories
+2_genome_exploration/c_elegans_genome
+
 multiqc*
 
 2_genome_exploration/genome/annotations.gtf
@@ -14,7 +16,6 @@ multiqc*
 4_fastq/multiqc_report.html
 6_alignment/alignment/
 7_alignment_qc/*stats*
-2_genome_exploration/2_homework.ipynb
 
 whole_pipeline.ipynb
 
