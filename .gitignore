@@ -15,6 +15,7 @@ multiqc*
 4_fastq/multiqc_report.html
 6_alignment/alignment/
 7_alignment_qc/*stats*
+7_alignment_qc/qualimap
 
 whole_pipeline.ipynb
 
