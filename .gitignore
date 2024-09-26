@@ -1,6 +1,6 @@
 # Course files/directories
 multiqc*
-
+2_genome_exploration/beegenome/
 2_genome_exploration/genome/annotations.gtf
 2_genome_exploration/genome/genome*
 2_genome_exploration/genome/star/
