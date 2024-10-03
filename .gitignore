@@ -6,6 +6,7 @@ multiqc*
 2_genome_exploration/genome/star/
 2_genome_exploration/genome/hisat/
 3_snakemake/snakemake-tutorial/
+4_snakemake/snakemake-tutorial/
 **/.snakemake/
 4_fastq/qc/
 4_fastq/trimmed/
