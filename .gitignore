@@ -9,11 +9,11 @@ multiqc*
 2_genome_exploration/genome/hisat/
 4_snakemake/snakemake-tutorial/
 **/.snakemake/
-4_fastq/qc/
-4_fastq/trimmed/
-4_fastq/multiqc_data
-4_fastq/fastq/
-4_fastq/multiqc_report.html
+5_fastq/qc/
+5_fastq/trimmed/
+5_fastq/multiqc_data
+5_fastq/fastq/
+5_fastq/multiqc_report.html
 6_alignment/alignment/
 7_alignment_qc/*stats*
 7_alignment_qc/qualimap
