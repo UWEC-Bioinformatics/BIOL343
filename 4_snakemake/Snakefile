@@ -1,5 +1,6 @@
 configfile: "config.yaml"
 include: "mapping_rules.smk"
+include: "snakemake-tutorial"
 #include: "snakemake_file.smk" #can be used to refrence an additional snakemake file 
     #you can also define external workflows as modules -which can be useful if you are trying to extend a previous analysis without modifying it
 
