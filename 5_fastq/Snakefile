@@ -1,0 +1,44 @@
+configfile: "config.yaml"
+
+rule all:
+  input: "multiqc_report_lemons.html"
+
+rule fetch_fastq:
+    input:
+
+    output:
+
+    shell:
+
+
+rule fastq_qc:
+    input:
+
+    output:
+
+    shell:
+
+
+rule trim_filter:
+    input:
+
+    output:
+
+    shell:
+
+
+rule trim_qc:
+    input:
+
+    output:
+
+    shell:
+
+
+rule report:
+    input:
+
+    output:
+
+    shell:
+
