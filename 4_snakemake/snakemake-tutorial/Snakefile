@@ -1,6 +1,5 @@
 configfile: "config.yaml"
 include: "mapping_rules.smk"
-include: "snakemake-tutorial"
 #include: "snakemake_file.smk" #can be used to refrence an additional snakemake file 
     #you can also define external workflows as modules -which can be useful if you are trying to extend a previous analysis without modifying it
 
@@ -43,7 +42,16 @@ rule all: #rule names can be used as a target if the rule has no wildcards
 #         #wildcards allows you to acess the objects attribute of sample number or name
 #         "-O bam {input} > {output}"
 ###############
-
+rule samtools_sort: #sorts reads and stores a sorted version in sorted_reads directory.... order?
+    input:
+        "mapped_reads/{sample}.bam"
+    output:
+        protected("sorted_reads/{sample}.bam") #protected makes certain that it can't be overwritten #never overwriting, new file for each step, this is a good practice, where each rule creates a new directory
+    shell:
+        "samtools sort -T sorted_reads/{wildcards.sample} " #this is the command that will actually be sent to the shell ie "snakemake -np sorted_reads/B.bam -O bam mapped_reads/B.bam"
+        #wildcards allows you to acess the objects attribute of sample number or name
+        "-O bam {input} > {output}"
+        
 rule samtools_index: #index the bam so the output is index
     input:
         "sorted_reads/{sample}.bam"
