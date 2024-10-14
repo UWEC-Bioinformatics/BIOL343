@@ -1,5 +1,7 @@
 # Course files/directories
-2_genome_exploration/c_elegans_genome
+2_genome_exploration/c_elegans_genome*
+
+
 
 multiqc*
 
@@ -202,3 +204,10 @@ cython_debug/
 ./.git/objects/pack/tmp_pack_XDLIOD
 ./2_genome_exploration/c_elegans_genome/c_elegans_annotations.gtf
 ./2_genome_exploration/genome/genome.fa
+./.git/objects/pack/tmp_pack_R90PfM
+./.git/objects/pack/tmp_pack_f1Iqu1
+./.git/objects/pack/tmp_pack_NBduDE
+./.git/objects/pack/pack-601b3786bc150960bfdf623a3f3c4ccecc1268d4.pack
+./.git/objects/pack/tmp_pack_XDLIOD
+./2_genome_exploration/genome/genome.fa
+./2_genome_exploration/c_elegans_genome/c_elegans_annotations.gtf
