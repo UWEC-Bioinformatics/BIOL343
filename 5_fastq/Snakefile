@@ -1,23 +1,25 @@
 configfile: "config.yaml"
 
 rule all:
-  input: "multiqc_report_lemons.html"
+  input: 
+    "multiqc_report_lemons.html"
 
 rule fetch_fastq:
-    input:
-
     output:
-
+        "fastq_lemons/"
+    params:
+        names=config["name"]
     shell:
+        "parallel-fastq-dump --sra-id {params.names} --threads 16 --outdir {output} --gzip"
 
 
 rule fastq_qc:
     input:
-
+        "fastq_lemons/{name}.fastq.gz"
     output:
-
+        "fastq_lemons/qc/"
     shell:
-
+        "fastqc -t 16 {input} -o {output}"
 
 rule trim_filter:
     input:
@@ -29,10 +31,11 @@ rule trim_filter:
 
 rule trim_qc:
     input:
-
+        "trimmed_lemons/{name}.fastq.gz"
     output:
-
+        "trimmed_lemons/qc/"
     shell:
+        "fastqc -t 16 {input} -o {output}"
 
 
 rule report:
@@ -41,4 +44,4 @@ rule report:
     output:
 
     shell:
-
+        
