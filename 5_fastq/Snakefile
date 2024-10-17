@@ -1,0 +1,15 @@
+configfile: "config.yaml"
+
+rule all:
+    input:
+        "reports/multiqc_report.html"
+
+rule fetch_fastq:
+    params:
+        sra_id=config["sra_id"]
+
+    output:
+        "schisto_fastq/"
+
+    shell:
+        "parallel-fastq-dump --sra-id {params.sra_id} --threads 32 --outdir {output} --gzip"
