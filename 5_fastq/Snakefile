@@ -23,11 +23,11 @@ rule fastq_qc:
 
 rule trim_filter:
     input:
-
+        "fastq_lemons/{name}.fastq.gz"
     output:
-
+        "trimmed_lemons/{name}.fastq.gz"
     shell:
-
+        "cutadapt -j 16 -m 20 --cut 10 -o {output} {input}"
 
 rule trim_qc:
     input:
@@ -40,8 +40,9 @@ rule trim_qc:
 
 rule report:
     input:
-
+        "fastq_lemons/qc/"
+        "trimmed_lemons/qc/"
     output:
-
+        "multiqc_lemons.html"
     shell:
-        
+        "multiqc --force -d {input} {input}"
