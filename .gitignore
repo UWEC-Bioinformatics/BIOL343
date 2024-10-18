@@ -11,6 +11,7 @@ multiqc*
 2_genome_exploration/genome/hisat/
 # 4_snakemake/snakemake-tutorial/
 **/.snakemake/
+5_fastq/fastq_c_elegans/
 5_fastq/qc/
 5_fastq/trimmed/
 5_fastq/multiqc_data

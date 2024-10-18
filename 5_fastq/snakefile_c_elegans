@@ -1,0 +1,27 @@
+configfile: "config.yaml"
+
+rule all:
+    input:
+        "multiqc_report_c_elegans.html"
+
+rule fetch_fastq:
+    params:
+        samples=config['sample']
+    
+    output:
+        "fastq_c_elegans/"
+    
+    shell:
+        "parallel-fastq-dump --samples {params.samples} --threads 32 --outdir {output} --gzip"
+
+rule fastq_qc:
+    input:
+        "fastq_c_elegans/{sample}.fastq.gz"
+    output:
+        
+
+rule trim_filter:
+
+rule trim_qc:
+
+rule report:
