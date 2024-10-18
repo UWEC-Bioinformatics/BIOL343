@@ -12,6 +12,8 @@ multiqc*
 5_fastq/trimmed/
 5_fastq/multiqc_data
 5_fastq/fastq/
+5_fastq/FASTQ_B/SRR*
+5_fastq/trimmed_B/SRR*
 5_fastq/multiqc_report.html
 6_alignment/alignment/
 7_alignment_qc/*stats*
