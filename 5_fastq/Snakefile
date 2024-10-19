@@ -1,8 +1,61 @@
 configfile: "config.yaml"
 
 rule all:
-  input: 
-    "multiqc_report_lemons.html"
+    input: 
+        "reports/multiqc_report_lemons.html"
+
+rule fetch_fastq:
+    output:
+        directory("fastq_lemons_test/")
+    params:
+        names=config["name"]
+    shell:
+        "parallel-fastq-dump --sra-id {params.names} --threads 16 --outdir {output} --gzip"
+
+rule fastq_qc:
+    input:
+        "fastq_lemons_test/{name}.fastq.gz"
+    output:
+        "fastq_lemons_test/qc"
+    shell:
+        "fastqc -t 16 {input} -o {output}"
+'''
+rule trim_filter:
+    input:
+        "fastq_lemons_test/{name}.fastq.gz"
+    output:
+        "trimmed_lemons_test/{name}.fastq.gz"
+    shell:
+        "cutadapt -j 16 -m 20 --cut 10 -o {output} {input}"
+
+rule trim_qc:
+    input:
+        expand("trimmed_lemons_test/{sample}.fastq.gz", sample=config["name"])
+    output:
+        html="trimmed_lemons_test/qc/{name}.html",
+        zip="trimmed_lemons_test/qc/{name}.zip"
+    shell:
+        "fastqc -t 16 {input} -o {output}"
+
+rule report:
+    input:
+        expand(["fastq_lemons_test/qc/","trimmed_lemons_test/qc/"])
+    output:
+        "multiqc_report_lemons_test.html"
+    shell:
+        "multiqc --force -d {input} -n {output}"
+
+
+'''
+
+
+'''
+
+configfile: "config.yaml"
+
+rule all:
+    input: 
+        "multiqc_report_lemons.html"
 
 rule fetch_fastq:
     output:
@@ -11,7 +64,6 @@ rule fetch_fastq:
         names=config["name"]
     shell:
         "parallel-fastq-dump --sra-id {params.names} --threads 16 --outdir {output} --gzip"
-
 
 rule fastq_qc:
     input:
@@ -37,7 +89,6 @@ rule trim_qc:
     shell:
         "fastqc -t 16 {input} -o {output}"
 
-
 rule report:
     input:
         "fastq_lemons/qc/"
@@ -46,3 +97,5 @@ rule report:
         "multiqc_lemons.html"
     shell:
         "multiqc --force -d {input} {input}"
+        
+'''
