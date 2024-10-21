@@ -6,7 +6,7 @@ rule all:
 
 rule fetch_fastq:
     output:
-        directory("fastq_lemons/")
+        directory("fastq_lemons")
     params:
         names=config["name"]
     shell:
@@ -18,6 +18,8 @@ rule fastq_qc:
     output:
         html="fastq_lemons/qc/{name}_fastqc.html",
         zip="fastq_lemons/qc/{name}_fastqc.zip"
+        # OR
+        #directory("fastq_lemons/qc")
     shell:
         "fastqc -t 16 {input} -o {output}"
 
@@ -39,9 +41,10 @@ rule trim_qc:
         "fastqc -t 16 {input} -o {output}"
 
 rule report:
-    input:
-        expand(["fastq_lemons/qc/{sample}_fastqc.html", "trimmed_lemons/qc/{sample}_fastqc.html"], sample=config["name"])
     output:
         "reports/multiqc_report_lemons.html"
+    params:
+        fastq_lemons="fastq_lemons/qc/",
+        trimmed_lemons="trimmed_lemons/qc/"
     shell:
-        "multiqc --force -d {input} -n {output}"
+        "multiqc --force -d {params.fastq_lemons} {params.trimmed_lemons} -n {output}"
