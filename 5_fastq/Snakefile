@@ -1,4 +1,12 @@
-configfile: "config.yaml"
+import pandas as pd
+
+df = pd.read_csv('SraRunTable.txt', sep=',', header=0)
+
+# append all accession number to a list
+ACCESSIONS = []
+
+for i in df['Run']:
+    ACCESSIONS.append(i)
 
 rule all:
     input: 
