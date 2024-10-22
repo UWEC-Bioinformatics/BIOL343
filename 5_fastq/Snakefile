@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('SraRunTable.txt', sep=',', header=0)
+df = pd.read_csv('SraRunTable_lemons_test.txt', sep=',', header=0)
 
 # append all accession number to a list
 ACCESSIONS = []
@@ -10,49 +10,56 @@ for i in df['Run']:
 
 rule all:
     input: 
-        "reports/multiqc_report_lemons.html"
+        expand("fastq_lemons_test/{accession}.fastq.gz", accession=ACCESSIONS),
+        expand("trimmed_lemons_test/{accession}.fastq.gz", accession=ACCESSIONS),
+        expand("fastq_lemons_test/qc/{accession}_fastqc.html", accession=ACCESSIONS),
+        expand("trimmed_lemons_test/qc/{accession}_fastqc.html", accession=ACCESSIONS),
+        "reports_test/multiqc_report_lemons_test.html"
 
 rule fetch_fastq:
-    output:
-        directory("fastq_lemons")
+    output: 
+        expand("fastq_lemons_test/{accession}.fastq.gz", accession=ACCESSIONS)
     params:
-        names=config["name"]
+        accession=ACCESSIONS,
+        outdir="fastq_lemons_test"
     shell:
-        "parallel-fastq-dump --sra-id {params.names} --threads 16 --outdir {output} --gzip"
+        "parallel-fastq-dump --sra-id {params.accession} --threads 16 --outdir {params.outdir} --gzip"
 
 rule fastq_qc:
     input:
-        "fastq_lemons/{name}.fastq.gz"
+        "fastq_lemons_test/{accession}.fastq.gz"
     output:
-        html="fastq_lemons/qc/{name}_fastqc.html",
-        zip="fastq_lemons/qc/{name}_fastqc.zip"
-        # OR
-        #directory("fastq_lemons/qc")
+        html="fastq_lemons_test/qc/{accession}_fastqc.html",
+        zip="fastq_lemons_test/qc/{accession}_fastqc.zip"
+    params:
+        outdir="fastq_lemons_test/qc"
     shell:
-        "fastqc -t 16 {input} -o {output}"
+        "fastqc -t 16 {input} -o {params.outdir}"
 
 rule trim_filter:
     input:
-        "fastq_lemons/{name}.fastq.gz"
+        "fastq_lemons_test/{name}.fastq.gz"
     output:
-        "trimmed_lemons/{name}.fastq.gz"
+        "trimmed_lemons_test/{name}.fastq.gz"
     shell:
         "cutadapt -j 16 -m 20 --cut 10 -o {output} {input}"
 
 rule trim_qc:
     input:
-        "trimmed_lemons/{name}.fastq.gz"
+        "trimmed_lemons_test/{accession}.fastq.gz"
     output:
-        html="trimmed_lemons/qc/{name}_fastqc.html",
-        zip="trimmed_lemons/qc/{name}_fastqc.zip"
+        html="trimmed_lemons_test/qc/{accession}_fastqc.html",
+        zip="trimmed_lemons_test/qc/{accession}_fastqc.zip",
+    params:
+        outdir="trimmed_lemons_test/qc"
     shell:
-        "fastqc -t 16 {input} -o {output}"
+        "fastqc -t 16 {input} -o {params.outdir}"
 
 rule report:
-    output:
-        "reports/multiqc_report_lemons.html"
     params:
-        fastq_lemons="fastq_lemons/qc/",
-        trimmed_lemons="trimmed_lemons/qc/"
+        rules.fastq_qc.params.outdir,
+        rules.trim_qc.params.outdir
+    output:
+        "reports_test/multiqc_report_lemons_test.html"
     shell:
-        "multiqc --force -d {params.fastq_lemons} {params.trimmed_lemons} -n {output}"
+        "multiqc --force -d {params} -n {output}"
