@@ -14,6 +14,8 @@ multiqc*
 5_fastq/fastq_c_elegans/
 5_fastq/qc/
 5_fastq/trimmed/
+5_fastq/trimmed_elegans/
+5_fastq/multiqc_report_elegans_data/
 5_fastq/multiqc_data
 5_fastq/fastq/
 5_fastq/multiqc_report.html

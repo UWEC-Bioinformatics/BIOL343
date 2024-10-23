@@ -1,24 +1,29 @@
-configfile: "config.yaml"
+import pandas as pd
+
+df = pd.read_csv('SraRunTable_c_elegans.txt', sep=',', header=0)
+
+# append all accession number to a list
+ACCESSIONS = []
+
+for i in df['Run']:
+    ACCESSIONS.append(i)
 
 rule all:
     input:
-        "multiqc_report_c_elegans.html"
+        expand("fastq_c_elegans/se/{accession}.fastq.gz", accession=ACCESSIONS)
+
+rule get_fastq_se:
+    output: "fastq/se/{accession}.fastq.gz"
+    log: "logs/se/{accession}.log"
+    params:
+        extra="--skip-technical"
+    threads: 16
+    wrapper:
+        "0.80.2/bio/sra-tools/fasterq-dump"
 
 rule fetch_fastq:
-    params:
-        samples=config['sample']
-    
-    output:
-        "fastq_c_elegans/"
-    
-    shell:
-        "parallel-fastq-dump --samples {params.samples} --threads 32 --outdir {output} --gzip"
 
 rule fastq_qc:
-    input:
-        "fastq_c_elegans/{sample}.fastq.gz"
-    output:
-        
 
 rule trim_filter:
 
