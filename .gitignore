@@ -17,6 +17,7 @@ multiqc*
 5_fastq/fastq_lemons/
 5_fastq/trimmed_lemons/
 6_alignment/alignment/
+6_alignment/alignment_lemons/
 7_alignment_qc/*stats*
 7_alignment_qc/qualimap
 
