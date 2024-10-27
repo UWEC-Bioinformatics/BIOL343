@@ -2,63 +2,72 @@ configfile: "config.yaml"
 
 rule all:
     input: 
-        expand("fastq_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"]),
-        expand("trimmed_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"]),
-        expand("fastq_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"]),
-        expand("trimmed_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"]),
-        "reports/multiqc_report_lemons.html"
+        expand("../5_fastq/fastq_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"]),
+        expand("../5_fastq/trimmed_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"]),
+        expand("../5_fastq/fastq_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"]),
+        expand("../5_fastq/trimmed_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"]),
+        "reports/multiqc_report_lemons.html",
+        "../2_genome_exploration/lemons/lemon_genome.fa",
+        "../2_genome_exploration/lemons/lemon_annotations.gtf",
+        "../2_genome_exploration/lemons/star/SA",
+        "alignment_lemons/star/first-pass.final.out",
+        "alignment_lemons/star/second-pass.final.out",
+        expand("alignment_lemons/hisat/{accession}.sam", accession=config["ACCESSIONS"])
 
 rule fetch_fastq:
     output: 
-        expand("fastq_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"])
+        expand("../5_fastq/fastq_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"])
     params:
         accession=config["ACCESSIONS"],
-        outdir="fastq_lemons"
+        outdir="../5_fastq/fastq_lemons"
     shell:
         "parallel-fastq-dump --sra-id {params.accession} --threads 16 --outdir {params.outdir} --gzip"
 
 rule fastq_qc:
     input:
-        "fastq_lemons/{accession}.fastq.gz"
+        "../5_fastq/fastq_lemons/{accession}.fastq.gz"
     output:
-        html="fastq_lemons/qc/{accession}_fastqc.html",
-        zip="fastq_lemons/qc/{accession}_fastqc.zip",
+        html="../5_fastq/fastq_lemons/qc/{accession}_fastqc.html",
+        zip="../5_fastq/fastq_lemons/qc/{accession}_fastqc.zip",
     params:
-        outdir="fastq_lemons/qc"
+        outdir="../5_fastq/fastq_lemons/qc"
     shell:
         "fastqc -t 16 {input} -o {params.outdir}"
 
 rule trim_filter:
     input:
-        "fastq_lemons/{name}.fastq.gz"
+        "../5_fastq/fastq_lemons/{name}.fastq.gz"
     output:
-        "trimmed_lemons/{name}.fastq.gz"
+        "../5_fastq/trimmed_lemons/{name}.fastq.gz"
     shell:
         "cutadapt -j 16 -m 20 --cut 10 -o {output} {input}"
 
 rule trim_qc:
     input:
-        "trimmed_lemons/{accession}.fastq.gz"
+        "../5_fastq/trimmed_lemons/{accession}.fastq.gz"
     output:
-        html="trimmed_lemons/qc/{accession}_fastqc.html",
-        zip="trimmed_lemons/qc/{accession}_fastqc.zip",
+        html="../5_fastq/trimmed_lemons/qc/{accession}_fastqc.html",
+        zip="../5_fastq/trimmed_lemons/qc/{accession}_fastqc.zip",
     params:
-        outdir="trimmed_lemons/qc"
+        outdir="../5_fastq/trimmed_lemons/qc"
     shell:
         "fastqc -t 16 {input} -o {params.outdir}"
 
 rule report:
     input:
-        check1=expand("fastq_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"]),
-        check2=expand("trimmed_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"])
+        check1=expand("../5_fastq/fastq_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"]),
+        check2=expand("../5_fastq/trimmed_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"]),
+        check3="alignment_lemons/star/second-pass.final.out",
+        check4=expand("alignment_lemons/hisat/{accession}.sam", accession=config["ACCESSIONS"])
     params:
         fastq_qc_dir=rules.fastq_qc.params.outdir,
-        trim_qc_dir=rules.trim_qc.params.outdir
-        # add outputs for star and hisat
+        trim_qc_dir=rules.trim_qc.params.outdir,
+        star_align_second_dir=rules.star_align_second.output.outdir,
+        hisat_align_dir=rules.hisat_align.output
     output:
         "reports/multiqc_report_lemons.html"
     shell:
-        "multiqc --force -d {params.fastq_qc_dir} {params.trim_qc_dir} -n {output}"
+        "multiqc --force -d {params.fastq_qc_dir} {params.trim_qc_dir} {params.star_align_second} {params.hisat_align} -n {output}"
 
 rule fetch_genome:
     input:
@@ -97,7 +106,7 @@ rule star_sa:
 rule star_align_first:
     input:
         check1="../2_genome_exploration/lemons/star/SA",
-        check2=expand("trimmed_lemons/{accession}.fastq.qz", accession=config["ACCESSIONS"])
+        check2=expand("../5_fastq/trimmed_lemons/{accession}.fastq.qz", accession=config["ACCESSIONS"])
     output:
         "alignment_lemons/star/first-pass.final.out"
     shell:
@@ -118,8 +127,8 @@ rule star_align_second:
     input:
         check="alignment_lemons/star/first-pass.final.out"
     output:
-        "alignment_lemons/star/second-pass.final.out"
-        #files for multiqc
+        out="alignment_lemons/star/second-pass.final.out",
+        outdir=directory("alignment_lemons/star/")
     shell:
         """
         STAR \
@@ -134,13 +143,13 @@ rule star_align_second:
             --outFileNamePrefix alignment_lemons/star/ \
             --sjdbFileChrStartEnd alignment_lemons/star/SJ.out.tab
         """
-        "cp alignment_lemons/star/Log.final.out {output}"
+        "cp alignment_lemons/star/Log.final.out {output.out}"
 
 rule hisat_align:
     input:
         "manifest_lemons.tsv"
     output:
-        #files for multiqc
+        directory("alignment_lemons/hisat/")
     shell:
         "mkdir alignment_lemons/hisat/"
         """
