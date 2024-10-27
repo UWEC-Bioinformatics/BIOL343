@@ -1,15 +1,22 @@
-configfile: "config.yaml"
+import pandas as pd
+
+df = pd.read_csv('SraRunTable.txt', sep=',', header=0)
+
+# append all accession number to a list
+ACCESSIONS = []
+
+for i in df['Run']:
+    ACCESSIONS.append(i)
 
 rule all:
     input:
-        "reports/multiqc_report.html"
+        expand("fastq/se/{accession}.fastq.gz", accession=ACCESSIONS)
 
-rule fetch_fastq:
+rule get_fastq_se:
+    output: "fastq/se/{accession}.fastq.gz"
+    log: "logs/se/{accession}.log"
     params:
-        sra_id=config["sra_id"]
-
-    output:
-        "schisto_fastq/"
-
-    shell:
-        "parallel-fastq-dump --sra-id {params.sra_id} --threads 32 --outdir {output} --gzip"
+        extra="--skip-technical"
+    threads: 16
+    wrapper:
+        "0.80.2/bio/sra-tools/fasterq-dump"
