@@ -1,6 +1,11 @@
 # Course files/directories
 multiqc*
-2_genome_exploration/beegenome/
+
+**lemons**
+**placenta**
+**bee**
+**c_elegans**
+
 2_genome_exploration/genome/annotations.gtf
 2_genome_exploration/genome/genome*
 2_genome_exploration/genome/star/
@@ -18,6 +23,9 @@ multiqc*
 6_alignment/alignment/
 7_alignment_qc/*stats*
 7_alignment_qc/qualimap
+8_counting/dedup
+8_counting/logs
+8_counting/*counts*
 
 whole_pipeline.ipynb
 
