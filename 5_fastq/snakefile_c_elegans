@@ -17,11 +17,35 @@ rule all:
         "multiqc_report_elegans.html"
 
 rule fetch_fastq:
+    shell:
+        "parallel-fastq-dump --sra-id $line --threads 32 --outdir fastq_c_elegans --gzip"
 
 rule fastq_qc:
 
 rule trim_filter:
 
 rule trim_qc:
+
+rule report:
+
+rule fetch_genome:
+
+rule star_sa:
+
+rule star_align_first:
+
+rule star_align_second:
+
+rule hisat_align:
+
+rule report:
+
+rule convert_hisat:
+
+rule merge_hisat:
+
+rule flagstat:
+
+rule qualimap:
 
 rule report:
