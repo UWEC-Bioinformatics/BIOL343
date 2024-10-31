@@ -76,9 +76,9 @@ rule fetch_genome:
     output:
         genome="../2_genome_exploration/lemons/lemon_genome.fa",
         annotations="../2_genome_exploration/lemons/lemon_annotations.gtf"
-    shell:
-        "wget -nc -O {output.genome} {input.genome}"
-        "wget -O - {input.annotations} | gzip -f -d > lemon_annotations.gff | gffread lemon_annotations.gff -T -o {output.annotations}"
+    run:
+        shell("wget -nc -O {output.genome} {input.genome}")
+        shell("wget -O - {input.annotations} | gzip -f -d > lemon_annotations.gff | gffread lemon_annotations.gff -T -o {output.annotations}")
 
 rule star_sa:
     input:
@@ -88,11 +88,10 @@ rule star_sa:
         "../2_genome_exploration/lemons/star/SA"
     params:
         starDir=directory("../2_genome_exploration/lemons/star")
-    shell:
-        "mkdir alignment_lemons/"
-        "mkdir alignment_lemons/star/"
-        """
-        STAR \
+    run:
+        shell("mkdir alignment_lemons/")
+        shell("mkdir alignment_lemons/star/")
+        shell("STAR \
             --runThreadN 32 \
             --runMode genomeGenerate \
             --genomeDir {params.starDir}\
@@ -100,8 +99,7 @@ rule star_sa:
             --sjdbGTFfile {input.annotations} \
             --sjdbOverhang 289 \
             --genomeSAindexNbases 13 \
-            --sjdbGTFfeatureExon CDS
-        """
+            --sjdbGTFfeatureExon CDS")
 
 rule star_align_first:
     input:
@@ -109,9 +107,8 @@ rule star_align_first:
         check2=expand("../5_fastq/trimmed_lemons/{accession}.fastq.qz", accession=config["ACCESSIONS"])
     output:
         "alignment_lemons/star/first-pass.final.out"
-    shell:
-        """
-        STAR \
+    run:
+        shell("STAR \
             --runThreadN 32 \
             --runMode alignReads \
             --genomeDir ../2_genome_exploration/lemons/star \
@@ -119,9 +116,8 @@ rule star_align_first:
             --readFilesCommand zcat \
             --outSAMtype BAM SortedByCoordinate \
             --outSAMunmapped Within \
-            --outFileNamePrefix alignment_lemons/star/
-        """
-        "cp alignment_lemons/star/Log.final.out {output}"
+            --outFileNamePrefix alignment_lemons/star/")
+        shell("cp alignment_lemons/star/Log.final.out {output}")
 
 rule star_align_second:
     input:
@@ -129,9 +125,8 @@ rule star_align_second:
     output:
         out="alignment_lemons/star/second-pass.final.out",
         outdir=directory("alignment_lemons/star/")
-    shell:
-        """
-        STAR \
+    run:
+        shell("STAR \
             --runThreadN 32 \
             --runMode alignReads \
             --genomeDir ../2_genome_exploration/lemons/star \
@@ -141,22 +136,19 @@ rule star_align_second:
             --outSAMunmapped Within \
             --outSAMattributes NH HI AS nM RG \
             --outFileNamePrefix alignment_lemons/star/ \
-            --sjdbFileChrStartEnd alignment_lemons/star/SJ.out.tab
-        """
-        "cp alignment_lemons/star/Log.final.out {output.out}"
+            --sjdbFileChrStartEnd alignment_lemons/star/SJ.out.tab")
+        shell("cp alignment_lemons/star/Log.final.out {output.out}")
 
 rule hisat_align:
     input:
         "manifest_lemons.tsv"
     output:
         directory("alignment_lemons/hisat/")
-    shell:
-        "mkdir alignment_lemons/hisat/"
-        """
-        while read -r line; do \
+    run:
+        shell("mkdir alignment_lemons/hisat/")
+        shell("while read -r line; do \
         fq=$(echo $line | awk '{print $1}'); \
-        bn=$(basename "$fq" .fastq.gz); \
+        bn=$(basename '$fq' .fastq.gz); \
         rg=$(echo $line | awk '{print $3}' | sed 's/ID://' ); \
         hisat2 /data/users/corwinbm5021/BIOL343/2_genome_exploration/lemons/hisat/genome -p 32 -U $fq --rg-id $rg --rg SM:$rg --summary-file alignment_lemons/hisat/$bn.log --new-summary > alignment_lemons/hisat/$bn.sam; \
-        done < {input}
-        """
+        done < {input}")
