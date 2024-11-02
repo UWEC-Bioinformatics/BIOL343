@@ -69,7 +69,7 @@ rule star_sa:
         genome="../2_genome_exploration/lemons/lemon_genome.fa",
         annotations="../2_genome_exploration/lemons/lemon_annotations.gtf"
     output:
-        "../2_genome_exploration/lemons/star/SA"
+        "../2_genome_exploration/lemons/star/Log.out"
     params:
         starDir=directory("../2_genome_exploration/lemons/star")
     run:
@@ -87,7 +87,7 @@ rule star_sa:
 
 rule star_align_first:
     input:
-        "../2_genome_exploration/lemons/star/SA",
+        "../2_genome_exploration/lemons/star/Log.out",
         expand("../5_fastq/trimmed_lemons/{accession}.fastq.qz", accession=config["ACCESSIONS"])
     output:
         "alignment_lemons/star/first-pass.final.out"
