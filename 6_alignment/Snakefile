@@ -54,15 +54,12 @@ rule trim_qc:
         "fastqc -t 16 {input} -o {params.outdir}"
 
 rule fetch_genome:
-    input:
-        genome="https://www.citrusgenomedb.org/citrus_downloads/Citrus_limon/C.limon_EMF-UC_v1-Alternative_genome/assembly/Climon_v1_alternative-scaffolds.fa",
-        annotations="https://www.citrusgenomedb.org/citrus_downloads/Citrus_limon/C.limon_EMF-UC_v1-Alternative_genome/annotation/Climon_v1_alternative-annotation.gff"
     output:
         genome="../2_genome_exploration/lemons/lemon_genome.fa",
         annotations="../2_genome_exploration/lemons/lemon_annotations.gtf"
     run:
-        shell("wget -nc -O {output.genome} {input.genome}")
-        shell("wget -O - {input.annotations} | gzip -f -d > lemon_annotations.gff | gffread lemon_annotations.gff -T -o {output.annotations}")
+        shell("wget -nc -O {output.genome} https://www.citrusgenomedb.org/citrus_downloads/Citrus_limon/C.limon_EMF-UC_v1-Alternative_genome/assembly/Climon_v1_alternative-scaffolds.fa")
+        shell("wget -O - https://www.citrusgenomedb.org/citrus_downloads/Citrus_limon/C.limon_EMF-UC_v1-Alternative_genome/annotation/Climon_v1_alternative-annotation.gff | gzip -f -d > lemon_annotations.gff | gffread lemon_annotations.gff -T -o {output.annotations}")
 
 rule star_sa:
     input:
