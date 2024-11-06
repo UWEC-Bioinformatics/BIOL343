@@ -3,6 +3,11 @@
 # Course files/directories
 multiqc*
 
+**lemons**
+**placenta**
+**bee**
+**c_elegans**
+
 2_genome_exploration/genome/annotations.gtf
 2_genome_exploration/genome/genome*
 2_genome_exploration/genome/star/
@@ -10,14 +15,17 @@ multiqc*
 3_snakemake/snakemake-tutorial/
 4_snakemake/snakemake-tutorial/
 **/.snakemake/
-4_fastq/qc/
-4_fastq/trimmed/
-4_fastq/multiqc_data
-4_fastq/fastq/
-4_fastq/multiqc_report.html
+5_fastq/qc/
+5_fastq/trimmed/
+5_fastq/multiqc_data
+5_fastq/fastq/
+5_fastq/multiqc_report.html
 6_alignment/alignment/
 7_alignment_qc/*stats*
 7_alignment_qc/qualimap
+8_counting/dedup
+8_counting/logs
+8_counting/*counts*
 
 whole_pipeline.ipynb
 

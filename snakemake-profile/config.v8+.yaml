@@ -1,0 +1,8 @@
+executor: slurm
+jobs: 100
+default-resources:
+    slurm_partition:    "'week'"
+    slurm_account:      "'2251.biol.343.001'"
+    runtime:            1440
+    mem:                "64G"
+    tasks:              32
