@@ -1,8 +1,0 @@
-executor: slurm
-jobs: 100
-slurm_account: "2251.biol.343.001"
-slurm_partition: "week"
-default-resources:
-    mem_mb: 32000
-    disk_mb: 64000
-set-threads: 64
