@@ -1,18 +1,8 @@
 configfile: "config.yaml"
 
 rule all:
-    input: 
-        #expand("../5_fastq/fastq_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"]),
-        #expand("../5_fastq/trimmed_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"]),
-        #expand("../5_fastq/fastq_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"]),
-        #expand("../5_fastq/trimmed_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"]),
-        "reports/multiqc_report_lemons.html",
-        #"../2_genome_exploration/lemons/lemon_genome.fa",
-        #"../2_genome_exploration/lemons/lemon_annotations.gtf",
-        #"../2_genome_exploration/lemons/star/SA",
-        #"alignment_lemons/star/first-pass.final.out",
-        #"alignment_lemons/star/second-pass.final.out",
-        #expand("alignment_lemons/hisat/{accession}.sam", accession=config["ACCESSIONS"])
+    input:
+        "reports/multiqc_report_lemons.html"
 
 rule fetch_fastq:
     output: 
@@ -131,9 +121,9 @@ rule hisat_align:
     run:
         shell("mkdir alignment_lemons/hisat/")
         shell("while read -r line; do \
-        fq=$(echo $line | awk '{print $1}'); \
+        fq=$(echo $line | awk '{{print $1}}'); \
         bn=$(basename '$fq' .fastq.gz); \
-        rg=$(echo $line | awk '{print $3}' | sed 's/ID://' ); \
+        rg=$(echo $line | awk '{{print $3}}' | sed 's/ID://' ); \
         hisat2 /data/users/corwinbm5021/BIOL343/2_genome_exploration/lemons/hisat/genome -p 32 -U $fq --rg-id $rg --rg SM:$rg --summary-file alignment_lemons/hisat/$bn.log --new-summary > alignment_lemons/hisat/$bn.sam; \
         done < {input.manifest}")
 
