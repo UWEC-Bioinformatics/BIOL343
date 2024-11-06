@@ -5,4 +5,4 @@ default-resources:
     slurm_account:      "'2251.biol.343.001'"
     runtime:            1440
     mem:                "64G"
-    tasks:              16
+    tasks:              32
