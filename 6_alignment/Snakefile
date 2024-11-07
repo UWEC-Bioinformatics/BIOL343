@@ -60,8 +60,8 @@ rule star_sa:
     params:
         starDir=directory("../2_genome_exploration/lemons/star")
     run:
-        shell("mkdir alignment_lemons/")
-        shell("mkdir alignment_lemons/star/")
+        #shell("mkdir alignment_lemons/")
+        #shell("mkdir alignment_lemons/star/")
         shell("STAR \
             --runThreadN 32 \
             --runMode genomeGenerate \
@@ -110,6 +110,8 @@ rule star_align_second:
             --sjdbFileChrStartEnd alignment_lemons/star/SJ.out.tab")
         shell("cp alignment_lemons/star/Log.final.out {output.out}")
 
+
+#NiETHER OF THESE TWO ARE WORKING CORRECTLY!!!!!!!!!!!
 rule hisat_align:
     input:
         "../2_genome_exploration/lemons/lemon_genome.fa",
@@ -119,14 +121,31 @@ rule hisat_align:
         expand("alignment_lemons/hisat/{accession}.sam", accession=config["ACCESSIONS"]),
         outdir=directory("alignment_lemons/hisat/")
     run:
-        shell("mkdir alignment_lemons/hisat/")
+        #shell("mkdir alignment_lemons/hisat/")
         shell("while read -r line; do \
         fq=$(echo $line | awk '{{print $1}}'); \
         bn=$(basename '$fq' .fastq.gz); \
         rg=$(echo $line | awk '{{print $3}}' | sed 's/ID://' ); \
         hisat2 /data/users/corwinbm5021/BIOL343/2_genome_exploration/lemons/hisat/genome -p 32 -U $fq --rg-id $rg --rg SM:$rg --summary-file alignment_lemons/hisat/$bn.log --new-summary > alignment_lemons/hisat/$bn.sam; \
         done < {input.manifest}")
+"""
+rule hisat_align:
+    input:
+        "../2_genome_exploration/lemons/lemon_genome.fa",
+        "../2_genome_exploration/lemons/lemon_annotations.gtf",
+        manifest="manifest_lemons.tsv"
+    output:
+        expand("alignment_lemons/hisat/{accession}.sam", accession=config["ACCESSIONS"]),
+        outdir=directory("alignment_lemons/hisat/")
+    params:
+        rgs=config["SAMPLE"],
+        bns=config["ACCESSIONS"],
+        fqs=expand("/data/users/corwinbm5021/BIOL343/5_fastq/trimmed_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"])
+    run:
+        shell("hisat2 /data/users/corwinbm5021/BIOL343/2_genome_exploration/lemons/hisat/genome -p 32 -U {params.fqs} --rg-id {params.rgs} --rg SM:{params.rgs} --summary-file alignment_lemons/hisat/{params.bns}.log --new-summary > alignment_lemons/hisat/{params.bns}.sam")
 
+
+"""
 rule report:
     input:
         expand("../5_fastq/fastq_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"]),

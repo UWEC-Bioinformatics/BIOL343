@@ -109,7 +109,8 @@ rule star_align_second:
             --outFileNamePrefix ../6_alignment/alignment_lemons/star/ \
             --sjdbFileChrStartEnd ../6_alignment/alignment_lemons/star/SJ.out.tab")
         shell("cp ../6_alignment/alignment_lemons/star/Log.final.out {output.out}")
-
+"""
+THIS IS WRONG!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 rule hisat_align:
     input:
         "../2_genome_exploration/lemons/lemon_genome.fa",
@@ -126,7 +127,7 @@ rule hisat_align:
         rg=$(echo $line | awk '{print $3}' | sed 's/ID://' ); \
         hisat2 /data/users/corwinbm5021/BIOL343/2_genome_exploration/lemons/hisat/genome -p 32 -U $fq --rg-id $rg --rg SM:$rg --summary-file alignment_lemons/hisat/$bn.log --new-summary > alignment_lemons/hisat/$bn.sam; \
         done < {input.manifest}")
-
+"""
 rule convert_hisat:
     input:
         expand("../6_alignment/alignment_lemons/hisat/{accession}.sam", accession=config["ACCESSIONS"])
