@@ -26,9 +26,9 @@ rule fastq_qc:
 
 rule trim_filter:
     input:
-        expand("../5_fastq/fastq_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"])
+        "../5_fastq/fastq_lemons/{accession}.fastq.gz"
     output:
-        expand("../5_fastq/trimmed_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"])
+        "../5_fastq/trimmed_lemons/{accession}.fastq.gz"
     shell:
         "cutadapt -j 16 -m 20 --cut 10 -o {output} {input}"
 
@@ -49,7 +49,8 @@ rule fetch_genome:
         annotations="../2_genome_exploration/lemons/lemon_annotations.gtf"
     run:
         shell("wget -nc -O {output.genome} https://www.citrusgenomedb.org/citrus_downloads/Citrus_limon/C.limon_EMF-UC_v1-Alternative_genome/assembly/Climon_v1_alternative-scaffolds.fa")
-        shell("wget -O - https://www.citrusgenomedb.org/citrus_downloads/Citrus_limon/C.limon_EMF-UC_v1-Alternative_genome/annotation/Climon_v1_alternative-annotation.gff | gzip -f -d > lemon_annotations.gff | gffread lemon_annotations.gff -T -o {output.annotations}")
+        shell("wget -O - https://www.citrusgenomedb.org/citrus_downloads/Citrus_limon/C.limon_EMF-UC_v1-Alternative_genome/annotation/Climon_v1_alternative-annotation.gff | gzip -f -d > ../2_genome_exploration/lemons/lemon_annotations.gff")
+        shell("gffread ../2_genome_exploration/lemons/lemon_annotations.gff -T -o {output.annotations}")
 
 rule star_sa:
     input:
@@ -60,8 +61,6 @@ rule star_sa:
     params:
         starDir=directory("../2_genome_exploration/lemons/star")
     run:
-        #shell("mkdir alignment_lemons/")
-        #shell("mkdir alignment_lemons/star/")
         shell("STAR \
             --runThreadN 32 \
             --runMode genomeGenerate \
@@ -75,77 +74,62 @@ rule star_sa:
 rule star_align_first:
     input:
         "../2_genome_exploration/lemons/star/Log.out",
-        rules.trim_filter.output
+        expand("../5_fastq/trimmed_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"]),
+        genome_dir="../2_genome_exploration/lemons/star",
+        manifest="manifest_lemons.tsv"
     output:
         out="alignment_lemons/star/first-pass.final.out",
+        out_sj="alignment_lemons/star/SJ.out.tab",
         outdir=directory("alignment_lemons/star/")
     run:
         shell("STAR \
             --runThreadN 32 \
             --runMode alignReads \
-            --genomeDir ../2_genome_exploration/lemons/star \
-            --readFilesManifest manifest_lemons.tsv \
+            --genomeDir {input.genome_dir} \
+            --readFilesManifest {input.manifest} \
             --readFilesCommand zcat \
             --outSAMtype BAM SortedByCoordinate \
             --outSAMunmapped Within \
-            --outFileNamePrefix alignment_lemons/star/")
+            --outFileNamePrefix {output.outdir}")
         shell("cp alignment_lemons/star/Log.final.out {output.out}")
 
 rule star_align_second:
     input:
-        rules.star_align_first.output.out
+        rules.star_align_first.output.out,
+        genome_dir="../2_genome_exploration/lemons/star",
+        manifest="manifest_lemons.tsv",
+        sj="alignment_lemons/star/SJ.out.tab",
+        star_dir="alignment_lemons/star/"
     output:
         out="alignment_lemons/star/second-pass.final.out"
     run:
         shell("STAR \
             --runThreadN 32 \
             --runMode alignReads \
-            --genomeDir ../2_genome_exploration/lemons/star \
-            --readFilesManifest manifest_lemons.tsv \
+            --genomeDir {input.genome_dir} \
+            --readFilesManifest {input.manifest} \
             --readFilesCommand zcat \
             --outSAMtype BAM SortedByCoordinate \
             --outSAMunmapped Within \
             --outSAMattributes NH HI AS nM RG \
-            --outFileNamePrefix alignment_lemons/star/ \
-            --sjdbFileChrStartEnd alignment_lemons/star/SJ.out.tab")
+            --outFileNamePrefix {input.star_dir} \
+            --sjdbFileChrStartEnd {input.sj}")
         shell("cp alignment_lemons/star/Log.final.out {output.out}")
 
-
-#NiETHER OF THESE TWO ARE WORKING CORRECTLY!!!!!!!!!!!
 rule hisat_align:
     input:
         "../2_genome_exploration/lemons/lemon_genome.fa",
         "../2_genome_exploration/lemons/lemon_annotations.gtf",
-        manifest="manifest_lemons.tsv"
-    output:
-        expand("alignment_lemons/hisat/{accession}.sam", accession=config["ACCESSIONS"]),
-        outdir=directory("alignment_lemons/hisat/")
-    run:
-        #shell("mkdir alignment_lemons/hisat/")
-        shell("while read -r line; do \
-        fq=$(echo $line | awk '{{print $1}}'); \
-        bn=$(basename '$fq' .fastq.gz); \
-        rg=$(echo $line | awk '{{print $3}}' | sed 's/ID://' ); \
-        hisat2 /data/users/corwinbm5021/BIOL343/2_genome_exploration/lemons/hisat/genome -p 32 -U $fq --rg-id $rg --rg SM:$rg --summary-file alignment_lemons/hisat/$bn.log --new-summary > alignment_lemons/hisat/$bn.sam; \
-        done < {input.manifest}")
-"""
-rule hisat_align:
-    input:
-        "../2_genome_exploration/lemons/lemon_genome.fa",
-        "../2_genome_exploration/lemons/lemon_annotations.gtf",
-        manifest="manifest_lemons.tsv"
-    output:
-        expand("alignment_lemons/hisat/{accession}.sam", accession=config["ACCESSIONS"]),
-        outdir=directory("alignment_lemons/hisat/")
+        files="/data/users/corwinbm5021/BIOL343/5_fastq/trimmed_lemons/{accession}.fastq.gz",
+        index_dir="/data/users/corwinbm5021/BIOL343/2_genome_exploration/lemons/hisat/"
     params:
-        rgs=config["SAMPLE"],
-        bns=config["ACCESSIONS"],
-        fqs=expand("/data/users/corwinbm5021/BIOL343/5_fastq/trimmed_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"])
+        genome_dir="/data/users/corwinbm5021/BIOL343/2_genome_exploration/lemons/hisat/genome",
+
+    output:
+        "alignment_lemons/hisat/{accession}.sam"
     run:
-        shell("hisat2 /data/users/corwinbm5021/BIOL343/2_genome_exploration/lemons/hisat/genome -p 32 -U {params.fqs} --rg-id {params.rgs} --rg SM:{params.rgs} --summary-file alignment_lemons/hisat/{params.bns}.log --new-summary > alignment_lemons/hisat/{params.bns}.sam")
+        shell("hisat2 {params.genome_dir} -p 32 -U {input.files} --rg-id {wildcards.accession} --rg SM:{wildcards.accession} --summary-file alignment_lemons/hisat/{wildcards.accession}.log --new-summary > {output}")
 
-
-"""
 rule report:
     input:
         expand("../5_fastq/fastq_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"]),
@@ -156,7 +140,7 @@ rule report:
         fastq_qc_dir=rules.fastq_qc.params.outdir,
         trim_qc_dir=rules.trim_qc.params.outdir,
         star_align_dir="alignment_lemons/star/",
-        hisat_align_dir=rules.hisat_align.output.outdir
+        hisat_align_dir="alignment_lemons/hisat"
     output:
         "reports/multiqc_report_lemons.html"
     shell:
