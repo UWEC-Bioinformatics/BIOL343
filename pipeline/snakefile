@@ -1,0 +1,116 @@
+import pandas as pd
+
+df = pd.read_csv('SraRunTable_c_elegans.txt', sep=',', header=0)
+
+# append all accession number to a list
+ACCESSIONS = []
+
+for i in df['Run']:
+    ACCESSIONS.append(i)
+
+rule all:
+    input:
+        "reports/multiqc_report_elegans.html"
+
+rule fetch_fastq:
+    output: 
+        temp("fastq_c_elegans/{accession}.fastq.gz")
+    shell:
+        "parallel-fastq-dump --sra-id $line --threads 32 --outdir fastq_c_elegans --gzip"
+
+rule fastq_qc:
+    output:
+        temp("fastq_c_elegans/qc/")
+    shell:
+        "fastqc -t 32 fastq_c_elegans/*.fastq.gz -o fastq_c_elegans/qc"
+
+rule trim_filter:
+    output:
+        temp("trimmed_elegans/{accession}.fastq.gz")
+    shell:
+        '''for fastq in fastq_c_elegans/*.fastq.gz; do \ 
+                base_name=$(basename "$fastq" .fastq.gz); \ 
+                cutadapt -j 16 -m 20 --quality-cutoff 10,0 --poly-a -o ./trimmed_elegans/$base_name.fastq.gz $fastq; \ 
+            done'''
+
+rule trim_qc:
+    output:
+        temp("trimmed_elegans/qc/")
+    shell:
+        "fastqc -t 32 trimmed_elegans/*.fastq.gz -o trimmed_elegans/qc"
+
+rule report:
+    shell:
+        "multiqc --force -d fastq_c_elegans/qc/ trimmed_elegans/qc/ -n multiqc_report_elegans.html"
+
+rule fetch_genome:
+    shell:
+        '''wget -nc -O c_elegans_genome.fa.gz https://downloads.wormbase.org/species/c_elegans/sequence/genomic/c_elegans.PRJNA275000.current.genomic.fa.gz"
+            gzip -d -f c_elegans_genome.fa.gz"
+            wget -O - https://ftp.ebi.ac.uk/pub/databases/wormbase/parasite/releases/WBPS19/species/caenorhabditis_elegans/PRJNA13758/caenorhabditis_elegans.PRJNA13758.WBPS19.canonical_geneset.gtf.gz | "
+            gzip -f -d > c_elegans_annotations.gtf'''
+
+rule star_sa:
+    output:
+        "c_elegans_genome/star/SA"
+    shell:
+        '''STAR \
+            --runThreadN 32 \
+            --runMode genomeGenerate \
+            --genomeDir c_elegans_genome/star \
+            --genomeFastaFiles c_elegans_genome/c_elegans_genome.fa \
+            --sjdbGTFfile c_elegans_genome/c_elegans_annotations.gtf \
+            --sjdbOverhang 130 \
+            --genomeSAindexNbases 13'''
+
+rule star_align_first:
+    shell:
+        '''STAR \
+            --runThreadN 32 \
+            --runMode alignReads \
+            --genomeDir c_elegans_genome/star \
+            --readFilesManifest manifest_elegans.tsv \
+            --readFilesCommand zcat \
+            --outSAMtype BAM SortedByCoordinate \
+            --outSAMunmapped Within \
+            --outFileNamePrefix alignment/star_elegans/
+
+        cp alignment/star_elegans/Log.final.out alignment/star_elegans/first-pass.final.out'''
+
+rule star_align_second:
+    shell:
+        '''STAR \
+            --runThreadN 32 \
+            --runMode alignReads \
+            --genomeDir c_elegans_genome/star \
+            --readFilesManifest manifest_elegans.tsv \
+            --readFilesCommand zcat \
+            --outSAMtype BAM SortedByCoordinate \
+            --outSAMunmapped Within \
+            --outSAMattributes NH HI AS nM RG \
+            --outFileNamePrefix alignment/star_elegans/ \
+            --sjdbFileChrStartEnd alignment/star_elegans/SJ.out.tab
+
+        cp alignment/star_elegans/Log.final.out alignment/star_elegans/second-pass.final.out'''
+
+rule hisat_align:
+    shell:
+        '''while read -r line; do \
+            fq=$(echo $line | awk '{print $1}'); \
+            bn=$(basename "$fq" .fastq.gz); \
+            rg=$(echo $line | awk '{print $3}' | sed 's/ID://' ); \
+            echo "Aligning $fq with $rg"; \
+            hisat2 c_elegans_genome/hisat_elegans/genome -p 16 -U $fq --rg-id $rg --rg SM:$rg --summary-file alignment/hisat_elegans/$bn.log --new-summary > alignment/hisat_elegans/$bn.sam; \
+            done < manifest_elegans.tsv'''
+
+rule report:
+
+rule convert_hisat:
+
+rule merge_hisat:
+
+rule flagstat:
+
+rule qualimap:
+
+rule report:
