@@ -57,14 +57,12 @@ rule star_sa:
         genome="../2_genome_exploration/lemons/lemon_genome.fa",
         annotations="../2_genome_exploration/lemons/lemon_annotations.gtf"
     output:
-        "../2_genome_exploration/lemons/star/Log.out"
-    params:
-        starDir=directory("../2_genome_exploration/lemons/star")
+        directory("../2_genome_exploration/lemons/star")
     run:
         shell("STAR \
             --runThreadN 32 \
             --runMode genomeGenerate \
-            --genomeDir {params.starDir}\
+            --genomeDir {output}\
             --genomeFastaFiles {input.genome} \
             --sjdbGTFfile {input.annotations} \
             --sjdbOverhang 289 \
@@ -73,7 +71,6 @@ rule star_sa:
 
 rule star_align_first:
     input:
-        "../2_genome_exploration/lemons/star/Log.out",
         expand("../5_fastq/trimmed_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"]),
         genome_dir="../2_genome_exploration/lemons/star",
         manifest="manifest_lemons.tsv"
@@ -90,7 +87,7 @@ rule star_align_first:
             --readFilesCommand zcat \
             --outSAMtype BAM SortedByCoordinate \
             --outSAMunmapped Within \
-            --outFileNamePrefix {output.outdir}")
+            --outFileNamePrefix alignment_lemons/star/")
         shell("cp alignment_lemons/star/Log.final.out {output.out}")
 
 rule star_align_second:
@@ -112,7 +109,7 @@ rule star_align_second:
             --outSAMtype BAM SortedByCoordinate \
             --outSAMunmapped Within \
             --outSAMattributes NH HI AS nM RG \
-            --outFileNamePrefix {input.star_dir} \
+            --outFileNamePrefix alignment_lemons/star/ \
             --sjdbFileChrStartEnd {input.sj}")
         shell("cp alignment_lemons/star/Log.final.out {output.out}")
 
@@ -120,10 +117,10 @@ rule hisat_align:
     input:
         "../2_genome_exploration/lemons/lemon_genome.fa",
         "../2_genome_exploration/lemons/lemon_annotations.gtf",
-        files="/data/users/corwinbm5021/BIOL343/5_fastq/trimmed_lemons/{accession}.fastq.gz",
-        index_dir="/data/users/corwinbm5021/BIOL343/2_genome_exploration/lemons/hisat/"
+        files="../5_fastq/trimmed_lemons/{accession}.fastq.gz",
+        index_dir="../2_genome_exploration/lemons/hisat/"
     params:
-        genome_dir="/data/users/corwinbm5021/BIOL343/2_genome_exploration/lemons/hisat/genome",
+        genome_dir="../2_genome_exploration/lemons/hisat/genome",
 
     output:
         "alignment_lemons/hisat/{accession}.sam"
