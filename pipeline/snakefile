@@ -11,42 +11,46 @@ for i in df['Run']:
 rule all:
     input:
         "reports/multiqc_report.html"
+    output:
+        "reports/snakemake-report.html"
+    shell: "snakemake --report {output}"
 
 rule get_fastq_se:
-    output: "fastq/se/{accession}.fastq.gz"
+    output: temp("fastq/se/{accession}.fastq.gz")
     log: "logs/se/{accession}.log"
     params:
-        extra="--skip-technical"
+        extra = "--skip-technical"
     threads: 16
-    wrapper:
-        "0.80.2/bio/sra-tools/fasterq-dump"
+    wrapper: "0.80.2/bio/sra-tools/fasterq-dump"
 
 rule fastqc_raw:
     input: "fastq/se/{accession}.fastq.gz"
     output:
-        zip = "fastq/se/qc/{accession}.fastqc.zip",
-        html = "fastq/se/qc/{accession}.fastqc.html"
+        zip = "fastq/se/qc/{accession}_fastqc.zip",
+        html = temp("fastq/se/qc/{accession}_fastqc.html")
     params: outdir = "fastq/se/qc"
-    threads: 8
-    shell:"fastqc -t {threads} {input} -o {params.outdir}"
+    threads: 16
+    priority: 10
+    shell: "fastqc -t {threads} {input} -o {params.outdir}"
 
 rule trim_fastq:
     input: "fastq/se/{accession}.fastq.gz"
     output: "fastq/trimmed/{accession}.fastq.gz"
-    threads: 8
+    threads: 16
     shell: "cutadapt -j {threads} -m 20 --poly-a --nextseq-trim=10 -o {output} {input}"
 
 rule fastqc_trim:
     input: "fastq/trimmed/{accession}.fastq.gz"
     output:
         zip = "fastq/trimmed/qc/{accession}_fastqc.zip",
-        html = "fastq/trimmed/qc/{accession}_fastqc.html"
+        html = temp("fastq/trimmed/qc/{accession}_fastqc.html")
     params: outdir = "fastq/trimmed/qc"
-    threads: 8
+    threads: 16
+    priority: 20
     shell:"fastqc -t {threads} {input} -o {params.outdir}"
 
 rule get_genome:
-    output: "genome/genome.fa.gz"
+    output: temp("genome/genome.fa.gz")
     shell: "wget -O {output} https://ftp.ebi.ac.uk/pub/databases/wormbase/parasite/releases/WBPS19/species/schistosoma_mansoni/PRJEA36577/schistosoma_mansoni.PRJEA36577.WBPS19.genomic.fa.gz "
 
 rule decompress_genome:
@@ -55,7 +59,7 @@ rule decompress_genome:
     shell: "gzip -d {input}"
 
 rule get_gtf:
-    output: "genome/annotations.gtf.gz"
+    output: temp("genome/annotations.gtf.gz")
     shell: "wget -O {output} https://ftp.ebi.ac.uk/pub/databases/wormbase/parasite/releases/WBPS19/species/schistosoma_mansoni/PRJEA36577/schistosoma_mansoni.PRJEA36577.WBPS19.canonical_geneset.gtf.gz"
 
 rule decompress_gtf:
@@ -87,11 +91,12 @@ rule star_first_align:
         reads = "fastq/trimmed/{accession}.fastq.gz",
         genome = "genome/star/"
     output: 
-        bam = "alignment/star_one/{accession}/Aligned.sortedByCoord.out.bam",
+        bam = temp("alignment/star_one/{accession}/Aligned.sortedByCoord.out.bam"),
+        logs = temp("alignment/star_one/{accession}/Log.final.out"),
         junctions = "alignment/star_one/{accession}/SJ.out.tab"
     params:
         prefix = "alignment/star_one/{accession}/"
-    threads: 8
+    threads: 16
     shell:
         """
         STAR \
@@ -111,13 +116,13 @@ rule star_second_align:
         genome = "genome/star/",
         junctions = expand("alignment/star_one/{accession}/SJ.out.tab", accession=ACCESSIONS)
     output: 
-        bam = "alignment/star_two/{accession}/Aligned.sortedByCoord.out.bam",
-        log = "alignment/star_two/{accession}/Log/final.out"
+        bam = temp("alignment/star_two/{accession}/Aligned.sortedByCoord.out.bam"),
+        log = "alignment/star_two/{accession}/Log.final.out"
     params:
         prefix = "alignment/star_two/{accession}/",
         junctions = ' '.join(expand("alignment/star_one/{accession}/", accession=ACCESSIONS)),
         rg = "{accession}"
-    threads: 8
+    threads: 16
     shell:
         """
         STAR \
@@ -139,7 +144,7 @@ rule qualimap_bam:
         bam = "alignment/star_two/{accession}/Aligned.sortedByCoord.out.bam",
         gtf = "genome/annotations.gtf"
     output: directory("qualimap/star/bam/{accession}")
-    threads: 8
+    threads: 16
     shell: "qualimap bamqc -nt {threads} -outdir {output} -bam {input.bam} --feature-file {input.gtf} -p strand-specific-forward"
 
 rule qualimap_rnaseq:
@@ -161,12 +166,13 @@ rule count:
         bam = expand("dedup/star/{accession}.bam", accession=ACCESSIONS),
         gtf = "genome/annotations.gtf"
     output: 
-        "counts/star/{accession}.tsv",
-        "counts/star/{accession}.tsv.summary"
-    threads: 8
+        "counts/star/counts.tsv",
+        "counts/star/counts.tsv.summary"
+    params: outfile = "counts/star/counts.tsv"
+    threads: 16
     shell:
         """
-        featureCounts -T 32 \
+        featureCounts \
         {input.bam} \
         -T {threads} \
         -s 1 \
@@ -174,16 +180,18 @@ rule count:
         -M \
         --fraction \
         -a {input.gtf} \
-        -o {output} 
+        -o {params.outfile} 
         """
 
 rule multiqc:
     input: 
-        expand("fastq/se/qc/{accession}.fastqc.zip", accession=ACCESSIONS),
+        expand("fastq/se/qc/{accession}_fastqc.zip", accession=ACCESSIONS),
         expand("fastq/trimmed/qc/{accession}_fastqc.zip", accession=ACCESSIONS),
         expand("qualimap/star/bam/{accession}", accession=ACCESSIONS),
         expand("qualimap/star/rnaseq/{accession}", accession=ACCESSIONS),
-        expand("alignment/star_two/{accession}/Log/final.out", accession=ACCESSIONS),
-        expand("counts/star/{accession}.tsv.summary", accession=ACCESSIONS)
+        expand("logs/picard/{accession}.log", accession=ACCESSIONS),
+        expand("alignment/star_two/{accession}/Log.final.out", accession=ACCESSIONS),
+        "counts/star/counts.tsv.summary"
     output: "reports/multiqc_report.html"
-    shell: "multiqc --force -d ."
+    params: outdir = "reports/"
+    shell: "multiqc --outdir {params.outdir} --force -d ."

@@ -1,8 +1,25 @@
-executor: slurm
-jobs: 100
+executor: cluster-generic
+cluster-generic-submit-cmd:
+  mkdir -p logs/{rule} &&
+  sbatch
+    --partition={resources.partition}
+    --cpus-per-task={threads}
+    --mem={resources.mem_mb}
+    --job-name=smk-{rule}-{wildcards}
+    --output=logs/{rule}/{rule}-{wildcards}-%j.out
+    --parsable
 default-resources:
-    slurm_partition:    "'week'"
-    slurm_account:      "'2251.biol.343.001'"
-    runtime:            1440
-    mem:                "64G"
-    tasks:              32
+  - partition=week
+  - mem_mb=64000
+restart-times: 3
+max-jobs-per-second: 10
+max-status-checks-per-second: 1
+local-cores: 1
+latency-wait: 60
+jobs: 500
+keep-going: True
+rerun-incomplete: True
+printshellcmds: True
+scheduler: greedy
+# use-conda: True
+# conda-frontend: mamba
