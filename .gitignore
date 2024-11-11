@@ -9,6 +9,7 @@ multiqc*
 **placenta**
 **bee**
 **c_elegans**
+pipeline/
 
 2_genome_exploration/genome/annotations.gtf
 2_genome_exploration/genome/genome*
