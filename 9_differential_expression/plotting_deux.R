@@ -23,7 +23,7 @@ decent_plot <- counts_long |>
     ggplot()+
     geom_density(aes(x=count,color=tissue))+
     lims(x=c(0,100))
-
+decent_plot
 gene_of_interest <- counts_long |>
     filter(gene_id == 'Smp_315690') |>
     separate_wider_delim(cols = sample, delim = "_", names = c('tissue', 'misc'))|>
