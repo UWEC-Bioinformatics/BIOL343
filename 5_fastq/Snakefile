@@ -1,22 +1,40 @@
-# import pandas as pd
+configfile: "config_placenta.yaml"
+     # directory("fastq_placenta_snakemake")
+        # "fastq_placenta_snakemake/{wildcards.era_id}.fastq.gz"
+        # expand("fastq_placenta_snakemake/{accessions}.fastq.gz", accessions = config_placenta["era_id"])
+    # params:
+    # #     "fastq_placenta_snakemake/{accessions}.fastq.gz
+    # #     accession = config_placenta["era_id"],
+    #     outdir = "fastq_placenta_snakemake"
+# accessions= expand(config_placenta["era_id"])
+def h(wildcards):
+    return config["err_id"][wildcards.sample]
 
-# df = pd.read_csv('SraRunTable.txt', sep=',', header=0)
+# for sample in samples:
+rule all:
+    input:
+        "plots/quals.svg"
+rule fastq_fetch:
+    input:
+        h
+    output:
+        # "fastq_placenta_snakemake/",
+        "fastq_placenta_snakemake/{sample}.fastq.gz"
+    shell: 
+        "parallel-fastq-dump --sra-id {input} --threads 16 --outdir {output} --gzip"
 
-# # append all accession number to a list
-# ACCESSIONS = []
+rule fastq_qc:
+    input:
+        "fastq_placenta_snakemake/{wildcards.era_id}.fastq.gz"
+        # files_location = "fastq_placenta_snakemake/{accessions}",
+        # fastq_file_names = "fastq_placenta_snakemake/{accessions}"#, accessions = config_placenta["era_id"])
+    output:
+        directory("fastq_placenta_snakemake/placenta_qc"),
+        "fastq_placenta_snakemake/placenta_qc/{wildcards.era_id}"
 
-# for i in df['Run']:
-#     ACCESSIONS.append(i)
+    shell: 
+        "fastqc -t 16 fastq_placenta_snakemake/{wildcards.era_id}.fastq.gz -o fastq_placenta_snakemake/placenta_qc"
+        # "fastqc -t 16 fastq_placenta_snakemake/*.fastq.gz -o fastq_placenta_snakemake/placenta_qc"
 
-# rule all:
+# rule trim_filter:
 #     input:
-#         expand("fastq/se/{accession}.fastq.gz", accession=ACCESSIONS)
-
-# rule get_fastq_se:
-#     output: "fastq/se/{accession}.fastq.gz"
-#     log: "logs/se/{accession}.log"
-#     params:
-#         extra="--skip-technical"
-#     threads: 16
-#     wrapper:
-#         "0.80.2/bio/sra-tools/fasterq-dump"
