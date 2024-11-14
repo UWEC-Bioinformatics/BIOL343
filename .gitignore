@@ -12,8 +12,8 @@ pipeline/
 2_genome_exploration/genome/star/
 2_genome_exploration/genome/hisat/
 3_snakemake/snakemake-tutorial/
-4_snakemake/snakemake-tutorial/
-**/.snakemake/
+#4_snakemake/snakemake-tutorial/
+#**/.snakemake/
 5_fastq/qc/
 5_fastq/trimmed/
 5_fastq/multiqc_data
