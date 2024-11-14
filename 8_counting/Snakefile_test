@@ -77,6 +77,7 @@ rule star_align_first:
     output:
         out="../6_alignment/alignment_lemons_test/star/first-pass.final.out",
         out_sj="../6_alignment/alignment_lemons_test/star/SJ.out.tab",
+        alignment="../6_alignment/alignment_lemons_test/star/Aligned.sortedByCoord.out.bam",
         outdir=directory("../6_alignment/alignment_lemons_test/star/")
     run:
         shell("STAR \
@@ -145,10 +146,11 @@ rule merge_hisat:
 
 rule flagstat:
     input:
+        "../6_alignment/alignment_lemons_test/star/second-pass.final.out",
         star="../6_alignment/alignment_lemons_test/star/Aligned.sortedByCoord.out.bam",
         hisat="../6_alignment/alignment_lemons_test/hisat/merged.bam"
     output:
-        touch("flagstat_completed.done")
+        touch("../7_alignment_qc/flagstat_completed.done")
     run:
         shell("samtools flagstat {input.star}")
         shell("samtools flagstat {input.hisat}")
@@ -159,16 +161,65 @@ rule flagstat:
 #         gtf="../2_genome_exploration/lemons_test/lemon_annotations.gtf",
 #         star="../6_alignment/alignment_lemons_test/star/Aligned.sortedByCoord.out.bam",
 #         hisat="../6_alignment/alignment_lemons_test/hisat/merged.bam",
-#         check="flagstat_completed.done"
+#         check="../7_alignment_qc/flagstat_completed.done"
 #     output:
 #         no_header_sam="../6_alignment/alignment_lemons_test/star/no_header.sam",
 #         no_header_bam="../6_alignment/alignment_lemons_test/star/no_header.bam",
-#         outidr_star=directory("qualimap_lemons_test/star/bam"),
-#         outdir=directory("qualimap_lemons_test/")
+#         outidr_star=directory("../7_alignment_qc/qualimap_lemons_test/star/bam"),
+#         outdir=directory("../7_alignment_qc/qualimap_lemons_test/")
 #     run:
 #         shell("samtools view -h {input.star} | grep -v “^@RG” > {output.no_header_sam}")
 #         shell("samtools view -b {output.no_header_sam} > {output.no_header_bam}")
 #         shell("qualimap bamqc -nt 32 -outdir {output.outdir_star} -bam {output.no_header_bam} --feature-file {input.gtf} -p strand-specific-forward") 
+
+rule mark_duplicates:
+    input:
+        "../7_alignment_qc/flagstat_completed.done",
+        star="../6_alignment/alignment_lemons_test/star/Aligned.sortedByCoord.out.bam",
+        hisat="../6_alignment/alignment_lemons_test/hisat/merged.bam"
+    output:
+        star="dedup_lemons_test/star.bam",
+        hisat="dedup_lemons_test/hisat.bam",
+        star_log="logs_lemons_test/star_duplicates",
+        hisat_log="logs_lemons_test/hisat_duplicates"
+    run:
+        shell("picard MarkDuplicates -I {input.star} -M {output.star_log} -O {output.star} --VALIDATION_STRINGENCY SILENT")
+        shell("picard MarkDuplicates -I {input.hisat} -M {output.hisat_log} -O {output.hisat} --VALIDATION_STRINGENCY SILENT")
+
+rule count:
+    input:
+        annotations="../2_genome_exploration/lemons_test/lemon_annotations.gtf",
+        star="dedup_lemons_test/star.bam",
+        hisat="dedup_lemons_test/hisat.bam"
+    output:
+        star="counts_lemons_test/star_counts_lemons.tsv",
+        hisat="counts_lemons_test/hisat_counts_lemons.tsv"
+    run:
+        shell("featureCounts -T 32 \
+        {input.star} \
+        -T 32 \
+        --byReadGroup \
+        -s 1 \
+        --ignoreDup \
+        -M \
+        --fraction \
+        -a {input.annotations} \
+        -t 'CDS' \
+        -o {output.star} \
+        --verbose")
+    
+        shell("featureCounts -T 32 \
+        {input.hisat} \
+        -T 32 \
+        --byReadGroup \
+        -s 1 \
+        --ignoreDup \
+        -M \
+        --fraction \
+        -a {input.annotations} \
+        -t 'CDS' \
+        -o {output.hisat} \
+        --verbose")
 
 rule report:
     input:
@@ -177,16 +228,19 @@ rule report:
         "../6_alignment/alignment_lemons_test/star/second-pass.final.out",
         expand("../6_alignment/alignment_lemons_test/hisat/{accession}.sam", accession=config["ACCESSIONS"]),
         "../6_alignment/alignment_lemons_test/hisat/merged.bam",
-        "flagstat_completed.done"
+        "../7_alignment_qc/flagstat_completed.done",
+        "counts_lemons_test/star_counts_lemons.tsv",
+        "counts_lemons_test/hisat_counts_lemons.tsv"
         #"../6_alignment/alignment_lemons_test/star/no_header.bam"
     params:
         fastq_qc_dir=rules.fastq_qc.params.outdir,
         trim_qc_dir=rules.trim_qc.params.outdir,
         star_align_dir="../6_alignment/alignment_lemons_test/star/",
-        hisat_align_dir="../6_alignment/alignment_lemons_test/hisat"
+        hisat_align_dir="../6_alignment/alignment_lemons_test/hisat/",
+        counts_dir="counts_lemons_test/"
         #qualimap_dir=rules.qualimap.output.outdir
     output:
         "reports_test/multiqc_report_lemons.html"
     shell:
-        "multiqc --force -d {params.fastq_qc_dir} {params.trim_qc_dir} {params.star_align_dir} {params.hisat_align_dir} -n {output}"
+        "multiqc --force -d {params.fastq_qc_dir} {params.trim_qc_dir} {params.star_align_dir} {params.hisat_align_dir} {params.counts_dir} -n {output}"
         # ADD {params.qualimap_dir} to output
