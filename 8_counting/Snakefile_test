@@ -89,7 +89,7 @@ rule star_align_first:
             --outSAMtype BAM SortedByCoordinate \
             --outSAMunmapped Within \
             --outFileNamePrefix ../6_alignment/alignment_lemons_test/star/")
-        shell("../6_alignment/cp alignment_lemons_test/star/Log.final.out {output.out}")
+        shell("cp ../6_alignment/alignment_lemons_test/star/Log.final.out {output.out}")
 
 rule star_align_second:
     input:
