@@ -1,0 +1,246 @@
+configfile: "config.yaml"
+
+rule all:
+    input:
+        "reports/multiqc_report_lemons.html"
+
+rule fetch_fastq:
+    output: 
+        expand("../5_fastq/fastq_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"])
+    params:
+        accession=config["ACCESSIONS"],
+        outdir="../5_fastq/fastq_lemons"
+    shell:
+        "parallel-fastq-dump --sra-id {params.accession} --threads 16 --outdir {params.outdir} --gzip"
+
+rule fastq_qc:
+    input:
+        "../5_fastq/fastq_lemons/{accession}.fastq.gz"
+    output:
+        html="../5_fastq/fastq_lemons/qc/{accession}_fastqc.html",
+        zip="../5_fastq/fastq_lemons/qc/{accession}_fastqc.zip"
+    params:
+        outdir="../5_fastq/fastq_lemons/qc"
+    shell:
+        "fastqc -t 16 {input} -o {params.outdir}"
+
+rule trim_filter:
+    input:
+        "../5_fastq/fastq_lemons/{accession}.fastq.gz"
+    output:
+        "../5_fastq/trimmed_lemons/{accession}.fastq.gz"
+    shell:
+        "cutadapt -j 16 -m 20 --cut 10 -o {output} {input}"
+
+rule trim_qc:
+    input:
+        "../5_fastq/trimmed_lemons/{accession}.fastq.gz"
+    output:
+        html="../5_fastq/trimmed_lemons/qc/{accession}_fastqc.html",
+        zip="../5_fastq/trimmed_lemons/qc/{accession}_fastqc.zip"
+    params:
+        outdir="../5_fastq/trimmed_lemons/qc"
+    shell:
+        "fastqc -t 16 {input} -o {params.outdir}"
+
+rule fetch_genome:
+    output:
+        genome="../2_genome_exploration/lemons/lemon_genome.fa",
+        annotations="../2_genome_exploration/lemons/lemon_annotations.gtf"
+    run:
+        shell("wget -nc -O {output.genome} https://www.citrusgenomedb.org/citrus_downloads/Citrus_limon/C.limon_EMF-UC_v1-Alternative_genome/assembly/Climon_v1_alternative-scaffolds.fa")
+        shell("wget -O - https://www.citrusgenomedb.org/citrus_downloads/Citrus_limon/C.limon_EMF-UC_v1-Alternative_genome/annotation/Climon_v1_alternative-annotation.gff | gzip -f -d > ../2_genome_exploration/lemons/lemon_annotations.gff")
+        shell("gffread ../2_genome_exploration/lemons/lemon_annotations.gff -T -o {output.annotations}")
+
+rule star_sa:
+    input:
+        genome="../2_genome_exploration/lemons/lemon_genome.fa",
+        annotations="../2_genome_exploration/lemons/lemon_annotations.gtf"
+    output:
+        directory("../2_genome_exploration/lemons/star")
+    run:
+        shell("STAR \
+            --runThreadN 32 \
+            --runMode genomeGenerate \
+            --genomeDir {output}\
+            --genomeFastaFiles {input.genome} \
+            --sjdbGTFfile {input.annotations} \
+            --sjdbOverhang 289 \
+            --genomeSAindexNbases 13 \
+            --sjdbGTFfeatureExon CDS")
+
+rule star_align_first:
+    input:
+        expand("../5_fastq/trimmed_lemons/{accession}.fastq.gz", accession=config["ACCESSIONS"]),
+        genome_dir="../2_genome_exploration/lemons/star",
+        manifest="../6_alignment/manifest_lemons.tsv"
+    output:
+        out="../6_alignment/alignment_lemons/star/first-pass.final.out",
+        out_sj="../6_alignment/alignment_lemons/star/SJ.out.tab",
+        alignment="../6_alignment/alignment_lemons/star/Aligned.sortedByCoord.out.bam",
+        outdir=directory("../6_alignment/alignment_lemons/star/")
+    run:
+        shell("STAR \
+            --runThreadN 32 \
+            --runMode alignReads \
+            --genomeDir {input.genome_dir} \
+            --readFilesManifest {input.manifest} \
+            --readFilesCommand zcat \
+            --outSAMtype BAM SortedByCoordinate \
+            --outSAMunmapped Within \
+            --outFileNamePrefix ../6_alignment/alignment_lemons/star/")
+        shell("cp ../6_alignment/alignment_lemons/star/Log.final.out {output.out}")
+
+rule star_align_second:
+    input:
+        rules.star_align_first.output.out,
+        genome_dir="../2_genome_exploration/lemons/star",
+        manifest="../6_alignment/manifest_lemons.tsv",
+        sj="../6_alignment/alignment_lemons/star/SJ.out.tab",
+        star_dir="../6_alignment/alignment_lemons/star/"
+    output:
+        out="../6_alignment/alignment_lemons/star/second-pass.final.out"
+    run:
+        shell("STAR \
+            --runThreadN 32 \
+            --runMode alignReads \
+            --genomeDir {input.genome_dir} \
+            --readFilesManifest {input.manifest} \
+            --readFilesCommand zcat \
+            --outSAMtype BAM SortedByCoordinate \
+            --outSAMunmapped Within \
+            --outSAMattributes NH HI AS nM RG \
+            --outFileNamePrefix ../6_alignment/alignment_lemons/star/ \
+            --sjdbFileChrStartEnd {input.sj}")
+        shell("cp ../6_alignment/alignment_lemons/star/Log.final.out {output.out}")
+
+rule hisat_align:
+    input:
+        "../2_genome_exploration/lemons/lemon_genome.fa",
+        "../2_genome_exploration/lemons/lemon_annotations.gtf",
+        files="../5_fastq/trimmed_lemons/{accession}.fastq.gz",
+        index_dir="../2_genome_exploration/lemons/hisat/"
+    params:
+        genome_dir="../2_genome_exploration/lemons/hisat/genome"
+    output:
+        "../6_alignment/alignment_lemons/hisat/{accession}.sam"
+    run:
+        shell("hisat2 {params.genome_dir} -p 32 -U {input.files} --rg-id {wildcards.accession} --rg SM:{wildcards.accession} --summary-file ../6_alignment/alignment_lemons/hisat/{wildcards.accession}.log --new-summary > {output}")
+
+rule convert_hisat:
+    input:
+        "../6_alignment/alignment_lemons/hisat/{accession}.sam"
+    output:
+        "../6_alignment/alignment_lemons/hisat/{accession}.bam"
+    run:
+        shell("samtools view -@ 32 -b {input} | samtools sort -@ 32 > {output}")
+
+rule merge_hisat:
+    input:
+        expand("../6_alignment/alignment_lemons/hisat/{accession}.bam", accession=config["ACCESSIONS"])
+    output:
+        "../6_alignment/alignment_lemons/hisat/merged.bam"
+    run:
+        shell("samtools merge -@ 32 {output}  {input}")
+        shell("samtools index -@ 32 {output}")
+
+rule flagstat:
+    input:
+        "../6_alignment/alignment_lemons/star/second-pass.final.out",
+        star="../6_alignment/alignment_lemons/star/Aligned.sortedByCoord.out.bam",
+        hisat="../6_alignment/alignment_lemons/hisat/merged.bam"
+    output:
+        touch("../7_alignment_qc/flagstat_completed.done")
+    run:
+        shell("samtools flagstat {input.star}")
+        shell("samtools flagstat {input.hisat}")
+
+# Not running right in notebook
+# rule qualimap:
+#     input:
+#         gtf="../2_genome_exploration/lemons/lemon_annotations.gtf",
+#         star="../6_alignment/alignment_lemons/star/Aligned.sortedByCoord.out.bam",
+#         hisat="../6_alignment/alignment_lemons/hisat/merged.bam",
+#         check="../7_alignment_qc/flagstat_completed.done"
+#     output:
+#         no_header_sam="../6_alignment/alignment_lemons/star/no_header.sam",
+#         no_header_bam="../6_alignment/alignment_lemons/star/no_header.bam",
+#         outidr_star=directory("../7_alignment_qc/qualimap_lemons/star/bam"),
+#         outdir=directory("../7_alignment_qc/qualimap_lemons/")
+#     run:
+#         shell("samtools view -h {input.star} | grep -v “^@RG” > {output.no_header_sam}")
+#         shell("samtools view -b {output.no_header_sam} > {output.no_header_bam}")
+#         shell("qualimap bamqc -nt 32 -outdir {output.outdir_star} -bam {output.no_header_bam} --feature-file {input.gtf} -p strand-specific-forward") 
+
+rule mark_duplicates:
+    input:
+        "../7_alignment_qc/flagstat_completed.done",
+        star="../6_alignment/alignment_lemons/star/Aligned.sortedByCoord.out.bam",
+        hisat="../6_alignment/alignment_lemons/hisat/merged.bam"
+    output:
+        star="dedup_lemons/star.bam",
+        hisat="dedup_lemons/hisat.bam",
+        star_log="logs_lemons/star_duplicates",
+        hisat_log="logs_lemons/hisat_duplicates"
+    run:
+        shell("picard MarkDuplicates -I {input.star} -M {output.star_log} -O {output.star} --VALIDATION_STRINGENCY SILENT")
+        shell("picard MarkDuplicates -I {input.hisat} -M {output.hisat_log} -O {output.hisat} --VALIDATION_STRINGENCY SILENT")
+
+rule count:
+    input:
+        annotations="../2_genome_exploration/lemons/lemon_annotations.gtf",
+        star="dedup_lemons/star.bam",
+        hisat="dedup_lemons/hisat.bam"
+    output:
+        star="counts_lemons/star_counts_lemons.tsv",
+        hisat="counts_lemons/hisat_counts_lemons.tsv"
+    run:
+        shell("featureCounts -T 32 \
+        {input.star} \
+        -T 32 \
+        --byReadGroup \
+        -s 1 \
+        --ignoreDup \
+        -M \
+        --fraction \
+        -a {input.annotations} \
+        -t 'CDS' \
+        -o {output.star} \
+        --verbose")
+    
+        shell("featureCounts -T 32 \
+        {input.hisat} \
+        -T 32 \
+        --byReadGroup \
+        -s 1 \
+        --ignoreDup \
+        -M \
+        --fraction \
+        -a {input.annotations} \
+        -t 'CDS' \
+        -o {output.hisat} \
+        --verbose")
+
+rule report:
+    input:
+        expand("../5_fastq/fastq_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"]),
+        expand("../5_fastq/trimmed_lemons/qc/{accession}_fastqc.html", accession=config["ACCESSIONS"]),
+        "../6_alignment/alignment_lemons/star/second-pass.final.out",
+        expand("../6_alignment/alignment_lemons/hisat/{accession}.sam", accession=config["ACCESSIONS"]),
+        "../6_alignment/alignment_lemons/hisat/merged.bam",
+        "../7_alignment_qc/flagstat_completed.done",
+        "counts_lemons/star_counts_lemons.tsv",
+        "counts_lemons/hisat_counts_lemons.tsv"
+        #"../6_alignment/alignment_lemons/star/no_header.bam"
+    params:
+        fastq_qc_dir=rules.fastq_qc.params.outdir,
+        trim_qc_dir=rules.trim_qc.params.outdir,
+        star_align_dir="../6_alignment/alignment_lemons/star/",
+        hisat_align_dir="../6_alignment/alignment_lemons/hisat/",
+        counts_dir="counts_lemons/"
+        #qualimap_dir=rules.qualimap.output.outdir
+    output:
+        "reports/multiqc_report_lemons.html"
+    shell:
+        "multiqc --force -d {params.fastq_qc_dir} {params.trim_qc_dir} {params.star_align_dir} {params.hisat_align_dir} {params.counts_dir} -n {output}"
+        # ADD {params.qualimap_dir} to output
