@@ -6,5 +6,3 @@
 /data/users/waldhacw6865/BIOL343/5_fastq/trimmed_B/SRR1790687.fastq.gz	-	Control_3
 /data/users/waldhacw6865/BIOL343/5_fastq/trimmed_B/SRR1790688.fastq.gz	-	IAPV_4
 /data/users/waldhacw6865/BIOL343/5_fastq/trimmed_B/SRR1790689.fastq.gz	-	IAPV_5
-/data/users/waldhacw6865/BIOL343/5_fastq/trimmed_B/SRR1790690.fastq.gz	-	Control_4
-/data/users/waldhacw6865/BIOL343/5_fastq/trimmed_B/SRR1790691.fastq.gz	-	Control_5
