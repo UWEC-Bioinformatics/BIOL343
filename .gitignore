@@ -7,6 +7,9 @@ multiqc*
 **c_elegans**
 pipeline/
 
+2_genome_exploration/genome/zebrafish_annotations.gtf
+2_genome_exploration/genome/zebrafish_genome.fa
+2_genome_exploration/genome/zebrafish_genome.fa.fai
 2_genome_exploration/genome/annotations.gtf
 2_genome_exploration/genome/genome*
 2_genome_exploration/genome/star/
