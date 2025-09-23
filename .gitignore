@@ -6,7 +6,8 @@ multiqc*
 **bee**
 **c_elegans**
 pipeline/
-
+2_genome_exploration/genome_for_homework/annotations_for_homework.gtf
+2_genome_exploration/genome_for_homework/genome_for_homework.fa
 2_genome_exploration/genome/annotations.gtf
 2_genome_exploration/genome/genome*
 2_genome_exploration/genome/star/
