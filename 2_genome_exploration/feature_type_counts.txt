@@ -1,0 +1,9 @@
+ 522789 CDS
+1299184 exon
+  95711 five_prime_utr
+  78334 gene
+     64 Selenocysteine
+  59741 start_codon
+  55543 stop_codon
+  87214 three_prime_utr
+ 278396 transcript
