@@ -1,5 +1,5 @@
 samples:
-  A: ["data/samples/A_1.fastq", "data/samples/A_2.fastq"]
-  B: ["data/samples/B_1.fastq", "data/samples/B_2.fastq"]
+  A: ["data/samples/A.fastq"]
+  B: ["data/samples/B.fastq"]
 reference: "data/genome.fa"
 prior_mutation_rate: 1e-3
