@@ -1,27 +1,37 @@
 configfile: "config.yaml"
 
-SAMPLE_NAMES = list(config["samples"].keys())
+include: "sub_workflow/bwa_map.smk"
+
 
 rule all:
     input:
         "plots/quals.svg"
 
-module mapping:
-    snakefile: "sub_workflow/bwa_map.smk"
-    config: config
 
-use rule bwa_map        from mapping
-use rule samtools_sort  from mapping
-use rule samtools_index from mapping
+rule samtools_sort:
+    input:
+        "mapped_reads/{sample}.bam"
+    output:
+        protected("sorted_reads/{sample}.bam")
+    shell:
+        "samtools sort -T sorted_reads/{wildcards.sample} "
+        "-O bam {input} > {output}"
 
-def get_bwa_map_input_fastqs(wildcards):
-    return config["samples"][wildcards.sample]
+
+rule samtools_index:
+    input:
+        "sorted_reads/{sample}.bam"
+    output:
+        "sorted_reads/{sample}.bam.bai"
+    shell:
+        "samtools index {input}"
+
 
 rule bcftools_call:
     input:
         fa="data/genome.fa",
-        bam=expand("results/mapped/{sample}.sorted.bam",     sample=SAMPLE_NAMES),
-        bai=expand("results/mapped/{sample}.sorted.bam.bai", sample=SAMPLE_NAMES)
+        bam=expand("sorted_reads/{sample}.bam", sample=config["samples"]),
+        bai=expand("sorted_reads/{sample}.bam.bai", sample=config["samples"])
     output:
         "calls/all.vcf"
     params:
@@ -32,7 +42,11 @@ rule bcftools_call:
         "(bcftools mpileup -f {input.fa} {input.bam} | "
         "bcftools call -mv -P {params.rate} - > {output}) 2> {log}"
 
+
 rule plot_quals:
-    input:  "calls/all.vcf"
-    output: "plots/quals.svg"
-    script: "scripts/plot-quals.py"
+    input:
+        "calls/all.vcf"
+    output:
+        "plots/quals.svg"
+    script:
+        "scripts/plot-quals.py"
