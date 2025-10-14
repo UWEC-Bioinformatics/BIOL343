@@ -1,0 +1,54 @@
+configfile: "confi.yaml"
+
+
+rule fetch_fastq:
+    input:
+        "hwsra_list.txt"
+    output:
+        "hw_fastq/{sample}.fastq.gz"
+    shell:
+        while IFS= read -r line; do \
+            echo "Getting $line from NCBI SRA"; \
+            parallel-fastq-dump --sra-id $line --threads 32 --outdir {output} --gzip; \
+            done < {input}
+
+
+rule fastq_qc:
+    input:
+        "hw_fastq/{sample}.fastq.gz"
+    output:
+        "hw_fastq/qc/{sample}_fastqc.html"
+        "hw_fastq/qc/{sample}_fastqc.zip"
+    shell:
+        fastqc -t 32 {input} -o {output}
+
+rule trim_filter:
+    input:
+        "hw_fastq/{sample}.fastq.gz"
+    output:
+        "hwtrimmed/{sample}.fastq.gz"
+    shell:
+        for fastq in {input}; do \
+            base_name=$(basename "$fastq" .fastq.gz); \
+            cutadapt -j 32 -q 20 -m 200 -o {output} $fastq; \
+        done
+
+rule trim_qc:
+    input:
+        "hwtrimmed/{sample}.fastq.gz"
+    output:
+        "hwtrimmed/qc/{sample}_fastqc.html"
+        "hwtrimmed/qc/{sample}_fastqc.zip"
+    shell:
+        fastqc -t 32 {input} -o {output}
+
+rule report:
+    input:
+        "hwtrimmed/qc/{sample}_fastqc.html"
+        "hwtrimmed/qc/{sample}_fastqc.zip"
+        "hw_fastq/qc/{sample}_fastqc.html"
+        "hw_fastq/qc/{sample}_fastqc.zip"
+    output:
+        "multiqc_report.html"
+    shell:
+        multiqc --force -d {input}
