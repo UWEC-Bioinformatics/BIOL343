@@ -7,6 +7,8 @@ multiqc*
 **c_elegans**
 pipeline/
 
+5_fastq/mouse_hippocampus_fastq
+2_genome_exploration/genome_for_homework
 2_genome_exploration/genome/annotations.gtf
 2_genome_exploration/genome/genome*
 2_genome_exploration/genome/star/
