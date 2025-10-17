@@ -7,6 +7,8 @@ multiqc*
 **c_elegans**
 pipeline/
 
+5_fastq/nohup.out
+5_fastq/logs
 5_fastq/hwtrimmed
 5_fastq/hw_fastq
 2_genome_exploration/genome/zebrafish_annotations.gtf
