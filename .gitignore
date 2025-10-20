@@ -9,6 +9,8 @@ pipeline/
 2_genome_exploration/genome_for_homework/annotations_for_homework.gtf
 2_genome_exploration/genome_for_homework/genome_for_homework.fa
 
+5_fastq/nohup.out
+5_fastq/logs/fetch_fastq
 5_fastq/mouse_hippocampus_fastq
 2_genome_exploration/genome_for_homework
 2_genome_exploration/genome/annotations.gtf
