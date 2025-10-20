@@ -9,4 +9,4 @@
 3. Navigate to the folder that contains your `snakefile`.  
 4. Run the command: `snakemake --profile ~/BIOL343/snakemake-profile/`
   >[!TIP]
-  > Running a pipeline this way requires that you keep the SSH open for the entire analysis. To start a background process, run the following instead: `nohup snakemake --profile ~/GitHub/invision-tools/slurm-profile/ &`   
+  > Running a pipeline this way requires that you keep the SSH open for the entire analysis. To start a background process, run the following instead: `nohup snakemake --profile ~/BIOL343/snakemake-profile/ &`   
