@@ -1,0 +1,82 @@
+configfile: "config.yaml"
+
+READS = config["reads"]
+
+rule all:
+    input:
+        expand("hw_fastq/{sample}_1.fastq.gz", sample=READS),
+        expand("hw_fastq/{sample}_2.fastq.gz", sample=READS),
+        expand("hw_fastq/qc/{sample}_1_fastqc.html", sample=READS),
+        expand("hw_fastq/qc/{sample}_2_fastqc.zip", sample=READS),
+        expand("hwtrimmed/{sample}_1.fastq.gz", sample=READS),
+        expand("hwtrimmed/{sample}_2.fastq.gz", sample=READS),
+        "multiqc_report.html"
+
+rule fetch_fastq:
+    output:
+        "hw_fastq/{sample}_1.fastq.gz",
+        "hw_fastq/{sample}_2.fastq.gz"
+    shell:
+        "fastq-dump --split-files --gzip --outdir hw_fastq {READS}"
+
+rule fastqc_qc:
+    input:
+        "hw_fastq/{sample}.fastq.gz",
+    output:
+        "hw_fastq/qc/{sample}_fastqc.html",
+        "hw_fastq/qc/{sample}_fastqc.zip"
+    shell:
+        "fastqc {input} -o hw_fastq/qc"
+
+rule trim_filter:
+    input:
+        "hw_fastq/{sample}.fastq.gz"
+    output:
+        "hwtrimmed/{sample}.fastq.gz"
+    shell:
+        "cutadapt -u 15 -m 85 -o ./hwtrimmed {input}"
+
+rule trim_qc:
+    input:
+        "hwtrimmed/{sample}.fastq.gz"
+    output:
+        "hwtrimmed/qc/{sample}_fastqc.html",
+        "hwtrimmed/qc/{sample}_fastqc.zip"
+    shell:
+        "fastqc {input} -o hw_fastq/qc"
+
+rule report:
+    input:
+        expand("hw_fastq/qc/{sample}_{num}_fastqc.html", sample=READS, num=["1", "2"]),
+        expand("hw_fastq/qc/{sample}_{num}_fastqc.zip", sample=READS, num=["1", "2"]),
+        expand("hwtrimmed/qc/{sample}_{num}_fastqc.html", sample=READS, num=["1", "2"]),
+        expand("hwtrimmed/qc/{sample}_{num}_fastqc.zip", sample=READS, num=["1", "2"])
+    output:
+        "multiqc_report.html"
+    shell:
+        "multiqc --force -d {input}"
+
+def fetch_genome:
+    output:
+        "../2_genome_exploration/genome/zebrafish_genome.fa",
+        "../2_genome_exploration/genome/zebrafish_annotations.gtf"
+    shell:
+        "wget -nc -O zebrafish_genome.fa.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/035/GCF_000002035.5_GRCz10/GCF_000002035.5_GRCz10_genomic.fna.gz | gzip -d -f zebrafish_genome.fa.gz",
+        "wget -O - https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/035/GCF_000002035.5_GRCz10/GCF_000002035.5_GRCz10_genomic.gtf.gz | gzip -f -d > zebrafish_annotations.gtf"
+
+def star_sa:
+    input:
+        "../2_genome_exploration/genome/zebrafish_genome.fa",
+        "../2_genome_exploration/genome/zebrafish_annotations.gtf"
+    output:
+        "../2_genome_exploration/genome/star/SA"
+        "../2_genome_exploration/genome/star/SAindex"
+    shell:
+        "STAR \
+            --runThreadN 32 \
+            --runMode genomeGenerate \
+            --genomeDir ../2_genome_exploration/genome/star \
+            --genomeFastaFiles ../2_genome_exploration/genome/zebrafish_genome.fa \
+            --sjdbGTFfile ../2_genome_exploration/genome/zebrafish_annotations.gtf \
+            --sjdbOverhang 84 \
+            --genomeSAindexNbases 13"
