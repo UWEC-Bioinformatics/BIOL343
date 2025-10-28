@@ -2,6 +2,7 @@ executor: cluster-generic
 cluster-generic-submit-cmd:
   mkdir -p logs/{rule} &&
   sbatch
+    --account=2261.BIOL.343.001
     --partition={resources.partition}
     --cpus-per-task={threads}
     --mem={resources.mem_mb}
