@@ -197,3 +197,37 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+# Course files/directories
+multiqc*
+
+**lemons**
+**placenta**
+**bee**
+**c_elegans**
+pipeline/
+
+2_genome_exploration/genome/annotations.gtf
+2_genome_exploration/genome/genome*
+2_genome_exploration/genome/star/
+2_genome_exploration/genome/hisat/
+
+3_snakemake/snakemake-tutorial/
+**/.snakemake/
+
+5_fastq/qc/
+5_fastq/trimmed/
+5_fastq/multiqc_data
+5_fastq/fastq/
+5_fastq/multiqc_report.html
+5_fastq/hw_fastq/
+5_fastq/logs/
+
+6_alignment/alignment/
+7_alignment_qc/*stats*
+7_alignment_qc/qualimap
+8_counting/dedup
+8_counting/logs
+8_counting/*counts*
+
+whole_pipeline.ipynb
