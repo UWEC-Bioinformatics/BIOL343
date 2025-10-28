@@ -4,79 +4,150 @@ READS = config["reads"]
 
 rule all:
     input:
-        expand("hw_fastq/{sample}_1.fastq.gz", sample=READS),
-        expand("hw_fastq/{sample}_2.fastq.gz", sample=READS),
-        expand("hw_fastq/qc/{sample}_1_fastqc.html", sample=READS),
-        expand("hw_fastq/qc/{sample}_2_fastqc.zip", sample=READS),
-        expand("hwtrimmed/{sample}_1.fastq.gz", sample=READS),
-        expand("hwtrimmed/{sample}_2.fastq.gz", sample=READS),
-        "multiqc_report.html"
+        expand("../5_fastq/hw_fastq/{sample}_1.fastq.gz", sample=READS),
+        expand("../5_fastq/hw_fastq/{sample}_2.fastq.gz", sample=READS),
+        expand("../5_fastq/hw_fastq/qc/{sample}_1_fastqc.html", sample=READS),
+        expand("../5_fastq/hw_fastq/qc/{sample}_2_fastqc.zip", sample=READS),
+        expand("../5_fastq/hwtrimmed/{sample}_1.fastq.gz", sample=READS),
+        expand("../5_fastq/hwtrimmed/{sample}_2.fastq.gz", sample=READS),
+        "multiqc_report.html",
+        "../2_genome_exploration/genome/zebrafish_genome.fa",
+        "../2_genome_exploration/genome/zebrafish_annotations.gtf",
+        "../2_genome_exploration/genome/star/SA",
+        "../2_genome_exploration/genome/star/SAindex",
+        "alignment/star/hwfirst-passfinal.out",
+        "alignment/star/hwsecond-pass.final.out",
+        expand("../6_alignment/alignment/hisat/{sample}.sam", sample=READS),
+        expand("../6_alignment/alignment/hisat/{sample}.log", sample=READS)
 
 rule fetch_fastq:
     output:
-        "hw_fastq/{sample}_1.fastq.gz",
-        "hw_fastq/{sample}_2.fastq.gz"
+        "../5_fastq/hw_fastq/{sample}_1.fastq.gz",
+        "../5_fastq/hw_fastq/{sample}_2.fastq.gz"
     shell:
         "fastq-dump --split-files --gzip --outdir hw_fastq {READS}"
 
 rule fastqc_qc:
     input:
-        "hw_fastq/{sample}.fastq.gz",
+        "../5_fastq/hw_fastq/{sample}.fastq.gz",
     output:
-        "hw_fastq/qc/{sample}_fastqc.html",
-        "hw_fastq/qc/{sample}_fastqc.zip"
+        "../5_fastq/hw_fastq/qc/{sample}_fastqc.html",
+        "../5_fastq/hw_fastq/qc/{sample}_fastqc.zip"
     shell:
-        "fastqc {input} -o hw_fastq/qc"
+        "fastqc {input} -o ../5_fastq/hw_fastq/qc"
 
 rule trim_filter:
     input:
-        "hw_fastq/{sample}.fastq.gz"
+        "../5_fastq/hw_fastq/{sample}.fastq.gz"
     output:
-        "hwtrimmed/{sample}.fastq.gz"
+        "../5_fastq/hwtrimmed/{sample}.fastq.gz"
     shell:
-        "cutadapt -u 15 -m 85 -o ./hwtrimmed {input}"
+        "cutadapt -u 15 -m 85 -o ../5_fastq/hwtrimmed {input}"
 
 rule trim_qc:
     input:
-        "hwtrimmed/{sample}.fastq.gz"
+        "../5_fastq/hwtrimmed/{sample}.fastq.gz"
     output:
-        "hwtrimmed/qc/{sample}_fastqc.html",
-        "hwtrimmed/qc/{sample}_fastqc.zip"
+        "../5_fastq/hwtrimmed/qc/{sample}_fastqc.html",
+        "../5_fastq/hwtrimmed/qc/{sample}_fastqc.zip"
     shell:
-        "fastqc {input} -o hw_fastq/qc"
+        "fastqc {input} -o ../5_fastq/hw_fastq/qc"
 
 rule report:
     input:
-        expand("hw_fastq/qc/{sample}_{num}_fastqc.html", sample=READS, num=["1", "2"]),
-        expand("hw_fastq/qc/{sample}_{num}_fastqc.zip", sample=READS, num=["1", "2"]),
-        expand("hwtrimmed/qc/{sample}_{num}_fastqc.html", sample=READS, num=["1", "2"]),
-        expand("hwtrimmed/qc/{sample}_{num}_fastqc.zip", sample=READS, num=["1", "2"])
+        expand("../5_fastq/hw_fastq/qc/{sample}_{num}_fastqc.html", sample=READS, num=["1", "2"]),
+        expand("../5_fastq/hw_fastq/qc/{sample}_{num}_fastqc.zip", sample=READS, num=["1", "2"]),
+        expand("../5_fastq/hwtrimmed/qc/{sample}_{num}_fastqc.html", sample=READS, num=["1", "2"]),
+        expand("../5_fastq/hwtrimmed/qc/{sample}_{num}_fastqc.zip", sample=READS, num=["1", "2"])
     output:
         "multiqc_report.html"
     shell:
         "multiqc --force -d {input}"
 
-def fetch_genome:
+rule fetch_genome:
     output:
-        "../2_genome_exploration/genome/zebrafish_genome.fa",
+        "../2_genome_exploration/genome/zebrafish_genome.fa"
+    shell:
+        "wget -nc -O zebrafish_genome.fa.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/035/GCF_000002035.5_GRCz10/GCF_000002035.5_GRCz10_genomic.fna.gz | gzip -d -f zebrafish_genome.fa.gz"
+
+rule fetch_annotations:
+    output:
         "../2_genome_exploration/genome/zebrafish_annotations.gtf"
     shell:
-        "wget -nc -O zebrafish_genome.fa.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/035/GCF_000002035.5_GRCz10/GCF_000002035.5_GRCz10_genomic.fna.gz | gzip -d -f zebrafish_genome.fa.gz",
-        "wget -O - https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/035/GCF_000002035.5_GRCz10/GCF_000002035.5_GRCz10_genomic.gtf.gz | gzip -f -d > zebrafish_annotations.gtf"
+         "wget -O - https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/035/GCF_000002035.5_GRCz10/GCF_000002035.5_GRCz10_genomic.gtf.gz | gzip -f -d > zebrafish_annotations.gtf"
 
-def star_sa:
+rule star_sa:
     input:
         "../2_genome_exploration/genome/zebrafish_genome.fa",
         "../2_genome_exploration/genome/zebrafish_annotations.gtf"
     output:
-        "../2_genome_exploration/genome/star/SA"
+        "../2_genome_exploration/genome/star/SA",
         "../2_genome_exploration/genome/star/SAindex"
     shell:
-        "STAR \
+        """
+        STAR \
             --runThreadN 32 \
             --runMode genomeGenerate \
             --genomeDir ../2_genome_exploration/genome/star \
             --genomeFastaFiles ../2_genome_exploration/genome/zebrafish_genome.fa \
             --sjdbGTFfile ../2_genome_exploration/genome/zebrafish_annotations.gtf \
             --sjdbOverhang 84 \
-            --genomeSAindexNbases 13"
+            --genomeSAindexNbases 13
+        """
+
+rule star_align_first:
+    input:
+        "hwmanifest.tsv"
+    output:
+        "alignment/star/hwfirst-passfinal.out",
+        "alignment/star/SJ.out.tab"
+    shell:
+        """
+        STAR \
+            --runThreadN 32 \
+            --runMode alignReads \
+            --genomeDir ../2_genome_exploration/genome/star \
+            --readFilesManifest hwmanifest.tsv \
+            --readFilesCommand zcat \
+            --outSAMtype BAM Unsorted \
+            --outSAMunmapped Within \
+            --outFileNamePrefix alignment/star/
+
+        mv alignment/star/Log.final.out alignment/star/hwfirst-pass.final.out
+        """
+
+rule star_align_second:
+    input:
+        "hwmanifest.tsv",
+        "alignment/star/SJ.out.tab"
+    output:
+        "alignment/star/hwsecond-pass.final.out"
+    shell:
+        """
+        STAR \
+            --runThreadN 32 \
+            --runMode alignReads \
+            --genomeDir ../2_genome_exploration/genome/star \
+            --readFilesManifest hwmanifest.tsv \
+            --readFilesCommand zcat \
+            --outSAMtype BAM Unsorted \
+            --outSAMunmapped Within \
+            --outSAMattributes NH HI AS nM RG \
+            --outFileNamePrefix alignment/star/ \
+            --sjdbFileChrStartEnd alignment/star/SJ.out.tab
+
+        mv alignment/star/Log.final.out alignment/star/hwsecond-pass.final.out
+        """
+
+rule hisat_align:
+    input:
+        fq1 = "/data/users/heky1803/BIOL343/5_fastq/hwtrimmed/{sample}_1.fastq.gz",
+        fq2 = "/data/users/heky1803/BIOL343/5_fastq/hwtrimmed/{sample}_2.fastq.gz",
+        rg = ["DOME_A", "DOME_B", "DOME_C", "128_CELL_A", "128_CELL_B", "128_CELL_C", "1K_CELL_A", "1K_CELL_B", "1K_CELL_C"]
+    output:
+        f1 = "../6_alignment/alignment/hisat/{sample}.sam",
+        f2 = "../6_alignment/alignment/hisat/{sample}.log"
+    shell:
+        """
+        hisat2 /data/classes/2025/fall/biol343/course_files/student_genomes/kyle/hisat/zebrafish_genome -p 16 -1 {input.fq1} -2 {input.fq2} --rg-id {input.rg} --rg SM:{input.rg} --summary-file {output.f2} --new-summary > {output.f1}
+        """
