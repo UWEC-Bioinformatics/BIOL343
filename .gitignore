@@ -1,3 +1,12 @@
+# hw files
+6_alignment/fastq_1
+6_alignment/fastqc_raw
+6_alignment/logs
+6_alignment/ref/
+6_alignment/SRR*
+6_alignment/trimmed
+7_alignment_qc/*sorted.bam
+
 # Course files/directories
 multiqc*
 
@@ -165,7 +174,6 @@ celerybeat.pid
 # Environments
 .env
 .venv
-env/
 venv/
 ENV/
 env.bak/
