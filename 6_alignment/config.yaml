@@ -1,0 +1,35 @@
+samples:
+  - SRR2916027
+  - SRR2916028
+  - SRR2916029
+  - SRR2916030
+  - SRR2916031
+  - SRR2916032
+  - SRR2916033
+  - SRR2916034
+  - SRR2916035
+  - SRR2916036
+  - SRR2916037
+  - SRR2916038
+  - SRR2916039
+  - SRR2916040
+  - SRR2916041
+  - SRR2916042
+  - SRR2916043
+  - SRR2916044
+  - SRR2916045
+  - SRR2916046
+  - SRR2916047
+  - SRR2916048
+  - SRR2916049
+
+adapter: AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC
+q: 20
+minlen: 30
+
+reference:
+  fasta: "/data/users/zhouz6436/BIOL343/2_genome_exploration/genome_for_homework/genome_for_homework.fa"
+  gtf: "/data/users/zhouz6436/BIOL343/2_genome_exploration/genome_for_homework/annotations_for_homework.gtf"
+  star_index_dir: "/data/users/zhouz6436/BIOL343/2_genome_exploration/genome_for_homework/star_for_homework"
+  hisat2_index_prefix: "ref/hisat2/genome"
+

@@ -1,0 +1,141 @@
+configfile: "config.yaml"
+
+SAMPLES = config["samples"]
+ADAPT   = config["adapter"]
+Q       = config["q"]
+MLEN    = config["minlen"]
+
+
+rule all:
+    input:
+        "report/multiqc_report.html",
+        expand("{s}_pass2/Aligned.sortedByCoord.out.bam", s=SAMPLES)
+
+
+rule fetch_fastq:
+    output:
+        "fastq_1/{sample}.fastq.gz"
+    conda: "envs/main.yaml"
+    shell:
+        "parallel-fastq-dump --sra-id {wildcards.sample} --threads 8 --outdir fastq_1 --gzip"
+
+rule fastq_qc:
+    input:
+        "fastq_1/{sample}.fastq.gz"
+    output:
+        html="fastqc_raw/{sample}_fastqc.html",
+        zip ="fastqc_raw/{sample}_fastqc.zip"
+    conda: "envs/main.yaml"
+    shell:
+        "fastqc {input} -o fastqc_raw -t 4"
+
+rule trim_filter:
+    input:
+        "fastq_1/{sample}.fastq.gz"
+    output:
+        "trimmed/{sample}.trim.fastq.gz"
+    conda: "envs/main.yaml"
+    shell:
+        "cutadapt -a {ADAPT} -q {Q} -m {MLEN} "
+        "-o {output} {input} > logs/cutadapt_{wildcards.sample}.txt"
+
+rule trim_qc:
+    input:
+        "trimmed/{sample}.trim.fastq.gz"
+    output:
+        html="fastqc_trim/{sample}_fastqc.html",
+        zip ="fastqc_trim/{sample}_fastqc.zip"
+    conda: "envs/main.yaml"
+    shell:
+        "fastqc_trim && fastqc {input} -o fastqc_trim -t 4"
+
+
+# Starts here for alignment 
+
+    
+rule star_sa:
+    input:
+        fasta = "/data/users/zhouz6436/BIOL343/2_genome_exploration/genome_for_homework/genome_for_homework.fa",
+        gtf = "/data/users/zhouz6436/BIOL343/2_genome_exploration/genome_for_homework/annotations_for_homework.gtf"
+    output:
+        directory("ref/star_index")
+    threads: 8
+    conda: "envs/main.yaml"
+    params:
+        sjdbOverhang = 50,
+        sa_nbases = 13
+    shell:
+        """
+        STAR --runThreadN {threads} \
+             --runMode genomeGenerate \
+             --genomeDir {output} \
+             --genomeFastaFiles {input.fasta} \
+             --sjdbGTFfile {input.gtf} \
+             --sjdbOverhang {params.sjdbOverhang} \
+             --genomeSAindexNbases {params.sa_nbases}
+        """
+
+
+rule pass1:
+    input:
+        fq = 'fastq_1/{sample}.fastq.gz', 
+        refdir = directory("ref/star_index")
+    params:
+        outdir = '{sample}_pass1',
+        rmbam  = '{sample}_pass1/Aligned.out.bam'
+    output:
+        '{sample}_pass1/SJ.out.tab'
+    conda: "envs/main.yaml"
+    threads: 20
+    shell:
+        r"""
+        rm -rf -- {params.outdir} && mkdir -p {params.outdir}
+        cd {params.outdir}
+
+        STAR --runThreadN {threads} \
+             --genomeDir {input.refdir} \
+             --readFilesIn {input.fq} \
+             --readFilesCommand zcat \
+             --outSAMtype BAM Unsorted \
+             --outSAMunmapped Within
+
+        rm -f {params.rmbam}
+        """
+
+rule pass2:
+    input:
+        fq = 'fastq_1/{sample}.fastq.gz',
+        SJfiles = '{sample}_pass1/SJ.out.tab',
+        refdir = directory('ref/star_index')
+    params:
+        outdir = '{sample}_pass2',
+        id = '{sample}'
+    output:
+        '{sample}_pass2/Aligned.sortedByCoord.out.bam'
+    threads: 20
+    conda: "envs/main.yaml"
+    shell:
+        r"""
+        rm -rf -- {params.outdir} && mkdir -p {params.outdir}
+        cd {params.outdir}
+
+        STAR --runThreadN {threads} \
+             --genomeDir {input.refdir} \
+             --readFilesIn {input.fq} \
+             --readFilesCommand zcat \
+             --sjdbFileChrStartEnd {input.SJfiles} \
+             --outSAMtype BAM SortedByCoordinate \
+             --outSAMattrRGline ID:{params.id} \
+             --quantMode GeneCounts
+        """
+
+
+rule report:
+    input:
+        expand("fastqc_raw/{s}_fastqc.html",  s=SAMPLES),
+        expand("fastqc_trim/{s}_fastqc.html", s=SAMPLES)
+    output:
+        "report/multiqc_report.html"
+    conda: "envs/main.yaml"
+    shell:
+        "multiqc . -o report"
