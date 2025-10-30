@@ -1,0 +1,9 @@
+Using profile /data/users/heky1803/BIOL343/snakemake-profile/ for setting default command line arguments.
+Building DAG of jobs...
+InputFunctionException in rule hisat_align in file /data/users/heky1803/BIOL343/6_alignment/Snakefile, line 143:
+Error:
+  KeyError: 'GROUPS'
+Wildcards:
+  sample=ERR1442631
+Traceback:
+  File "/data/users/heky1803/BIOL343/6_alignment/Snakefile", line 151, in <lambda> (rule hisat_align, line 308, /data/users/heky1803/BIOL343/6_alignment/Snakefile)
