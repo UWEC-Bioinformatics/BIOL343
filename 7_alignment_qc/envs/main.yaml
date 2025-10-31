@@ -1,0 +1,12 @@
+name: bioinfomatics 
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.9
+  - sra-tools
+  - parallel-fastq-dump
+  - fastqc
+  - cutadapt
+  - multiqc
