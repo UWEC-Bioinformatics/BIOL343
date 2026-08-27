@@ -55,9 +55,9 @@ M 9:00-9:50 a.m.
 Tu/Th 3:30-4:45 p.m.
 
 *Student drop-in hours*:  
-M 4:00-5:00 a.m.  
-W 9:00-11:00 a.m.  
-By appointment
+M 10:00 a.m.-12:00 p.m.  
+W 9:00-10:00 a.m.  
+[By appointment](https://calendly.com/wheelenj-uwec/30min)
 
 *Contact*:  
 Phillips 345  
