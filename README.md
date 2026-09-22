@@ -16,6 +16,7 @@
 All the files associated with BIOL 343 at UW-Eau Claire. First time here? Click the Slack button above to join the class workspace. **Note:** This repo is for UWEC students only.
 
 - [BIOL 343](#biol-343)
+  - [How to use this repository (UWEC students)](#how-to-use-this-repository-uwec-students)
   - [General information](#general-information)
     - [Learning objectives](#learning-objectives)
   - [How is this class structured and how should I prepare for class?](#how-is-this-class-structured-and-how-should-i-prepare-for-class)
@@ -54,9 +55,9 @@ M 9:00-9:50 a.m.
 Tu/Th 3:30-4:45 p.m.
 
 *Student drop-in hours*:  
-M 4:00-5:00 a.m.  
-W 9:00-11:00 a.m.  
-By appointment
+M 10:00 a.m.-12:00 p.m.  
+W 9:00-10:00 a.m.  
+[By appointment](https://calendly.com/wheelenj-uwec/30min)
 
 *Contact*:  
 Phillips 345  
@@ -67,9 +68,10 @@ wheelenj@uwec.edu
 
 After completing this course, you will be able to:
 
-1.	design and perform an RNA sequencing experiment,
-2.	analyze RNA sequencing data in a professional manner,
-3.	present an online, public portfolio of your version-controlled bioinformatics work.
+1.  explain the molecular biology underlying each step of an RNA-seq experiment,
+2.	design and perform an RNA sequencing experiment,
+3.	analyze RNA sequencing data in a professional manner,
+4.	present an online, public portfolio of your version-controlled bioinformatics work.
 
 ## How is this class structured and how should I prepare for class?
 
@@ -83,9 +85,9 @@ We will use an alternative grading approach known as specifications grading. Thi
 |-|-|-|-|-|-|
 | Attendance    | >=13/14 perfect weeks | 12/14 perfect weeks | 11/14 perfect weeks | 10/14 perfect weeks | Less than 10/14 perfect weeks |
 | Homework      | >=8/9 satisfactory homework submissions | 7/9 satisfactory homework submissions | 6/9 satisfactory homework submissions |  5/9 satisfactory homework submissions | Less than 5 satisfactory homework submissions |
-| Final Project | Requirements for (B), plus a snakemake'd pipeline | Requirements for (C), plus version controlled work | Generation of a count matrix using a notebook with QC evaluation and parameter justification | Partial progress toward a count matrix | Unsatisfactory progress towards a count matrix |
+| Final Assessment | Requirements for (B), plus **one** of two tracks: a working snakemake pipeline or a ≥90% on the content exam (track depends on pre-reqs) | Requirements for (C), plus version-controlled work | Complete the full differential expression pipeline in a notebook (rubric-satisfying) and pass the content exam (≥70%) | Partial progress through the pipeline | Unsatisfactory progress through the pipeline |
 
-The Final Grade will be equal to the Final Project grade. Plus/minus grades will be decided by the other two categories: if both category grades are higher than the Final Project, the Final Grade will be Final Project+; if both category grades are lower than the Final Project, the Final Grade will be Final Project-. 
+The Final Grade will be equal to the Final Assessment grade. Plus/minus grades will be decided by the other two categories: if both category grades are higher than the Final Assessment, the Final Grade will be Final Assessment+; if both category grades are lower than the Final Assessment, the Final Grade will be Final Assessment-. 
 
 Homework submitted after the due date/time will be marked Missing and will not be able to be revised. If submitted prior to the due date/time, homework marked as Needs Revision can be revised as many times as needed in order to achieve a Satisfactory mark. Rubrics and grades will be tracked on Canvas.
 
@@ -126,26 +128,26 @@ It's very likely I’ll be able to detect AI generated material. Any use of gene
 Please don’t cheat or perform other types of academic misconduct. As described in the BluGold Student Conduct Code under student academic misconduct, “Students are responsible for the honest completion and representation of their work, for the appropriate citation of sources, and for the respect of others’ academic endeavors.” These student responsibilities are important, and deviations from these responsibilities have consequences. The disciplinary procedures and penalties for academic misconduct are described on the UW-Eau Claire Dean of Students web site: https://www.uwec.edu/kb/article/blugold-student-conduct-code/.
 
 ### Dropping the Class 
-The last day to drop the class without record is September 17.  The last day to withdraw from class and receive a “W” is November 12. You can find the full academic calendar, including add and drop dates, here: https://www.uwec.edu/offices-services/blugold-central/academic-planning/academic-and-registration-calendars. 
+The last day to drop the class without record is September 16.  The last day to withdraw from class and receive a “W” is November 11. You can find the full academic calendar, including add and drop dates, here: https://www.uwec.edu/offices-services/blugold-central/academic-planning/academic-and-registration-calendars. 
 
 ## Schedule and topical outline
 *Schedule subject to change.*
 
-Week | Week Of...   | Topic(s)                                    | Slide Deck Link                                | Tool(s)                                                                     | Homework Link                                            |
------|--------------|---------------------------------------------|------------------------------------------------|-----------------------------------------------------------------------------|----------------------------------------------------------|
-0    | September 5  | Syllabus and Introduction                   | [Week 0 Slides](lectures/0_intro.pdf)          | GitHub                                                                      |                                                          |
-1    | September 9  | Intro to RNA-seq                            | [Week 1 Slides](lectures/1_rna-seq.pdf)        | VS Code & Anaconda <br> [Week 1a Slides](lectures/1a_conda.pdf)             | [Week 1 Homework](1_paper_selection/1_homework.ipynb)    |
-2    | September 16 | RNA extraction                              | [Week 2 Slides](lectures/2_rna_extraction.pdf) | Command line & Jbrowse2                                                     | [Week 2 Homework](2_genome_exploration/2_homework.ipynb) |
-3    | September 23 | Sequencing library preparation              | [Week 3 Slides](lectures/3_library_prep.pdf)   | Bash scripting & snakemake <br> [Week 3a Slides](lectures/3a_pipelines.pdf) | [Week 3 Homework](3_snakemake/3_homework.ipynb)          |
-4    | September 30 | Sequencing library preparation (continued)  |                                                | Databases                                                                   |                                                          |
-5    | October 7    | Sequencing-by-synthesis                     | [Week 5 Slides](lectures/5_sequencing.pdf)     | FastQ files and read QC  <br> [Week 5a Slides](lectures/5a_fastq.pdf)       | [Week 5 Homework](5_fastq/5_homework.ipynb)              |
-6    | October 14   | Alignment                                   | [Week 6 Slides](lectures/6_alignment.pdf)      | STAR/HISAT2                                                                 |                                                          |
-7    | October 21   | BAM files and post-alignment QC             |                                                | samtools & MultiQC                                                          |                                                          |
-8    | October 28   | Differential expression analysis            |                                                | DESeq2                                                                      |                                                          |
-9    | November 4   | Exploration and visualization of DEGs       |                                                | tidyverse & topGO                                                           |                                                          |
-10   | November 11  | Intro to final project                      |                                                |                                                                             |                                                          |
-11   | November 18  |Final project                                |                                                |                                                                             |                                                          |
-12   | November 25  |Final project                                |                                                |                                                                             |                                                          |
-13   | December 2   |Final project                                |                                                |                                                                             |                                                          |
-14   | December 9   |Final project                                |                                                |                                                                             |                                                          |
-15   | December 16  |Finals week                                  |                                                |                                                                             |                                                          |
+Week | Week Of...   | Topic(s)                                    | Slide Deck Link                                          | Tool Tuesday                                                                | Dry-Lab Thursday                                         |
+-----|--------------|---------------------------------------------|----------------------------------------------------------|-----------------------------------------------------------------------------|----------------------------------------------------------|
+0    | August 31    | Syllabus and Introduction                   | [Week 0 Slides](lectures/0_intro.pdf)                    | GitHub                                                                      |                                                          |
+1    | September 7  | Intro to RNA-seq                            | [Week 1 Slides](lectures/1_rna-seq.pdf)                  | VS Code & Anaconda <br> [Week 1a Slides](lectures/1a_conda.pdf)             | [Week 1 Tutorial](1_paper_selection/1_paper_selection.ipynb) <br> [Week 1 Homework](1_paper_selection/1_homework.ipynb) |
+2    | September 14 | RNA extraction                              | [Week 2 Slides](lectures/2_rna_extraction.pdf)           | Command line & Jbrowse2                                                     | [Week 2 Tutorial](2_genome_exploration/2_genome_exploration.ipynb) <br> [Week 2 Homework](2_genome_exploration/2_homework.ipynb) |
+3    | September 21 | Sequencing library preparation              | [Week 3 Slides](lectures/3_library_prep.pdf)             | Bash scripting & snakemake <br> [Week 3a Slides](lectures/3a_pipelines.pdf) | [Week 3 Homework](3_snakemake/3_homework.ipynb) |
+4    | September 28 | Sequencing library preparation (continued)  |                                                          |                                                                             | [week 4 Homework](4_snakemake/4_homework.ipynb) |
+5    | October 5    | Sequencing-by-synthesis                     | [Week 5 Slides](lectures/5_sequencing.pdf)               | FastQ files and read QC  <br> [Week 5a Slides](lectures/5a_fastq.pdf)       | [Week 5 Tutorial](5_fastq/5_fastq.ipynb) <br> [Week 5 Homework](5_fastq/5_homework.ipynb) |
+6    | October 12   | Alignment                                   | [Week 6 Slides](lectures/6_alignment.pdf)                | STAR/HISAT2                                                                 | [Week 6 Tutorial](6_alignment/6_alignment.ipynb) <br> [Week 6 Homework](6_alignment/6_homework.ipynb) |
+7    | October 19   | BAM files and post-alignment QC             | [Week 7 Slides](lectures/7_alignment_qc.pdf)             | samtools & MultiQC                                                          | [Week 7 Tutorial](7_alignment_qc/7_alignment_qc.ipynb) <br> [Week 7 Homework](7_alignment_qc/7_homework.ipynb) |
+8    | October 26   | Read counting                               | [Week 8 Slides](lectures/8_counting.pdf)                 | featureCounts                                                               | [Week 8 Tutorial](8_counting/8_counting.ipynb) <br> [Week 8 Homework](8_counting/8_homework.ipynb) |
+9    | November 2   | Differential expression analysis            | [Week 9 Slides](lectures/9_differential_expresssion.pdf) | DESeq2                                                                      | [Week 9 Tutorial](9_differential_expression/9_differential_expression.ipynb) |
+10   | November 9   | Exploration and visualization of DEGs       |                                                          | tidyverse                                                                   |                                                          |
+11   | November 16  | Intro to final project                      |                                                          |                                                                             |                                                          |
+12   | November 23  | Final project                               |                                                          |                                                                             |                                                          |
+13   | November 30  | Final project                               |                                                          |                                                                             |                                                          |
+14   | December 6   | Final project                               |                                                          |                                                                             |                                                          |
+15   | December 14  | Finals week                                 |                                                          |                                                                             |                                                          |
