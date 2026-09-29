@@ -200,3 +200,4 @@ pipeline/
 8_counting/*counts*
 
 whole_pipeline.ipynb
+2_genome_exploration/genome1/genome.fna.gz

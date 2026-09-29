@@ -1,3 +1,10 @@
-# copy and paste commands from previous homework into shell script
+mkdir genome1
+wget -nc -O genome1/genome.fna.gz https://www.axolotl-omics.org/dl/AmexG_v6.0-DD.fa.gz
+gzip -d -f genome1/genome.fna.gz
 
-# run bash genome_exploration.sh and it should run the same as the jupyter notebook
+wget -nc -O genome1/annotations.gtf.gz https://www.axolotl-omics.org/dl/AmexT_v47-AmexG_v6.0-DD.gtf.gz
+gzip -f -d genome1/annotations.gtf.gz
+
+grep -c '>' genome1/genome.fna > contigs_chromosomes_count.txt
+
+grep '>' genome1/genome.fna > contigs_chromosomes_names.txt
