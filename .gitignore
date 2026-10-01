@@ -200,3 +200,9 @@ pipeline/
 8_counting/*counts*
 
 whole_pipeline.ipynb
+2_genome_exploration/genome/my_annotations.gtf
+2_genome_exploration/genome/my_genome.fna
+.gitignore
+2_genome_exploration/shell_files/my_genome.fna
+2_genome_exploration/shell_files/my_annotations.gtf
+3_scripting/hi.sh
