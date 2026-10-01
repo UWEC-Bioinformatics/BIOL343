@@ -2,3 +2,6 @@ samples:
     A: data/samples/A.fastq
     B: data/samples/B.fastq
     C: data/samples/C.fastq
+
+mutation_rates:
+    default: 1.0e-3
