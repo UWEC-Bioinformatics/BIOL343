@@ -1,5 +1,9 @@
 SAMPLES = ["A", "B"]
 
+rule all:
+    input:
+        "plots/quals.svg"
+
 rule bwa_map:
     input:
         "data/genome.fa",
@@ -44,3 +48,4 @@ rule plot_quals:
         "plots/quals.svg"
     script:
         "scripts/plot-quals.py"
+        

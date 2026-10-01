@@ -200,3 +200,6 @@ pipeline/
 8_counting/*counts*
 
 whole_pipeline.ipynb
+2_genome_exploration/genome_hw/
+2_genome_exploration/genome_hw_script/
+3_scripting/hi.sh
