@@ -200,3 +200,5 @@ pipeline/
 8_counting/*counts*
 
 whole_pipeline.ipynb
+2_genome_exploration/genome/annotations.gff
+genome/genome.fa.gz
