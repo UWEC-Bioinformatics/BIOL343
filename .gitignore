@@ -206,3 +206,4 @@ whole_pipeline.ipynb
 2_genome_exploration/shell_files/my_genome.fna
 2_genome_exploration/shell_files/my_annotations.gtf
 3_scripting/hi.sh
+4_snakemake/snakemake-tutorial/calls/all.vcf
