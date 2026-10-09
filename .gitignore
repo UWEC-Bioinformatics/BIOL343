@@ -180,6 +180,10 @@ pipeline/
 2_genome_exploration/genome/genome*
 2_genome_exploration/genome/star/
 2_genome_exploration/genome/hisat/
+2_genome_exploration/my_genome/annotations.gtf
+2_genome_exploration/my_genome/genome.fna
+
+3_scripting/hi.sh
 
 3_snakemake/snakemake-tutorial/
 **/.snakemake/
@@ -191,6 +195,7 @@ pipeline/
 5_fastq/multiqc_report.html
 5_fastq/hw_fastq/
 5_fastq/logs/
+5_fastq/homework/fastq
 
 6_alignment/alignment/
 7_alignment_qc/*stats*
@@ -200,7 +205,4 @@ pipeline/
 8_counting/*counts*
 
 whole_pipeline.ipynb
-2_genome_exploration/my_genome/annotations.gtf
-2_genome_exploration/my_genome/genome.fna
 .gitignore
-3_scripting/hi.sh
