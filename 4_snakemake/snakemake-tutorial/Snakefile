@@ -23,6 +23,8 @@ rule samtools_index:
         "sorted_reads/{sample}.bam"
     output:
         "sorted_reads/{sample}.bam.bai"
+    conda:
+        "envs/samtools.yaml"
     shell:
         "samtools index {input}"
 
