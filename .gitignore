@@ -207,3 +207,17 @@ whole_pipeline.ipynb
 2_genome_exploration/shell_files/my_annotations.gtf
 3_scripting/hi.sh
 4_snakemake/snakemake-tutorial/calls/all.vcf
+5_fastq/homework/fastq/SRR5381788_1.fastq.gz
+.gitignore
+5_fastq/homework/fastq/SRR5381789_1.fastq.gz
+5_fastq/homework/fastq/SRR5381790_1.fastq.gz
+.gitignore
+5_fastq/homework/fastq/SRR5381791_1.fastq.gz
+.gitignore
+5_fastq/homework/fastq/SRR5381792_1.fastq.gz
+5_fastq/homework/fastq/SRR5381793_1.fastq.gz
+5_fastq/homework/fastq/SRR5381794_1.fastq.gz
+.gitignore
+5_fastq/homework/fastq/SRR5381795_1.fastq.gz
+5_fastq/homework/fastq/SRR5381796_1.fastq.gz
+5_fastq/homework/fastq/SRR5381797_1.fastq.gz
