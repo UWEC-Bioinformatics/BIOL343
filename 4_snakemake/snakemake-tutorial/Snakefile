@@ -16,12 +16,14 @@ rule samtools_sort:
         "-O bam {input} > {output}"
 
 rule samtools_index:
-    input:
-        "sorted_reads/{sample}.bam"
-    output:
-        "sorted_reads/{sample}.bam.bai"
-    shell:
-        "samtools index {input}"
+  input:
+      "sorted_reads/{sample}.bam"
+  output:
+      "sorted_reads/{sample}.bam.bai"
+#  conda:
+#      "envs/samtools.yaml"
+  shell:
+      "samtools index {input}"
 
 
 #Step 4 exercise would optionally add code to this rule:
