@@ -203,3 +203,14 @@ whole_pipeline.ipynb
 2_genome_exploration/genome_hw/
 2_genome_exploration/genome_hw_script/
 3_scripting/hi.sh
+4_snakemake/snakemake-tutorial/calls/all.vcf
+4_snakemake/snakemake-tutorial/mapped_reads/A.bam
+4_snakemake/snakemake-tutorial/mapped_reads/B.bam
+4_snakemake/snakemake-tutorial/mapped_reads/C.bam
+4_snakemake/snakemake-tutorial/plots/quals.svg
+4_snakemake/snakemake-tutorial/sorted_reads/A.bam
+4_snakemake/snakemake-tutorial/sorted_reads/A.bam.bai
+4_snakemake/snakemake-tutorial/sorted_reads/B.bam
+4_snakemake/snakemake-tutorial/sorted_reads/B.bam.bai
+4_snakemake/snakemake-tutorial/sorted_reads/C.bam
+4_snakemake/snakemake-tutorial/sorted_reads/C.bam.bai
