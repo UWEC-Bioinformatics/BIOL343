@@ -205,4 +205,4 @@ pipeline/
 8_counting/*counts*
 
 whole_pipeline.ipynb
-.gitignore
+stash.txt
