@@ -191,7 +191,7 @@ pipeline/
 5_fastq/multiqc_report.html
 5_fastq/hw_fastq/
 5_fastq/logs/
-5_fastq/homework/fastq/
+5_fastq/homework
 6_alignment/alignment/
 7_alignment_qc/*stats*
 7_alignment_qc/qualimap
