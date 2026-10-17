@@ -196,6 +196,7 @@ pipeline/
 5_fastq/hw_fastq/
 5_fastq/logs/
 5_fastq/homework/fastq
+5_fastq/homework/trimmed*
 
 6_alignment/alignment/
 7_alignment_qc/*stats*
