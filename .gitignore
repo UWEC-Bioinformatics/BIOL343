@@ -199,8 +199,8 @@ pipeline/
 5_fastq/homework/trimmed*
 
 6_alignment/alignment/
-7_alignment_qc/*stats*
-7_alignment_qc/qualimap
+# 7_alignment_qc/*stats*
+# 7_alignment_qc/qualimap
 8_counting/dedup
 8_counting/logs
 8_counting/*counts*
