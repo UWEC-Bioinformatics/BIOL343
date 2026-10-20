@@ -3,8 +3,8 @@ RNA-Seq QC report
 
 >>>>>>> Input
 
-    bam file = ../6_alignment/alignment/star/Aligned.sorted.bam
-    gff file = ../2_genome_exploration/genome/annotations.gtf
+    bam file = /data/classes/2026/fall/biol343_001/_course_files/Aligned.sorted.bam
+    gff file = /data/classes/2026/fall/biol343_001/_course_files/annotations.gtf
     counting algorithm = uniquely-mapped-reads
     protocol = non-strand-specific
     5'-3' bias region size = 100
