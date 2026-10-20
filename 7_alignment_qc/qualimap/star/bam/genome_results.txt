@@ -1,0 +1,167 @@
+BamQC report
+-----------------------------------
+
+>>>>>>> Input
+
+     bam file = /data/classes/2026/fall/biol343_001/_course_files/Aligned.sorted.bam
+     outfile = qualimap/star/bam/genome_results.txt
+
+
+>>>>>>> Reference
+
+     number of bases = 1,450,710,225 bp
+     number of contigs = 26
+
+
+>>>>>>> Globals
+
+     number of windows = 425
+
+     number of reads = 535,810,820
+     number of mapped reads = 464,457,033 (86.68%)
+     number of secondary alignments = 93,080,694
+
+     number of mapped paired reads (first in pair) = 232,122,764
+     number of mapped paired reads (second in pair) = 232,334,269
+     number of mapped paired reads (both in pair) = 463,935,462
+     number of mapped paired reads (singletons) = 521,571
+
+     number of mapped bases = 126,536,336,718 bp
+     number of sequenced bases = 21,559,918,134 bp
+     number of aligned bases = 0 bp
+     number of duplicated reads (estimated) = 372,402,869
+     duplication rate = 45.35%
+
+
+>>>>>>> Globals inside
+
+     regions size = 1,124,009,944 (77.48%)
+     number of mapped reads = 440,578,121 (82.23%)
+     number of mapped paired reads (first in pair) = 220,091,640
+     number of mapped paired reads (second in pair) = 220,486,481
+     number of mapped paired reads (both in pair) = 440,115,717
+     number of mapped paired reads (singletons) = 462,404
+
+
+>>>>>>> Insert size
+
+     mean insert size = 1,529.9751
+     std insert size = 11,479.2858
+     median insert size = 232
+
+
+>>>>>>> Mapping quality
+
+     mean mapping quality = 234.8384
+
+
+>>>>>>> ACTG content
+
+     number of A's = 5,999,751,175 bp (27.83%)
+     number of C's = 4,776,330,801 bp (22.15%)
+     number of T's = 5,971,170,323 bp (27.7%)
+     number of G's = 4,812,339,066 bp (22.32%)
+     number of N's = 326,769 bp (0%)
+
+     GC percentage = 44.47%
+
+
+>>>>>>> Mismatches and indels
+
+    general error rate = 0
+    number of mismatches = 0
+    number of insertions = 1,997,817
+    mapped reads with insertion percentage = 0.43%
+    number of deletions = 2,378,266
+    mapped reads with deletion percentage = 0.51%
+    homopolymer indels = 45.8%
+
+
+>>>>>>> Coverage
+
+     mean coverageData = 112.5758X
+     std coverageData = 1,829.4264X
+
+     There is a 42.09% of reference with a coverageData >= 1X
+     There is a 29.13% of reference with a coverageData >= 2X
+     There is a 23.11% of reference with a coverageData >= 3X
+     There is a 19.58% of reference with a coverageData >= 4X
+     There is a 17.19% of reference with a coverageData >= 5X
+     There is a 15.44% of reference with a coverageData >= 6X
+     There is a 14.08% of reference with a coverageData >= 7X
+     There is a 12.99% of reference with a coverageData >= 8X
+     There is a 12.08% of reference with a coverageData >= 9X
+     There is a 11.31% of reference with a coverageData >= 10X
+     There is a 10.65% of reference with a coverageData >= 11X
+     There is a 10.07% of reference with a coverageData >= 12X
+     There is a 9.56% of reference with a coverageData >= 13X
+     There is a 9.1% of reference with a coverageData >= 14X
+     There is a 8.69% of reference with a coverageData >= 15X
+     There is a 8.32% of reference with a coverageData >= 16X
+     There is a 7.98% of reference with a coverageData >= 17X
+     There is a 7.67% of reference with a coverageData >= 18X
+     There is a 7.39% of reference with a coverageData >= 19X
+     There is a 7.13% of reference with a coverageData >= 20X
+     There is a 6.88% of reference with a coverageData >= 21X
+     There is a 6.66% of reference with a coverageData >= 22X
+     There is a 6.44% of reference with a coverageData >= 23X
+     There is a 6.25% of reference with a coverageData >= 24X
+     There is a 6.06% of reference with a coverageData >= 25X
+     There is a 5.89% of reference with a coverageData >= 26X
+     There is a 5.73% of reference with a coverageData >= 27X
+     There is a 5.57% of reference with a coverageData >= 28X
+     There is a 5.43% of reference with a coverageData >= 29X
+     There is a 5.29% of reference with a coverageData >= 30X
+     There is a 5.16% of reference with a coverageData >= 31X
+     There is a 5.03% of reference with a coverageData >= 32X
+     There is a 4.91% of reference with a coverageData >= 33X
+     There is a 4.8% of reference with a coverageData >= 34X
+     There is a 4.69% of reference with a coverageData >= 35X
+     There is a 4.59% of reference with a coverageData >= 36X
+     There is a 4.49% of reference with a coverageData >= 37X
+     There is a 4.4% of reference with a coverageData >= 38X
+     There is a 4.31% of reference with a coverageData >= 39X
+     There is a 4.22% of reference with a coverageData >= 40X
+     There is a 4.14% of reference with a coverageData >= 41X
+     There is a 4.06% of reference with a coverageData >= 42X
+     There is a 3.98% of reference with a coverageData >= 43X
+     There is a 3.91% of reference with a coverageData >= 44X
+     There is a 3.84% of reference with a coverageData >= 45X
+     There is a 3.77% of reference with a coverageData >= 46X
+     There is a 3.71% of reference with a coverageData >= 47X
+     There is a 3.64% of reference with a coverageData >= 48X
+     There is a 3.58% of reference with a coverageData >= 49X
+     There is a 3.53% of reference with a coverageData >= 50X
+     There is a 3.47% of reference with a coverageData >= 51X
+
+
+>>>>>>> Coverage per contig
+
+	NC_141021.1	47053337	4781274050	101.61392060248565	470.47741316326363
+	NC_141022.1	50330605	5403918308	107.36843532876269	379.06623740784676
+	NC_141023.1	51100130	15219323458	297.8333608544636	7953.649742614234
+	NC_141024.1	62463716	4230701135	67.73053871786942	176.25337270799616
+	NC_141025.1	60964385	7590731555	124.51091821889125	558.5221814885009
+	NC_141026.1	51779625	6103905761	117.88238638267465	489.11647114079074
+	NC_141027.1	61804200	6993880914	113.16190346287145	541.5670181154746
+	NC_141028.1	47243374	4889059805	103.48667741215942	384.8055037688787
+	NC_141029.1	46197762	3306261352	71.56756537253904	294.51479955268155
+	NC_141030.1	38495732	4067983207	105.67361615568188	351.5439118450587
+	NC_141031.1	39665076	3405543094	85.85747053654958	322.9749624917395
+	NC_141032.1	41250067	3941432373	95.54972051318123	354.2201923122063
+	NC_141033.1	45022023	3896112575	86.53792778258764	221.06646402181602
+	NC_141034.1	44245082	4104380257	92.76466607068329	375.33045371300034
+	NC_141035.1	40501019	3637929442	89.82315832596706	444.30826401947036
+	NC_141036.1	46225052	5351280386	115.76580565014832	379.2714796199118
+	NC_141037.1	44469779	3125205169	70.27705644770576	431.22614868188975
+	NC_141038.1	41750378	6119405041	146.57124879204687	1451.6386456775115
+	NC_141039.1	39056366	6879486530	176.14251489757137	836.7342562025235
+	NC_141040.1	45949448	4266665980	92.85565258585913	294.1952984568912
+	NC_141041.1	39227714	4774074072	121.70156211498839	363.97218494485986
+	NC_141042.1	31254839	3536170647	113.13994121038345	415.77800684874234
+	NC_141043.1	39698790	4530644644	114.12550971956576	483.5696007639106
+	NC_141044.1	35537130	2333692599	65.66913532409623	229.2311549895781
+	NC_141045.1	32708739	2710208788	82.85885885114678	227.3922324970393
+	NC_002333.2	15576	1337065576	85841.39548022598	97467.47471027027
+
+
