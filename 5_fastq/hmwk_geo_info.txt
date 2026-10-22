@@ -1,0 +1,201 @@
+GSM8753729	Germinating Oidia, 0h, replica 1
+GSM8753730	Germinating Oidia, 0h, replica 2
+GSM8753731	Germinating Oidia, 0h, replica 3
+GSM8753732	Germinating Oidia, 18h, replica 1
+GSM8753733	Germinating Oidia, 18h, replica 2
+GSM8753734	Germinating Oidia, 18h, replica 3
+GSM8753735	Germinating basidiospores, 0h, replica 1
+GSM8753736	Germinating basidiospores, 0h, replica 2
+GSM8753737	Germinating basidiospores, 0h, replica 3
+GSM8753738	Germinating basidiospores, 4h, replica 1
+GSM8753739	Germinating basidiospores, 4h, replica 2
+GSM8753740	Germinating basidiospores, 4h, replica 3
+GSM8753741	Germinating basidiospores, 8h, replica 1
+GSM8753742	Germinating basidiospores, 8h, replica 2
+GSM8753743	Germinating basidiospores, 8h, replica 3
+GSM8753744	Germinating basidiospores, 12h, replica 1
+GSM8753745	Germinating basidiospores, 12h, replica 2
+GSM8753746	Germinating basidiospores, 12h, replica 3
+GSM8753747	Mycelium grown in the dark, sampled from the earliest timepoint, 12h, replica 1
+GSM8753748	Mycelium grown in the dark, sampled from the earliest timepoint, 12h, replica 2
+GSM8753749	Mycelium grown in the dark, sampled from the earliest timepoint, 12h, replica 3
+GSM8753750	Mycelium grown in the dark, sampled from the earliest timepoint, 36h, replica 1
+GSM8753751	Mycelium grown in the dark, sampled from the earliest timepoint, 36h, replica 2
+GSM8753752	Mycelium grown in the dark, sampled from the earliest timepoint, 36h, replica 3
+GSM8753753	Mycelium grown in the dark, sampled from the earliest timepoint, 60h, replica 1
+GSM8753754	Mycelium grown in the dark, sampled from the earliest timepoint, 60h, replica 2
+GSM8753755	Mycelium grown in the dark, sampled from the earliest timepoint, 60h, replica 3
+GSM8753756	Mycelium grown in the dark, sampled from the earliest timepoint, 84h, replica 1
+GSM8753757	Mycelium grown in the dark, sampled from the earliest timepoint, 84h, replica 2
+GSM8753758	Mycelium grown in the dark, sampled from the earliest timepoint, 84h, replica 3
+GSM8753759	Mycelium grown in the dark, sampled from the earliest timepoint, 108h, replica 1
+GSM8753760	Mycelium grown in the dark, sampled from the earliest timepoint, 108h, replica 2
+GSM8753761	Mycelium grown in the dark, sampled from the earliest timepoint, 108h, replica 3
+GSM8753762	Mycelium grown in the dark, sampled from the earliest timepoint, 132h, replica 1
+GSM8753763	Mycelium grown in the dark, sampled from the earliest timepoint, 132h, replica 2
+GSM8753764	Mycelium grown in the dark, sampled from the earliest timepoint, 132h, replica 3
+GSM8753765	Mycelium grown in the dark - This timepoint shows the state just before the light induction (LI), 156h, AE, replica 1
+GSM8753766	Mycelium grown in the dark - This timepoint shows the state just before the light induction (LI), 156h, AE, replica 2
+GSM8753767	Mycelium grown in the dark - This timepoint shows the state just before the light induction (LI), 156h, AE, replica 3
+GSM8753768	Mycelium grown in the dark - This timepoint shows the state just before the light induction (LI), 156h, AM, replica 1
+GSM8753769	Mycelium grown in the dark - This timepoint shows the state just before the light induction (LI), 156h, AM, replica 2
+GSM8753770	Mycelium grown in the dark - This timepoint shows the state just before the light induction (LI), 156h, AM, replica 3
+GSM8753771	Sampled during light induction, 1h (half way) 2h (end of LI), AE-aerial mycelium, 1h; replica 1
+GSM8753772	Sampled during light induction, 1h (half way) 2h (end of LI), AE-aerial mycelium, 1h; replica 2
+GSM8753773	Sampled during light induction, 1h (half way) 2h (end of LI), AE-aerial mycelium, 1h; replica 3
+GSM8753774	Sampled during light induction, 1h (half way) 2h (end of LI), AM - attached mycelium, 1h; replica 1
+GSM8753775	Sampled during light induction, 1h (half way) 2h (end of LI), AM - attached mycelium, 1h; replica 2
+GSM8753776	Sampled during light induction, 1h (half way) 2h (end of LI), AM - attached mycelium, 1h; replica 3
+GSM8753777	Sampled during light induction, 1h (half way) 2h (end of LI), AE-aerial mycelium, 2h; replica 1
+GSM8753778	Sampled during light induction, 1h (half way) 2h (end of LI), AE-aerial mycelium, 2h; replica 2
+GSM8753779	Sampled during light induction, 1h (half way) 2h (end of LI), AE-aerial mycelium, 2h; replica 3
+GSM8753780	Sampled during light induction, 1h (half way) 2h (end of LI), AM - attached mycelium, 2h; replica 1
+GSM8753781	Sampled during light induction, 1h (half way) 2h (end of LI), AM - attached mycelium, 2h; replica 2
+GSM8753782	Sampled during light induction, 1h (half way) 2h (end of LI), AM - attached mycelium, 2h; replica 3
+GSM8753783	Sampled after light induction in the dark phase, AE-aerial mycelium, 2h; replica 1
+GSM8753784	Sampled after light induction in the dark phase, AE-aerial mycelium, 2h; replica 2
+GSM8753785	Sampled after light induction in the dark phase, AE-aerial mycelium, 2h; replica 3
+GSM8753786	Sampled after light induction in the dark phase, AM – attached mycelium, 2h; replica 1
+GSM8753787	Sampled after light induction in the dark phase, AM – attached mycelium, 2h; replica 2
+GSM8753788	Sampled after light induction in the dark phase, AM – attached mycelium, 2h; replica 3
+GSM8753789	Sampled after light induction in the dark phase, AE-aerial mycelium, 6h; replica 1
+GSM8753790	Sampled after light induction in the dark phase, AE-aerial mycelium, 6h; replica 2
+GSM8753791	Sampled after light induction in the dark phase, AE-aerial mycelium, 6h; replica 3
+GSM8753792	Sampled after light induction in the dark phase, AM – attached mycelium, 6h; replica 1
+GSM8753793	Sampled after light induction in the dark phase, AM – attached mycelium, 6h; replica 2
+GSM8753794	Sampled after light induction in the dark phase, AM – attached mycelium, 6h; replica 3
+GSM8753795	Sampled after light induction in the dark phase, AE-aerial mycelium, 12h; replica 1
+GSM8753796	Sampled after light induction in the dark phase, AE-aerial mycelium, 12h; replica 2
+GSM8753797	Sampled after light induction in the dark phase, AE-aerial mycelium, 12h; replica 3
+GSM8753798	Sampled after light induction in the dark phase, AM – attached mycelium, 12h; replica 1
+GSM8753799	Sampled after light induction in the dark phase, AM – attached mycelium, 12h; replica 2
+GSM8753800	Sampled after light induction in the dark phase, AM – attached mycelium, 12h; replica 3
+GSM8753801	Sampled after light induction in the dark phase, AE-aerial mycelium, 18h; replica 1
+GSM8753802	Sampled after light induction in the dark phase, AE-aerial mycelium, 18h; replica 2
+GSM8753803	Sampled after light induction in the dark phase, AE-aerial mycelium, 18h; replica 3
+GSM8753804	Sampled after light induction in the dark phase, AM – attached mycelium, 18h; replica 1
+GSM8753805	Sampled after light induction in the dark phase, AM – attached mycelium, 18h; replica 2
+GSM8753806	Sampled after light induction in the dark phase, AM – attached mycelium, 18h; replica 3
+GSM8753807	DM 156h samples after 2h of light induction and 1h/6h/12h/24h of darkness, AE-aerial mycelium, 24h, replica 1
+GSM8753808	DM 156h samples after 2h of light induction and 1h/6h/12h/24h of darkness, AE-aerial mycelium, 24h, replica 2
+GSM8753809	DM 156h samples after 2h of light induction and 1h/6h/12h/24h of darkness, AE-aerial mycelium, 24h, replica 3
+GSM8753810	DM 156h samples after 2h of light induction and 1h/6h/12h/24h of darkness, AM - attached mycelium, 24h, replica 1
+GSM8753811	DM 156h samples after 2h of light induction and 1h/6h/12h/24h of darkness, AM - attached mycelium, 24h, replica 2
+GSM8753812	DM 156h samples after 2h of light induction and 1h/6h/12h/24h of darkness, AM - attached mycelium, 24h, replica 3
+GSM8753813	DM 156h samples after 2h of light induction and 1h/6h/12h/24h of darkness, HK - hyphal knot, 24h, replica 1
+GSM8753814	DM 156h samples after 2h of light induction and 1h/6h/12h/24h of darkness, HK - hyphal knot, 24h, replica 2
+GSM8753815	DM 156h samples after 2h of light induction and 1h/6h/12h/24h of darkness, HK - hyphal knot, 24h, replica 3
+GSM8753816	LI samples after the dark growing put into 12-12h light/dark cycle, 6h, replica 1
+GSM8753817	LI samples after the dark growing put into 12-12h light/dark cycle, 6h, replica 2
+GSM8753818	LI samples after the dark growing put into 12-12h light/dark cycle, 6h, replica 3
+GSM8753819	LI samples after the dark growing put into 12-12h light/dark cycle, 12h, replica 1
+GSM8753820	LI samples after the dark growing put into 12-12h light/dark cycle, 12h, replica 2
+GSM8753821	LI samples after the dark growing put into 12-12h light/dark cycle, 12h, replica 3
+GSM8753822	LI samples after the dark growing put into 12-12h light/dark cycle, 18h, replica 1
+GSM8753823	LI samples after the dark growing put into 12-12h light/dark cycle, 18h, replica 2
+GSM8753824	LI samples after the dark growing put into 12-12h light/dark cycle, 18h, replica 3
+GSM8753825	LI samples after the dark growing put into 12-12h light/dark cycle, 24h, replica 1
+GSM8753826	LI samples after the dark growing put into 12-12h light/dark cycle, 24h, replica 2
+GSM8753827	LI samples after the dark growing put into 12-12h light/dark cycle, 24h, replica 3
+GSM8753828	30 minutes on -20°C - 6 days old mycelium; control is DM_132h; replica 1
+GSM8753829	30 minutes on -20°C - 6 days old mycelium; control is DM_132h; replica 2
+GSM8753830	30 minutes on -20°C - 6 days old mycelium; control is DM_132h; replica 3
+GSM8753831	2 mM Cobalt Chloride on 7 days old culture, 2h light induction then 22h in darkness; control is CoK; replica 1
+GSM8753832	2 mM Cobalt Chloride on 7 days old culture, 2h light induction then 22h in darkness; control is CoK; replica 2
+GSM8753833	2 mM Cobalt Chloride on 7 days old culture, 2h light induction then 22h in darkness; control is CoK; replica 3
+GSM8753834	Control for Cocl, replica 1
+GSM8753835	Control for Cocl, replica 2
+GSM8753836	Control for Cocl, replica 3
+GSM8753837	Heat shock at 47 °C for 2 hours - 6 days old culture; control is DM_132h; replica 1
+GSM8753838	Heat shock at 47 °C for 2 hours - 6 days old culture; control is DM_132h; replica 2
+GSM8753839	Heat shock at 47 °C for 2 hours - 6 days old culture; control is DM_132h; replica 3
+GSM8753840	Carbon dioxide treatment - plates sealed after inoculation 28°C 6 days in the dark; control is DM_132h; replica 1
+GSM8753841	Carbon dioxide treatment - plates sealed after inoculation 28°C 6 days in the dark; control is DM_132h; replica 2
+GSM8753842	Carbon dioxide treatment - plates sealed after inoculation 28°C 6 days in the dark; control is DM_132h; replica 3
+GSM8753843	Drought stress. control is DM_84h; replica 1
+GSM8753844	Drought stress. control is DM_84h; replica 2
+GSM8753845	Drought stress. control is DM_84h; replica 3
+GSM8753846	Control for the liquids, replica 1
+GSM8753847	Control for the liquids, replica 2
+GSM8753848	Control for the liquids, replica 3
+GSM8753849	oxidative stress reaction, 3h in 1mM H2O2; control is LoKoLiquide; replica 1
+GSM8753850	oxidative stress reaction, 3h in 1mM H2O2; control is LoKoLiquide; replica 2
+GSM8753851	oxidative stress reaction, 3h in 1mM H2O2; control is LoKoLiquide; replica 3
+GSM8753852	acidic stress 3h; control is LoKoLiquide; replica 1
+GSM8753853	acidic stress 3h; control is LoKoLiquide; replica 2
+GSM8753854	acidic stress 3h; control is LoKoLiquide; replica 3
+GSM8753855	alkaline stress 3h; control is LoKoLiquide; replica 1
+GSM8753856	alkaline stress 3h; control is LoKoLiquide; replica 2
+GSM8753857	alkaline stress 3h; control is LoKoLiquide; replica 3
+GSM8753858	osmotic stress, 2h in 10% sorbitol; control is LoKoLiquide; replica 1
+GSM8753859	osmotic stress, 2h in 10% sorbitol; control is LoKoLiquide; replica 2
+GSM8753860	osmotic stress, 2h in 10% sorbitol; control is LoKoLiquide; replica 3
+GSM8753861	cell wall stress, 3h in 1% congo red dye; control is LoKoLiquide; replica 1
+GSM8753862	cell wall stress, 3h in 1% congo red dye; control is LoKoLiquide; replica 2
+GSM8753863	cell wall stress, 3h in 1% congo red dye; control is LoKoLiquide; replica 3
+GSM8753864	Incubated in hypoxia bags for 24h; control is HypK; replica 1
+GSM8753865	Incubated in hypoxia bags for 24h; control is HypK; replica 2
+GSM8753866	Incubated in hypoxia bags for 24h; control is HypK; replica 3
+GSM8753867	Control for Hyp; replica 1
+GSM8753868	Control for Hyp; replica 2
+GSM8753869	Control for Hyp; replica 3
+GSM8753870	cold stress, 4°C for 4h; control is DM_84h; replica 1
+GSM8753871	cold stress, 4°C for 4h; control is DM_84h; replica 2
+GSM8753872	cold stress, 4°C for 4h; control is DM_84h; replica 3
+GSM8753873	Sclerotium - slight mycelium contamination is possible, it was growing for 4 weeks; control is DM_132h; replica 1
+GSM8753874	Sclerotium - slight mycelium contamination is possible, it was growing for 4 weeks; control is DM_132h; replica 2
+GSM8753875	Sclerotium - slight mycelium contamination is possible, it was growing for 4 weeks; control is DM_132h; replica 3
+GSM8753876	Mycelium was cut with a knife, incubated for 3h; control is DM_84h; replica 1
+GSM8753877	Mycelium was cut with a knife, incubated for 3h; control is DM_84h; replica 2
+GSM8753878	Mycelium was cut with a knife, incubated for 3h; control is DM_84h; replica 3
+GSM8753879	starvation response, colonies put from YMG to water agar; 2h; control is DM60h, replica 1
+GSM8753880	starvation response, colonies put from YMG to water agar; 2h; control is DM60h, replica 2
+GSM8753881	starvation response, colonies put from YMG to water agar; 2h; control is DM60h, replica 3
+GSM8753882	starvation response, colonies put from YMG to water agar; 4h; control is DM60h, replica 1
+GSM8753883	starvation response, colonies put from YMG to water agar; 4h; control is DM60h, replica 2
+GSM8753884	starvation response, colonies put from YMG to water agar; 4h; control is DM60h, replica 3
+GSM8753885	starvation response, colonies put from YMG to water agar; 8h; control is DM60h, replica 1
+GSM8753886	starvation response, colonies put from YMG to water agar; 8h; control is DM60h, replica 2
+GSM8753887	starvation response, colonies put from YMG to water agar; 8h; control is DM60h, replica 3
+GSM8753888	starvation response, colonies put from YMG to water agar; 16h; control is DM60h, replica 1
+GSM8753889	starvation response, colonies put from YMG to water agar; 16h; control is DM60h, replica 2
+GSM8753890	starvation response, colonies put from YMG to water agar; 16h; control is DM60h, replica 3
+GSM8753891	starvation response, colonies put from YMG to water agar; 24h; control is DM60h, replica 1
+GSM8753892	starvation response, colonies put from YMG to water agar; 24h; control is DM60h, replica 2
+GSM8753893	starvation response, colonies put from YMG to water agar; 24h; control is DM60h, replica 3
+GSM8753894	Control for Calci, Cu and Vor; replica 1
+GSM8753895	Control for Calci, Cu and Vor; replica 2
+GSM8753896	Control for Calci, Cu and Vor; replica 3
+GSM8753897	Calcium stress 200mM Ca2+ for 24h; control is LoKo; replica 1
+GSM8753898	Calcium stress 200mM Ca2+ for 24h; control is LoKo; replica 2
+GSM8753899	Calcium stress 200mM Ca2+ for 24h; control is LoKo; replica 3
+GSM8753900	Copper stress 2mM CuSO4 for 6h; control is LoKo; replica 1
+GSM8753901	Copper stress 2mM CuSO4 for 6h; control is LoKo; replica 2
+GSM8753902	Copper stress 2mM CuSO4 for 6h; control is LoKo; replica 3
+GSM8753903	Voriconazole - antifungal, 0,5ug/ml for 48h; control is LoKo; replica 1
+GSM8753904	Voriconazole - antifungal, 0,5ug/ml for 48h; control is LoKo; replica 2
+GSM8753905	Voriconazole - antifungal, 0,5ug/ml for 48h; control is LoKo; replica 3
+GSM8753906	Trichoderma and Copci grown over each other for 60hrs; control is DM_108h; replica 1
+GSM8753907	Trichoderma and Copci grown over each other for 60hrs; control is DM_108h; replica 2
+GSM8753908	Trichoderma and Copci grown over each other for 60hrs; control is DM_108h; replica 3
+GSM8753909	Trichoderma grown with Copci, just meeting; control is DM_60h; replica 1
+GSM8753910	Trichoderma grown with Copci, just meeting; control is DM_60h; replica 2
+GSM8753911	Trichoderma grown with Copci, just meeting; control is DM_60h; replica 3
+GSM8753912	1% water agar (WAT) hyphal knot - 30h; replica 1
+GSM8753913	1% water agar (WAT) hyphal knot - 30h; replica 2
+GSM8753914	1% water agar (WAT) hyphal knot - 30h; replica 3
+GSM8753915	1% water agar (WAT) hyphal knot - 22.5h; replica 1
+GSM8753916	1% water agar (WAT) hyphal knot - 22.5h; replica 2
+GSM8753917	1% water agar (WAT) hyphal knot - 22.5h; replica 3
+GSM8753918	1% water agar (WAT) hyphal knot - 15h; replica 1
+GSM8753919	1% water agar (WAT) hyphal knot - 15h; replica 2
+GSM8753920	1% water agar (WAT) hyphal knot - 15h; replica 3
+GSM8753921	1% water agar (WAT) hyphal knot - 7.5h; replica 1
+GSM8753922	1% water agar (WAT) hyphal knot - 7.5h; replica 2
+GSM8753923	1% water agar (WAT) hyphal knot - 7.5h; replica 3
+GSM8753924	1% water agar (WAT) hyphal knot ; replica 1
+GSM8753925	1% water agar (WAT) hyphal knot ; replica 2
+GSM8753926	1% water agar (WAT) hyphal knot ; replica 3
+GSM8753927	1% water agar (WAT) hyphal knot + 7.5h; replica 1
+GSM8753928	1% water agar (WAT) hyphal knot + 7.5h; replica 2
+GSM8753929	1% water agar (WAT) hyphal knot + 7.5h; replica 3
