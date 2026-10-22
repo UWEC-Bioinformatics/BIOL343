@@ -262,3 +262,6 @@ genome/genome.fa.gz
 6_alignment/6_alignment.ipynb
 6_alignment/manifest.tsv
 6_alignment/manifest.tsv
+5_fastq_homework/trimmed
+5_fastq_homework/multiqc_data
+5_fastq_homework/fastq
