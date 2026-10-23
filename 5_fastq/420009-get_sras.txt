@@ -1,0 +1,1962 @@
+Getting SRR32099541 from NCBI SRA
+2026-10-23 09:59:01,040 - SRR ids: ['SRR32099541']
+2026-10-23 09:59:01,040 - extra args: ['--split-files', '--gzip']
+2026-10-23 09:59:01,040 - tempdir: /local/scratch/job_420009/pfd_k32yoeks
+2026-10-23 09:59:01,040 - CMD: sra-stat --meta --quick SRR32099541
+2026-10-23 09:59:03,611 - SRR32099541 spots: 12942650
+2026-10-23 09:59:03,611 - blocks: [[1, 404457], [404458, 808914], [808915, 1213371], [1213372, 1617828], [1617829, 2022285], [2022286, 2426742], [2426743, 2831199], [2831200, 3235656], [3235657, 3640113], [3640114, 4044570], [4044571, 4449027], [4449028, 4853484], [4853485, 5257941], [5257942, 5662398], [5662399, 6066855], [6066856, 6471312], [6471313, 6875769], [6875770, 7280226], [7280227, 7684683], [7684684, 8089140], [8089141, 8493597], [8493598, 8898054], [8898055, 9302511], [9302512, 9706968], [9706969, 10111425], [10111426, 10515882], [10515883, 10920339], [10920340, 11324796], [11324797, 11729253], [11729254, 12133710], [12133711, 12538167], [12538168, 12942650]]
+2026-10-23 09:59:03,611 - CMD: fastq-dump -N 1 -X 404457 -O /local/scratch/job_420009/pfd_k32yoeks/0 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,622 - CMD: fastq-dump -N 404458 -X 808914 -O /local/scratch/job_420009/pfd_k32yoeks/1 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,622 - CMD: fastq-dump -N 808915 -X 1213371 -O /local/scratch/job_420009/pfd_k32yoeks/2 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,623 - CMD: fastq-dump -N 1213372 -X 1617828 -O /local/scratch/job_420009/pfd_k32yoeks/3 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,623 - CMD: fastq-dump -N 1617829 -X 2022285 -O /local/scratch/job_420009/pfd_k32yoeks/4 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,623 - CMD: fastq-dump -N 2022286 -X 2426742 -O /local/scratch/job_420009/pfd_k32yoeks/5 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,624 - CMD: fastq-dump -N 2426743 -X 2831199 -O /local/scratch/job_420009/pfd_k32yoeks/6 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,624 - CMD: fastq-dump -N 2831200 -X 3235656 -O /local/scratch/job_420009/pfd_k32yoeks/7 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,624 - CMD: fastq-dump -N 3235657 -X 3640113 -O /local/scratch/job_420009/pfd_k32yoeks/8 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,625 - CMD: fastq-dump -N 3640114 -X 4044570 -O /local/scratch/job_420009/pfd_k32yoeks/9 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,625 - CMD: fastq-dump -N 4044571 -X 4449027 -O /local/scratch/job_420009/pfd_k32yoeks/10 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,625 - CMD: fastq-dump -N 4449028 -X 4853484 -O /local/scratch/job_420009/pfd_k32yoeks/11 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,625 - CMD: fastq-dump -N 4853485 -X 5257941 -O /local/scratch/job_420009/pfd_k32yoeks/12 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,626 - CMD: fastq-dump -N 5257942 -X 5662398 -O /local/scratch/job_420009/pfd_k32yoeks/13 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,626 - CMD: fastq-dump -N 5662399 -X 6066855 -O /local/scratch/job_420009/pfd_k32yoeks/14 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,626 - CMD: fastq-dump -N 6066856 -X 6471312 -O /local/scratch/job_420009/pfd_k32yoeks/15 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,627 - CMD: fastq-dump -N 6471313 -X 6875769 -O /local/scratch/job_420009/pfd_k32yoeks/16 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,627 - CMD: fastq-dump -N 6875770 -X 7280226 -O /local/scratch/job_420009/pfd_k32yoeks/17 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,627 - CMD: fastq-dump -N 7280227 -X 7684683 -O /local/scratch/job_420009/pfd_k32yoeks/18 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,628 - CMD: fastq-dump -N 7684684 -X 8089140 -O /local/scratch/job_420009/pfd_k32yoeks/19 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,628 - CMD: fastq-dump -N 8089141 -X 8493597 -O /local/scratch/job_420009/pfd_k32yoeks/20 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,628 - CMD: fastq-dump -N 8493598 -X 8898054 -O /local/scratch/job_420009/pfd_k32yoeks/21 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,628 - CMD: fastq-dump -N 8898055 -X 9302511 -O /local/scratch/job_420009/pfd_k32yoeks/22 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,629 - CMD: fastq-dump -N 9302512 -X 9706968 -O /local/scratch/job_420009/pfd_k32yoeks/23 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,629 - CMD: fastq-dump -N 9706969 -X 10111425 -O /local/scratch/job_420009/pfd_k32yoeks/24 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,629 - CMD: fastq-dump -N 10111426 -X 10515882 -O /local/scratch/job_420009/pfd_k32yoeks/25 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,630 - CMD: fastq-dump -N 10515883 -X 10920339 -O /local/scratch/job_420009/pfd_k32yoeks/26 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,630 - CMD: fastq-dump -N 10920340 -X 11324796 -O /local/scratch/job_420009/pfd_k32yoeks/27 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,630 - CMD: fastq-dump -N 11324797 -X 11729253 -O /local/scratch/job_420009/pfd_k32yoeks/28 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,630 - CMD: fastq-dump -N 11729254 -X 12133710 -O /local/scratch/job_420009/pfd_k32yoeks/29 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,631 - CMD: fastq-dump -N 12133711 -X 12538167 -O /local/scratch/job_420009/pfd_k32yoeks/30 --split-files --gzip SRR32099541
+2026-10-23 09:59:03,631 - CMD: fastq-dump -N 12538168 -X 12942650 -O /local/scratch/job_420009/pfd_k32yoeks/31 --split-files --gzip SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404483 spots for SRR32099541
+Written 404483 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Read 404457 spots for SRR32099541
+Written 404457 spots for SRR32099541
+Getting SRR32099540 from NCBI SRA
+2026-10-23 09:59:23,473 - SRR ids: ['SRR32099540']
+2026-10-23 09:59:23,473 - extra args: ['--split-files', '--gzip']
+2026-10-23 09:59:23,474 - tempdir: /local/scratch/job_420009/pfd_hlny_cga
+2026-10-23 09:59:23,474 - CMD: sra-stat --meta --quick SRR32099540
+2026-10-23 09:59:25,540 - SRR32099540 spots: 14614796
+2026-10-23 09:59:25,540 - blocks: [[1, 456712], [456713, 913424], [913425, 1370136], [1370137, 1826848], [1826849, 2283560], [2283561, 2740272], [2740273, 3196984], [3196985, 3653696], [3653697, 4110408], [4110409, 4567120], [4567121, 5023832], [5023833, 5480544], [5480545, 5937256], [5937257, 6393968], [6393969, 6850680], [6850681, 7307392], [7307393, 7764104], [7764105, 8220816], [8220817, 8677528], [8677529, 9134240], [9134241, 9590952], [9590953, 10047664], [10047665, 10504376], [10504377, 10961088], [10961089, 11417800], [11417801, 11874512], [11874513, 12331224], [12331225, 12787936], [12787937, 13244648], [13244649, 13701360], [13701361, 14158072], [14158073, 14614796]]
+2026-10-23 09:59:25,540 - CMD: fastq-dump -N 1 -X 456712 -O /local/scratch/job_420009/pfd_hlny_cga/0 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,541 - CMD: fastq-dump -N 456713 -X 913424 -O /local/scratch/job_420009/pfd_hlny_cga/1 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,541 - CMD: fastq-dump -N 913425 -X 1370136 -O /local/scratch/job_420009/pfd_hlny_cga/2 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,541 - CMD: fastq-dump -N 1370137 -X 1826848 -O /local/scratch/job_420009/pfd_hlny_cga/3 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,542 - CMD: fastq-dump -N 1826849 -X 2283560 -O /local/scratch/job_420009/pfd_hlny_cga/4 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,542 - CMD: fastq-dump -N 2283561 -X 2740272 -O /local/scratch/job_420009/pfd_hlny_cga/5 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,543 - CMD: fastq-dump -N 2740273 -X 3196984 -O /local/scratch/job_420009/pfd_hlny_cga/6 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,543 - CMD: fastq-dump -N 3196985 -X 3653696 -O /local/scratch/job_420009/pfd_hlny_cga/7 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,543 - CMD: fastq-dump -N 3653697 -X 4110408 -O /local/scratch/job_420009/pfd_hlny_cga/8 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,544 - CMD: fastq-dump -N 4110409 -X 4567120 -O /local/scratch/job_420009/pfd_hlny_cga/9 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,544 - CMD: fastq-dump -N 4567121 -X 5023832 -O /local/scratch/job_420009/pfd_hlny_cga/10 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,544 - CMD: fastq-dump -N 5023833 -X 5480544 -O /local/scratch/job_420009/pfd_hlny_cga/11 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,545 - CMD: fastq-dump -N 5480545 -X 5937256 -O /local/scratch/job_420009/pfd_hlny_cga/12 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,545 - CMD: fastq-dump -N 5937257 -X 6393968 -O /local/scratch/job_420009/pfd_hlny_cga/13 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,545 - CMD: fastq-dump -N 6393969 -X 6850680 -O /local/scratch/job_420009/pfd_hlny_cga/14 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,546 - CMD: fastq-dump -N 6850681 -X 7307392 -O /local/scratch/job_420009/pfd_hlny_cga/15 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,546 - CMD: fastq-dump -N 7307393 -X 7764104 -O /local/scratch/job_420009/pfd_hlny_cga/16 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,546 - CMD: fastq-dump -N 7764105 -X 8220816 -O /local/scratch/job_420009/pfd_hlny_cga/17 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,547 - CMD: fastq-dump -N 8220817 -X 8677528 -O /local/scratch/job_420009/pfd_hlny_cga/18 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,547 - CMD: fastq-dump -N 8677529 -X 9134240 -O /local/scratch/job_420009/pfd_hlny_cga/19 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,547 - CMD: fastq-dump -N 9134241 -X 9590952 -O /local/scratch/job_420009/pfd_hlny_cga/20 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,548 - CMD: fastq-dump -N 9590953 -X 10047664 -O /local/scratch/job_420009/pfd_hlny_cga/21 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,548 - CMD: fastq-dump -N 10047665 -X 10504376 -O /local/scratch/job_420009/pfd_hlny_cga/22 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,548 - CMD: fastq-dump -N 10504377 -X 10961088 -O /local/scratch/job_420009/pfd_hlny_cga/23 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,549 - CMD: fastq-dump -N 10961089 -X 11417800 -O /local/scratch/job_420009/pfd_hlny_cga/24 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,549 - CMD: fastq-dump -N 11417801 -X 11874512 -O /local/scratch/job_420009/pfd_hlny_cga/25 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,549 - CMD: fastq-dump -N 11874513 -X 12331224 -O /local/scratch/job_420009/pfd_hlny_cga/26 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,550 - CMD: fastq-dump -N 12331225 -X 12787936 -O /local/scratch/job_420009/pfd_hlny_cga/27 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,550 - CMD: fastq-dump -N 12787937 -X 13244648 -O /local/scratch/job_420009/pfd_hlny_cga/28 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,550 - CMD: fastq-dump -N 13244649 -X 13701360 -O /local/scratch/job_420009/pfd_hlny_cga/29 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,551 - CMD: fastq-dump -N 13701361 -X 14158072 -O /local/scratch/job_420009/pfd_hlny_cga/30 --split-files --gzip SRR32099540
+2026-10-23 09:59:25,552 - CMD: fastq-dump -N 14158073 -X 14614796 -O /local/scratch/job_420009/pfd_hlny_cga/31 --split-files --gzip SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456724 spots for SRR32099540
+Written 456724 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Read 456712 spots for SRR32099540
+Written 456712 spots for SRR32099540
+Getting SRR32099539 from NCBI SRA
+2026-10-23 09:59:45,201 - SRR ids: ['SRR32099539']
+2026-10-23 09:59:45,202 - extra args: ['--split-files', '--gzip']
+2026-10-23 09:59:45,202 - tempdir: /local/scratch/job_420009/pfd_tr0f4e7q
+2026-10-23 09:59:45,202 - CMD: sra-stat --meta --quick SRR32099539
+2026-10-23 09:59:47,342 - SRR32099539 spots: 14324709
+2026-10-23 09:59:47,343 - blocks: [[1, 447647], [447648, 895294], [895295, 1342941], [1342942, 1790588], [1790589, 2238235], [2238236, 2685882], [2685883, 3133529], [3133530, 3581176], [3581177, 4028823], [4028824, 4476470], [4476471, 4924117], [4924118, 5371764], [5371765, 5819411], [5819412, 6267058], [6267059, 6714705], [6714706, 7162352], [7162353, 7609999], [7610000, 8057646], [8057647, 8505293], [8505294, 8952940], [8952941, 9400587], [9400588, 9848234], [9848235, 10295881], [10295882, 10743528], [10743529, 11191175], [11191176, 11638822], [11638823, 12086469], [12086470, 12534116], [12534117, 12981763], [12981764, 13429410], [13429411, 13877057], [13877058, 14324709]]
+2026-10-23 09:59:47,343 - CMD: fastq-dump -N 1 -X 447647 -O /local/scratch/job_420009/pfd_tr0f4e7q/0 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,343 - CMD: fastq-dump -N 447648 -X 895294 -O /local/scratch/job_420009/pfd_tr0f4e7q/1 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,344 - CMD: fastq-dump -N 895295 -X 1342941 -O /local/scratch/job_420009/pfd_tr0f4e7q/2 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,344 - CMD: fastq-dump -N 1342942 -X 1790588 -O /local/scratch/job_420009/pfd_tr0f4e7q/3 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,345 - CMD: fastq-dump -N 1790589 -X 2238235 -O /local/scratch/job_420009/pfd_tr0f4e7q/4 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,345 - CMD: fastq-dump -N 2238236 -X 2685882 -O /local/scratch/job_420009/pfd_tr0f4e7q/5 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,345 - CMD: fastq-dump -N 2685883 -X 3133529 -O /local/scratch/job_420009/pfd_tr0f4e7q/6 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,346 - CMD: fastq-dump -N 3133530 -X 3581176 -O /local/scratch/job_420009/pfd_tr0f4e7q/7 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,346 - CMD: fastq-dump -N 3581177 -X 4028823 -O /local/scratch/job_420009/pfd_tr0f4e7q/8 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,347 - CMD: fastq-dump -N 4028824 -X 4476470 -O /local/scratch/job_420009/pfd_tr0f4e7q/9 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,347 - CMD: fastq-dump -N 4476471 -X 4924117 -O /local/scratch/job_420009/pfd_tr0f4e7q/10 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,347 - CMD: fastq-dump -N 4924118 -X 5371764 -O /local/scratch/job_420009/pfd_tr0f4e7q/11 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,348 - CMD: fastq-dump -N 5371765 -X 5819411 -O /local/scratch/job_420009/pfd_tr0f4e7q/12 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,348 - CMD: fastq-dump -N 5819412 -X 6267058 -O /local/scratch/job_420009/pfd_tr0f4e7q/13 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,348 - CMD: fastq-dump -N 6267059 -X 6714705 -O /local/scratch/job_420009/pfd_tr0f4e7q/14 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,349 - CMD: fastq-dump -N 6714706 -X 7162352 -O /local/scratch/job_420009/pfd_tr0f4e7q/15 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,349 - CMD: fastq-dump -N 7162353 -X 7609999 -O /local/scratch/job_420009/pfd_tr0f4e7q/16 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,349 - CMD: fastq-dump -N 7610000 -X 8057646 -O /local/scratch/job_420009/pfd_tr0f4e7q/17 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,350 - CMD: fastq-dump -N 8057647 -X 8505293 -O /local/scratch/job_420009/pfd_tr0f4e7q/18 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,350 - CMD: fastq-dump -N 8505294 -X 8952940 -O /local/scratch/job_420009/pfd_tr0f4e7q/19 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,350 - CMD: fastq-dump -N 8952941 -X 9400587 -O /local/scratch/job_420009/pfd_tr0f4e7q/20 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,351 - CMD: fastq-dump -N 9400588 -X 9848234 -O /local/scratch/job_420009/pfd_tr0f4e7q/21 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,351 - CMD: fastq-dump -N 9848235 -X 10295881 -O /local/scratch/job_420009/pfd_tr0f4e7q/22 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,351 - CMD: fastq-dump -N 10295882 -X 10743528 -O /local/scratch/job_420009/pfd_tr0f4e7q/23 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,352 - CMD: fastq-dump -N 10743529 -X 11191175 -O /local/scratch/job_420009/pfd_tr0f4e7q/24 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,352 - CMD: fastq-dump -N 11191176 -X 11638822 -O /local/scratch/job_420009/pfd_tr0f4e7q/25 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,352 - CMD: fastq-dump -N 11638823 -X 12086469 -O /local/scratch/job_420009/pfd_tr0f4e7q/26 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,353 - CMD: fastq-dump -N 12086470 -X 12534116 -O /local/scratch/job_420009/pfd_tr0f4e7q/27 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,354 - CMD: fastq-dump -N 12534117 -X 12981763 -O /local/scratch/job_420009/pfd_tr0f4e7q/28 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,355 - CMD: fastq-dump -N 12981764 -X 13429410 -O /local/scratch/job_420009/pfd_tr0f4e7q/29 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,355 - CMD: fastq-dump -N 13429411 -X 13877057 -O /local/scratch/job_420009/pfd_tr0f4e7q/30 --split-files --gzip SRR32099539
+2026-10-23 09:59:47,356 - CMD: fastq-dump -N 13877058 -X 14324709 -O /local/scratch/job_420009/pfd_tr0f4e7q/31 --split-files --gzip SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447652 spots for SRR32099539
+Written 447652 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Read 447647 spots for SRR32099539
+Written 447647 spots for SRR32099539
+Getting SRR32099535 from NCBI SRA
+2026-10-23 10:00:06,458 - SRR ids: ['SRR32099535']
+2026-10-23 10:00:06,458 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:00:06,459 - tempdir: /local/scratch/job_420009/pfd_nbo65oq3
+2026-10-23 10:00:06,459 - CMD: sra-stat --meta --quick SRR32099535
+2026-10-23 10:00:08,701 - SRR32099535 spots: 12440545
+2026-10-23 10:00:08,701 - blocks: [[1, 388767], [388768, 777534], [777535, 1166301], [1166302, 1555068], [1555069, 1943835], [1943836, 2332602], [2332603, 2721369], [2721370, 3110136], [3110137, 3498903], [3498904, 3887670], [3887671, 4276437], [4276438, 4665204], [4665205, 5053971], [5053972, 5442738], [5442739, 5831505], [5831506, 6220272], [6220273, 6609039], [6609040, 6997806], [6997807, 7386573], [7386574, 7775340], [7775341, 8164107], [8164108, 8552874], [8552875, 8941641], [8941642, 9330408], [9330409, 9719175], [9719176, 10107942], [10107943, 10496709], [10496710, 10885476], [10885477, 11274243], [11274244, 11663010], [11663011, 12051777], [12051778, 12440545]]
+2026-10-23 10:00:08,701 - CMD: fastq-dump -N 1 -X 388767 -O /local/scratch/job_420009/pfd_nbo65oq3/0 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,702 - CMD: fastq-dump -N 388768 -X 777534 -O /local/scratch/job_420009/pfd_nbo65oq3/1 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,702 - CMD: fastq-dump -N 777535 -X 1166301 -O /local/scratch/job_420009/pfd_nbo65oq3/2 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,703 - CMD: fastq-dump -N 1166302 -X 1555068 -O /local/scratch/job_420009/pfd_nbo65oq3/3 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,703 - CMD: fastq-dump -N 1555069 -X 1943835 -O /local/scratch/job_420009/pfd_nbo65oq3/4 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,703 - CMD: fastq-dump -N 1943836 -X 2332602 -O /local/scratch/job_420009/pfd_nbo65oq3/5 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,704 - CMD: fastq-dump -N 2332603 -X 2721369 -O /local/scratch/job_420009/pfd_nbo65oq3/6 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,704 - CMD: fastq-dump -N 2721370 -X 3110136 -O /local/scratch/job_420009/pfd_nbo65oq3/7 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,705 - CMD: fastq-dump -N 3110137 -X 3498903 -O /local/scratch/job_420009/pfd_nbo65oq3/8 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,705 - CMD: fastq-dump -N 3498904 -X 3887670 -O /local/scratch/job_420009/pfd_nbo65oq3/9 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,705 - CMD: fastq-dump -N 3887671 -X 4276437 -O /local/scratch/job_420009/pfd_nbo65oq3/10 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,706 - CMD: fastq-dump -N 4276438 -X 4665204 -O /local/scratch/job_420009/pfd_nbo65oq3/11 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,706 - CMD: fastq-dump -N 4665205 -X 5053971 -O /local/scratch/job_420009/pfd_nbo65oq3/12 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,706 - CMD: fastq-dump -N 5053972 -X 5442738 -O /local/scratch/job_420009/pfd_nbo65oq3/13 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,707 - CMD: fastq-dump -N 5442739 -X 5831505 -O /local/scratch/job_420009/pfd_nbo65oq3/14 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,707 - CMD: fastq-dump -N 5831506 -X 6220272 -O /local/scratch/job_420009/pfd_nbo65oq3/15 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,707 - CMD: fastq-dump -N 6220273 -X 6609039 -O /local/scratch/job_420009/pfd_nbo65oq3/16 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,708 - CMD: fastq-dump -N 6609040 -X 6997806 -O /local/scratch/job_420009/pfd_nbo65oq3/17 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,708 - CMD: fastq-dump -N 6997807 -X 7386573 -O /local/scratch/job_420009/pfd_nbo65oq3/18 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,708 - CMD: fastq-dump -N 7386574 -X 7775340 -O /local/scratch/job_420009/pfd_nbo65oq3/19 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,709 - CMD: fastq-dump -N 7775341 -X 8164107 -O /local/scratch/job_420009/pfd_nbo65oq3/20 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,709 - CMD: fastq-dump -N 8164108 -X 8552874 -O /local/scratch/job_420009/pfd_nbo65oq3/21 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,709 - CMD: fastq-dump -N 8552875 -X 8941641 -O /local/scratch/job_420009/pfd_nbo65oq3/22 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,710 - CMD: fastq-dump -N 8941642 -X 9330408 -O /local/scratch/job_420009/pfd_nbo65oq3/23 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,710 - CMD: fastq-dump -N 9330409 -X 9719175 -O /local/scratch/job_420009/pfd_nbo65oq3/24 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,710 - CMD: fastq-dump -N 9719176 -X 10107942 -O /local/scratch/job_420009/pfd_nbo65oq3/25 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,711 - CMD: fastq-dump -N 10107943 -X 10496709 -O /local/scratch/job_420009/pfd_nbo65oq3/26 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,711 - CMD: fastq-dump -N 10496710 -X 10885476 -O /local/scratch/job_420009/pfd_nbo65oq3/27 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,711 - CMD: fastq-dump -N 10885477 -X 11274243 -O /local/scratch/job_420009/pfd_nbo65oq3/28 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,712 - CMD: fastq-dump -N 11274244 -X 11663010 -O /local/scratch/job_420009/pfd_nbo65oq3/29 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,712 - CMD: fastq-dump -N 11663011 -X 12051777 -O /local/scratch/job_420009/pfd_nbo65oq3/30 --split-files --gzip SRR32099535
+2026-10-23 10:00:08,713 - CMD: fastq-dump -N 12051778 -X 12440545 -O /local/scratch/job_420009/pfd_nbo65oq3/31 --split-files --gzip SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388768 spots for SRR32099535
+Written 388768 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Read 388767 spots for SRR32099535
+Written 388767 spots for SRR32099535
+Getting SRR32099534 from NCBI SRA
+2026-10-23 10:00:24,067 - SRR ids: ['SRR32099534']
+2026-10-23 10:00:24,067 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:00:24,067 - tempdir: /local/scratch/job_420009/pfd_imkw7nvs
+2026-10-23 10:00:24,067 - CMD: sra-stat --meta --quick SRR32099534
+2026-10-23 10:00:26,161 - SRR32099534 spots: 12743544
+2026-10-23 10:00:26,161 - blocks: [[1, 398235], [398236, 796470], [796471, 1194705], [1194706, 1592940], [1592941, 1991175], [1991176, 2389410], [2389411, 2787645], [2787646, 3185880], [3185881, 3584115], [3584116, 3982350], [3982351, 4380585], [4380586, 4778820], [4778821, 5177055], [5177056, 5575290], [5575291, 5973525], [5973526, 6371760], [6371761, 6769995], [6769996, 7168230], [7168231, 7566465], [7566466, 7964700], [7964701, 8362935], [8362936, 8761170], [8761171, 9159405], [9159406, 9557640], [9557641, 9955875], [9955876, 10354110], [10354111, 10752345], [10752346, 11150580], [11150581, 11548815], [11548816, 11947050], [11947051, 12345285], [12345286, 12743544]]
+2026-10-23 10:00:26,161 - CMD: fastq-dump -N 1 -X 398235 -O /local/scratch/job_420009/pfd_imkw7nvs/0 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,161 - CMD: fastq-dump -N 398236 -X 796470 -O /local/scratch/job_420009/pfd_imkw7nvs/1 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,162 - CMD: fastq-dump -N 796471 -X 1194705 -O /local/scratch/job_420009/pfd_imkw7nvs/2 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,162 - CMD: fastq-dump -N 1194706 -X 1592940 -O /local/scratch/job_420009/pfd_imkw7nvs/3 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,163 - CMD: fastq-dump -N 1592941 -X 1991175 -O /local/scratch/job_420009/pfd_imkw7nvs/4 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,163 - CMD: fastq-dump -N 1991176 -X 2389410 -O /local/scratch/job_420009/pfd_imkw7nvs/5 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,163 - CMD: fastq-dump -N 2389411 -X 2787645 -O /local/scratch/job_420009/pfd_imkw7nvs/6 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,164 - CMD: fastq-dump -N 2787646 -X 3185880 -O /local/scratch/job_420009/pfd_imkw7nvs/7 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,164 - CMD: fastq-dump -N 3185881 -X 3584115 -O /local/scratch/job_420009/pfd_imkw7nvs/8 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,165 - CMD: fastq-dump -N 3584116 -X 3982350 -O /local/scratch/job_420009/pfd_imkw7nvs/9 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,165 - CMD: fastq-dump -N 3982351 -X 4380585 -O /local/scratch/job_420009/pfd_imkw7nvs/10 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,165 - CMD: fastq-dump -N 4380586 -X 4778820 -O /local/scratch/job_420009/pfd_imkw7nvs/11 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,166 - CMD: fastq-dump -N 4778821 -X 5177055 -O /local/scratch/job_420009/pfd_imkw7nvs/12 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,166 - CMD: fastq-dump -N 5177056 -X 5575290 -O /local/scratch/job_420009/pfd_imkw7nvs/13 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,166 - CMD: fastq-dump -N 5575291 -X 5973525 -O /local/scratch/job_420009/pfd_imkw7nvs/14 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,167 - CMD: fastq-dump -N 5973526 -X 6371760 -O /local/scratch/job_420009/pfd_imkw7nvs/15 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,167 - CMD: fastq-dump -N 6371761 -X 6769995 -O /local/scratch/job_420009/pfd_imkw7nvs/16 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,167 - CMD: fastq-dump -N 6769996 -X 7168230 -O /local/scratch/job_420009/pfd_imkw7nvs/17 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,168 - CMD: fastq-dump -N 7168231 -X 7566465 -O /local/scratch/job_420009/pfd_imkw7nvs/18 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,168 - CMD: fastq-dump -N 7566466 -X 7964700 -O /local/scratch/job_420009/pfd_imkw7nvs/19 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,168 - CMD: fastq-dump -N 7964701 -X 8362935 -O /local/scratch/job_420009/pfd_imkw7nvs/20 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,169 - CMD: fastq-dump -N 8362936 -X 8761170 -O /local/scratch/job_420009/pfd_imkw7nvs/21 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,169 - CMD: fastq-dump -N 8761171 -X 9159405 -O /local/scratch/job_420009/pfd_imkw7nvs/22 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,169 - CMD: fastq-dump -N 9159406 -X 9557640 -O /local/scratch/job_420009/pfd_imkw7nvs/23 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,170 - CMD: fastq-dump -N 9557641 -X 9955875 -O /local/scratch/job_420009/pfd_imkw7nvs/24 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,170 - CMD: fastq-dump -N 9955876 -X 10354110 -O /local/scratch/job_420009/pfd_imkw7nvs/25 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,170 - CMD: fastq-dump -N 10354111 -X 10752345 -O /local/scratch/job_420009/pfd_imkw7nvs/26 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,171 - CMD: fastq-dump -N 10752346 -X 11150580 -O /local/scratch/job_420009/pfd_imkw7nvs/27 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,171 - CMD: fastq-dump -N 11150581 -X 11548815 -O /local/scratch/job_420009/pfd_imkw7nvs/28 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,172 - CMD: fastq-dump -N 11548816 -X 11947050 -O /local/scratch/job_420009/pfd_imkw7nvs/29 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,172 - CMD: fastq-dump -N 11947051 -X 12345285 -O /local/scratch/job_420009/pfd_imkw7nvs/30 --split-files --gzip SRR32099534
+2026-10-23 10:00:26,175 - CMD: fastq-dump -N 12345286 -X 12743544 -O /local/scratch/job_420009/pfd_imkw7nvs/31 --split-files --gzip SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398259 spots for SRR32099534
+Written 398259 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Read 398235 spots for SRR32099534
+Written 398235 spots for SRR32099534
+Getting SRR32099533 from NCBI SRA
+2026-10-23 10:00:51,533 - SRR ids: ['SRR32099533']
+2026-10-23 10:00:51,533 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:00:51,534 - tempdir: /local/scratch/job_420009/pfd_s05l2epv
+2026-10-23 10:00:51,534 - CMD: sra-stat --meta --quick SRR32099533
+2026-10-23 10:00:53,681 - SRR32099533 spots: 9168083
+2026-10-23 10:00:53,681 - blocks: [[1, 286502], [286503, 573004], [573005, 859506], [859507, 1146008], [1146009, 1432510], [1432511, 1719012], [1719013, 2005514], [2005515, 2292016], [2292017, 2578518], [2578519, 2865020], [2865021, 3151522], [3151523, 3438024], [3438025, 3724526], [3724527, 4011028], [4011029, 4297530], [4297531, 4584032], [4584033, 4870534], [4870535, 5157036], [5157037, 5443538], [5443539, 5730040], [5730041, 6016542], [6016543, 6303044], [6303045, 6589546], [6589547, 6876048], [6876049, 7162550], [7162551, 7449052], [7449053, 7735554], [7735555, 8022056], [8022057, 8308558], [8308559, 8595060], [8595061, 8881562], [8881563, 9168083]]
+2026-10-23 10:00:53,682 - CMD: fastq-dump -N 1 -X 286502 -O /local/scratch/job_420009/pfd_s05l2epv/0 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,682 - CMD: fastq-dump -N 286503 -X 573004 -O /local/scratch/job_420009/pfd_s05l2epv/1 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,683 - CMD: fastq-dump -N 573005 -X 859506 -O /local/scratch/job_420009/pfd_s05l2epv/2 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,683 - CMD: fastq-dump -N 859507 -X 1146008 -O /local/scratch/job_420009/pfd_s05l2epv/3 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,683 - CMD: fastq-dump -N 1146009 -X 1432510 -O /local/scratch/job_420009/pfd_s05l2epv/4 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,684 - CMD: fastq-dump -N 1432511 -X 1719012 -O /local/scratch/job_420009/pfd_s05l2epv/5 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,684 - CMD: fastq-dump -N 1719013 -X 2005514 -O /local/scratch/job_420009/pfd_s05l2epv/6 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,685 - CMD: fastq-dump -N 2005515 -X 2292016 -O /local/scratch/job_420009/pfd_s05l2epv/7 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,685 - CMD: fastq-dump -N 2292017 -X 2578518 -O /local/scratch/job_420009/pfd_s05l2epv/8 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,685 - CMD: fastq-dump -N 2578519 -X 2865020 -O /local/scratch/job_420009/pfd_s05l2epv/9 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,686 - CMD: fastq-dump -N 2865021 -X 3151522 -O /local/scratch/job_420009/pfd_s05l2epv/10 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,686 - CMD: fastq-dump -N 3151523 -X 3438024 -O /local/scratch/job_420009/pfd_s05l2epv/11 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,686 - CMD: fastq-dump -N 3438025 -X 3724526 -O /local/scratch/job_420009/pfd_s05l2epv/12 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,687 - CMD: fastq-dump -N 3724527 -X 4011028 -O /local/scratch/job_420009/pfd_s05l2epv/13 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,687 - CMD: fastq-dump -N 4011029 -X 4297530 -O /local/scratch/job_420009/pfd_s05l2epv/14 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,687 - CMD: fastq-dump -N 4297531 -X 4584032 -O /local/scratch/job_420009/pfd_s05l2epv/15 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,688 - CMD: fastq-dump -N 4584033 -X 4870534 -O /local/scratch/job_420009/pfd_s05l2epv/16 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,688 - CMD: fastq-dump -N 4870535 -X 5157036 -O /local/scratch/job_420009/pfd_s05l2epv/17 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,688 - CMD: fastq-dump -N 5157037 -X 5443538 -O /local/scratch/job_420009/pfd_s05l2epv/18 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,689 - CMD: fastq-dump -N 5443539 -X 5730040 -O /local/scratch/job_420009/pfd_s05l2epv/19 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,689 - CMD: fastq-dump -N 5730041 -X 6016542 -O /local/scratch/job_420009/pfd_s05l2epv/20 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,689 - CMD: fastq-dump -N 6016543 -X 6303044 -O /local/scratch/job_420009/pfd_s05l2epv/21 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,690 - CMD: fastq-dump -N 6303045 -X 6589546 -O /local/scratch/job_420009/pfd_s05l2epv/22 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,690 - CMD: fastq-dump -N 6589547 -X 6876048 -O /local/scratch/job_420009/pfd_s05l2epv/23 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,690 - CMD: fastq-dump -N 6876049 -X 7162550 -O /local/scratch/job_420009/pfd_s05l2epv/24 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,691 - CMD: fastq-dump -N 7162551 -X 7449052 -O /local/scratch/job_420009/pfd_s05l2epv/25 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,691 - CMD: fastq-dump -N 7449053 -X 7735554 -O /local/scratch/job_420009/pfd_s05l2epv/26 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,692 - CMD: fastq-dump -N 7735555 -X 8022056 -O /local/scratch/job_420009/pfd_s05l2epv/27 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,694 - CMD: fastq-dump -N 8022057 -X 8308558 -O /local/scratch/job_420009/pfd_s05l2epv/28 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,694 - CMD: fastq-dump -N 8308559 -X 8595060 -O /local/scratch/job_420009/pfd_s05l2epv/29 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,695 - CMD: fastq-dump -N 8595061 -X 8881562 -O /local/scratch/job_420009/pfd_s05l2epv/30 --split-files --gzip SRR32099533
+2026-10-23 10:00:53,697 - CMD: fastq-dump -N 8881563 -X 9168083 -O /local/scratch/job_420009/pfd_s05l2epv/31 --split-files --gzip SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286521 spots for SRR32099533
+Written 286521 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Read 286502 spots for SRR32099533
+Written 286502 spots for SRR32099533
+Getting SRR32099497 from NCBI SRA
+2026-10-23 10:01:06,672 - SRR ids: ['SRR32099497']
+2026-10-23 10:01:06,672 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:01:06,673 - tempdir: /local/scratch/job_420009/pfd_rwasbssi
+2026-10-23 10:01:06,673 - CMD: sra-stat --meta --quick SRR32099497
+2026-10-23 10:01:08,772 - SRR32099497 spots: 7957480
+2026-10-23 10:01:08,772 - blocks: [[1, 248671], [248672, 497342], [497343, 746013], [746014, 994684], [994685, 1243355], [1243356, 1492026], [1492027, 1740697], [1740698, 1989368], [1989369, 2238039], [2238040, 2486710], [2486711, 2735381], [2735382, 2984052], [2984053, 3232723], [3232724, 3481394], [3481395, 3730065], [3730066, 3978736], [3978737, 4227407], [4227408, 4476078], [4476079, 4724749], [4724750, 4973420], [4973421, 5222091], [5222092, 5470762], [5470763, 5719433], [5719434, 5968104], [5968105, 6216775], [6216776, 6465446], [6465447, 6714117], [6714118, 6962788], [6962789, 7211459], [7211460, 7460130], [7460131, 7708801], [7708802, 7957480]]
+2026-10-23 10:01:08,772 - CMD: fastq-dump -N 1 -X 248671 -O /local/scratch/job_420009/pfd_rwasbssi/0 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,773 - CMD: fastq-dump -N 248672 -X 497342 -O /local/scratch/job_420009/pfd_rwasbssi/1 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,773 - CMD: fastq-dump -N 497343 -X 746013 -O /local/scratch/job_420009/pfd_rwasbssi/2 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,774 - CMD: fastq-dump -N 746014 -X 994684 -O /local/scratch/job_420009/pfd_rwasbssi/3 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,774 - CMD: fastq-dump -N 994685 -X 1243355 -O /local/scratch/job_420009/pfd_rwasbssi/4 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,775 - CMD: fastq-dump -N 1243356 -X 1492026 -O /local/scratch/job_420009/pfd_rwasbssi/5 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,775 - CMD: fastq-dump -N 1492027 -X 1740697 -O /local/scratch/job_420009/pfd_rwasbssi/6 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,775 - CMD: fastq-dump -N 1740698 -X 1989368 -O /local/scratch/job_420009/pfd_rwasbssi/7 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,776 - CMD: fastq-dump -N 1989369 -X 2238039 -O /local/scratch/job_420009/pfd_rwasbssi/8 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,776 - CMD: fastq-dump -N 2238040 -X 2486710 -O /local/scratch/job_420009/pfd_rwasbssi/9 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,776 - CMD: fastq-dump -N 2486711 -X 2735381 -O /local/scratch/job_420009/pfd_rwasbssi/10 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,777 - CMD: fastq-dump -N 2735382 -X 2984052 -O /local/scratch/job_420009/pfd_rwasbssi/11 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,777 - CMD: fastq-dump -N 2984053 -X 3232723 -O /local/scratch/job_420009/pfd_rwasbssi/12 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,777 - CMD: fastq-dump -N 3232724 -X 3481394 -O /local/scratch/job_420009/pfd_rwasbssi/13 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,778 - CMD: fastq-dump -N 3481395 -X 3730065 -O /local/scratch/job_420009/pfd_rwasbssi/14 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,778 - CMD: fastq-dump -N 3730066 -X 3978736 -O /local/scratch/job_420009/pfd_rwasbssi/15 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,778 - CMD: fastq-dump -N 3978737 -X 4227407 -O /local/scratch/job_420009/pfd_rwasbssi/16 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,779 - CMD: fastq-dump -N 4227408 -X 4476078 -O /local/scratch/job_420009/pfd_rwasbssi/17 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,779 - CMD: fastq-dump -N 4476079 -X 4724749 -O /local/scratch/job_420009/pfd_rwasbssi/18 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,780 - CMD: fastq-dump -N 4724750 -X 4973420 -O /local/scratch/job_420009/pfd_rwasbssi/19 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,780 - CMD: fastq-dump -N 4973421 -X 5222091 -O /local/scratch/job_420009/pfd_rwasbssi/20 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,780 - CMD: fastq-dump -N 5222092 -X 5470762 -O /local/scratch/job_420009/pfd_rwasbssi/21 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,781 - CMD: fastq-dump -N 5470763 -X 5719433 -O /local/scratch/job_420009/pfd_rwasbssi/22 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,781 - CMD: fastq-dump -N 5719434 -X 5968104 -O /local/scratch/job_420009/pfd_rwasbssi/23 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,781 - CMD: fastq-dump -N 5968105 -X 6216775 -O /local/scratch/job_420009/pfd_rwasbssi/24 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,782 - CMD: fastq-dump -N 6216776 -X 6465446 -O /local/scratch/job_420009/pfd_rwasbssi/25 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,782 - CMD: fastq-dump -N 6465447 -X 6714117 -O /local/scratch/job_420009/pfd_rwasbssi/26 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,783 - CMD: fastq-dump -N 6714118 -X 6962788 -O /local/scratch/job_420009/pfd_rwasbssi/27 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,783 - CMD: fastq-dump -N 6962789 -X 7211459 -O /local/scratch/job_420009/pfd_rwasbssi/28 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,784 - CMD: fastq-dump -N 7211460 -X 7460130 -O /local/scratch/job_420009/pfd_rwasbssi/29 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,785 - CMD: fastq-dump -N 7460131 -X 7708801 -O /local/scratch/job_420009/pfd_rwasbssi/30 --split-files --gzip SRR32099497
+2026-10-23 10:01:08,787 - CMD: fastq-dump -N 7708802 -X 7957480 -O /local/scratch/job_420009/pfd_rwasbssi/31 --split-files --gzip SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248679 spots for SRR32099497
+Written 248679 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Read 248671 spots for SRR32099497
+Written 248671 spots for SRR32099497
+Getting SRR32099496 from NCBI SRA
+2026-10-23 10:01:21,094 - SRR ids: ['SRR32099496']
+2026-10-23 10:01:21,094 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:01:21,095 - tempdir: /local/scratch/job_420009/pfd_5sulj84y
+2026-10-23 10:01:21,095 - CMD: sra-stat --meta --quick SRR32099496
+2026-10-23 10:01:23,170 - SRR32099496 spots: 9710246
+2026-10-23 10:01:23,170 - blocks: [[1, 303445], [303446, 606890], [606891, 910335], [910336, 1213780], [1213781, 1517225], [1517226, 1820670], [1820671, 2124115], [2124116, 2427560], [2427561, 2731005], [2731006, 3034450], [3034451, 3337895], [3337896, 3641340], [3641341, 3944785], [3944786, 4248230], [4248231, 4551675], [4551676, 4855120], [4855121, 5158565], [5158566, 5462010], [5462011, 5765455], [5765456, 6068900], [6068901, 6372345], [6372346, 6675790], [6675791, 6979235], [6979236, 7282680], [7282681, 7586125], [7586126, 7889570], [7889571, 8193015], [8193016, 8496460], [8496461, 8799905], [8799906, 9103350], [9103351, 9406795], [9406796, 9710246]]
+2026-10-23 10:01:23,170 - CMD: fastq-dump -N 1 -X 303445 -O /local/scratch/job_420009/pfd_5sulj84y/0 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,170 - CMD: fastq-dump -N 303446 -X 606890 -O /local/scratch/job_420009/pfd_5sulj84y/1 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,171 - CMD: fastq-dump -N 606891 -X 910335 -O /local/scratch/job_420009/pfd_5sulj84y/2 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,171 - CMD: fastq-dump -N 910336 -X 1213780 -O /local/scratch/job_420009/pfd_5sulj84y/3 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,172 - CMD: fastq-dump -N 1213781 -X 1517225 -O /local/scratch/job_420009/pfd_5sulj84y/4 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,172 - CMD: fastq-dump -N 1517226 -X 1820670 -O /local/scratch/job_420009/pfd_5sulj84y/5 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,173 - CMD: fastq-dump -N 1820671 -X 2124115 -O /local/scratch/job_420009/pfd_5sulj84y/6 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,173 - CMD: fastq-dump -N 2124116 -X 2427560 -O /local/scratch/job_420009/pfd_5sulj84y/7 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,173 - CMD: fastq-dump -N 2427561 -X 2731005 -O /local/scratch/job_420009/pfd_5sulj84y/8 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,174 - CMD: fastq-dump -N 2731006 -X 3034450 -O /local/scratch/job_420009/pfd_5sulj84y/9 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,174 - CMD: fastq-dump -N 3034451 -X 3337895 -O /local/scratch/job_420009/pfd_5sulj84y/10 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,174 - CMD: fastq-dump -N 3337896 -X 3641340 -O /local/scratch/job_420009/pfd_5sulj84y/11 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,175 - CMD: fastq-dump -N 3641341 -X 3944785 -O /local/scratch/job_420009/pfd_5sulj84y/12 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,175 - CMD: fastq-dump -N 3944786 -X 4248230 -O /local/scratch/job_420009/pfd_5sulj84y/13 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,176 - CMD: fastq-dump -N 4248231 -X 4551675 -O /local/scratch/job_420009/pfd_5sulj84y/14 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,176 - CMD: fastq-dump -N 4551676 -X 4855120 -O /local/scratch/job_420009/pfd_5sulj84y/15 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,176 - CMD: fastq-dump -N 4855121 -X 5158565 -O /local/scratch/job_420009/pfd_5sulj84y/16 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,177 - CMD: fastq-dump -N 5158566 -X 5462010 -O /local/scratch/job_420009/pfd_5sulj84y/17 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,177 - CMD: fastq-dump -N 5462011 -X 5765455 -O /local/scratch/job_420009/pfd_5sulj84y/18 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,177 - CMD: fastq-dump -N 5765456 -X 6068900 -O /local/scratch/job_420009/pfd_5sulj84y/19 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,178 - CMD: fastq-dump -N 6068901 -X 6372345 -O /local/scratch/job_420009/pfd_5sulj84y/20 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,178 - CMD: fastq-dump -N 6372346 -X 6675790 -O /local/scratch/job_420009/pfd_5sulj84y/21 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,178 - CMD: fastq-dump -N 6675791 -X 6979235 -O /local/scratch/job_420009/pfd_5sulj84y/22 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,179 - CMD: fastq-dump -N 6979236 -X 7282680 -O /local/scratch/job_420009/pfd_5sulj84y/23 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,179 - CMD: fastq-dump -N 7282681 -X 7586125 -O /local/scratch/job_420009/pfd_5sulj84y/24 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,179 - CMD: fastq-dump -N 7586126 -X 7889570 -O /local/scratch/job_420009/pfd_5sulj84y/25 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,180 - CMD: fastq-dump -N 7889571 -X 8193015 -O /local/scratch/job_420009/pfd_5sulj84y/26 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,180 - CMD: fastq-dump -N 8193016 -X 8496460 -O /local/scratch/job_420009/pfd_5sulj84y/27 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,180 - CMD: fastq-dump -N 8496461 -X 8799905 -O /local/scratch/job_420009/pfd_5sulj84y/28 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,193 - CMD: fastq-dump -N 8799906 -X 9103350 -O /local/scratch/job_420009/pfd_5sulj84y/29 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,194 - CMD: fastq-dump -N 9103351 -X 9406795 -O /local/scratch/job_420009/pfd_5sulj84y/30 --split-files --gzip SRR32099496
+2026-10-23 10:01:23,194 - CMD: fastq-dump -N 9406796 -X 9710246 -O /local/scratch/job_420009/pfd_5sulj84y/31 --split-files --gzip SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303451 spots for SRR32099496
+Written 303451 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Read 303445 spots for SRR32099496
+Written 303445 spots for SRR32099496
+Getting SRR32099495 from NCBI SRA
+2026-10-23 10:01:35,921 - SRR ids: ['SRR32099495']
+2026-10-23 10:01:35,921 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:01:35,922 - tempdir: /local/scratch/job_420009/pfd_6194gyyg
+2026-10-23 10:01:35,922 - CMD: sra-stat --meta --quick SRR32099495
+2026-10-23 10:01:38,109 - SRR32099495 spots: 6973384
+2026-10-23 10:01:38,109 - blocks: [[1, 217918], [217919, 435836], [435837, 653754], [653755, 871672], [871673, 1089590], [1089591, 1307508], [1307509, 1525426], [1525427, 1743344], [1743345, 1961262], [1961263, 2179180], [2179181, 2397098], [2397099, 2615016], [2615017, 2832934], [2832935, 3050852], [3050853, 3268770], [3268771, 3486688], [3486689, 3704606], [3704607, 3922524], [3922525, 4140442], [4140443, 4358360], [4358361, 4576278], [4576279, 4794196], [4794197, 5012114], [5012115, 5230032], [5230033, 5447950], [5447951, 5665868], [5665869, 5883786], [5883787, 6101704], [6101705, 6319622], [6319623, 6537540], [6537541, 6755458], [6755459, 6973384]]
+2026-10-23 10:01:38,109 - CMD: fastq-dump -N 1 -X 217918 -O /local/scratch/job_420009/pfd_6194gyyg/0 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,109 - CMD: fastq-dump -N 217919 -X 435836 -O /local/scratch/job_420009/pfd_6194gyyg/1 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,110 - CMD: fastq-dump -N 435837 -X 653754 -O /local/scratch/job_420009/pfd_6194gyyg/2 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,110 - CMD: fastq-dump -N 653755 -X 871672 -O /local/scratch/job_420009/pfd_6194gyyg/3 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,111 - CMD: fastq-dump -N 871673 -X 1089590 -O /local/scratch/job_420009/pfd_6194gyyg/4 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,111 - CMD: fastq-dump -N 1089591 -X 1307508 -O /local/scratch/job_420009/pfd_6194gyyg/5 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,112 - CMD: fastq-dump -N 1307509 -X 1525426 -O /local/scratch/job_420009/pfd_6194gyyg/6 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,112 - CMD: fastq-dump -N 1525427 -X 1743344 -O /local/scratch/job_420009/pfd_6194gyyg/7 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,112 - CMD: fastq-dump -N 1743345 -X 1961262 -O /local/scratch/job_420009/pfd_6194gyyg/8 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,113 - CMD: fastq-dump -N 1961263 -X 2179180 -O /local/scratch/job_420009/pfd_6194gyyg/9 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,113 - CMD: fastq-dump -N 2179181 -X 2397098 -O /local/scratch/job_420009/pfd_6194gyyg/10 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,113 - CMD: fastq-dump -N 2397099 -X 2615016 -O /local/scratch/job_420009/pfd_6194gyyg/11 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,114 - CMD: fastq-dump -N 2615017 -X 2832934 -O /local/scratch/job_420009/pfd_6194gyyg/12 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,114 - CMD: fastq-dump -N 2832935 -X 3050852 -O /local/scratch/job_420009/pfd_6194gyyg/13 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,114 - CMD: fastq-dump -N 3050853 -X 3268770 -O /local/scratch/job_420009/pfd_6194gyyg/14 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,115 - CMD: fastq-dump -N 3268771 -X 3486688 -O /local/scratch/job_420009/pfd_6194gyyg/15 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,115 - CMD: fastq-dump -N 3486689 -X 3704606 -O /local/scratch/job_420009/pfd_6194gyyg/16 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,115 - CMD: fastq-dump -N 3704607 -X 3922524 -O /local/scratch/job_420009/pfd_6194gyyg/17 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,116 - CMD: fastq-dump -N 3922525 -X 4140442 -O /local/scratch/job_420009/pfd_6194gyyg/18 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,116 - CMD: fastq-dump -N 4140443 -X 4358360 -O /local/scratch/job_420009/pfd_6194gyyg/19 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,116 - CMD: fastq-dump -N 4358361 -X 4576278 -O /local/scratch/job_420009/pfd_6194gyyg/20 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,117 - CMD: fastq-dump -N 4576279 -X 4794196 -O /local/scratch/job_420009/pfd_6194gyyg/21 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,117 - CMD: fastq-dump -N 4794197 -X 5012114 -O /local/scratch/job_420009/pfd_6194gyyg/22 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,118 - CMD: fastq-dump -N 5012115 -X 5230032 -O /local/scratch/job_420009/pfd_6194gyyg/23 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,118 - CMD: fastq-dump -N 5230033 -X 5447950 -O /local/scratch/job_420009/pfd_6194gyyg/24 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,119 - CMD: fastq-dump -N 5447951 -X 5665868 -O /local/scratch/job_420009/pfd_6194gyyg/25 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,120 - CMD: fastq-dump -N 5665869 -X 5883786 -O /local/scratch/job_420009/pfd_6194gyyg/26 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,120 - CMD: fastq-dump -N 5883787 -X 6101704 -O /local/scratch/job_420009/pfd_6194gyyg/27 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,120 - CMD: fastq-dump -N 6101705 -X 6319622 -O /local/scratch/job_420009/pfd_6194gyyg/28 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,121 - CMD: fastq-dump -N 6319623 -X 6537540 -O /local/scratch/job_420009/pfd_6194gyyg/29 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,121 - CMD: fastq-dump -N 6537541 -X 6755458 -O /local/scratch/job_420009/pfd_6194gyyg/30 --split-files --gzip SRR32099495
+2026-10-23 10:01:38,123 - CMD: fastq-dump -N 6755459 -X 6973384 -O /local/scratch/job_420009/pfd_6194gyyg/31 --split-files --gzip SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217926 spots for SRR32099495
+Written 217926 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Read 217918 spots for SRR32099495
+Written 217918 spots for SRR32099495
+Getting SRR32099491 from NCBI SRA
+2026-10-23 10:01:49,590 - SRR ids: ['SRR32099491']
+2026-10-23 10:01:49,590 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:01:49,591 - tempdir: /local/scratch/job_420009/pfd_kebtncqt
+2026-10-23 10:01:49,591 - CMD: sra-stat --meta --quick SRR32099491
+2026-10-23 10:01:51,853 - SRR32099491 spots: 12211907
+2026-10-23 10:01:51,853 - blocks: [[1, 381622], [381623, 763244], [763245, 1144866], [1144867, 1526488], [1526489, 1908110], [1908111, 2289732], [2289733, 2671354], [2671355, 3052976], [3052977, 3434598], [3434599, 3816220], [3816221, 4197842], [4197843, 4579464], [4579465, 4961086], [4961087, 5342708], [5342709, 5724330], [5724331, 6105952], [6105953, 6487574], [6487575, 6869196], [6869197, 7250818], [7250819, 7632440], [7632441, 8014062], [8014063, 8395684], [8395685, 8777306], [8777307, 9158928], [9158929, 9540550], [9540551, 9922172], [9922173, 10303794], [10303795, 10685416], [10685417, 11067038], [11067039, 11448660], [11448661, 11830282], [11830283, 12211907]]
+2026-10-23 10:01:51,853 - CMD: fastq-dump -N 1 -X 381622 -O /local/scratch/job_420009/pfd_kebtncqt/0 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,853 - CMD: fastq-dump -N 381623 -X 763244 -O /local/scratch/job_420009/pfd_kebtncqt/1 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,854 - CMD: fastq-dump -N 763245 -X 1144866 -O /local/scratch/job_420009/pfd_kebtncqt/2 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,854 - CMD: fastq-dump -N 1144867 -X 1526488 -O /local/scratch/job_420009/pfd_kebtncqt/3 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,855 - CMD: fastq-dump -N 1526489 -X 1908110 -O /local/scratch/job_420009/pfd_kebtncqt/4 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,855 - CMD: fastq-dump -N 1908111 -X 2289732 -O /local/scratch/job_420009/pfd_kebtncqt/5 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,855 - CMD: fastq-dump -N 2289733 -X 2671354 -O /local/scratch/job_420009/pfd_kebtncqt/6 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,856 - CMD: fastq-dump -N 2671355 -X 3052976 -O /local/scratch/job_420009/pfd_kebtncqt/7 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,856 - CMD: fastq-dump -N 3052977 -X 3434598 -O /local/scratch/job_420009/pfd_kebtncqt/8 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,857 - CMD: fastq-dump -N 3434599 -X 3816220 -O /local/scratch/job_420009/pfd_kebtncqt/9 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,857 - CMD: fastq-dump -N 3816221 -X 4197842 -O /local/scratch/job_420009/pfd_kebtncqt/10 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,857 - CMD: fastq-dump -N 4197843 -X 4579464 -O /local/scratch/job_420009/pfd_kebtncqt/11 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,858 - CMD: fastq-dump -N 4579465 -X 4961086 -O /local/scratch/job_420009/pfd_kebtncqt/12 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,858 - CMD: fastq-dump -N 4961087 -X 5342708 -O /local/scratch/job_420009/pfd_kebtncqt/13 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,858 - CMD: fastq-dump -N 5342709 -X 5724330 -O /local/scratch/job_420009/pfd_kebtncqt/14 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,859 - CMD: fastq-dump -N 5724331 -X 6105952 -O /local/scratch/job_420009/pfd_kebtncqt/15 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,859 - CMD: fastq-dump -N 6105953 -X 6487574 -O /local/scratch/job_420009/pfd_kebtncqt/16 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,859 - CMD: fastq-dump -N 6487575 -X 6869196 -O /local/scratch/job_420009/pfd_kebtncqt/17 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,860 - CMD: fastq-dump -N 6869197 -X 7250818 -O /local/scratch/job_420009/pfd_kebtncqt/18 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,860 - CMD: fastq-dump -N 7250819 -X 7632440 -O /local/scratch/job_420009/pfd_kebtncqt/19 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,860 - CMD: fastq-dump -N 7632441 -X 8014062 -O /local/scratch/job_420009/pfd_kebtncqt/20 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,861 - CMD: fastq-dump -N 8014063 -X 8395684 -O /local/scratch/job_420009/pfd_kebtncqt/21 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,861 - CMD: fastq-dump -N 8395685 -X 8777306 -O /local/scratch/job_420009/pfd_kebtncqt/22 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,861 - CMD: fastq-dump -N 8777307 -X 9158928 -O /local/scratch/job_420009/pfd_kebtncqt/23 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,862 - CMD: fastq-dump -N 9158929 -X 9540550 -O /local/scratch/job_420009/pfd_kebtncqt/24 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,862 - CMD: fastq-dump -N 9540551 -X 9922172 -O /local/scratch/job_420009/pfd_kebtncqt/25 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,863 - CMD: fastq-dump -N 9922173 -X 10303794 -O /local/scratch/job_420009/pfd_kebtncqt/26 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,864 - CMD: fastq-dump -N 10303795 -X 10685416 -O /local/scratch/job_420009/pfd_kebtncqt/27 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,864 - CMD: fastq-dump -N 10685417 -X 11067038 -O /local/scratch/job_420009/pfd_kebtncqt/28 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,864 - CMD: fastq-dump -N 11067039 -X 11448660 -O /local/scratch/job_420009/pfd_kebtncqt/29 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,865 - CMD: fastq-dump -N 11448661 -X 11830282 -O /local/scratch/job_420009/pfd_kebtncqt/30 --split-files --gzip SRR32099491
+2026-10-23 10:01:51,866 - CMD: fastq-dump -N 11830283 -X 12211907 -O /local/scratch/job_420009/pfd_kebtncqt/31 --split-files --gzip SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381625 spots for SRR32099491
+Written 381625 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Read 381622 spots for SRR32099491
+Written 381622 spots for SRR32099491
+Getting SRR32099490 from NCBI SRA
+2026-10-23 10:02:08,389 - SRR ids: ['SRR32099490']
+2026-10-23 10:02:08,390 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:02:08,390 - tempdir: /local/scratch/job_420009/pfd_o0htov3a
+2026-10-23 10:02:08,390 - CMD: sra-stat --meta --quick SRR32099490
+2026-10-23 10:02:10,575 - SRR32099490 spots: 12354242
+2026-10-23 10:02:10,576 - blocks: [[1, 386070], [386071, 772140], [772141, 1158210], [1158211, 1544280], [1544281, 1930350], [1930351, 2316420], [2316421, 2702490], [2702491, 3088560], [3088561, 3474630], [3474631, 3860700], [3860701, 4246770], [4246771, 4632840], [4632841, 5018910], [5018911, 5404980], [5404981, 5791050], [5791051, 6177120], [6177121, 6563190], [6563191, 6949260], [6949261, 7335330], [7335331, 7721400], [7721401, 8107470], [8107471, 8493540], [8493541, 8879610], [8879611, 9265680], [9265681, 9651750], [9651751, 10037820], [10037821, 10423890], [10423891, 10809960], [10809961, 11196030], [11196031, 11582100], [11582101, 11968170], [11968171, 12354242]]
+2026-10-23 10:02:10,576 - CMD: fastq-dump -N 1 -X 386070 -O /local/scratch/job_420009/pfd_o0htov3a/0 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,576 - CMD: fastq-dump -N 386071 -X 772140 -O /local/scratch/job_420009/pfd_o0htov3a/1 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,577 - CMD: fastq-dump -N 772141 -X 1158210 -O /local/scratch/job_420009/pfd_o0htov3a/2 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,577 - CMD: fastq-dump -N 1158211 -X 1544280 -O /local/scratch/job_420009/pfd_o0htov3a/3 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,578 - CMD: fastq-dump -N 1544281 -X 1930350 -O /local/scratch/job_420009/pfd_o0htov3a/4 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,578 - CMD: fastq-dump -N 1930351 -X 2316420 -O /local/scratch/job_420009/pfd_o0htov3a/5 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,578 - CMD: fastq-dump -N 2316421 -X 2702490 -O /local/scratch/job_420009/pfd_o0htov3a/6 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,579 - CMD: fastq-dump -N 2702491 -X 3088560 -O /local/scratch/job_420009/pfd_o0htov3a/7 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,579 - CMD: fastq-dump -N 3088561 -X 3474630 -O /local/scratch/job_420009/pfd_o0htov3a/8 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,579 - CMD: fastq-dump -N 3474631 -X 3860700 -O /local/scratch/job_420009/pfd_o0htov3a/9 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,580 - CMD: fastq-dump -N 3860701 -X 4246770 -O /local/scratch/job_420009/pfd_o0htov3a/10 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,580 - CMD: fastq-dump -N 4246771 -X 4632840 -O /local/scratch/job_420009/pfd_o0htov3a/11 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,580 - CMD: fastq-dump -N 4632841 -X 5018910 -O /local/scratch/job_420009/pfd_o0htov3a/12 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,581 - CMD: fastq-dump -N 5018911 -X 5404980 -O /local/scratch/job_420009/pfd_o0htov3a/13 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,581 - CMD: fastq-dump -N 5404981 -X 5791050 -O /local/scratch/job_420009/pfd_o0htov3a/14 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,581 - CMD: fastq-dump -N 5791051 -X 6177120 -O /local/scratch/job_420009/pfd_o0htov3a/15 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,582 - CMD: fastq-dump -N 6177121 -X 6563190 -O /local/scratch/job_420009/pfd_o0htov3a/16 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,582 - CMD: fastq-dump -N 6563191 -X 6949260 -O /local/scratch/job_420009/pfd_o0htov3a/17 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,582 - CMD: fastq-dump -N 6949261 -X 7335330 -O /local/scratch/job_420009/pfd_o0htov3a/18 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,583 - CMD: fastq-dump -N 7335331 -X 7721400 -O /local/scratch/job_420009/pfd_o0htov3a/19 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,583 - CMD: fastq-dump -N 7721401 -X 8107470 -O /local/scratch/job_420009/pfd_o0htov3a/20 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,583 - CMD: fastq-dump -N 8107471 -X 8493540 -O /local/scratch/job_420009/pfd_o0htov3a/21 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,584 - CMD: fastq-dump -N 8493541 -X 8879610 -O /local/scratch/job_420009/pfd_o0htov3a/22 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,584 - CMD: fastq-dump -N 8879611 -X 9265680 -O /local/scratch/job_420009/pfd_o0htov3a/23 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,584 - CMD: fastq-dump -N 9265681 -X 9651750 -O /local/scratch/job_420009/pfd_o0htov3a/24 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,585 - CMD: fastq-dump -N 9651751 -X 10037820 -O /local/scratch/job_420009/pfd_o0htov3a/25 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,585 - CMD: fastq-dump -N 10037821 -X 10423890 -O /local/scratch/job_420009/pfd_o0htov3a/26 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,585 - CMD: fastq-dump -N 10423891 -X 10809960 -O /local/scratch/job_420009/pfd_o0htov3a/27 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,586 - CMD: fastq-dump -N 10809961 -X 11196030 -O /local/scratch/job_420009/pfd_o0htov3a/28 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,586 - CMD: fastq-dump -N 11196031 -X 11582100 -O /local/scratch/job_420009/pfd_o0htov3a/29 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,586 - CMD: fastq-dump -N 11582101 -X 11968170 -O /local/scratch/job_420009/pfd_o0htov3a/30 --split-files --gzip SRR32099490
+2026-10-23 10:02:10,587 - CMD: fastq-dump -N 11968171 -X 12354242 -O /local/scratch/job_420009/pfd_o0htov3a/31 --split-files --gzip SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386072 spots for SRR32099490
+Written 386072 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Read 386070 spots for SRR32099490
+Written 386070 spots for SRR32099490
+Getting SRR32099489 from NCBI SRA
+2026-10-23 10:02:25,771 - SRR ids: ['SRR32099489']
+2026-10-23 10:02:25,771 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:02:25,771 - tempdir: /local/scratch/job_420009/pfd_wsll2s3k
+2026-10-23 10:02:25,771 - CMD: sra-stat --meta --quick SRR32099489
+2026-10-23 10:02:27,944 - SRR32099489 spots: 11691694
+2026-10-23 10:02:27,944 - blocks: [[1, 365365], [365366, 730730], [730731, 1096095], [1096096, 1461460], [1461461, 1826825], [1826826, 2192190], [2192191, 2557555], [2557556, 2922920], [2922921, 3288285], [3288286, 3653650], [3653651, 4019015], [4019016, 4384380], [4384381, 4749745], [4749746, 5115110], [5115111, 5480475], [5480476, 5845840], [5845841, 6211205], [6211206, 6576570], [6576571, 6941935], [6941936, 7307300], [7307301, 7672665], [7672666, 8038030], [8038031, 8403395], [8403396, 8768760], [8768761, 9134125], [9134126, 9499490], [9499491, 9864855], [9864856, 10230220], [10230221, 10595585], [10595586, 10960950], [10960951, 11326315], [11326316, 11691694]]
+2026-10-23 10:02:27,944 - CMD: fastq-dump -N 1 -X 365365 -O /local/scratch/job_420009/pfd_wsll2s3k/0 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,944 - CMD: fastq-dump -N 365366 -X 730730 -O /local/scratch/job_420009/pfd_wsll2s3k/1 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,945 - CMD: fastq-dump -N 730731 -X 1096095 -O /local/scratch/job_420009/pfd_wsll2s3k/2 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,945 - CMD: fastq-dump -N 1096096 -X 1461460 -O /local/scratch/job_420009/pfd_wsll2s3k/3 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,945 - CMD: fastq-dump -N 1461461 -X 1826825 -O /local/scratch/job_420009/pfd_wsll2s3k/4 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,946 - CMD: fastq-dump -N 1826826 -X 2192190 -O /local/scratch/job_420009/pfd_wsll2s3k/5 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,946 - CMD: fastq-dump -N 2192191 -X 2557555 -O /local/scratch/job_420009/pfd_wsll2s3k/6 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,947 - CMD: fastq-dump -N 2557556 -X 2922920 -O /local/scratch/job_420009/pfd_wsll2s3k/7 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,947 - CMD: fastq-dump -N 2922921 -X 3288285 -O /local/scratch/job_420009/pfd_wsll2s3k/8 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,947 - CMD: fastq-dump -N 3288286 -X 3653650 -O /local/scratch/job_420009/pfd_wsll2s3k/9 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,948 - CMD: fastq-dump -N 3653651 -X 4019015 -O /local/scratch/job_420009/pfd_wsll2s3k/10 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,948 - CMD: fastq-dump -N 4019016 -X 4384380 -O /local/scratch/job_420009/pfd_wsll2s3k/11 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,948 - CMD: fastq-dump -N 4384381 -X 4749745 -O /local/scratch/job_420009/pfd_wsll2s3k/12 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,949 - CMD: fastq-dump -N 4749746 -X 5115110 -O /local/scratch/job_420009/pfd_wsll2s3k/13 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,949 - CMD: fastq-dump -N 5115111 -X 5480475 -O /local/scratch/job_420009/pfd_wsll2s3k/14 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,949 - CMD: fastq-dump -N 5480476 -X 5845840 -O /local/scratch/job_420009/pfd_wsll2s3k/15 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,950 - CMD: fastq-dump -N 5845841 -X 6211205 -O /local/scratch/job_420009/pfd_wsll2s3k/16 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,950 - CMD: fastq-dump -N 6211206 -X 6576570 -O /local/scratch/job_420009/pfd_wsll2s3k/17 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,950 - CMD: fastq-dump -N 6576571 -X 6941935 -O /local/scratch/job_420009/pfd_wsll2s3k/18 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,951 - CMD: fastq-dump -N 6941936 -X 7307300 -O /local/scratch/job_420009/pfd_wsll2s3k/19 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,951 - CMD: fastq-dump -N 7307301 -X 7672665 -O /local/scratch/job_420009/pfd_wsll2s3k/20 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,952 - CMD: fastq-dump -N 7672666 -X 8038030 -O /local/scratch/job_420009/pfd_wsll2s3k/21 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,952 - CMD: fastq-dump -N 8038031 -X 8403395 -O /local/scratch/job_420009/pfd_wsll2s3k/22 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,952 - CMD: fastq-dump -N 8403396 -X 8768760 -O /local/scratch/job_420009/pfd_wsll2s3k/23 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,953 - CMD: fastq-dump -N 8768761 -X 9134125 -O /local/scratch/job_420009/pfd_wsll2s3k/24 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,953 - CMD: fastq-dump -N 9134126 -X 9499490 -O /local/scratch/job_420009/pfd_wsll2s3k/25 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,953 - CMD: fastq-dump -N 9499491 -X 9864855 -O /local/scratch/job_420009/pfd_wsll2s3k/26 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,954 - CMD: fastq-dump -N 9864856 -X 10230220 -O /local/scratch/job_420009/pfd_wsll2s3k/27 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,954 - CMD: fastq-dump -N 10230221 -X 10595585 -O /local/scratch/job_420009/pfd_wsll2s3k/28 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,954 - CMD: fastq-dump -N 10595586 -X 10960950 -O /local/scratch/job_420009/pfd_wsll2s3k/29 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,956 - CMD: fastq-dump -N 10960951 -X 11326315 -O /local/scratch/job_420009/pfd_wsll2s3k/30 --split-files --gzip SRR32099489
+2026-10-23 10:02:27,957 - CMD: fastq-dump -N 11326316 -X 11691694 -O /local/scratch/job_420009/pfd_wsll2s3k/31 --split-files --gzip SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365379 spots for SRR32099489
+Written 365379 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Read 365365 spots for SRR32099489
+Written 365365 spots for SRR32099489
+Getting SRR32099485 from NCBI SRA
+2026-10-23 10:02:42,065 - SRR ids: ['SRR32099485']
+2026-10-23 10:02:42,065 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:02:42,065 - tempdir: /local/scratch/job_420009/pfd_3q2ks61i
+2026-10-23 10:02:42,065 - CMD: sra-stat --meta --quick SRR32099485
+2026-10-23 10:02:44,381 - SRR32099485 spots: 32429425
+2026-10-23 10:02:44,381 - blocks: [[1, 1013419], [1013420, 2026838], [2026839, 3040257], [3040258, 4053676], [4053677, 5067095], [5067096, 6080514], [6080515, 7093933], [7093934, 8107352], [8107353, 9120771], [9120772, 10134190], [10134191, 11147609], [11147610, 12161028], [12161029, 13174447], [13174448, 14187866], [14187867, 15201285], [15201286, 16214704], [16214705, 17228123], [17228124, 18241542], [18241543, 19254961], [19254962, 20268380], [20268381, 21281799], [21281800, 22295218], [22295219, 23308637], [23308638, 24322056], [24322057, 25335475], [25335476, 26348894], [26348895, 27362313], [27362314, 28375732], [28375733, 29389151], [29389152, 30402570], [30402571, 31415989], [31415990, 32429425]]
+2026-10-23 10:02:44,382 - CMD: fastq-dump -N 1 -X 1013419 -O /local/scratch/job_420009/pfd_3q2ks61i/0 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,382 - CMD: fastq-dump -N 1013420 -X 2026838 -O /local/scratch/job_420009/pfd_3q2ks61i/1 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,382 - CMD: fastq-dump -N 2026839 -X 3040257 -O /local/scratch/job_420009/pfd_3q2ks61i/2 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,383 - CMD: fastq-dump -N 3040258 -X 4053676 -O /local/scratch/job_420009/pfd_3q2ks61i/3 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,383 - CMD: fastq-dump -N 4053677 -X 5067095 -O /local/scratch/job_420009/pfd_3q2ks61i/4 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,384 - CMD: fastq-dump -N 5067096 -X 6080514 -O /local/scratch/job_420009/pfd_3q2ks61i/5 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,384 - CMD: fastq-dump -N 6080515 -X 7093933 -O /local/scratch/job_420009/pfd_3q2ks61i/6 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,385 - CMD: fastq-dump -N 7093934 -X 8107352 -O /local/scratch/job_420009/pfd_3q2ks61i/7 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,385 - CMD: fastq-dump -N 8107353 -X 9120771 -O /local/scratch/job_420009/pfd_3q2ks61i/8 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,385 - CMD: fastq-dump -N 9120772 -X 10134190 -O /local/scratch/job_420009/pfd_3q2ks61i/9 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,386 - CMD: fastq-dump -N 10134191 -X 11147609 -O /local/scratch/job_420009/pfd_3q2ks61i/10 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,386 - CMD: fastq-dump -N 11147610 -X 12161028 -O /local/scratch/job_420009/pfd_3q2ks61i/11 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,386 - CMD: fastq-dump -N 12161029 -X 13174447 -O /local/scratch/job_420009/pfd_3q2ks61i/12 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,387 - CMD: fastq-dump -N 13174448 -X 14187866 -O /local/scratch/job_420009/pfd_3q2ks61i/13 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,387 - CMD: fastq-dump -N 14187867 -X 15201285 -O /local/scratch/job_420009/pfd_3q2ks61i/14 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,387 - CMD: fastq-dump -N 15201286 -X 16214704 -O /local/scratch/job_420009/pfd_3q2ks61i/15 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,388 - CMD: fastq-dump -N 16214705 -X 17228123 -O /local/scratch/job_420009/pfd_3q2ks61i/16 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,388 - CMD: fastq-dump -N 17228124 -X 18241542 -O /local/scratch/job_420009/pfd_3q2ks61i/17 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,388 - CMD: fastq-dump -N 18241543 -X 19254961 -O /local/scratch/job_420009/pfd_3q2ks61i/18 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,389 - CMD: fastq-dump -N 19254962 -X 20268380 -O /local/scratch/job_420009/pfd_3q2ks61i/19 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,390 - CMD: fastq-dump -N 20268381 -X 21281799 -O /local/scratch/job_420009/pfd_3q2ks61i/20 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,390 - CMD: fastq-dump -N 21281800 -X 22295218 -O /local/scratch/job_420009/pfd_3q2ks61i/21 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,391 - CMD: fastq-dump -N 22295219 -X 23308637 -O /local/scratch/job_420009/pfd_3q2ks61i/22 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,391 - CMD: fastq-dump -N 23308638 -X 24322056 -O /local/scratch/job_420009/pfd_3q2ks61i/23 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,391 - CMD: fastq-dump -N 24322057 -X 25335475 -O /local/scratch/job_420009/pfd_3q2ks61i/24 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,392 - CMD: fastq-dump -N 25335476 -X 26348894 -O /local/scratch/job_420009/pfd_3q2ks61i/25 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,392 - CMD: fastq-dump -N 26348895 -X 27362313 -O /local/scratch/job_420009/pfd_3q2ks61i/26 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,392 - CMD: fastq-dump -N 27362314 -X 28375732 -O /local/scratch/job_420009/pfd_3q2ks61i/27 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,393 - CMD: fastq-dump -N 28375733 -X 29389151 -O /local/scratch/job_420009/pfd_3q2ks61i/28 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,394 - CMD: fastq-dump -N 29389152 -X 30402570 -O /local/scratch/job_420009/pfd_3q2ks61i/29 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,395 - CMD: fastq-dump -N 30402571 -X 31415989 -O /local/scratch/job_420009/pfd_3q2ks61i/30 --split-files --gzip SRR32099485
+2026-10-23 10:02:44,396 - CMD: fastq-dump -N 31415990 -X 32429425 -O /local/scratch/job_420009/pfd_3q2ks61i/31 --split-files --gzip SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013436 spots for SRR32099485
+Written 1013436 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Read 1013419 spots for SRR32099485
+Written 1013419 spots for SRR32099485
+Getting SRR32099484 from NCBI SRA
+2026-10-23 10:03:22,893 - SRR ids: ['SRR32099484']
+2026-10-23 10:03:22,893 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:03:22,894 - tempdir: /local/scratch/job_420009/pfd_fkrjrzzp
+2026-10-23 10:03:22,894 - CMD: sra-stat --meta --quick SRR32099484
+2026-10-23 10:03:25,256 - SRR32099484 spots: 16280410
+2026-10-23 10:03:25,256 - blocks: [[1, 508762], [508763, 1017524], [1017525, 1526286], [1526287, 2035048], [2035049, 2543810], [2543811, 3052572], [3052573, 3561334], [3561335, 4070096], [4070097, 4578858], [4578859, 5087620], [5087621, 5596382], [5596383, 6105144], [6105145, 6613906], [6613907, 7122668], [7122669, 7631430], [7631431, 8140192], [8140193, 8648954], [8648955, 9157716], [9157717, 9666478], [9666479, 10175240], [10175241, 10684002], [10684003, 11192764], [11192765, 11701526], [11701527, 12210288], [12210289, 12719050], [12719051, 13227812], [13227813, 13736574], [13736575, 14245336], [14245337, 14754098], [14754099, 15262860], [15262861, 15771622], [15771623, 16280410]]
+2026-10-23 10:03:25,256 - CMD: fastq-dump -N 1 -X 508762 -O /local/scratch/job_420009/pfd_fkrjrzzp/0 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,256 - CMD: fastq-dump -N 508763 -X 1017524 -O /local/scratch/job_420009/pfd_fkrjrzzp/1 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,257 - CMD: fastq-dump -N 1017525 -X 1526286 -O /local/scratch/job_420009/pfd_fkrjrzzp/2 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,257 - CMD: fastq-dump -N 1526287 -X 2035048 -O /local/scratch/job_420009/pfd_fkrjrzzp/3 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,258 - CMD: fastq-dump -N 2035049 -X 2543810 -O /local/scratch/job_420009/pfd_fkrjrzzp/4 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,258 - CMD: fastq-dump -N 2543811 -X 3052572 -O /local/scratch/job_420009/pfd_fkrjrzzp/5 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,259 - CMD: fastq-dump -N 3052573 -X 3561334 -O /local/scratch/job_420009/pfd_fkrjrzzp/6 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,259 - CMD: fastq-dump -N 3561335 -X 4070096 -O /local/scratch/job_420009/pfd_fkrjrzzp/7 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,259 - CMD: fastq-dump -N 4070097 -X 4578858 -O /local/scratch/job_420009/pfd_fkrjrzzp/8 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,260 - CMD: fastq-dump -N 4578859 -X 5087620 -O /local/scratch/job_420009/pfd_fkrjrzzp/9 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,260 - CMD: fastq-dump -N 5087621 -X 5596382 -O /local/scratch/job_420009/pfd_fkrjrzzp/10 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,260 - CMD: fastq-dump -N 5596383 -X 6105144 -O /local/scratch/job_420009/pfd_fkrjrzzp/11 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,261 - CMD: fastq-dump -N 6105145 -X 6613906 -O /local/scratch/job_420009/pfd_fkrjrzzp/12 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,261 - CMD: fastq-dump -N 6613907 -X 7122668 -O /local/scratch/job_420009/pfd_fkrjrzzp/13 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,261 - CMD: fastq-dump -N 7122669 -X 7631430 -O /local/scratch/job_420009/pfd_fkrjrzzp/14 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,262 - CMD: fastq-dump -N 7631431 -X 8140192 -O /local/scratch/job_420009/pfd_fkrjrzzp/15 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,262 - CMD: fastq-dump -N 8140193 -X 8648954 -O /local/scratch/job_420009/pfd_fkrjrzzp/16 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,263 - CMD: fastq-dump -N 8648955 -X 9157716 -O /local/scratch/job_420009/pfd_fkrjrzzp/17 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,264 - CMD: fastq-dump -N 9157717 -X 9666478 -O /local/scratch/job_420009/pfd_fkrjrzzp/18 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,264 - CMD: fastq-dump -N 9666479 -X 10175240 -O /local/scratch/job_420009/pfd_fkrjrzzp/19 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,264 - CMD: fastq-dump -N 10175241 -X 10684002 -O /local/scratch/job_420009/pfd_fkrjrzzp/20 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,265 - CMD: fastq-dump -N 10684003 -X 11192764 -O /local/scratch/job_420009/pfd_fkrjrzzp/21 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,265 - CMD: fastq-dump -N 11192765 -X 11701526 -O /local/scratch/job_420009/pfd_fkrjrzzp/22 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,265 - CMD: fastq-dump -N 11701527 -X 12210288 -O /local/scratch/job_420009/pfd_fkrjrzzp/23 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,266 - CMD: fastq-dump -N 12210289 -X 12719050 -O /local/scratch/job_420009/pfd_fkrjrzzp/24 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,266 - CMD: fastq-dump -N 12719051 -X 13227812 -O /local/scratch/job_420009/pfd_fkrjrzzp/25 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,266 - CMD: fastq-dump -N 13227813 -X 13736574 -O /local/scratch/job_420009/pfd_fkrjrzzp/26 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,267 - CMD: fastq-dump -N 13736575 -X 14245336 -O /local/scratch/job_420009/pfd_fkrjrzzp/27 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,267 - CMD: fastq-dump -N 14245337 -X 14754098 -O /local/scratch/job_420009/pfd_fkrjrzzp/28 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,267 - CMD: fastq-dump -N 14754099 -X 15262860 -O /local/scratch/job_420009/pfd_fkrjrzzp/29 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,268 - CMD: fastq-dump -N 15262861 -X 15771622 -O /local/scratch/job_420009/pfd_fkrjrzzp/30 --split-files --gzip SRR32099484
+2026-10-23 10:03:25,269 - CMD: fastq-dump -N 15771623 -X 16280410 -O /local/scratch/job_420009/pfd_fkrjrzzp/31 --split-files --gzip SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508788 spots for SRR32099484
+Written 508788 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Read 508762 spots for SRR32099484
+Written 508762 spots for SRR32099484
+Getting SRR32099483 from NCBI SRA
+2026-10-23 10:03:45,322 - SRR ids: ['SRR32099483']
+2026-10-23 10:03:45,322 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:03:45,323 - tempdir: /local/scratch/job_420009/pfd_kxj5z_2z
+2026-10-23 10:03:45,323 - CMD: sra-stat --meta --quick SRR32099483
+2026-10-23 10:03:47,455 - SRR32099483 spots: 4695359
+2026-10-23 10:03:47,455 - blocks: [[1, 146729], [146730, 293458], [293459, 440187], [440188, 586916], [586917, 733645], [733646, 880374], [880375, 1027103], [1027104, 1173832], [1173833, 1320561], [1320562, 1467290], [1467291, 1614019], [1614020, 1760748], [1760749, 1907477], [1907478, 2054206], [2054207, 2200935], [2200936, 2347664], [2347665, 2494393], [2494394, 2641122], [2641123, 2787851], [2787852, 2934580], [2934581, 3081309], [3081310, 3228038], [3228039, 3374767], [3374768, 3521496], [3521497, 3668225], [3668226, 3814954], [3814955, 3961683], [3961684, 4108412], [4108413, 4255141], [4255142, 4401870], [4401871, 4548599], [4548600, 4695359]]
+2026-10-23 10:03:47,456 - CMD: fastq-dump -N 1 -X 146729 -O /local/scratch/job_420009/pfd_kxj5z_2z/0 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,456 - CMD: fastq-dump -N 146730 -X 293458 -O /local/scratch/job_420009/pfd_kxj5z_2z/1 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,456 - CMD: fastq-dump -N 293459 -X 440187 -O /local/scratch/job_420009/pfd_kxj5z_2z/2 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,457 - CMD: fastq-dump -N 440188 -X 586916 -O /local/scratch/job_420009/pfd_kxj5z_2z/3 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,457 - CMD: fastq-dump -N 586917 -X 733645 -O /local/scratch/job_420009/pfd_kxj5z_2z/4 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,458 - CMD: fastq-dump -N 733646 -X 880374 -O /local/scratch/job_420009/pfd_kxj5z_2z/5 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,458 - CMD: fastq-dump -N 880375 -X 1027103 -O /local/scratch/job_420009/pfd_kxj5z_2z/6 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,459 - CMD: fastq-dump -N 1027104 -X 1173832 -O /local/scratch/job_420009/pfd_kxj5z_2z/7 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,459 - CMD: fastq-dump -N 1173833 -X 1320561 -O /local/scratch/job_420009/pfd_kxj5z_2z/8 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,459 - CMD: fastq-dump -N 1320562 -X 1467290 -O /local/scratch/job_420009/pfd_kxj5z_2z/9 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,460 - CMD: fastq-dump -N 1467291 -X 1614019 -O /local/scratch/job_420009/pfd_kxj5z_2z/10 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,460 - CMD: fastq-dump -N 1614020 -X 1760748 -O /local/scratch/job_420009/pfd_kxj5z_2z/11 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,460 - CMD: fastq-dump -N 1760749 -X 1907477 -O /local/scratch/job_420009/pfd_kxj5z_2z/12 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,461 - CMD: fastq-dump -N 1907478 -X 2054206 -O /local/scratch/job_420009/pfd_kxj5z_2z/13 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,461 - CMD: fastq-dump -N 2054207 -X 2200935 -O /local/scratch/job_420009/pfd_kxj5z_2z/14 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,461 - CMD: fastq-dump -N 2200936 -X 2347664 -O /local/scratch/job_420009/pfd_kxj5z_2z/15 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,462 - CMD: fastq-dump -N 2347665 -X 2494393 -O /local/scratch/job_420009/pfd_kxj5z_2z/16 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,462 - CMD: fastq-dump -N 2494394 -X 2641122 -O /local/scratch/job_420009/pfd_kxj5z_2z/17 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,462 - CMD: fastq-dump -N 2641123 -X 2787851 -O /local/scratch/job_420009/pfd_kxj5z_2z/18 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,463 - CMD: fastq-dump -N 2787852 -X 2934580 -O /local/scratch/job_420009/pfd_kxj5z_2z/19 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,464 - CMD: fastq-dump -N 2934581 -X 3081309 -O /local/scratch/job_420009/pfd_kxj5z_2z/20 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,472 - CMD: fastq-dump -N 3081310 -X 3228038 -O /local/scratch/job_420009/pfd_kxj5z_2z/21 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,473 - CMD: fastq-dump -N 3228039 -X 3374767 -O /local/scratch/job_420009/pfd_kxj5z_2z/22 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,473 - CMD: fastq-dump -N 3374768 -X 3521496 -O /local/scratch/job_420009/pfd_kxj5z_2z/23 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,473 - CMD: fastq-dump -N 3521497 -X 3668225 -O /local/scratch/job_420009/pfd_kxj5z_2z/24 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,474 - CMD: fastq-dump -N 3668226 -X 3814954 -O /local/scratch/job_420009/pfd_kxj5z_2z/25 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,474 - CMD: fastq-dump -N 3814955 -X 3961683 -O /local/scratch/job_420009/pfd_kxj5z_2z/26 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,475 - CMD: fastq-dump -N 3961684 -X 4108412 -O /local/scratch/job_420009/pfd_kxj5z_2z/27 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,482 - CMD: fastq-dump -N 4108413 -X 4255141 -O /local/scratch/job_420009/pfd_kxj5z_2z/28 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,483 - CMD: fastq-dump -N 4255142 -X 4401870 -O /local/scratch/job_420009/pfd_kxj5z_2z/29 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,483 - CMD: fastq-dump -N 4401871 -X 4548599 -O /local/scratch/job_420009/pfd_kxj5z_2z/30 --split-files --gzip SRR32099483
+2026-10-23 10:03:47,484 - CMD: fastq-dump -N 4548600 -X 4695359 -O /local/scratch/job_420009/pfd_kxj5z_2z/31 --split-files --gzip SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146760 spots for SRR32099483
+Written 146760 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Read 146729 spots for SRR32099483
+Written 146729 spots for SRR32099483
+Getting SRR32099479 from NCBI SRA
+2026-10-23 10:03:56,937 - SRR ids: ['SRR32099479']
+2026-10-23 10:03:56,937 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:03:56,938 - tempdir: /local/scratch/job_420009/pfd_rfzml9vb
+2026-10-23 10:03:56,938 - CMD: sra-stat --meta --quick SRR32099479
+2026-10-23 10:03:59,179 - SRR32099479 spots: 1506705
+2026-10-23 10:03:59,179 - blocks: [[1, 47084], [47085, 94168], [94169, 141252], [141253, 188336], [188337, 235420], [235421, 282504], [282505, 329588], [329589, 376672], [376673, 423756], [423757, 470840], [470841, 517924], [517925, 565008], [565009, 612092], [612093, 659176], [659177, 706260], [706261, 753344], [753345, 800428], [800429, 847512], [847513, 894596], [894597, 941680], [941681, 988764], [988765, 1035848], [1035849, 1082932], [1082933, 1130016], [1130017, 1177100], [1177101, 1224184], [1224185, 1271268], [1271269, 1318352], [1318353, 1365436], [1365437, 1412520], [1412521, 1459604], [1459605, 1506705]]
+2026-10-23 10:03:59,180 - CMD: fastq-dump -N 1 -X 47084 -O /local/scratch/job_420009/pfd_rfzml9vb/0 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,180 - CMD: fastq-dump -N 47085 -X 94168 -O /local/scratch/job_420009/pfd_rfzml9vb/1 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,181 - CMD: fastq-dump -N 94169 -X 141252 -O /local/scratch/job_420009/pfd_rfzml9vb/2 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,181 - CMD: fastq-dump -N 141253 -X 188336 -O /local/scratch/job_420009/pfd_rfzml9vb/3 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,181 - CMD: fastq-dump -N 188337 -X 235420 -O /local/scratch/job_420009/pfd_rfzml9vb/4 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,182 - CMD: fastq-dump -N 235421 -X 282504 -O /local/scratch/job_420009/pfd_rfzml9vb/5 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,182 - CMD: fastq-dump -N 282505 -X 329588 -O /local/scratch/job_420009/pfd_rfzml9vb/6 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,183 - CMD: fastq-dump -N 329589 -X 376672 -O /local/scratch/job_420009/pfd_rfzml9vb/7 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,183 - CMD: fastq-dump -N 376673 -X 423756 -O /local/scratch/job_420009/pfd_rfzml9vb/8 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,183 - CMD: fastq-dump -N 423757 -X 470840 -O /local/scratch/job_420009/pfd_rfzml9vb/9 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,183 - CMD: fastq-dump -N 470841 -X 517924 -O /local/scratch/job_420009/pfd_rfzml9vb/10 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,184 - CMD: fastq-dump -N 517925 -X 565008 -O /local/scratch/job_420009/pfd_rfzml9vb/11 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,184 - CMD: fastq-dump -N 565009 -X 612092 -O /local/scratch/job_420009/pfd_rfzml9vb/12 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,184 - CMD: fastq-dump -N 612093 -X 659176 -O /local/scratch/job_420009/pfd_rfzml9vb/13 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,185 - CMD: fastq-dump -N 659177 -X 706260 -O /local/scratch/job_420009/pfd_rfzml9vb/14 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,185 - CMD: fastq-dump -N 706261 -X 753344 -O /local/scratch/job_420009/pfd_rfzml9vb/15 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,185 - CMD: fastq-dump -N 753345 -X 800428 -O /local/scratch/job_420009/pfd_rfzml9vb/16 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,186 - CMD: fastq-dump -N 800429 -X 847512 -O /local/scratch/job_420009/pfd_rfzml9vb/17 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,186 - CMD: fastq-dump -N 847513 -X 894596 -O /local/scratch/job_420009/pfd_rfzml9vb/18 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,186 - CMD: fastq-dump -N 894597 -X 941680 -O /local/scratch/job_420009/pfd_rfzml9vb/19 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,187 - CMD: fastq-dump -N 941681 -X 988764 -O /local/scratch/job_420009/pfd_rfzml9vb/20 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,188 - CMD: fastq-dump -N 988765 -X 1035848 -O /local/scratch/job_420009/pfd_rfzml9vb/21 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,188 - CMD: fastq-dump -N 1035849 -X 1082932 -O /local/scratch/job_420009/pfd_rfzml9vb/22 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,188 - CMD: fastq-dump -N 1082933 -X 1130016 -O /local/scratch/job_420009/pfd_rfzml9vb/23 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,189 - CMD: fastq-dump -N 1130017 -X 1177100 -O /local/scratch/job_420009/pfd_rfzml9vb/24 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,189 - CMD: fastq-dump -N 1177101 -X 1224184 -O /local/scratch/job_420009/pfd_rfzml9vb/25 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,189 - CMD: fastq-dump -N 1224185 -X 1271268 -O /local/scratch/job_420009/pfd_rfzml9vb/26 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,190 - CMD: fastq-dump -N 1271269 -X 1318352 -O /local/scratch/job_420009/pfd_rfzml9vb/27 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,190 - CMD: fastq-dump -N 1318353 -X 1365436 -O /local/scratch/job_420009/pfd_rfzml9vb/28 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,191 - CMD: fastq-dump -N 1365437 -X 1412520 -O /local/scratch/job_420009/pfd_rfzml9vb/29 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,191 - CMD: fastq-dump -N 1412521 -X 1459604 -O /local/scratch/job_420009/pfd_rfzml9vb/30 --split-files --gzip SRR32099479
+2026-10-23 10:03:59,191 - CMD: fastq-dump -N 1459605 -X 1506705 -O /local/scratch/job_420009/pfd_rfzml9vb/31 --split-files --gzip SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47101 spots for SRR32099479
+Written 47101 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Read 47084 spots for SRR32099479
+Written 47084 spots for SRR32099479
+Getting SRR32099478 from NCBI SRA
+2026-10-23 10:04:09,756 - SRR ids: ['SRR32099478']
+2026-10-23 10:04:09,756 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:04:09,756 - tempdir: /local/scratch/job_420009/pfd_de_gomoo
+2026-10-23 10:04:09,756 - CMD: sra-stat --meta --quick SRR32099478
+2026-10-23 10:04:11,907 - SRR32099478 spots: 19922143
+2026-10-23 10:04:11,907 - blocks: [[1, 622566], [622567, 1245132], [1245133, 1867698], [1867699, 2490264], [2490265, 3112830], [3112831, 3735396], [3735397, 4357962], [4357963, 4980528], [4980529, 5603094], [5603095, 6225660], [6225661, 6848226], [6848227, 7470792], [7470793, 8093358], [8093359, 8715924], [8715925, 9338490], [9338491, 9961056], [9961057, 10583622], [10583623, 11206188], [11206189, 11828754], [11828755, 12451320], [12451321, 13073886], [13073887, 13696452], [13696453, 14319018], [14319019, 14941584], [14941585, 15564150], [15564151, 16186716], [16186717, 16809282], [16809283, 17431848], [17431849, 18054414], [18054415, 18676980], [18676981, 19299546], [19299547, 19922143]]
+2026-10-23 10:04:11,907 - CMD: fastq-dump -N 1 -X 622566 -O /local/scratch/job_420009/pfd_de_gomoo/0 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,908 - CMD: fastq-dump -N 622567 -X 1245132 -O /local/scratch/job_420009/pfd_de_gomoo/1 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,908 - CMD: fastq-dump -N 1245133 -X 1867698 -O /local/scratch/job_420009/pfd_de_gomoo/2 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,909 - CMD: fastq-dump -N 1867699 -X 2490264 -O /local/scratch/job_420009/pfd_de_gomoo/3 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,909 - CMD: fastq-dump -N 2490265 -X 3112830 -O /local/scratch/job_420009/pfd_de_gomoo/4 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,910 - CMD: fastq-dump -N 3112831 -X 3735396 -O /local/scratch/job_420009/pfd_de_gomoo/5 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,910 - CMD: fastq-dump -N 3735397 -X 4357962 -O /local/scratch/job_420009/pfd_de_gomoo/6 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,910 - CMD: fastq-dump -N 4357963 -X 4980528 -O /local/scratch/job_420009/pfd_de_gomoo/7 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,911 - CMD: fastq-dump -N 4980529 -X 5603094 -O /local/scratch/job_420009/pfd_de_gomoo/8 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,911 - CMD: fastq-dump -N 5603095 -X 6225660 -O /local/scratch/job_420009/pfd_de_gomoo/9 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,911 - CMD: fastq-dump -N 6225661 -X 6848226 -O /local/scratch/job_420009/pfd_de_gomoo/10 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,912 - CMD: fastq-dump -N 6848227 -X 7470792 -O /local/scratch/job_420009/pfd_de_gomoo/11 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,912 - CMD: fastq-dump -N 7470793 -X 8093358 -O /local/scratch/job_420009/pfd_de_gomoo/12 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,912 - CMD: fastq-dump -N 8093359 -X 8715924 -O /local/scratch/job_420009/pfd_de_gomoo/13 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,913 - CMD: fastq-dump -N 8715925 -X 9338490 -O /local/scratch/job_420009/pfd_de_gomoo/14 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,913 - CMD: fastq-dump -N 9338491 -X 9961056 -O /local/scratch/job_420009/pfd_de_gomoo/15 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,913 - CMD: fastq-dump -N 9961057 -X 10583622 -O /local/scratch/job_420009/pfd_de_gomoo/16 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,914 - CMD: fastq-dump -N 10583623 -X 11206188 -O /local/scratch/job_420009/pfd_de_gomoo/17 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,914 - CMD: fastq-dump -N 11206189 -X 11828754 -O /local/scratch/job_420009/pfd_de_gomoo/18 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,914 - CMD: fastq-dump -N 11828755 -X 12451320 -O /local/scratch/job_420009/pfd_de_gomoo/19 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,915 - CMD: fastq-dump -N 12451321 -X 13073886 -O /local/scratch/job_420009/pfd_de_gomoo/20 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,915 - CMD: fastq-dump -N 13073887 -X 13696452 -O /local/scratch/job_420009/pfd_de_gomoo/21 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,915 - CMD: fastq-dump -N 13696453 -X 14319018 -O /local/scratch/job_420009/pfd_de_gomoo/22 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,916 - CMD: fastq-dump -N 14319019 -X 14941584 -O /local/scratch/job_420009/pfd_de_gomoo/23 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,916 - CMD: fastq-dump -N 14941585 -X 15564150 -O /local/scratch/job_420009/pfd_de_gomoo/24 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,916 - CMD: fastq-dump -N 15564151 -X 16186716 -O /local/scratch/job_420009/pfd_de_gomoo/25 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,917 - CMD: fastq-dump -N 16186717 -X 16809282 -O /local/scratch/job_420009/pfd_de_gomoo/26 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,918 - CMD: fastq-dump -N 16809283 -X 17431848 -O /local/scratch/job_420009/pfd_de_gomoo/27 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,918 - CMD: fastq-dump -N 17431849 -X 18054414 -O /local/scratch/job_420009/pfd_de_gomoo/28 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,919 - CMD: fastq-dump -N 18054415 -X 18676980 -O /local/scratch/job_420009/pfd_de_gomoo/29 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,919 - CMD: fastq-dump -N 18676981 -X 19299546 -O /local/scratch/job_420009/pfd_de_gomoo/30 --split-files --gzip SRR32099478
+2026-10-23 10:04:11,919 - CMD: fastq-dump -N 19299547 -X 19922143 -O /local/scratch/job_420009/pfd_de_gomoo/31 --split-files --gzip SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622597 spots for SRR32099478
+Written 622597 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Read 622566 spots for SRR32099478
+Written 622566 spots for SRR32099478
+Getting SRR32099477 from NCBI SRA
+2026-10-23 10:04:40,570 - SRR ids: ['SRR32099477']
+2026-10-23 10:04:40,570 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:04:40,571 - tempdir: /local/scratch/job_420009/pfd_cpe3l0hn
+2026-10-23 10:04:40,571 - CMD: sra-stat --meta --quick SRR32099477
+2026-10-23 10:04:42,885 - SRR32099477 spots: 11454799
+2026-10-23 10:04:42,885 - blocks: [[1, 357962], [357963, 715924], [715925, 1073886], [1073887, 1431848], [1431849, 1789810], [1789811, 2147772], [2147773, 2505734], [2505735, 2863696], [2863697, 3221658], [3221659, 3579620], [3579621, 3937582], [3937583, 4295544], [4295545, 4653506], [4653507, 5011468], [5011469, 5369430], [5369431, 5727392], [5727393, 6085354], [6085355, 6443316], [6443317, 6801278], [6801279, 7159240], [7159241, 7517202], [7517203, 7875164], [7875165, 8233126], [8233127, 8591088], [8591089, 8949050], [8949051, 9307012], [9307013, 9664974], [9664975, 10022936], [10022937, 10380898], [10380899, 10738860], [10738861, 11096822], [11096823, 11454799]]
+2026-10-23 10:04:42,885 - CMD: fastq-dump -N 1 -X 357962 -O /local/scratch/job_420009/pfd_cpe3l0hn/0 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,886 - CMD: fastq-dump -N 357963 -X 715924 -O /local/scratch/job_420009/pfd_cpe3l0hn/1 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,886 - CMD: fastq-dump -N 715925 -X 1073886 -O /local/scratch/job_420009/pfd_cpe3l0hn/2 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,887 - CMD: fastq-dump -N 1073887 -X 1431848 -O /local/scratch/job_420009/pfd_cpe3l0hn/3 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,887 - CMD: fastq-dump -N 1431849 -X 1789810 -O /local/scratch/job_420009/pfd_cpe3l0hn/4 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,887 - CMD: fastq-dump -N 1789811 -X 2147772 -O /local/scratch/job_420009/pfd_cpe3l0hn/5 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,888 - CMD: fastq-dump -N 2147773 -X 2505734 -O /local/scratch/job_420009/pfd_cpe3l0hn/6 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,888 - CMD: fastq-dump -N 2505735 -X 2863696 -O /local/scratch/job_420009/pfd_cpe3l0hn/7 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,889 - CMD: fastq-dump -N 2863697 -X 3221658 -O /local/scratch/job_420009/pfd_cpe3l0hn/8 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,889 - CMD: fastq-dump -N 3221659 -X 3579620 -O /local/scratch/job_420009/pfd_cpe3l0hn/9 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,889 - CMD: fastq-dump -N 3579621 -X 3937582 -O /local/scratch/job_420009/pfd_cpe3l0hn/10 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,890 - CMD: fastq-dump -N 3937583 -X 4295544 -O /local/scratch/job_420009/pfd_cpe3l0hn/11 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,890 - CMD: fastq-dump -N 4295545 -X 4653506 -O /local/scratch/job_420009/pfd_cpe3l0hn/12 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,890 - CMD: fastq-dump -N 4653507 -X 5011468 -O /local/scratch/job_420009/pfd_cpe3l0hn/13 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,891 - CMD: fastq-dump -N 5011469 -X 5369430 -O /local/scratch/job_420009/pfd_cpe3l0hn/14 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,892 - CMD: fastq-dump -N 5369431 -X 5727392 -O /local/scratch/job_420009/pfd_cpe3l0hn/15 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,892 - CMD: fastq-dump -N 5727393 -X 6085354 -O /local/scratch/job_420009/pfd_cpe3l0hn/16 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,892 - CMD: fastq-dump -N 6085355 -X 6443316 -O /local/scratch/job_420009/pfd_cpe3l0hn/17 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,893 - CMD: fastq-dump -N 6443317 -X 6801278 -O /local/scratch/job_420009/pfd_cpe3l0hn/18 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,893 - CMD: fastq-dump -N 6801279 -X 7159240 -O /local/scratch/job_420009/pfd_cpe3l0hn/19 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,893 - CMD: fastq-dump -N 7159241 -X 7517202 -O /local/scratch/job_420009/pfd_cpe3l0hn/20 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,894 - CMD: fastq-dump -N 7517203 -X 7875164 -O /local/scratch/job_420009/pfd_cpe3l0hn/21 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,894 - CMD: fastq-dump -N 7875165 -X 8233126 -O /local/scratch/job_420009/pfd_cpe3l0hn/22 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,894 - CMD: fastq-dump -N 8233127 -X 8591088 -O /local/scratch/job_420009/pfd_cpe3l0hn/23 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,895 - CMD: fastq-dump -N 8591089 -X 8949050 -O /local/scratch/job_420009/pfd_cpe3l0hn/24 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,895 - CMD: fastq-dump -N 8949051 -X 9307012 -O /local/scratch/job_420009/pfd_cpe3l0hn/25 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,895 - CMD: fastq-dump -N 9307013 -X 9664974 -O /local/scratch/job_420009/pfd_cpe3l0hn/26 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,896 - CMD: fastq-dump -N 9664975 -X 10022936 -O /local/scratch/job_420009/pfd_cpe3l0hn/27 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,896 - CMD: fastq-dump -N 10022937 -X 10380898 -O /local/scratch/job_420009/pfd_cpe3l0hn/28 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,896 - CMD: fastq-dump -N 10380899 -X 10738860 -O /local/scratch/job_420009/pfd_cpe3l0hn/29 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,897 - CMD: fastq-dump -N 10738861 -X 11096822 -O /local/scratch/job_420009/pfd_cpe3l0hn/30 --split-files --gzip SRR32099477
+2026-10-23 10:04:42,897 - CMD: fastq-dump -N 11096823 -X 11454799 -O /local/scratch/job_420009/pfd_cpe3l0hn/31 --split-files --gzip SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357977 spots for SRR32099477
+Written 357977 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Read 357962 spots for SRR32099477
+Written 357962 spots for SRR32099477
+Getting SRR32099473 from NCBI SRA
+2026-10-23 10:04:57,680 - SRR ids: ['SRR32099473']
+2026-10-23 10:04:57,680 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:04:57,681 - tempdir: /local/scratch/job_420009/pfd_aktz3yy6
+2026-10-23 10:04:57,681 - CMD: sra-stat --meta --quick SRR32099473
+2026-10-23 10:04:59,871 - SRR32099473 spots: 9521318
+2026-10-23 10:04:59,872 - blocks: [[1, 297541], [297542, 595082], [595083, 892623], [892624, 1190164], [1190165, 1487705], [1487706, 1785246], [1785247, 2082787], [2082788, 2380328], [2380329, 2677869], [2677870, 2975410], [2975411, 3272951], [3272952, 3570492], [3570493, 3868033], [3868034, 4165574], [4165575, 4463115], [4463116, 4760656], [4760657, 5058197], [5058198, 5355738], [5355739, 5653279], [5653280, 5950820], [5950821, 6248361], [6248362, 6545902], [6545903, 6843443], [6843444, 7140984], [7140985, 7438525], [7438526, 7736066], [7736067, 8033607], [8033608, 8331148], [8331149, 8628689], [8628690, 8926230], [8926231, 9223771], [9223772, 9521318]]
+2026-10-23 10:04:59,872 - CMD: fastq-dump -N 1 -X 297541 -O /local/scratch/job_420009/pfd_aktz3yy6/0 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,872 - CMD: fastq-dump -N 297542 -X 595082 -O /local/scratch/job_420009/pfd_aktz3yy6/1 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,873 - CMD: fastq-dump -N 595083 -X 892623 -O /local/scratch/job_420009/pfd_aktz3yy6/2 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,873 - CMD: fastq-dump -N 892624 -X 1190164 -O /local/scratch/job_420009/pfd_aktz3yy6/3 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,873 - CMD: fastq-dump -N 1190165 -X 1487705 -O /local/scratch/job_420009/pfd_aktz3yy6/4 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,874 - CMD: fastq-dump -N 1487706 -X 1785246 -O /local/scratch/job_420009/pfd_aktz3yy6/5 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,874 - CMD: fastq-dump -N 1785247 -X 2082787 -O /local/scratch/job_420009/pfd_aktz3yy6/6 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,875 - CMD: fastq-dump -N 2082788 -X 2380328 -O /local/scratch/job_420009/pfd_aktz3yy6/7 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,875 - CMD: fastq-dump -N 2380329 -X 2677869 -O /local/scratch/job_420009/pfd_aktz3yy6/8 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,875 - CMD: fastq-dump -N 2677870 -X 2975410 -O /local/scratch/job_420009/pfd_aktz3yy6/9 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,876 - CMD: fastq-dump -N 2975411 -X 3272951 -O /local/scratch/job_420009/pfd_aktz3yy6/10 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,876 - CMD: fastq-dump -N 3272952 -X 3570492 -O /local/scratch/job_420009/pfd_aktz3yy6/11 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,876 - CMD: fastq-dump -N 3570493 -X 3868033 -O /local/scratch/job_420009/pfd_aktz3yy6/12 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,877 - CMD: fastq-dump -N 3868034 -X 4165574 -O /local/scratch/job_420009/pfd_aktz3yy6/13 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,877 - CMD: fastq-dump -N 4165575 -X 4463115 -O /local/scratch/job_420009/pfd_aktz3yy6/14 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,877 - CMD: fastq-dump -N 4463116 -X 4760656 -O /local/scratch/job_420009/pfd_aktz3yy6/15 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,878 - CMD: fastq-dump -N 4760657 -X 5058197 -O /local/scratch/job_420009/pfd_aktz3yy6/16 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,878 - CMD: fastq-dump -N 5058198 -X 5355738 -O /local/scratch/job_420009/pfd_aktz3yy6/17 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,878 - CMD: fastq-dump -N 5355739 -X 5653279 -O /local/scratch/job_420009/pfd_aktz3yy6/18 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,879 - CMD: fastq-dump -N 5653280 -X 5950820 -O /local/scratch/job_420009/pfd_aktz3yy6/19 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,879 - CMD: fastq-dump -N 5950821 -X 6248361 -O /local/scratch/job_420009/pfd_aktz3yy6/20 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,879 - CMD: fastq-dump -N 6248362 -X 6545902 -O /local/scratch/job_420009/pfd_aktz3yy6/21 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,880 - CMD: fastq-dump -N 6545903 -X 6843443 -O /local/scratch/job_420009/pfd_aktz3yy6/22 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,880 - CMD: fastq-dump -N 6843444 -X 7140984 -O /local/scratch/job_420009/pfd_aktz3yy6/23 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,880 - CMD: fastq-dump -N 7140985 -X 7438525 -O /local/scratch/job_420009/pfd_aktz3yy6/24 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,888 - CMD: fastq-dump -N 7438526 -X 7736066 -O /local/scratch/job_420009/pfd_aktz3yy6/25 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,889 - CMD: fastq-dump -N 7736067 -X 8033607 -O /local/scratch/job_420009/pfd_aktz3yy6/26 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,889 - CMD: fastq-dump -N 8033608 -X 8331148 -O /local/scratch/job_420009/pfd_aktz3yy6/27 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,889 - CMD: fastq-dump -N 8331149 -X 8628689 -O /local/scratch/job_420009/pfd_aktz3yy6/28 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,890 - CMD: fastq-dump -N 8628690 -X 8926230 -O /local/scratch/job_420009/pfd_aktz3yy6/29 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,891 - CMD: fastq-dump -N 8926231 -X 9223771 -O /local/scratch/job_420009/pfd_aktz3yy6/30 --split-files --gzip SRR32099473
+2026-10-23 10:04:59,891 - CMD: fastq-dump -N 9223772 -X 9521318 -O /local/scratch/job_420009/pfd_aktz3yy6/31 --split-files --gzip SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297547 spots for SRR32099473
+Written 297547 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Read 297541 spots for SRR32099473
+Written 297541 spots for SRR32099473
+Getting SRR32099673 from NCBI SRA
+2026-10-23 10:05:12,759 - SRR ids: ['SRR32099673']
+2026-10-23 10:05:12,759 - extra args: ['--split-files', '--gzip']
+2026-10-23 10:05:12,760 - tempdir: /local/scratch/job_420009/pfd_8tgr8nwp
+2026-10-23 10:05:12,760 - CMD: sra-stat --meta --quick SRR32099673
