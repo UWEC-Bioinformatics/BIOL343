@@ -3,6 +3,6 @@ homework,due date,pushed,in progress,done
 2 genome exploration,9/25,x,x,(needs gene of interest)
 3 scripting,10/3,x,x,x
 4 snakemake,10/9,x,x,x
-5 fastq,10/17,x
-6 alignment,10/24
+5 fastq,10/17,x,x
+6 alignment,10/24,x
 7 alignment qc,10/31
