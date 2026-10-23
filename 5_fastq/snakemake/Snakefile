@@ -1,0 +1,56 @@
+#START @ END AND WORK UP (BACKWARDS)!
+
+configfile: "config.yaml"
+
+rule all:
+    input:
+        "multiqc/multiqc_report.html"
+
+rule fetch_fastq:
+    input:
+        "{sample}"
+    output:
+        #is it a matter of "knowing" the output or "naming" the output???
+        "fastq/{sample,_1}.fastq.gz"
+    shell: 
+        "parallel-fastq-dump --split-files --sra-id {input} --threads 16 --outdir fastq --gzip;"
+
+rule fastq_qc:
+    input:
+        "fastq/{sample}_1.fastq.gz"
+        #does the shell command differ between running 20 times on different fastqs vs running once with a 'list' of 20 fastqs
+    output:
+        directory("fastq/qc/")
+    shell:
+        "!fastqc -t 32 {input} -o fastq/qc"
+
+rule trim_filter:
+    input:
+        "fastq/{sample}_1.fastq.gz"
+    output:
+        "trimmed/{sample}_1.fastq.gz"
+    shell:
+        "cutadapt -j 32 -u 12 -u -3 -m 20 "
+        "-o {output} {input};"
+
+rule trim_qc:
+    input:
+        expand(trimmed/{sample}_1.fastq.gz, sample=config["fastqs"])
+    output:
+        directory("trimmed/qc")
+    shell:
+        "!fastqc -t 32 {input} -o trimmed/qc"
+
+rule report:
+    input:
+        #output from fastq_qc and trim_qc
+        # fastq=("fastq/qc"),
+        # trimmed=("trimmed/qc")
+        fastq=directory("fastq/qc/"),
+        trimmed=directory("trimmed/qc/")
+    output:
+        "multiqc/multiqc_report.html"
+        #do I need to include all outputs of the shell command, or just the ones I care about and want to use again?
+        # ^ directory("multiqc/multiqc_data")
+    shell:
+        "multiqc -d {input.fastq} --outdir multiqc {input.trimmed}"
