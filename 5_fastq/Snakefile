@@ -1,0 +1,46 @@
+configfile: "config.yaml"
+
+rule all:
+    input:
+        "plots/quals.svg"
+
+rule fetch_fastq:
+    input:
+        "{fastq_files}"
+    output:
+        "homework/fastq/{fastq_files}_1.fastq.gz"
+    shell:
+        "parallel-fastq-dump --split-files --sra-id $line --threads 16 --outdir homework/fastq --gzip"
+        
+rule fastq_qc:
+    input:
+        "homework/fastq/{fastq_files}_1.fastq.gz"
+    output:
+        "homework/qc/{fastq_files,_1,_fastqc}.zip")
+        "homework/qc/{fastq_files,_1,_fastqc}.html")
+    shell:
+        "fastqc -t 32 homework/fastq/*.fastq.gz -o homework/qc"
+
+rule trim_filter:
+    input:
+        "{fastq_files}"
+    output:
+        "homework/fastq/{fastq_files}_1.fastq.gz")
+    shell:
+        "parallel-fastq-dump --split-files --sra-id $line --threads 16 --outdir homework/fastq --gzip"
+
+rule trim_qc:
+    input:
+        "{fastq_files}"
+    output:
+        "homework/fastq/{fastq_files}_1.fastq.gz")
+    shell:
+        "parallel-fastq-dump --split-files --sra-id $line --threads 16 --outdir homework/fastq --gzip"
+
+rule report:
+    input:
+        "{fastq_files}"
+    output:
+        "homework/fastq/{fastq_files}_1.fastq.gz")
+    shell:
+        "parallel-fastq-dump --split-files --sra-id $line --threads 16 --outdir homework/fastq --gzip"
