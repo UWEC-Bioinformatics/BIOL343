@@ -7,17 +7,15 @@ rule all:
         "multiqc/multiqc_report.html"
 
 rule fetch_fastq:
-    input:
-        "{sample}"
     output:
         #is it a matter of "knowing" the output or "naming" the output???
-        "fastq/{sample,_1}.fastq.gz"
+        "fastq/{sample}_1.fastq.gz"
     shell: 
-        "parallel-fastq-dump --split-files --sra-id {input} --threads 16 --outdir fastq --gzip;"
+        "parallel-fastq-dump --split-files --sra-id {wildcards.sample} --threads 16 --outdir fastq --gzip;"
 
 rule fastq_qc:
     input:
-        "fastq/{sample}_1.fastq.gz"
+        expand("fastq/{sample}_1.fastq.gz", sample=config["fastqs"])
         #does the shell command differ between running 20 times on different fastqs vs running once with a 'list' of 20 fastqs
     output:
         directory("fastq/qc/")
@@ -35,7 +33,7 @@ rule trim_filter:
 
 rule trim_qc:
     input:
-        expand(trimmed/{sample}_1.fastq.gz, sample=config["fastqs"])
+        trimmedfastq=expand("trimmed/{sample}_1.fastq.gz", sample=config["fastqs"])
     output:
         directory("trimmed/qc")
     shell:
