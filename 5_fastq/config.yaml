@@ -1,0 +1,15 @@
+fastq_files:
+    SRR15505801
+    SRR15505802
+    SRR15505803
+    SRR15505804
+    SRR15505805
+    SRR15505806
+    SRR15505807
+    SRR15505808
+    SRR15505809
+    SRR15505810
+    SRR15505811
+    SRR15505812
+
+# all follow format *_1.fastq.gz and *_2.fastq.gz   
