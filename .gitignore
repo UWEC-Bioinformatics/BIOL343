@@ -175,6 +175,7 @@ multiqc*
 **bee**
 **c_elegans**
 pipeline/
+pipelines/
 
 2_genome_exploration/genome/annotations.gtf
 2_genome_exploration/genome/genome*
@@ -193,10 +194,42 @@ pipeline/
 5_fastq/logs/
 
 6_alignment/alignment/
-7_alignment_qc/*stats*
-7_alignment_qc/qualimap
+# 7_alignment_qc/*stats*
+# 7_alignment_qc/qualimap
 8_counting/dedup
 8_counting/logs
 8_counting/*counts*
 
 whole_pipeline.ipynb
+2_genome_exploration/annontations.gtf
+2_genome_exploration/genome.fa
+2_genome_exploration/cowgenes/annotations.gtf
+2_genome_exploration/cowgenes/genome.fna
+3_scripting/cowgenes/genome.fna
+3_scripting/cowgenes/annotations.gtf
+5_fastq/cows_fastq/SRR13107018_1.fastq.gz
+.gitignore
+5_fastq/cows_fastq/SRR13107018_2.fastq.gz
+.gitignore
+5_fastq/cows_fastq/SRR13107019_1.fastq.gz
+5_fastq/cows_fastq/SRR13107019_2.fastq.gz
+5_fastq/cows_fastq/SRR13107020_1.fastq.gz
+5_fastq/cows_fastq/SRR13107020_2.fastq.gz
+.gitignore
+5_fastq/cows_fastq/SRR13107021_1.fastq.gz
+.gitignore
+.gitignore
+.gitignore
+.gitignore
+.gitignore
+5_fastq/cows_fastq/SRR13107022_1.fastq.gz
+5_fastq/cows_fastq/SRR13107021_2.fastq.gz
+5_fastq/cows_fastq/SRR13107022_2.fastq.gz
+5_fastq/cows_fastq/SRR13107023_1.fastq.gz
+5_fastq/cows_fastq/SRR13107023_2.fastq.gz
+5_fastq/cows_fastq
+5_fastq/cows_fastq/qc
+5_fastq/cows_trimmed
+5_fastq/cows_trimmed/qc
+2_genome_exploration/cowgenes
+

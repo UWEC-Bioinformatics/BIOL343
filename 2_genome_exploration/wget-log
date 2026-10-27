@@ -1,0 +1,11 @@
+--2026-10-13 15:58:20--  https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/052/040/795/GCF_052040795.1_GRCz12ab/GCF_052040795.1_GRCz12ab_genomic.fna.gz
+Resolving ftp.ncbi.nlm.nih.gov... 130.14.250.7, 130.14.250.10, 2607:f220:41e:250::13, ...
+Connecting to ftp.ncbi.nlm.nih.gov|130.14.250.7|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 436271112 (416M) [application/x-gzip]
+Saving to: ‘genome/genome.fna.gz’
+
+genome/genome.fna.g  16%[==>                 ]  69.91M  69.6MB/s               genome/genome.fna.g  21%[===>                ]  90.76M  75.3MB/s               genome/genome.fna.g  26%[====>               ] 111.68M  79.5MB/s               genome/genome.fna.g  31%[=====>              ] 132.58M  82.6MB/s               genome/genome.fna.g  36%[======>             ] 153.51M  85.1MB/s               genome/genome.fna.g  41%[=======>            ] 174.40M  87.0MB/s               genome/genome.fna.g  46%[========>           ] 195.34M  88.6MB/s               genome/genome.fna.g  51%[=========>          ] 216.11M  89.9MB/s               genome/genome.fna.g  56%[==========>         ] 237.05M  91.0MB/s               genome/genome.fna.g  61%[===========>        ] 257.94M  92.0MB/s               genome/genome.fna.g  67%[============>       ] 278.84M  92.8MB/s    eta 1s     genome/genome.fna.g  72%[=============>      ] 299.74M  98.1MB/s    eta 1s     genome/genome.fna.g  77%[==============>     ] 320.64M   101MB/s    eta 1s     genome/genome.fna.g  82%[===============>    ] 341.52M   102MB/s    eta 1s     genome/genome.fna.g  87%[================>   ] 362.42M   104MB/s    eta 1s     genome/genome.fna.g  92%[=================>  ] 383.31M   104MB/s    eta 0s     genome/genome.fna.g  97%[==================> ] 404.24M   104MB/s    eta 0s     genome/genome.fna.g 100%[===================>] 416.06M   104MB/s    in 4.3s    
+
+2026-10-13 15:58:24 (96.3 MB/s) - ‘genome/genome.fna.gz’ saved [436271112/436271112]
+
