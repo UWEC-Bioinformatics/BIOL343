@@ -175,6 +175,7 @@ multiqc*
 **bee**
 **c_elegans**
 pipeline/
+pipelines/
 
 2_genome_exploration/genome/annotations.gtf
 2_genome_exploration/genome/genome*
