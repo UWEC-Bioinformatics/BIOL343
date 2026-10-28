@@ -1,0 +1,5 @@
+	STAR --runThreadN 32 --runMode alignReads --genomeDir ../2_genome_exploration/genome/star --readFilesManifest manifest_axolotl.tsv --readFilesCommand zcat --outSAMtype BAM Unsorted --outSAMunmapped Within --outSAMattributes NH HI AS nM RG --outFileNamePrefix alignment/star/axolotl/ --sjdbFileChrStartEnd alignment/star/axolotl/SJ.out.tab
+	STAR version: 2.7.10b   compiled: 2022-11-01T09:53:26-04:00 :/home/dobin/data/STAR/STARcode/STAR.master/source
+Oct 28 12:19:45 ..... started STAR run
+Oct 28 12:19:57 ..... loading genome
+slurmstepd: error: *** JOB 424098 ON lm02 CANCELLED AT 2026-10-28T12:21:48 ***
