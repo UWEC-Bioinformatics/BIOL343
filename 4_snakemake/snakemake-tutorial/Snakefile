@@ -12,7 +12,7 @@ rule samtools_sort:
     output:
         protected("sorted_reads/{sample,[A-Za-z0-9]+}.bam")
     shell:
-        "samtools sort -T sorted_reads/{wildcards.sample} "
+        "samtools sort -T sorted_reads/{wildcards.sample}"
         "-O bam {input} > {output}"
 
 rule samtools_index:
