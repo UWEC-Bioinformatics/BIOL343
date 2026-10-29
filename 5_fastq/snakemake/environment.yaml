@@ -6,9 +6,10 @@ dependencies:
   - jinja2
   - matplotlib
   - graphviz
-  - bcftools >=1.19
-  - samtools >=1.19
-  - bwa ~=0.7.17
   - pygments
   - pysam =0.22
+  - parallel-fastq-dump=0.6.7=pyhdfd78af_0
+  - fastqc=0.12.1=hdfd78af_0
+  - cutadapt=4.9=py312hf67a6ed_0
+  - multiqc=1.17=pyhdfd78af_1
   

@@ -15,10 +15,12 @@ rule fetch_fastq:
 
 rule fastq_qc:
     input:
-        expand("fastq/{sample}_1.fastq.gz", sample=config["fastqs"])
+        "fastq/{sample}_1.fastq.gz"
         #does the shell command differ between running 20 times on different fastqs vs running once with a 'list' of 20 fastqs
     output:
-        directory("fastq/qc/")
+        "fastq/qc/{sample}_1.fastqc.html",
+        "fastq/qc/{sample}_1.fastqc.zip"
+
     shell:
         "!fastqc -t 32 {input} -o fastq/qc"
 
@@ -33,22 +35,21 @@ rule trim_filter:
 
 rule trim_qc:
     input:
-        trimmedfastq=expand("trimmed/{sample}_1.fastq.gz", sample=config["fastqs"])
+        "trimmed/{sample}_1.fastq.gz"
     output:
-        directory("trimmed/qc")
+        "trimmed/qc/{sample}_1.fastqc.html",
+        "trimmed/qc/{sample}_1.fastqc.zip"
     shell:
         "!fastqc -t 32 {input} -o trimmed/qc"
 
 rule report:
     input:
         #output from fastq_qc and trim_qc
-        # fastq=("fastq/qc"),
-        # trimmed=("trimmed/qc")
-        fastq=directory("fastq/qc/"),
-        trimmed=directory("trimmed/qc/")
+        fastq_html = expand("fastq/qc/{sample}_1.fastqc.html", sample=config["fastqs"]),
+        fastq_zip = expand("fastq/qc/{sample}_1.fastqc.zip", sample=config["fastqs"]),
+        trimmed_html = expand("trimmed/qc/{sample}_1.fastqc.html", sample=config["fastqs"]),
+        trimmed_zip = expand("trimmed/qc/{sample}_1.fastqc.zip", sample=config["fastqs"])
     output:
         "multiqc/multiqc_report.html"
-        #do I need to include all outputs of the shell command, or just the ones I care about and want to use again?
-        # ^ directory("multiqc/multiqc_data")
     shell:
-        "multiqc -d {input.fastq} --outdir multiqc {input.trimmed}"
+        "multiqc -d fastq/qc --outdir multiqc trimmed/qc"
