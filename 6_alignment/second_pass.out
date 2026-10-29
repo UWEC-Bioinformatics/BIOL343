@@ -1,0 +1,8 @@
+	STAR --runThreadN 32 --runMode alignReads --genomeDir ../2_genome_exploration/genome/star --readFilesManifest manifest_axolotl.tsv --readFilesCommand zcat --outSAMtype BAM Unsorted --outSAMunmapped Within --outSAMattributes NH HI AS nM RG --outFileNamePrefix alignment/star/axolotl/ --sjdbFileChrStartEnd alignment/star/axolotl/SJ.out.tab
+	STAR version: 2.7.10b   compiled: 2022-11-01T09:53:26-04:00 :/home/dobin/data/STAR/STARcode/STAR.master/source
+Oct 28 12:23:26 ..... started STAR run
+Oct 28 12:23:26 ..... loading genome
+Oct 28 12:28:06 ..... inserting junctions into the genome indices
+Oct 28 12:40:09 ..... started mapping
+Oct 28 14:38:09 ..... finished mapping
+Oct 28 14:38:13 ..... finished successfully

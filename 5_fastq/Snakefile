@@ -1,41 +1,48 @@
 configfile: "config.yaml"
 
+#rule all:
+ #   input: "multiqc_report.html"
+
 rule all:
-  input: 
+    input: "multiqc_report.html"
 
 rule fetch_fastq:
-    input:
-        
+    input: 
+        expand("fastq/{sample}.fastq.gz", sample=config["samples"])
     output:
-
+        "fastq/{sample}.fastq.gz"
+    threads: 16    
     shell:
+        "parallel-fastq-dump --split-files --sra-id $line --gzip;"
 
-rule fastq_qc:
-    input:
+       
+#rule fastq_qc:
+ #   input:
         
-    output:
+  #  output:
 
-    shell:
+   # shell:
 
-rule trim_filter:
-    input:
+#rule trim_filter:
+ #   input:
         
-    output:
+  #  output:
 
-    shell:
+   # shell:
 
-rule trim_qc:
-    input:
+#rule trim_qc:
+ #   input:
         
-    output:
+  #  output:
 
-    shell:
+   # shell:
 
-rule report: 
-    input:
+#rule report: 
+  #  input:
         
-    output:
+  #  output:
 
-    shell:
+  #  shell:
+
 
  
