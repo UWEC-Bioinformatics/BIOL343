@@ -1,34 +1,37 @@
 configfile: "config.yaml"
 
-#rule all:
- #   input: "multiqc_report.html"
-
 rule all:
-    input: "multiqc_report.html"
+    input: 
+        "fastq/qc/{samples}_1.fastqc.html"
+    # "multiqc_axolotl/multiqc_report.html"
 
 rule fetch_fastq:
-    input: 
-        expand("fastq/{sample}.fastq.gz", sample=config["samples"])
     output:
-        "fastq/{sample}.fastq.gz"
+        "fastq/{samples}.fastq.gz"
     threads: 16    
     shell:
-        "parallel-fastq-dump --split-files --sra-id $line --gzip;"
-
+        "parallel-fastq-dump --split-files --sra-id {wildcards.samples} --threads {threads} --outdir fastq --gzip"
        
-#rule fastq_qc:
- #   input:
-        
-  #  output:
+rule fastq_qc:
+    input:
+        "fastq/{samples}.fastq.gz" 
+    output:
+        "fastq/qc/{samples}.fastq.gz"
+    threads: 32
+    shell:
+        "fastqc -t {threads} {input} -o fastq/qc"
 
-   # shell:
-
-#rule trim_filter:
- #   input:
-        
-  #  output:
-
-   # shell:
+# rule trim_filter:
+#      input:
+#         "fastq/qc/{samples}.fastq.gz"
+#     output:
+#         "./trimmed_axolotl/{samples}.fastq.gz"
+#      shell:
+#         "cutadapt -j 32 -m 20 -u 10 -U 10"
+#         "-a -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC" 
+#         "-A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT"
+#         "-o ./trimmed_axolotl/{samples}.fastq.gz"
+#         "-p ./trimmed_axolotl/{samples}.fastq.gz"
 
 #rule trim_qc:
  #   input:
