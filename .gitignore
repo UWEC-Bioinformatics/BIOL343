@@ -217,3 +217,7 @@ whole_pipeline.ipynb
 4_snakemake/snakemake-tutorial/sorted_reads/C.bam.bai
 
 5_fastq/hmwk_fastq
+
+hmwk_trimmed/
+hmwk_multiqc/
+hmwk_multiqc_trimmed1/
