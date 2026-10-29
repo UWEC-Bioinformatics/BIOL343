@@ -181,6 +181,7 @@ pipelines/
 2_genome_exploration/genome/genome*
 2_genome_exploration/genome/star/
 2_genome_exploration/genome/hisat/
+2_genome_exploration/genome/homework/
 
 3_snakemake/snakemake-tutorial/
 **/.snakemake/
@@ -210,3 +211,4 @@ whole_pipeline.ipynb
 3_scripting/hi.sh
 4_snakemake/snakemake-tutorial/calls/all.vcf
 
+6_alignment/SRR5381788_1.fastq.gz
