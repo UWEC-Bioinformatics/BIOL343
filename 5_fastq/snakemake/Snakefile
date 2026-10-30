@@ -4,25 +4,40 @@ configfile: "config.yaml"
 
 rule all:
     input:
-        "multiqc/multiqc_report.html"
+        "multiqc/multiqc_report_all.html"
+
+rule qc_check:
+    input:
+        "multiqc/multiqc_report_fastq.html"
 
 rule fetch_fastq:
     output:
         #is it a matter of "knowing" the output or "naming" the output???
         "fastq/{sample}_1.fastq.gz"
+    threads: 16
     shell: 
-        "parallel-fastq-dump --split-files --sra-id {wildcards.sample} --threads 16 --outdir fastq --gzip;"
+        "parallel-fastq-dump --split-files --sra-id {wildcards.sample} --threads {threads} --outdir fastq --gzip;"
 
 rule fastq_qc:
     input:
         "fastq/{sample}_1.fastq.gz"
         #does the shell command differ between running 20 times on different fastqs vs running once with a 'list' of 20 fastqs
     output:
-        "fastq/qc/{sample}_1.fastqc.html",
-        "fastq/qc/{sample}_1.fastqc.zip"
+        "fastq/qc/{sample}_1_fastqc.html",
+        "fastq/qc/{sample}_1_fastqc.zip"
 
     shell:
-        "!fastqc -t 32 {input} -o fastq/qc"
+        "fastqc -t 32 {input} -o fastq/qc"
+
+rule report_for_fastqc_only:
+    input:
+        #output from fastq_qc ONLY!
+        fastq_html = expand("fastq/qc/{sample}_1.fastqc.html", sample=config["fastqs"]),
+        fastq_zip = expand("fastq/qc/{sample}_1.fastqc.zip", sample=config["fastqs"])
+    output:
+        "multiqc/multiqc_report_fastq.html"
+    shell:
+        "multiqc --outdir multiqc -n multiqc_report_fastq.html fastq/qc"
 
 rule trim_filter:
     input:
@@ -37,19 +52,19 @@ rule trim_qc:
     input:
         "trimmed/{sample}_1.fastq.gz"
     output:
-        "trimmed/qc/{sample}_1.fastqc.html",
-        "trimmed/qc/{sample}_1.fastqc.zip"
+        "trimmed/qc/{sample}_1_fastqc.html",
+        "trimmed/qc/{sample}_1_fastqc.zip"
     shell:
-        "!fastqc -t 32 {input} -o trimmed/qc"
+        "fastqc -t 32 {input} -o trimmed/qc"
 
-rule report:
+rule report_for_all:
     input:
         #output from fastq_qc and trim_qc
-        fastq_html = expand("fastq/qc/{sample}_1.fastqc.html", sample=config["fastqs"]),
-        fastq_zip = expand("fastq/qc/{sample}_1.fastqc.zip", sample=config["fastqs"]),
-        trimmed_html = expand("trimmed/qc/{sample}_1.fastqc.html", sample=config["fastqs"]),
-        trimmed_zip = expand("trimmed/qc/{sample}_1.fastqc.zip", sample=config["fastqs"])
+        fastq_html = expand("fastq/qc/{sample}_1_fastqc.html", sample=config["fastqs"]),
+        fastq_zip = expand("fastq/qc/{sample}_1_fastqc.zip", sample=config["fastqs"]),
+        trimmed_html = expand("trimmed/qc/{sample}_1_fastqc.html", sample=config["fastqs"]),
+        trimmed_zip = expand("trimmed/qc/{sample}_1_fastqc.zip", sample=config["fastqs"])
     output:
-        "multiqc/multiqc_report.html"
+        "multiqc/multiqc_report_all.html"
     shell:
-        "multiqc -d fastq/qc --outdir multiqc trimmed/qc"
+        "multiqc -d fastq/qc --outdir multiqc -n multiqc_report_all.html trimmed/qc"

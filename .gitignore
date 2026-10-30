@@ -183,6 +183,7 @@ pipelines/
 2_genome_exploration/genome/hisat/
 2_genome_exploration/my_genome/annotations.gtf
 2_genome_exploration/my_genome/genome.fna
+2_genome_exploration/my_genome/star/
 
 3_scripting/hi.sh
 
@@ -199,6 +200,8 @@ pipelines/
 5_fastq/homework/fastq
 5_fastq/homework/trimmed*
 5_fastq/snakemake/logs
+5_fastq/snakemake/fastq
+5_fastq/snakemake/trimmed
 
 6_alignment/alignment/
 # 7_alignment_qc/*stats*

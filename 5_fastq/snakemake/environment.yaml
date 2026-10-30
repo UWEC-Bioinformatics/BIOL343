@@ -12,4 +12,4 @@ dependencies:
   - fastqc=0.12.1=hdfd78af_0
   - cutadapt=4.9=py312hf67a6ed_0
   - multiqc=1.17=pyhdfd78af_1
-  
+  - snakemake-executor-plugin-cluster-generic

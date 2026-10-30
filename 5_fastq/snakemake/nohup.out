@@ -1,100 +1,59 @@
 Using profile /data/users/oswaldbn7080/BIOL343/snakemake-profile for setting default command line arguments.
-usage: snakemake [-h] [--dry-run] [--profile PROFILE]
-                 [--workflow-profile WORKFLOW_PROFILE] [--cache [RULE ...]]
-                 [--snakefile FILE] [--cores N] [--jobs N] [--local-cores N]
-                 [--resources NAME=INT [NAME=INT ...]]
-                 [--set-threads RULE=THREADS [RULE=THREADS ...]]
-                 [--max-threads MAX_THREADS]
-                 [--set-resources RULE:RESOURCE=VALUE [RULE:RESOURCE=VALUE ...]]
-                 [--set-scatter NAME=SCATTERITEMS [NAME=SCATTERITEMS ...]]
-                 [--set-resource-scopes RESOURCE=[global|local]
-                 [RESOURCE=[global|local] ...]]
-                 [--default-resources [NAME=INT ...]]
-                 [--preemptible-rules [PREEMPTIBLE_RULES ...]]
-                 [--preemptible-retries PREEMPTIBLE_RETRIES]
-                 [--configfile FILE [FILE ...]] [--config [KEY=VALUE ...]]
-                 [--replace-workflow-config] [--envvars VARNAME [VARNAME ...]]
-                 [--directory DIR] [--touch] [--keep-going]
-                 [--rerun-triggers {code,input,mtime,params,software-env} [{code,input,mtime,params,software-env} ...]]
-                 [--force] [--executor {local,dryrun,touch}] [--forceall]
-                 [--forcerun [TARGET ...]]
-                 [--consider-ancient RULE=INPUTITEMS [RULE=INPUTITEMS ...]]
-                 [--prioritize TARGET [TARGET ...]]
-                 [--batch RULE=BATCH/BATCHES] [--until TARGET [TARGET ...]]
-                 [--omit-from TARGET [TARGET ...]] [--rerun-incomplete]
-                 [--shadow-prefix DIR]
-                 [--strict-dag-evaluation {cyclic-graph,functions,periodic-wildcards} [{cyclic-graph,functions,periodic-wildcards} ...]]
-                 [--scheduler [{greedy,ilp}]]
-                 [--conda-base-path CONDA_BASE_PATH] [--no-subworkflows]
-                 [--precommand PRECOMMAND] [--groups GROUPS [GROUPS ...]]
-                 [--group-components GROUP_COMPONENTS [GROUP_COMPONENTS ...]]
-                 [--report [FILE]] [--report-after-run]
-                 [--report-stylesheet CSSFILE] [--report-metadata FILE]
-                 [--reporter PLUGIN] [--draft-notebook TARGET]
-                 [--edit-notebook TARGET] [--notebook-listen IP:PORT]
-                 [--lint [{text,json}]] [--generate-unit-tests [TESTPATH]]
-                 [--containerize [{dockerfile,apptainer}]] [--export-cwl FILE]
-                 [--list-rules] [--list-target-rules]
-                 [--dag [{dot,mermaid-js}]] [--rulegraph [{dot,mermaid-js}]]
-                 [--filegraph] [--d3dag] [--summary] [--detailed-summary]
-                 [--archive FILE] [--cleanup-metadata FILE [FILE ...]]
-                 [--cleanup-shadow] [--skip-script-cleanup] [--unlock]
-                 [--list-changes {input,code,params}] [--list-input-changes]
-                 [--list-params-changes] [--list-untracked]
-                 [--delete-all-output | --delete-temp-output]
-                 [--keep-incomplete] [--drop-metadata] [--version]
-                 [--printshellcmds] [--debug-dag] [--nocolor]
-                 [--quiet [{all,host,progress,reason,rules} ...]]
-                 [--print-compilation] [--verbose] [--force-use-threads]
-                 [--allow-ambiguity] [--nolock] [--ignore-incomplete]
-                 [--max-inventory-time SECONDS] [--trust-io-cache]
-                 [--max-checksum-file-size SIZE] [--latency-wait SECONDS]
-                 [--wait-for-free-local-storage WAIT_FOR_FREE_LOCAL_STORAGE]
-                 [--wait-for-files [FILE ...]] [--wait-for-files-file FILE]
-                 [--runtime-source-cache-path PATH]
-                 [--queue-input-wait-time SECONDS]
-                 [--omit-flags OMIT_FLAGS [OMIT_FLAGS ...]] [--notemp]
-                 [--all-temp] [--unneeded-temp-files FILE [FILE ...]]
-                 [--keep-storage-local-copies] [--not-retrieve-storage]
-                 [--target-files-omit-workdir-adjustment]
-                 [--allowed-rules ALLOWED_RULES [ALLOWED_RULES ...]]
-                 [--max-jobs-per-timespan MAX_JOBS_PER_TIMESPAN]
-                 [--max-status-checks-per-second MAX_STATUS_CHECKS_PER_SECOND]
-                 [--seconds-between-status-checks SECONDS_BETWEEN_STATUS_CHECKS]
-                 [--retries RETRIES] [--wrapper-prefix WRAPPER_PREFIX]
-                 [--default-storage-provider DEFAULT_STORAGE_PROVIDER]
-                 [--default-storage-prefix DEFAULT_STORAGE_PREFIX]
-                 [--local-storage-prefix LOCAL_STORAGE_PREFIX]
-                 [--remote-job-local-storage-prefix REMOTE_JOB_LOCAL_STORAGE_PREFIX]
-                 [--shared-fs-usage {input-output,persistence,software-deployment,software-deployment-cache,source-cache,sources,storage-local-copies,none} [{input-output,persistence,software-deployment,software-deployment-cache,source-cache,sources,storage-local-copies,none} ...]]
-                 [--scheduler-greediness SCHEDULER_GREEDINESS]
-                 [--scheduler-subsample SCHEDULER_SUBSAMPLE] [--no-hooks]
-                 [--debug] [--runtime-profile FILE]
-                 [--local-groupid LOCAL_GROUPID] [--attempt ATTEMPT]
-                 [--show-failed-logs] [--logger {} [{} ...]]
-                 [--job-deploy-sources] [--benchmark-extended]
-                 [--persistence-backend {db,file}]
-                 [--persistence-backend-db-url PERSISTENCE_BACKEND_DB_URL]
-                 [--container-image IMAGE] [--immediate-submit]
-                 [--jobscript SCRIPT] [--jobname NAME]
-                 [--software-deployment-method {apptainer,conda,env-modules} [{apptainer,conda,env-modules} ...]]
-                 [--container-cleanup-images] [--use-conda]
-                 [--conda-not-block-search-path-envvars] [--list-conda-envs]
-                 [--conda-prefix DIR] [--conda-cleanup-envs]
-                 [--conda-cleanup-pkgs [{tarballs,cache}]]
-                 [--conda-create-envs-only] [--conda-frontend {conda,mamba}]
-                 [--use-apptainer] [--apptainer-prefix DIR]
-                 [--apptainer-args ARGS] [--use-envmodules]
-                 [--deploy-sources QUERY CHECKSUM]
-                 [--target-jobs TARGET_JOBS [TARGET_JOBS ...]]
-                 [--mode {default,subprocess,remote}]
-                 [--scheduler-solver-path SCHEDULER_SOLVER_PATH]
-                 [--max-jobs-per-second MAX_JOBS_PER_SECOND]
-                 [--report-html-path VALUE]
-                 [--report-html-stylesheet-path VALUE]
-                 [--scheduler-greedy-greediness VALUE]
-                 [--scheduler-greedy-omit-prioritize-by-temp-and-input]
-                 [--scheduler-ilp-solver VALUE]
-                 [--scheduler-ilp-solver-path VALUE]
-                 [targets ...]
-snakemake: error: argument --executor/-e: invalid choice: 'cluster-generic' (choose from local, dryrun, touch)
+
+SNAKEMAKE
+=========
+  Date: 2026-10-30 00:14:00
+  Workflow ID: 255ec0e5-e0bd-49be-89bc-f1a3a11c42b6
+  Platform: Linux-4.18.0-348.el8.x86_64-x86_64-with-glibc2.28
+  Host: cn04
+  User: oswaldbn7080
+  Snakemake version: 9.27.1
+  Python version: 3.12.16 (main, Oct 26 2026, 11:37:43) [GCC 15.3.0]
+  Command: /data/users/oswaldbn7080/.conda/envs/snakemake5/bin/snakemake --profile /data/users/oswaldbn7080/BIOL343/snakemake-profile
+  Snakefile: /data/users/oswaldbn7080/BIOL343/5_fastq/snakemake/Snakefile
+  Base directory: /data/users/oswaldbn7080/BIOL343/5_fastq/snakemake
+  Run directory: /data/users/oswaldbn7080/BIOL343/5_fastq/snakemake
+  Working directory: /data/users/oswaldbn7080/BIOL343/5_fastq/snakemake
+  Config file(s): ['config.yaml']
+  Config MD5: 9c638f927224e7cf304a93db9ccc9c3d
+
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided remote nodes: 500
+Job stats:
+job               count
+--------------  -------
+report_for_all        1
+all                   1
+total                 2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Oct 30 00:14:00 2026]
+rule report_for_all:
+    input: fastq/qc/SRR18173236_1_fastqc.html, fastq/qc/SRR18173237_1_fastqc.html, fastq/qc/SRR18173238_1_fastqc.html, fastq/qc/SRR18173239_1_fastqc.html, fastq/qc/SRR18173240_1_fastqc.html, fastq/qc/SRR18173241_1_fastqc.html, fastq/qc/SRR18173242_1_fastqc.html, fastq/qc/SRR18173243_1_fastqc.html, fastq/qc/SRR18173244_1_fastqc.html, fastq/qc/SRR18173245_1_fastqc.html, fastq/qc/SRR18173246_1_fastqc.html, fastq/qc/SRR18173247_1_fastqc.html, fastq/qc/SRR18173248_1_fastqc.html, fastq/qc/SRR18173249_1_fastqc.html, fastq/qc/SRR18173250_1_fastqc.html, fastq/qc/SRR18173236_1_fastqc.zip, fastq/qc/SRR18173237_1_fastqc.zip, fastq/qc/SRR18173238_1_fastqc.zip, fastq/qc/SRR18173239_1_fastqc.zip, fastq/qc/SRR18173240_1_fastqc.zip, fastq/qc/SRR18173241_1_fastqc.zip, fastq/qc/SRR18173242_1_fastqc.zip, fastq/qc/SRR18173243_1_fastqc.zip, fastq/qc/SRR18173244_1_fastqc.zip, fastq/qc/SRR18173245_1_fastqc.zip, fastq/qc/SRR18173246_1_fastqc.zip, fastq/qc/SRR18173247_1_fastqc.zip, fastq/qc/SRR18173248_1_fastqc.zip, fastq/qc/SRR18173249_1_fastqc.zip, fastq/qc/SRR18173250_1_fastqc.zip, trimmed/qc/SRR18173236_1_fastqc.html, trimmed/qc/SRR18173237_1_fastqc.html, trimmed/qc/SRR18173238_1_fastqc.html, trimmed/qc/SRR18173239_1_fastqc.html, trimmed/qc/SRR18173240_1_fastqc.html, trimmed/qc/SRR18173241_1_fastqc.html, trimmed/qc/SRR18173242_1_fastqc.html, trimmed/qc/SRR18173243_1_fastqc.html, trimmed/qc/SRR18173244_1_fastqc.html, trimmed/qc/SRR18173245_1_fastqc.html, trimmed/qc/SRR18173246_1_fastqc.html, trimmed/qc/SRR18173247_1_fastqc.html, trimmed/qc/SRR18173248_1_fastqc.html, trimmed/qc/SRR18173249_1_fastqc.html, trimmed/qc/SRR18173250_1_fastqc.html, trimmed/qc/SRR18173236_1_fastqc.zip, trimmed/qc/SRR18173237_1_fastqc.zip, trimmed/qc/SRR18173238_1_fastqc.zip, trimmed/qc/SRR18173239_1_fastqc.zip, trimmed/qc/SRR18173240_1_fastqc.zip, trimmed/qc/SRR18173241_1_fastqc.zip, trimmed/qc/SRR18173242_1_fastqc.zip, trimmed/qc/SRR18173243_1_fastqc.zip, trimmed/qc/SRR18173244_1_fastqc.zip, trimmed/qc/SRR18173245_1_fastqc.zip, trimmed/qc/SRR18173246_1_fastqc.zip, trimmed/qc/SRR18173247_1_fastqc.zip, trimmed/qc/SRR18173248_1_fastqc.zip, trimmed/qc/SRR18173249_1_fastqc.zip, trimmed/qc/SRR18173250_1_fastqc.zip
+    output: multiqc/multiqc_report_all.html
+    jobid: 1
+    reason: Missing output files: multiqc/multiqc_report_all.html
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=64000, mem=64 GB, mem_mib=61036, partition=week
+Shell command: multiqc -d fastq/qc --outdir multiqc -n multiqc_report_all.html trimmed/qc
+Submitted job 1 with external jobid '425071'.
+[Fri Oct 30 00:14:20 2026]
+Finished jobid: 1 (Rule: report_for_all)
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Oct 30 00:14:20 2026]
+localrule all:
+    input: multiqc/multiqc_report_all.html
+    jobid: 0
+    reason: Input files updated by another job: multiqc/multiqc_report_all.html
+    resources: tmpdir=/local/scratch/job_425070, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=64000, mem=64 GB, mem_mib=61036, partition=week
+Shell command: None
+[Fri Oct 30 00:14:20 2026]
+Finished jobid: 0 (Rule: all)
+2 of 2 steps (100%) done
+Complete log(s): /data/users/oswaldbn7080/BIOL343/5_fastq/snakemake/.snakemake/log/2026-10-30T001400.444922.snakemake.log
+Elapsed time: 0:00:30.337087
