@@ -233,3 +233,13 @@ whole_pipeline.ipynb
 5_fastq/cows_trimmed/qc
 2_genome_exploration/cowgenes
 
+6_alignment/cow_manifest.tsv
+6_alignment/cow_alignment/star
+
+6_alignment/Aligned.out.bam
+6_alignment/Aligned.out.sam
+6_alignment/Log.out
+6_alignment/Log.progress.out
+6_alignment/_STARtmp/readFilesIn.info
+6_alignment/_STARtmp/readsCommand_read1
+6_alignment/_STARtmp/readsCommand_read2
