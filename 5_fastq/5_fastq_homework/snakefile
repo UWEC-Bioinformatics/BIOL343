@@ -1,0 +1,52 @@
+configfile: "config.yaml"
+
+THREADS = config["threads"]
+
+
+rule all:
+    input: "multiqc_report.html"
+
+rule fetch_fastq:
+    output:
+        "fastq/{sample}.fastq.gz"
+    threads: THREADS
+    shell:
+        " parallel-fastq-dump --sra-id --threads{threads} --outdir fastq --gzip"
+rule fastq_qc:
+    input: "fastq/{sample}.fastq.gz"
+    output: "fastq/qc/{sample}-fastqc.html"
+    threads: 1
+    shell: """
+    mkdir -p fastq/qc
+    fastqc -t {threads} {input} -o fastq/qc
+    """
+
+rule trim_filter:
+    input: "fastq/{sample}.fastqz"
+    output: "trimmed/{sample}.fastq.gz"
+    threads: THREADS
+    shell: """
+        mkdir -p trimmed 
+        cutadapt -j 32 -q 20 -m 20 -o {output} 
+        {input}
+        """
+rule trim_qc:
+    input:
+        "trimmed/{sample}.fastq.gz"
+    output:
+        "trimmed/qc/{sample}_fastqc.html"
+    threads: 1
+    shell:
+        """
+        mkdir -p trimmed/qc 
+        fastqc {input} -o trimmed/qc
+        """
+rule report:
+    input:
+        "fastq/qc",
+        "trimmed/qc"
+    output:
+        "multi_report_html"
+    shell:
+        "multiqc {input} -o "
+    
