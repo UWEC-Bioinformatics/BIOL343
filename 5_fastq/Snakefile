@@ -1,44 +1,51 @@
 configfile: "config.yaml"
 
 rule all:
-    input: 
-        "fastq/qc/{samples}_1.fastqc.html"
-    # "multiqc_axolotl/multiqc_report.html"
+    input:
+        expand("fastq/qc/{samples}_{read}_fastqc.html",
+               samples=config["samples"], read=[1, 2])
+        # "multiqc_axolotl/multiqc_report.html"
 
 rule fetch_fastq:
     output:
-        "fastq/{samples}.fastq.gz"
+        "fastq/{samples}_1.fastq.gz",
+        "fastq/{samples}_2.fastq.gz"
     threads: 16    
     shell:
         "parallel-fastq-dump --split-files --sra-id {wildcards.samples} --threads {threads} --outdir fastq --gzip"
        
 rule fastq_qc:
     input:
-        "fastq/{samples}.fastq.gz" 
+        "fastq/{samples}_1.fastq.gz" 
+        "fastq/{samples}_2.fastq.gz" 
     output:
-        "fastq/qc/{samples}.fastq.gz"
+        "fastq/qc/{samples}_1_fastqc.html",
+        "fastq/qc/{samples}_1_fastqc.zip",
+        "fastq/qc/{samples}_2_fastqc.html",
+        "fastq/qc/{samples}_2_fastqc.zip"
     threads: 32
     shell:
         "fastqc -t {threads} {input} -o fastq/qc"
 
-# rule trim_filter:
-#      input:
-#         "fastq/qc/{samples}.fastq.gz"
-#     output:
-#         "./trimmed_axolotl/{samples}.fastq.gz"
-#      shell:
-#         "cutadapt -j 32 -m 20 -u 10 -U 10"
-#         "-a -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC" 
-#         "-A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT"
-#         "-o ./trimmed_axolotl/{samples}.fastq.gz"
-#         "-p ./trimmed_axolotl/{samples}.fastq.gz"
+rule trim_filter:
+    input:
+        "fastq/qc/{samples}_1.fastq.gz",
+        "fastq/qc/{samples}_2.fastq.gz"
+    output:
+        "./trimmed_axolotl/{samples}_1.fastq.gz",
+        "./trimmed_axolotl/{samples}_2.fastq.gz",
+    shell:
+        "cutadapt -j 32 -m 20 -u 10 -U 10"
+        "-a AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC" 
+        "-A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT"
+        "-o {output} {input}"
 
-#rule trim_qc:
- #   input:
+rule trim_qc:
+   input:
         
-  #  output:
+   output:
 
-   # shell:
+   shell:
 
 #rule report: 
   #  input:
