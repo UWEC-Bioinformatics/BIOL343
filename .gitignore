@@ -204,6 +204,9 @@ pipelines/
 5_fastq/snakemake/trimmed
 
 6_alignment/alignment/
+6_alignment/my_alignment
+6_alignment/GSE197628_family.soft
+
 # 7_alignment_qc/*stats*
 # 7_alignment_qc/qualimap
 8_counting/dedup

@@ -1,0 +1,16 @@
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - snakemake-minimal >=9.7.1
+  - jinja2
+  - matplotlib
+  - graphviz
+  - pygments
+  - pysam =0.22
+  - parallel-fastq-dump=0.6.7=pyhdfd78af_0
+  - fastqc=0.12.1=hdfd78af_0
+  - cutadapt=4.9=py312hf67a6ed_0
+  - multiqc=1.17=pyhdfd78af_1
+  - snakemake-executor-plugin-cluster-generic
+  - star=2.7.10b=h9ee0642_0

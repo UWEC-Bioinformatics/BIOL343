@@ -1,0 +1,142 @@
+configfile: "config.yaml"
+
+rule all:
+    input:
+        #output from star alignment passes (first and second)
+        "alignment/star/first-pass.final.out",
+        "alignment/star/second-pass.final.out"
+
+# homework 5!!
+rule qc_check:
+    input:
+        "multiqc/multiqc_report_fastq.html"
+
+rule fetch_fastq:
+    output:
+        "fastq/{sample}_1.fastq.gz"
+    threads: 16
+    shell: 
+        "parallel-fastq-dump --split-files --sra-id {wildcards.sample} --threads {threads} --outdir fastq --gzip;"
+
+rule fastq_qc:
+    input:
+        "fastq/{sample}_1.fastq.gz"
+    output:
+        "fastq/qc/{sample}_1_fastqc.html",
+        "fastq/qc/{sample}_1_fastqc.zip"
+    shell:
+        "fastqc -t 32 {input} -o fastq/qc"
+
+rule report_for_fastqc_only:
+    input:
+        #output from fastq_qc ONLY!
+        fastq_html = expand("fastq/qc/{sample}_1.fastqc.html", sample=config["fastqs"]),
+        fastq_zip = expand("fastq/qc/{sample}_1.fastqc.zip", sample=config["fastqs"])
+    output:
+        "multiqc/multiqc_report_fastq.html"
+    shell:
+        "multiqc --outdir multiqc -n multiqc_report_fastq.html fastq/qc"
+
+rule trim_filter:
+    input:
+        "fastq/{sample}_1.fastq.gz"
+    output:
+        "trimmed/{sample}_1.fastq.gz"
+    shell:
+        "cutadapt -j 32 -u 12 -u -3 -m 20 "
+        "-o {output} {input};"
+
+rule trim_qc:
+    input:
+        "trimmed/{sample}_1.fastq.gz"
+    output:
+        "trimmed/qc/{sample}_1_fastqc.html",
+        "trimmed/qc/{sample}_1_fastqc.zip"
+    shell:
+        "fastqc -t 32 {input} -o trimmed/qc"
+
+rule report_for_all:
+    input:
+        #output from fastq_qc and trim_qc
+        fastq_html = expand("fastq/qc/{sample}_1_fastqc.html", sample=config["fastqs"]),
+        fastq_zip = expand("fastq/qc/{sample}_1_fastqc.zip", sample=config["fastqs"]),
+        trimmed_html = expand("trimmed/qc/{sample}_1_fastqc.html", sample=config["fastqs"]),
+        trimmed_zip = expand("trimmed/qc/{sample}_1_fastqc.zip", sample=config["fastqs"])
+    output:
+        "multiqc/multiqc_report_all.html"
+    shell:
+        "multiqc -d fastq/qc --outdir multiqc -n multiqc_report_all.html trimmed/qc"
+
+# homework 6!
+rule fetch_genome:
+    output:
+        "genome/genome.fna",
+        "genome/annotations.gtf"
+    shell:
+        "wget -nc -O genome/genome.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/015/237/465/GCF_015237465.1_rCheMyd1.pri/GCF_015237465.1_rCheMyd1.pri_genomic.fna.gz | "
+        "gzip -d -f genome/genome.fna.gz | "
+        "wget -nc -O genome/annotations.gtf.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/015/237/465/GCF_015237465.1_rCheMyd1.pri/GCF_015237465.1_rCheMyd1.pri_genomic.gtf.gz | "
+        "gzip -f -d genome/annotations.gtf.gz"
+
+rule star_sa:
+    input: 
+        genome = "genome/genome.fna",
+        annotations = "genome/annotations.gtf"
+    output:
+        "genome/star/SA",
+        "genome/star/SAindex"
+    shell:
+        "STAR "
+        "--runThreadN 32 "
+        "--runMode genomeGenerate "
+        "--genomeDir genome/star "
+        "--genomeFastaFiles {input.genome} "
+        "--sjdbGTFfile {input.annotations} "
+        "--sjdbOverhang 60 "
+        "--genomeSAindexNbases 13;"
+
+# ^ ran fine just no inputs - aka no "string literal: none" error message
+
+rule star_align_first:
+    input: 
+        "manifest.tsv"
+    output:
+        "alignment/star/first-pass.final.out",
+        "alignment/star/SJ.out.tab"
+    shell:
+        "STAR 
+        "--runThreadN 32 "
+        "--runMode alignReads "
+        "--genomeDir genome/star "
+        "--readFilesManifest {input} "
+        "--readFilesCommand zcat "
+        "--outSAMtype BAM Unsorted "
+        "--outSAMunmapped Within "
+        "--outFileNamePrefix alignment/star/ | "
+        "mv alignment/star/Log.final.out {output}"
+
+
+# rule star_align_second:
+#     input:
+#         manifest = "manifest.tsv",
+#         SJ = "alignment/star/SJ.out.tab"
+#     output:
+#         "alignment/star/second-pass.final.out"
+#     shell:
+# # issue ^ b/c gave me string literal issue when ran without shell commands/content
+#         "STAR "
+#         "--runThreadN 32 "
+#         "--runMode alignReads "
+#         "--genomeDir genome/star "
+#         "--readFilesManifest {input.manifest} "
+#         "--readFilesCommand zcat "
+#         "--outSAMtype BAM Unsorted "
+#         "--outSAMunmapped Within "
+#         "--outSAMattributes NH HI AS nM RG "
+#         "--outFileNamePrefix alignment/star/ "
+#         "--sjdbFileChrStartEnd {input.SJ} | "
+#         "mv alignment/star/Log.final.out {output};"
+        # do I need | between the different shell commands
+
+# rule hisat_align:
+
