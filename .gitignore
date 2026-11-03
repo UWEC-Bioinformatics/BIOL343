@@ -203,6 +203,7 @@ pipelines/
 8_counting/dedup
 8_counting/logs
 8_counting/*counts*
+8_counting/star.bam
 
 whole_pipeline.ipynb
 2_genome_exploration/genome/my_annotations.gtf
