@@ -1,0 +1,24 @@
+configfile: "config.yaml"
+
+<!-- rule all:
+    input: -->
+
+rule fetch_fastq:
+    input:
+        "hmwk_sra_list.txt"
+    output:
+        "hmwk_fastq_snk"
+    shell:
+        "while IFS= read -r line; do \
+        echo "Getting $line from NCBI SRA"; \
+        parallel-fastq-dump --split-files --sra-id $line --threads 32 --outdir {output} --gzip; \
+        done < {input}"
+
+<!-- rule fastq_qc: -->
+
+<!-- rule trim_filter: -->
+
+<!-- rule trim_qc: -->
+
+<!-- rule report: -->
+
