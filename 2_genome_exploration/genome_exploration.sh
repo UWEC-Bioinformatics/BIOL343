@@ -3,9 +3,9 @@
 # ---- SLURM SETTINGS ---- #
 
 # -- Job Specific -- #
-#SBATCH --job-name="get_sras"	# What is your job called?
-#SBATCH --output=%j-get_sras.txt	# Output file - Use %j to inject job id, like output-%j.txt
-#SBATCH --error=%j-get_sras.txt	# Error file - Use %j to inject job id, like error-%j.txt
+#SBATCH --job-name="genome"	# What is your job called?
+#SBATCH --output=%j-genome-out.txt	# Output file - Use %j to inject job id, like output-%j.txt
+#SBATCH --error=%j-genome-err.txt	# Error file - Use %j to inject job id, like error-%j.txt
 
 #SBATCH --partition=week	# Which group of nodes do you want to use? Use "GPU" for graphics card support
 #SBATCH --time=7-00:00:00	# What is the max time you expect the job to finish by? DD-HH:MM:SS
