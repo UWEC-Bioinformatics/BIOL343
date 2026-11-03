@@ -222,3 +222,15 @@ hmwk_trimmed/
 hmwk_multiqc/
 hmwk_multiqc_trimmed1/
 2_genome_exploration/426588-get_sras.txt
+2_genome_exploration/426595-genome-err.txt
+2_genome_exploration/426595-genome-out.txt
+5_fastq/data/genome.fa
+5_fastq/data/genome.fa.amb
+5_fastq/data/genome.fa.ann
+5_fastq/data/genome.fa.bwt
+5_fastq/data/genome.fa.fai
+5_fastq/data/genome.fa.pac
+5_fastq/data/genome.fa.sa
+5_fastq/data/samples/A.fastq
+5_fastq/data/samples/B.fastq
+5_fastq/data/samples/C.fastq
