@@ -215,3 +215,6 @@ whole_pipeline.ipynb
 4_snakemake/snakemake-tutorial/calls/all.vcf
 
 6_alignment/SRR5381788_1.fastq.gz
+8_counting/homework/star.bam
+8_counting/homework/star.bam.bai
+8_counting/homework/my_star_counts.tsv
