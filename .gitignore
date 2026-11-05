@@ -205,3 +205,5 @@ pipelines/
 whole_pipeline.ipynb
 2_genome_exploration/genome1/genome.fna.gz
 2_genome_exploration/genome/annotations_axolotl.gtf
+
+7_alignment_qc/tmp
