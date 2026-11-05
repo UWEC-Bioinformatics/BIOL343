@@ -2,9 +2,7 @@ configfile: "config.yaml"
 
 rule all:
     input:
-        expand("fastq/qc/{samples}_{read}_fastqc.html",
-               samples=config["samples"], read=[1, 2])
-        # "multiqc_axolotl/multiqc_report.html"
+        "multiqc_axolotl/multiqc_report.html"
 
 rule fetch_fastq:
     output:
@@ -42,17 +40,24 @@ rule trim_filter:
 
 rule trim_qc:
    input:
-        
+        "trimmed_axolotl/{samples}_1.fastq.gz"
+        "trimmed_axolotl/{samples_2.fastq.gz"
    output:
-
+        "trimmed_axolotl/qc/{samples}_1_fastqc.html",
+        "trimmed_axolotl/qc/{samples}_1_fastqc.zip",
+        "trimmed_axolotl/qc/{samples}_2_fastqc.html",
+        "trimmed_axolotl/qc/{samples}_2_fastqc.zip"
+   threads: 32
    shell:
+        "fastqc -t {threads} {input} -o {output}"
 
-#rule report: 
-  #  input:
+rule report: 
+    input:
         
-  #  output:
-
-  #  shell:
+    output:
+        "multiqc_axolotl/multiqc_report.html"
+    shell:
+        "multiqc --force -d trimmed_axolotl/qc -o trimmed_axolotl/qc"
 
 
  
