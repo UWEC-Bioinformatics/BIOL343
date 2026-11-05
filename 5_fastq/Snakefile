@@ -1,7 +1,7 @@
 configfile: "config.yaml"
 
-<!-- rule all:
-    input: -->
+#<!-- rule all:
+#    input: -->
 
 rule fetch_fastq:
     input:
@@ -9,16 +9,16 @@ rule fetch_fastq:
     output:
         "hmwk_fastq_snk"
     shell:
-        "while IFS= read -r line; do \
-        echo "Getting $line from NCBI SRA"; \
-        parallel-fastq-dump --split-files --sra-id $line --threads 32 --outdir {output} --gzip; \
-        done < {input}"
+        "while IFS= read -r line; do \\" 
+        '   echo "Getting $line from NCBI SRA"; \\'
+        "   parallel-fastq-dump --split-files --sra-id $line --threads 32 --outdir {output} --gzip; \\"
+        "   done < {input}"
 
-<!-- rule fastq_qc: -->
+#<!-- rule fastq_qc: -->
 
-<!-- rule trim_filter: -->
+#<!-- rule trim_filter: -->
 
-<!-- rule trim_qc: -->
+#<!-- rule trim_qc: -->
 
-<!-- rule report: -->
+#<!-- rule report: -->
 
