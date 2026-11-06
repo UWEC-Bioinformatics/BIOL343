@@ -1,0 +1,887 @@
+Using profile /data/users/oswaldbn7080/BIOL343/snakemake-profile for setting default command line arguments.
+
+SNAKEMAKE
+=========
+  Date: 2026-11-04 23:46:49
+  Workflow ID: 4ead8cb1-88da-435d-8d21-2406e571d98c
+  Platform: Linux-4.18.0-348.el8.x86_64-x86_64-with-glibc2.28
+  Host: cn04
+  User: oswaldbn7080
+  Snakemake version: 9.27.1
+  Python version: 3.12.16 (main, Oct 26 2026, 11:37:43) [GCC 15.3.0]
+  Command: /data/users/oswaldbn7080/.conda/envs/snakemake6/bin/snakemake --profile /data/users/oswaldbn7080/BIOL343/snakemake-profile
+  Snakefile: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake/Snakefile
+  Base directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Run directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Working directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Config file(s): ['config.yaml']
+  Config MD5: 9c638f927224e7cf304a93db9ccc9c3d
+
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided remote nodes: 500
+Job stats:
+job                  count
+-----------------  -------
+fetch_genome             1
+star_sa                  1
+star_align_first         1
+star_align_second        1
+all                      1
+total                    5
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov  4 23:46:49 2026]
+rule fetch_genome:
+    output: genome/genome.fna, genome/annotations.gtf
+    jobid: 3
+    reason: Missing output files: genome/genome.fna, genome/annotations.gtf; Code has changed since last execution
+    resources: tmpdir=<TBD>, disk_mb=50000, disk=50 GB, disk_mib=47684, mem_mb=64000, mem=64 GB, mem_mib=61036, partition=week
+Shell command: None
+Submitted job 3 with external jobid '427336'.
+[Wed Nov  4 23:47:29 2026]
+Finished jobid: 3 (Rule: fetch_genome)
+1 of 5 steps (20%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Wed Nov  4 23:47:29 2026]
+rule star_sa:
+    input: genome/genome.fna, genome/annotations.gtf
+    output: genome/star/SA, genome/star/SAindex
+    jobid: 2
+    reason: Missing output files: genome/star/SA; Input files updated by another job: genome/annotations.gtf, genome/genome.fna
+    resources: tmpdir=<TBD>, disk_mb=5082, disk=5.08 GB, disk_mib=4847, mem_mb=64000, mem=64 GB, mem_mib=61036, partition=week
+Shell command: STAR --runThreadN 32 --runMode genomeGenerate --genomeDir genome/star --genomeFastaFiles genome/genome.fna --sjdbGTFfile genome/annotations.gtf --sjdbOverhang 60 --genomeSAindexNbases 13
+Submitted job 2 with external jobid '427337'.
+[Thu Nov  5 01:14:25 2026]
+Finished jobid: 2 (Rule: star_sa)
+2 of 5 steps (40%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 01:14:25 2026]
+rule star_align_first:
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    jobid: 1
+    reason: Missing output files: alignment/star/SJ.out.tab, alignment/star/first-pass.final.out; Input files updated by another job: genome/star/SA
+    resources: tmpdir=<TBD>, disk_mb=33833, disk=33.83 GB, disk_mib=32266, mem_mb=64000, mem=64 GB, mem_mib=61036, partition=week
+Shell command: 
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+Submitted job 1 with external jobid '427340'.
+[Thu Nov  5 01:14:35 2026]
+Error in rule star_align_first:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 1
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    shell:
+        
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+        (command exited with non-zero exit code)
+    external_jobid: 427340
+Trying to restart job 1.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 01:14:35 2026]
+rule star_align_first:
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    jobid: 1
+    reason: Missing output files: alignment/star/SJ.out.tab, alignment/star/first-pass.final.out; Input files updated by another job: genome/star/SA
+    resources: tmpdir=<TBD>, disk_mb=33833, disk=33.83 GB, disk_mib=32266, mem_mb=64000, mem=64 GB, mem_mib=61036, partition=week
+Shell command: 
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+Submitted job 1 with external jobid '427341'.
+[Thu Nov  5 01:14:45 2026]
+Error in rule star_align_first:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 1
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    shell:
+        
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+        (command exited with non-zero exit code)
+    external_jobid: 427341
+Trying to restart job 1.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 01:14:45 2026]
+rule star_align_first:
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    jobid: 1
+    reason: Missing output files: alignment/star/SJ.out.tab, alignment/star/first-pass.final.out; Input files updated by another job: genome/star/SA
+    resources: tmpdir=<TBD>, disk_mb=33833, disk=33.83 GB, disk_mib=32266, mem_mb=64000, mem=64 GB, mem_mib=61036, partition=week
+Shell command: 
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+Submitted job 1 with external jobid '427342'.
+[Thu Nov  5 01:14:55 2026]
+Error in rule star_align_first:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 1
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    shell:
+        
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+        (command exited with non-zero exit code)
+    external_jobid: 427342
+Trying to restart job 1.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 01:14:55 2026]
+rule star_align_first:
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    jobid: 1
+    reason: Missing output files: alignment/star/SJ.out.tab, alignment/star/first-pass.final.out; Input files updated by another job: genome/star/SA
+    resources: tmpdir=<TBD>, disk_mb=33833, disk=33.83 GB, disk_mib=32266, mem_mb=64000, mem=64 GB, mem_mib=61036, partition=week
+Shell command: 
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+Submitted job 1 with external jobid '427343'.
+[Thu Nov  5 01:15:05 2026]
+Error in rule star_align_first:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 1
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    shell:
+        
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+        (command exited with non-zero exit code)
+    external_jobid: 427343
+Exiting because a job execution failed. Look above for error messages
+Complete log(s): /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake/.snakemake/log/2026-11-04T234649.327828.snakemake.log
+Elapsed time: 1:28:26.162493
+WorkflowError:
+At least one job did not complete successfully.
+
+
+New attempt: !
+
+Using profile /data/users/oswaldbn7080/BIOL343/snakemake-profile for setting default command line arguments.
+
+SNAKEMAKE
+=========
+  Date: 2026-11-05 13:07:20
+  Workflow ID: 18869481-8622-45d7-bacf-8c4f03b859f5
+  Platform: Linux-4.18.0-348.el8.x86_64-x86_64-with-glibc2.28
+  Host: cn04
+  User: oswaldbn7080
+  Snakemake version: 9.27.1
+  Python version: 3.12.16 (main, Oct 26 2026, 11:37:43) [GCC 15.3.0]
+  Command: /data/users/oswaldbn7080/.conda/envs/snakemake6/bin/snakemake --profile /data/users/oswaldbn7080/BIOL343/snakemake-profile
+  Snakefile: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake/Snakefile
+  Base directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Run directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Working directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Config file(s): ['config.yaml']
+  Config MD5: 9c638f927224e7cf304a93db9ccc9c3d
+
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided remote nodes: 500
+Job stats:
+job                  count
+-----------------  -------
+star_align_first         1
+star_align_second        1
+all                      1
+total                    3
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 13:07:21 2026]
+rule star_align_first:
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    jobid: 1
+    reason: Missing output files: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    resources: tmpdir=<TBD>, mem_mb=64000, mem=64 GB, mem_mib=61036, disk_mb=33833, disk=33.83 GB, disk_mib=32266, partition=week
+Shell command: 
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+Submitted job 1 with external jobid '427372'.
+[Thu Nov  5 13:07:31 2026]
+Error in rule star_align_first:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 1
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    shell:
+        
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+        (command exited with non-zero exit code)
+    external_jobid: 427372
+Trying to restart job 1.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 13:07:31 2026]
+rule star_align_first:
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    jobid: 1
+    reason: Missing output files: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    resources: tmpdir=<TBD>, mem_mb=64000, mem=64 GB, mem_mib=61036, disk_mb=33833, disk=33.83 GB, disk_mib=32266, partition=week
+Shell command: 
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+Submitted job 1 with external jobid '427373'.
+[Thu Nov  5 13:07:41 2026]
+Error in rule star_align_first:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 1
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    shell:
+        
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+        (command exited with non-zero exit code)
+    external_jobid: 427373
+Trying to restart job 1.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 13:07:41 2026]
+rule star_align_first:
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    jobid: 1
+    reason: Missing output files: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    resources: tmpdir=<TBD>, mem_mb=64000, mem=64 GB, mem_mib=61036, disk_mb=33833, disk=33.83 GB, disk_mib=32266, partition=week
+Shell command: 
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+Submitted job 1 with external jobid '427374'.
+[Thu Nov  5 13:07:51 2026]
+Error in rule star_align_first:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 1
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    shell:
+        
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+        (command exited with non-zero exit code)
+    external_jobid: 427374
+Trying to restart job 1.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 13:07:51 2026]
+rule star_align_first:
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    jobid: 1
+    reason: Missing output files: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    resources: tmpdir=<TBD>, mem_mb=64000, mem=64 GB, mem_mib=61036, disk_mb=33833, disk=33.83 GB, disk_mib=32266, partition=week
+Shell command: 
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+Submitted job 1 with external jobid '427375'.
+[Thu Nov  5 13:08:01 2026]
+Error in rule star_align_first:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 1
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    shell:
+        
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outFileNamePrefix alignment/star/ 
+        
+        mv alignment/star/Log.final.out alignment/star/first-pass.final.out
+        
+        (command exited with non-zero exit code)
+    external_jobid: 427375
+Exiting because a job execution failed. Look above for error messages
+Complete log(s): /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake/.snakemake/log/2026-11-05T130720.929099.snakemake.log
+Elapsed time: 0:00:50.171849
+WorkflowError:
+At least one job did not complete successfully.
+
+
+New attempt: !
+
+Using profile /data/users/oswaldbn7080/BIOL343/snakemake-profile for setting default command line arguments.
+
+SNAKEMAKE
+=========
+  Date: 2026-11-05 13:18:54
+  Workflow ID: 49d198b3-5877-4533-996d-5a6a87037d8b
+  Platform: Linux-4.18.0-348.el8.x86_64-x86_64-with-glibc2.28
+  Host: cn04
+  User: oswaldbn7080
+  Snakemake version: 9.27.1
+  Python version: 3.12.16 (main, Oct 26 2026, 11:37:43) [GCC 15.3.0]
+  Command: /data/users/oswaldbn7080/.conda/envs/snakemake6/bin/snakemake --profile /data/users/oswaldbn7080/BIOL343/snakemake-profile
+  Snakefile: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake/Snakefile
+  Base directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Run directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Working directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Config file(s): ['config.yaml']
+  Config MD5: 9c638f927224e7cf304a93db9ccc9c3d
+
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided remote nodes: 500
+Job stats:
+job                  count
+-----------------  -------
+star_align_first         1
+star_align_second        1
+all                      1
+total                    3
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 13:18:54 2026]
+rule star_align_first:
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    jobid: 1
+    reason: Missing output files: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab; Code has changed since last execution
+    resources: tmpdir=<TBD>, mem_mb=64000, mem=64 GB, mem_mib=61036, disk_mb=33833, disk=33.83 GB, disk_mib=32266, partition=week
+Shell command: None
+Submitted job 1 with external jobid '427380'.
+[Thu Nov  5 16:19:06 2026]
+Finished jobid: 1 (Rule: star_align_first)
+1 of 3 steps (33%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 16:19:06 2026]
+rule star_align_second:
+    input: manifest.tsv, alignment/star/SJ.out.tab
+    output: alignment/star/second-pass.final.out
+    jobid: 4
+    reason: Missing output files: alignment/star/second-pass.final.out; Input files updated by another job: alignment/star/SJ.out.tab
+    resources: tmpdir=<TBD>, mem_mb=64000, mem=64 GB, mem_mib=61036, disk_mb=1000, disk=1 GB, disk_mib=954, partition=week
+Shell command: 
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outSAMattributes NH HI AS nM RG 
+        --outFileNamePrefix alignment/star/ 
+        --sjdbFileChrStartEnd alignment/star/SJ.out.tab 
+        mv alignment/star/Log.final.out alignment/star/second-pass.final.out
+        
+Submitted job 4 with external jobid '427447'.
+[Thu Nov  5 16:19:46 2026]
+Error in rule star_align_second:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 4
+    input: manifest.tsv, alignment/star/SJ.out.tab
+    output: alignment/star/second-pass.final.out
+    shell:
+        
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outSAMattributes NH HI AS nM RG 
+        --outFileNamePrefix alignment/star/ 
+        --sjdbFileChrStartEnd alignment/star/SJ.out.tab 
+        mv alignment/star/Log.final.out alignment/star/second-pass.final.out
+        
+        (command exited with non-zero exit code)
+    external_jobid: 427447
+Trying to restart job 4.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 16:19:46 2026]
+rule star_align_second:
+    input: manifest.tsv, alignment/star/SJ.out.tab
+    output: alignment/star/second-pass.final.out
+    jobid: 4
+    reason: Missing output files: alignment/star/second-pass.final.out; Input files updated by another job: alignment/star/SJ.out.tab
+    resources: tmpdir=<TBD>, mem_mb=64000, mem=64 GB, mem_mib=61036, disk_mb=1000, disk=1 GB, disk_mib=954, partition=week
+Shell command: 
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outSAMattributes NH HI AS nM RG 
+        --outFileNamePrefix alignment/star/ 
+        --sjdbFileChrStartEnd alignment/star/SJ.out.tab 
+        mv alignment/star/Log.final.out alignment/star/second-pass.final.out
+        
+Submitted job 4 with external jobid '427448'.
+[Thu Nov  5 16:19:56 2026]
+Error in rule star_align_second:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 4
+    input: manifest.tsv, alignment/star/SJ.out.tab
+    output: alignment/star/second-pass.final.out
+    shell:
+        
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outSAMattributes NH HI AS nM RG 
+        --outFileNamePrefix alignment/star/ 
+        --sjdbFileChrStartEnd alignment/star/SJ.out.tab 
+        mv alignment/star/Log.final.out alignment/star/second-pass.final.out
+        
+        (command exited with non-zero exit code)
+    external_jobid: 427448
+Trying to restart job 4.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 16:19:56 2026]
+rule star_align_second:
+    input: manifest.tsv, alignment/star/SJ.out.tab
+    output: alignment/star/second-pass.final.out
+    jobid: 4
+    reason: Missing output files: alignment/star/second-pass.final.out; Input files updated by another job: alignment/star/SJ.out.tab
+    resources: tmpdir=<TBD>, mem_mb=64000, mem=64 GB, mem_mib=61036, disk_mb=1000, disk=1 GB, disk_mib=954, partition=week
+Shell command: 
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outSAMattributes NH HI AS nM RG 
+        --outFileNamePrefix alignment/star/ 
+        --sjdbFileChrStartEnd alignment/star/SJ.out.tab 
+        mv alignment/star/Log.final.out alignment/star/second-pass.final.out
+        
+Submitted job 4 with external jobid '427449'.
+[Thu Nov  5 16:20:06 2026]
+Error in rule star_align_second:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 4
+    input: manifest.tsv, alignment/star/SJ.out.tab
+    output: alignment/star/second-pass.final.out
+    shell:
+        
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outSAMattributes NH HI AS nM RG 
+        --outFileNamePrefix alignment/star/ 
+        --sjdbFileChrStartEnd alignment/star/SJ.out.tab 
+        mv alignment/star/Log.final.out alignment/star/second-pass.final.out
+        
+        (command exited with non-zero exit code)
+    external_jobid: 427449
+Trying to restart job 4.
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 16:20:06 2026]
+rule star_align_second:
+    input: manifest.tsv, alignment/star/SJ.out.tab
+    output: alignment/star/second-pass.final.out
+    jobid: 4
+    reason: Missing output files: alignment/star/second-pass.final.out; Input files updated by another job: alignment/star/SJ.out.tab
+    resources: tmpdir=<TBD>, mem_mb=64000, mem=64 GB, mem_mib=61036, disk_mb=1000, disk=1 GB, disk_mib=954, partition=week
+Shell command: 
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outSAMattributes NH HI AS nM RG 
+        --outFileNamePrefix alignment/star/ 
+        --sjdbFileChrStartEnd alignment/star/SJ.out.tab 
+        mv alignment/star/Log.final.out alignment/star/second-pass.final.out
+        
+Submitted job 4 with external jobid '427450'.
+[Thu Nov  5 16:20:16 2026]
+Error in rule star_align_second:
+    message: For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 4
+    input: manifest.tsv, alignment/star/SJ.out.tab
+    output: alignment/star/second-pass.final.out
+    shell:
+        
+        STAR 
+        --runThreadN 32 
+        --runMode alignReads 
+        --genomeDir genome/star 
+        --readFilesManifest manifest.tsv 
+        --readFilesCommand zcat 
+        --outSAMtype BAM Unsorted 
+        --outSAMunmapped Within 
+        --outSAMattributes NH HI AS nM RG 
+        --outFileNamePrefix alignment/star/ 
+        --sjdbFileChrStartEnd alignment/star/SJ.out.tab 
+        mv alignment/star/Log.final.out alignment/star/second-pass.final.out
+        
+        (command exited with non-zero exit code)
+    external_jobid: 427450
+Exiting because a job execution failed. Look above for error messages
+Complete log(s): /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake/.snakemake/log/2026-11-05T131854.646258.snakemake.log
+Elapsed time: 3:01:31.649651
+WorkflowError:
+At least one job did not complete successfully.
+
+
+New Attempt: !
+
+
+
+Using profile /data/users/oswaldbn7080/BIOL343/snakemake-profile for setting default command line arguments.
+
+SNAKEMAKE
+=========
+  Date: 2026-11-05 16:21:53
+  Workflow ID: 85a6c123-bb93-44e0-b415-76fee3c16d53
+  Platform: Linux-4.18.0-348.el8.x86_64-x86_64-with-glibc2.28
+  Host: cn04
+  User: oswaldbn7080
+  Snakemake version: 9.27.1
+  Python version: 3.12.16 (main, Oct 26 2026, 11:37:43) [GCC 15.3.0]
+  Command: /data/users/oswaldbn7080/.conda/envs/snakemake6/bin/snakemake --profile /data/users/oswaldbn7080/BIOL343/snakemake-profile
+  Snakefile: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake/Snakefile
+  Base directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Run directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Working directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Config file(s): ['config.yaml']
+  Config MD5: 9c638f927224e7cf304a93db9ccc9c3d
+
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided remote nodes: 500
+Job stats:
+job                  count
+-----------------  -------
+star_sa                  1
+star_align_first         1
+star_align_second        1
+all                      1
+total                    4
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 16:21:53 2026]
+rule star_sa:
+    input: genome/genome.fna, genome/annotations.gtf
+    output: genome/star/SA, genome/star/SAindex
+    jobid: 2
+    reason: Code has changed since last execution
+    threads: 32
+    resources: tmpdir=<TBD>, mem_mb=64000, mem=64 GB, mem_mib=61036, disk_mb=5082, disk=5.08 GB, disk_mib=4847, partition=week
+Shell command: STAR --runThreadN 32 --runMode genomeGenerate --genomeDir genome/star --genomeFastaFiles genome/genome.fna --sjdbGTFfile genome/annotations.gtf --sjdbOverhang 60 --genomeSAindexNbases 13
+Submitted job 2 with external jobid '427451'.
+[Thu Nov  5 16:31:13 2026]
+Finished jobid: 2 (Rule: star_sa)
+1 of 4 steps (25%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 16:31:13 2026]
+rule star_align_first:
+    input: manifest.tsv, genome/star/SA
+    output: alignment/star/first-pass.final.out, alignment/star/SJ.out.tab
+    jobid: 1
+    reason: Input files updated by another job: genome/star/SA
+    threads: 32
+    resources: tmpdir=<TBD>, mem_mb=64000, mem=64 GB, mem_mib=61036, disk_mb=33833, disk=33.83 GB, disk_mib=32266, partition=week
+Shell command: None
+Submitted job 1 with external jobid '427453'.
+Using profile /data/users/oswaldbn7080/BIOL343/snakemake-profile for setting default command line arguments.
+
+
+
+
+New Attepmt: !
+
+Using profile /data/users/oswaldbn7080/BIOL343/snakemake-profile for setting default command line arguments.
+
+SNAKEMAKE
+=========
+  Date: 2026-11-05 23:23:08
+  Workflow ID: 56140e8b-0fee-4fcf-b832-6cef58b40089
+  Platform: Linux-4.18.0-348.el8.x86_64-x86_64-with-glibc2.28
+  Host: cn04
+  User: oswaldbn7080
+  Snakemake version: 9.27.1
+  Python version: 3.12.16 (main, Oct 26 2026, 11:37:43) [GCC 15.3.0]
+  Command: /data/users/oswaldbn7080/.conda/envs/snakemake6/bin/snakemake --profile /data/users/oswaldbn7080/BIOL343/snakemake-profile
+  Snakefile: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake/Snakefile
+  Base directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Run directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Working directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Config file(s): ['config.yaml']
+  Config MD5: 9c638f927224e7cf304a93db9ccc9c3d
+
+Building DAG of jobs...
+LockException:
+Error: Directory cannot be locked. Please make sure that no other Snakemake process is trying to create the same files in the following directory:
+/data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+If you are sure that no other instances of snakemake are running on this directory, the remaining lock was likely caused by a kill signal or a power loss. It can be removed with the --unlock argument.
+
+
+
+New Attempt: !
+
+Using profile /data/users/oswaldbn7080/BIOL343/snakemake-profile for setting default command line arguments.
+Unlocked working directory.
+
+
+
+Using profile /data/users/oswaldbn7080/BIOL343/snakemake-profile for setting default command line arguments.
+
+SNAKEMAKE
+=========
+  Date: 2026-11-05 23:45:46
+  Workflow ID: 6931fb52-ae68-4dbf-8252-afe8ae668cc6
+  Platform: Linux-4.18.0-348.el8.x86_64-x86_64-with-glibc2.28
+  Host: cn04
+  User: oswaldbn7080
+  Snakemake version: 9.27.1
+  Python version: 3.12.16 (main, Oct 26 2026, 11:37:43) [GCC 15.3.0]
+  Command: /data/users/oswaldbn7080/.conda/envs/snakemake6/bin/snakemake --profile /data/users/oswaldbn7080/BIOL343/snakemake-profile
+  Snakefile: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake/Snakefile
+  Base directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Run directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Working directory: /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake
+  Config file(s): ['config.yaml']
+  Config MD5: 9c638f927224e7cf304a93db9ccc9c3d
+
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided remote nodes: 500
+Job stats:
+job                  count
+-----------------  -------
+star_align_second        1
+all                      1
+total                    2
+
+Select jobs to execute...
+Execute 1 jobs...
+
+[Thu Nov  5 23:45:46 2026]
+rule star_align_second:
+    input: manifest.tsv, alignment/star/SJ.out.tab
+    output: alignment/star/second-pass.final.out
+    jobid: 4
+    reason: Missing output files: alignment/star/second-pass.final.out; Code has changed since last execution
+    threads: 32
+    resources: tmpdir=<TBD>, mem_mb=64000, mem=64 GB, mem_mib=61036, disk_mb=1000, disk=1 GB, disk_mib=954, partition=week
+Shell command: None
+Submitted job 4 with external jobid '427485'.
+[Fri Nov  6 00:05:18 2026]
+Finished jobid: 4 (Rule: star_align_second)
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+
+[Fri Nov  6 00:05:18 2026]
+localrule all:
+    input: alignment/star/first-pass.final.out, alignment/star/second-pass.final.out
+    jobid: 0
+    reason: Input files updated by another job: alignment/star/second-pass.final.out
+    resources: tmpdir=/local/scratch/job_427480, mem_mb=64000, mem=64 GB, mem_mib=61036, disk_mb=1000, disk=1 GB, disk_mib=954, partition=week
+Shell command: None
+[Fri Nov  6 00:05:18 2026]
+Finished jobid: 0 (Rule: all)
+2 of 2 steps (100%) done
+Complete log(s): /data/users/oswaldbn7080/BIOL343/6_alignment/snakemake/.snakemake/log/2026-11-05T234546.678478.snakemake.log
+Elapsed time: 0:19:41.343307

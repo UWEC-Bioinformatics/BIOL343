@@ -1,0 +1,25 @@
+To activate conda environment: 
+`
+source activate {conda environment}
+`
+
+Command to generate DAG: 
+`
+snakemake {desired output} --dag | dot -Tsvg > dag.svg
+`
+
+Command to run snakemake as slurm job on cluster (can leave VS code session and code will still run):
+`
+nohup snakemake --profile /data/users/oswaldbn7080/BIOL343/snakemake-profile &
+`
+
+Command to check progress of jobs in terminal: 
+`saact`
+
+Force commands:
+--force, -f :
+    Force the execution of the selected target or the first rule regardless of already created output. (default: False)
+--forceall, -F :
+    Force the execution of the selected (or the first) rule and all rules it is dependent on regardless of already created output. (default: False)
+--forcerun [TARGET ...], -R [TARGET ...] :
+    Force the re-execution or creation of the given rules or files. Use this option if you changed a rule and want to have all its output in your workflow updated.

@@ -72,11 +72,11 @@ rule fetch_genome:
     output:
         "genome/genome.fna",
         "genome/annotations.gtf"
-    shell:
-        "wget -nc -O genome/genome.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/015/237/465/GCF_015237465.1_rCheMyd1.pri/GCF_015237465.1_rCheMyd1.pri_genomic.fna.gz | "
-        "gzip -d -f genome/genome.fna.gz | "
-        "wget -nc -O genome/annotations.gtf.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/015/237/465/GCF_015237465.1_rCheMyd1.pri/GCF_015237465.1_rCheMyd1.pri_genomic.gtf.gz | "
-        "gzip -f -d genome/annotations.gtf.gz"
+    run:
+        shell("wget -nc -O genome/genome.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/015/237/465/GCF_015237465.1_rCheMyd1.pri/GCF_015237465.1_rCheMyd1.pri_genomic.fna.gz")
+        shell("gzip -d -f genome/genome.fna.gz")
+        shell("wget -nc -O genome/annotations.gtf.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/015/237/465/GCF_015237465.1_rCheMyd1.pri/GCF_015237465.1_rCheMyd1.pri_genomic.gtf.gz")
+        shell("gzip -f -d genome/annotations.gtf.gz")
 
 rule star_sa:
     input: 
@@ -85,58 +85,74 @@ rule star_sa:
     output:
         "genome/star/SA",
         "genome/star/SAindex"
+    threads: 32
     shell:
         "STAR "
-        "--runThreadN 32 "
+        "--runThreadN {threads} "
         "--runMode genomeGenerate "
         "--genomeDir genome/star "
         "--genomeFastaFiles {input.genome} "
         "--sjdbGTFfile {input.annotations} "
         "--sjdbOverhang 60 "
-        "--genomeSAindexNbases 13;"
+        "--genomeSAindexNbases 13"
 
-# ^ ran fine just no inputs - aka no "string literal: none" error message
+# ^ worked when ran snakemake
 
 rule star_align_first:
     input: 
-        "manifest.tsv"
+        manifest = "manifest.tsv", 
+        SA = "genome/star/SA"
+
     output:
-        "alignment/star/first-pass.final.out",
-        "alignment/star/SJ.out.tab"
-    shell:
-        "STAR 
-        "--runThreadN 32 "
+        report = "alignment/star/first-pass.final.out",
+        tab = "alignment/star/SJ.out.tab"
+    threads: 32
+    run:
+        shell(
+        "STAR "
+        "--runThreadN {threads} "
         "--runMode alignReads "
         "--genomeDir genome/star "
-        "--readFilesManifest {input} "
+        "--readFilesManifest {input.manifest} "
         "--readFilesCommand zcat "
         "--outSAMtype BAM Unsorted "
         "--outSAMunmapped Within "
-        "--outFileNamePrefix alignment/star/ | "
-        "mv alignment/star/Log.final.out {output}"
+        "--outFileNamePrefix alignment/star/")
+        shell("mv alignment/star/Log.final.out {output.report}")
 
 
-# rule star_align_second:
-#     input:
-#         manifest = "manifest.tsv",
-#         SJ = "alignment/star/SJ.out.tab"
-#     output:
-#         "alignment/star/second-pass.final.out"
-#     shell:
-# # issue ^ b/c gave me string literal issue when ran without shell commands/content
-#         "STAR "
-#         "--runThreadN 32 "
-#         "--runMode alignReads "
-#         "--genomeDir genome/star "
-#         "--readFilesManifest {input.manifest} "
-#         "--readFilesCommand zcat "
-#         "--outSAMtype BAM Unsorted "
-#         "--outSAMunmapped Within "
-#         "--outSAMattributes NH HI AS nM RG "
-#         "--outFileNamePrefix alignment/star/ "
-#         "--sjdbFileChrStartEnd {input.SJ} | "
-#         "mv alignment/star/Log.final.out {output};"
-        # do I need | between the different shell commands
-
-# rule hisat_align:
-
+rule star_align_second:
+    input:
+        manifest = "manifest.tsv",
+        SJ = "alignment/star/SJ.out.tab"
+    output:
+        "alignment/star/second-pass.final.out"
+    threads: 32
+    run:
+        shell(
+        "STAR "
+        "--runThreadN {threads} "
+        "--runMode alignReads "
+        "--genomeDir genome/star "
+        "--readFilesManifest {input.manifest} "
+        "--readFilesCommand zcat "
+        "--outSAMtype BAM Unsorted "
+        "--outSAMunmapped Within "
+        "--outSAMattributes NH HI AS nM RG "
+        "--outFileNamePrefix alignment/star/ "
+        "--sjdbFileChrStartEnd {input.SJ}")
+        # shell(
+        # """
+        # STAR 
+        # --runThreadN {threads} 
+        # --runMode alignReads 
+        # --genomeDir genome/star 
+        # --readFilesManifest {input.manifest} 
+        # --readFilesCommand zcat 
+        # --outSAMtype BAM Unsorted 
+        # --outSAMunmapped Within 
+        # --outSAMattributes NH HI AS nM RG 
+        # --outFileNamePrefix alignment/star/ 
+        # --sjdbFileChrStartEnd {input.SJ} 
+        # """) 
+        shell("mv alignment/star/Log.final.out {output}")

@@ -206,9 +206,14 @@ pipelines/
 6_alignment/alignment/
 6_alignment/my_alignment
 6_alignment/GSE197628_family.soft
+6_alignment/snakemake/alignment
+6_alignment/snakemake/genome
+6_alignment/snakemake/logs
 
 # 7_alignment_qc/*stats*
-# 7_alignment_qc/qualimap
+7_alignment_qc/qualimap
+7_alignment_qc/homework/qualimap
+
 8_counting/dedup
 8_counting/logs
 8_counting/*counts*
