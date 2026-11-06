@@ -210,9 +210,13 @@ pipelines/
 6_alignment/snakemake/genome
 6_alignment/snakemake/logs
 
-# 7_alignment_qc/*stats*
+7_alignment_qc/*stats*
 7_alignment_qc/qualimap
 7_alignment_qc/homework/qualimap
+7_alignment_qc/class_multiqc_data
+7_alignment_qc/my_multiqc_data
+7_alignment_qc/class_multiqc_report.html
+7_alignment_qc/my_multiqc_report.html
 
 8_counting/dedup
 8_counting/logs
