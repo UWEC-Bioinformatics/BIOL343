@@ -234,3 +234,7 @@ hmwk_multiqc_trimmed1/
 5_fastq/data/samples/A.fastq
 5_fastq/data/samples/B.fastq
 5_fastq/data/samples/C.fastq
+
+6_alignment/hmwk_alignment/hmwk_star/_STARgenome
+6_alignment/hmwk_alignment/hmwk_star/Aligned.out.bam
+6_alignment/hmwk_alignment/hmwk_star/SJ.out.tab
