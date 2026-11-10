@@ -1,21 +1,21 @@
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099541_1.fastq.gz	-	0h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099540_1.fastq.gz	-	0h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099539_1.fastq.gz	-	0h_replica_3
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099535_1.fastq.gz	-	1h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099534_1.fastq.gz	-	1h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099533_1.fastq.gz	-	1h_replica_3
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099497_1.fastq.gz	-	2h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099496_1.fastq.gz	-	2h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099495_1.fastq.gz	-	2h_replica_3
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099491_1.fastq.gz	-	2h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099490_1.fastq.gz	-	2h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099489_1.fastq.gz	-	2h_replica_3
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099485_1.fastq.gz	-	6h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099484_1.fastq.gz	-	6h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099483_1.fastq.gz	-	6h_replica_3
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099479_1.fastq.gz	-	2h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099478_1.fastq.gz	-	2h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099477_1.fastq.gz	-	2h_replica_3
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099473_1.fastq.gz	-	8h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099673_1.fastq.gz	-	8h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099672_1.fastq.gz	-	8h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099541_1.fastq.gz	-	ID:0h_replica_1	SM:0h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099540_1.fastq.gz	-	ID:0h_replica_2	SM:0h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099539_1.fastq.gz	-	ID:0h_replica_3	SM:0h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099535_1.fastq.gz	-	ID:1h_replica_1	SM:1h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099534_1.fastq.gz	-	ID:1h_replica_2	SM:1h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099533_1.fastq.gz	-	ID:1h_replica_3	SM:1h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099497_1.fastq.gz	-	ID:2h_replica_1	SM:2h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099496_1.fastq.gz	-	ID:2h_replica_2	SM:2h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099495_1.fastq.gz	-	ID:2h_replica_3	SM:2h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099491_1.fastq.gz	-	ID:2h_replica_1	SM:2h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099490_1.fastq.gz	-	ID:2h_replica_2	SM:2h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099489_1.fastq.gz	-	ID:2h_replica_3	SM:2h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099485_1.fastq.gz	-	ID:6h_replica_1	SM:6h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099484_1.fastq.gz	-	ID:6h_replica_2	SM:6h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099483_1.fastq.gz	-	ID:6h_replica_3	SM:6h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099479_1.fastq.gz	-	ID:2h_replica_1	SM:2h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099478_1.fastq.gz	-	ID:2h_replica_2	SM:2h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099477_1.fastq.gz	-	ID:2h_replica_3	SM:2h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099473_1.fastq.gz	-	ID:8h_replica_1	SM:8h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099673_1.fastq.gz	-	ID:8h_replica_2	SM:8h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099672_1.fastq.gz	-	ID:8h_replica_3	SM:8h_replica_3
