@@ -1,0 +1,15 @@
+Status	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:36hs_H_1	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:36hs_H_2	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:36hs_H_3	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:36hs_H_4	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:36hs_H_5	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:36hs_N_1	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:36hs_N_2	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:36hs_N_3	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:36hs_N_4	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:36hs_N_5	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:0hs_1	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:0hs_2	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:0hs_3	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:0hs_4	/data/users/oswaldbn7080/BIOL343/8_counting/homework/star.bam:0hs_5
+Assigned	70781	116283	129343	168046	150105	175902	177093	234445	219602	81635	175046	182939	87240	131031	55322
+Unassigned_Unmapped	1328757	2489998	2881773	2067072	1799022	1172877	1247800	1465350	1139222	1211062	2359125	3132153	2567697	1776681	1645022
+Unassigned_Read_Type	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Singleton	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_MappingQuality	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Chimera	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_FragmentLength	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Duplicate	21633477	20543302	19698376	23096036	22622061	23001471	23641930	30141812	25980763	23179699	24639390	20576103	19202961	19374232	20090904
+Unassigned_MultiMapping	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Secondary	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_NonSplit	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_NoFeatures	3501151	4797250	5703831	6208682	5716365	5573101	5585304	7785985	6816818	3502007	6622998	8368384	4537791	5395273	3258149
+Unassigned_Overlapping_Length	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+Unassigned_Ambiguity	141	184	235	205	219	211	234	302	249	145	306	316	167	233	182
