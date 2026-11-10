@@ -213,14 +213,17 @@ pipelines/
 7_alignment_qc/*stats*
 7_alignment_qc/qualimap
 7_alignment_qc/homework/qualimap
-7_alignment_qc/class_multiqc_data
-7_alignment_qc/my_multiqc_data
-7_alignment_qc/class_multiqc_report.html
-7_alignment_qc/my_multiqc_report.html
+7_alignment_qc/*multiqc*
+7_alignment_qc/homework/*.out
 
 8_counting/dedup
 8_counting/logs
 8_counting/*counts*
+8_counting/*multiqc*
+8_counting/homework/star.bam
+8_counting/homework/star.bam.bai
+8_counting/homework/logs/*.out
 
 whole_pipeline.ipynb
 stash.txt
+
