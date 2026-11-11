@@ -209,3 +209,5 @@ whole_pipeline.ipynb
 2_genome_exploration/genome/genome_axolotl.fna
 
 7_alignment_qc/tmp
+
+8_counting/star.bam
