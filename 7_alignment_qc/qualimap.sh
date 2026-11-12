@@ -12,8 +12,7 @@ align=/data/users/carltoga2473/BIOL343/6_alignment/alignment/star/axolotl/Aligne
 samtools sort -@ 32 -o $align /data/users/carltoga2473/BIOL343/6_alignment/alignment/star/axolotl/Aligned.out.bam
 
 # index for .bai file
-samtools index -@ 8 -c \
-    /data/users/carltoga2473/BIOL343/6_alignment/alignment/star/axolotl/Aligned2.sorted.bam
+samtools index -@ 8 /data/users/carltoga2473/BIOL343/6_alignment/alignment/star/axolotl/Aligned2.sorted.bam
 
 
 # didn't work 
