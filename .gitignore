@@ -238,3 +238,5 @@ hmwk_multiqc_trimmed1/
 6_alignment/hmwk_alignment/hmwk_star/_STARgenome
 6_alignment/hmwk_alignment/hmwk_star/Aligned.out.bam
 6_alignment/hmwk_alignment/hmwk_star/SJ.out.tab
+6_alignment/429982-two_pass_align-err.txt
+6_alignment/429982-two_pass_align-out.txt

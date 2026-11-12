@@ -1,12 +1,12 @@
-STAR version=2.7.10b
-STAR compilation time,server,dir=2022-11-01T09:53:26-04:00 :/home/dobin/data/STAR/STARcode/STAR.master/source
-STAR git: On branch master ; commit c6f8efc2c7043ef83bf8b0d9bed36bbb6b9b1133 ; diff files: CHANGES.md 
+STAR version=2.7.10a
+STAR compilation time,server,dir=2022-01-14T18:50:00-05:00 :/home/dobin/data/STAR/STARcode/STAR.master/source
+STAR git: On branch master ; commit ae26add7ea1724f3281ec8abedb71bcff6a4ae73 ; diff files: CHANGES.md README.md RELEASEnotes.md doc/STARmanual.pdf extras/doc-latex/STARmanual.tex extras/doc-latex/convertParDefToLatexTable.awk extras/doc-latex/parametersDefault.tex extras/docker/Dockerfile source/VERSION 
 ##### Command Line:
-STAR --runThreadN 32 --runMode alignReads --genomeDir ../2_genome_exploration/genome_hw_script/star_hmwk --readFilesManifest hmwk_manifest.tsv --readFilesCommand zcat --outSAMtype BAM Unsorted --outSAMunmapped Within --outSAMattributes NH HI AS nM RG --outFileNamePrefix hmwk_alignment/hmwk_star/ --sjdbFileChrStartEnd hmwk_alignment/hmwk_star/SJ.out.tab
+STAR --runThreadN 64 --runMode alignReads --genomeDir ../2_genome_exploration/genome_hw_script/star_hmwk --readFilesManifest hmwk_manifest.tsv --readFilesCommand zcat --outSAMtype BAM Unsorted --outSAMunmapped Within --outSAMattributes NH HI AS nM RG --outFileNamePrefix hmwk_alignment/hmwk_star/ --sjdbFileChrStartEnd hmwk_alignment/hmwk_star/SJ.out.tab
 ##### Initial USER parameters from Command Line:
 outFileNamePrefix                 hmwk_alignment/hmwk_star/
 ###### All USER parameters from Command Line:
-runThreadN                    32     ~RE-DEFINED
+runThreadN                    64     ~RE-DEFINED
 runMode                       alignReads        ~RE-DEFINED
 genomeDir                     ../2_genome_exploration/genome_hw_script/star_hmwk     ~RE-DEFINED
 readFilesManifest             hmwk_manifest.tsv        ~RE-DEFINED
@@ -20,7 +20,7 @@ sjdbFileChrStartEnd           hmwk_alignment/hmwk_star/SJ.out.tab        ~RE-DEF
 
 ##### Final user re-defined parameters-----------------:
 runMode                           alignReads   
-runThreadN                        32
+runThreadN                        64
 genomeDir                         ../2_genome_exploration/genome_hw_script/star_hmwk
 readFilesCommand                  zcat   
 readFilesManifest                 hmwk_manifest.tsv   
@@ -32,31 +32,31 @@ sjdbFileChrStartEnd               hmwk_alignment/hmwk_star/SJ.out.tab
 
 -------------------------------
 ##### Final effective command line:
-STAR   --runMode alignReads      --runThreadN 32   --genomeDir ../2_genome_exploration/genome_hw_script/star_hmwk   --readFilesCommand zcat      --readFilesManifest hmwk_manifest.tsv      --outFileNamePrefix hmwk_alignment/hmwk_star/   --outSAMtype BAM   Unsorted      --outSAMattributes NH   HI   AS   nM   RG      --outSAMunmapped Within      --sjdbFileChrStartEnd hmwk_alignment/hmwk_star/SJ.out.tab   
+STAR   --runMode alignReads      --runThreadN 64   --genomeDir ../2_genome_exploration/genome_hw_script/star_hmwk   --readFilesCommand zcat      --readFilesManifest hmwk_manifest.tsv      --outFileNamePrefix hmwk_alignment/hmwk_star/   --outSAMtype BAM   Unsorted      --outSAMattributes NH   HI   AS   nM   RG      --outSAMunmapped Within      --sjdbFileChrStartEnd hmwk_alignment/hmwk_star/SJ.out.tab   
 ----------------------------------------
 
 Reading input file names and read groups from readFileManifest hmwk_manifest.tsv
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099541_1.fastq.gz	-	ID:0h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099540_1.fastq.gz	-	ID:0h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099539_1.fastq.gz	-	ID:0h_replica_3
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099535_1.fastq.gz	-	ID:1h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099534_1.fastq.gz	-	ID:1h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099533_1.fastq.gz	-	ID:1h_replica_3
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099497_1.fastq.gz	-	ID:2h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099496_1.fastq.gz	-	ID:2h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099495_1.fastq.gz	-	ID:2h_replica_3
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099491_1.fastq.gz	-	ID:2h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099490_1.fastq.gz	-	ID:2h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099489_1.fastq.gz	-	ID:2h_replica_3
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099485_1.fastq.gz	-	ID:6h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099484_1.fastq.gz	-	ID:6h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099483_1.fastq.gz	-	ID:6h_replica_3
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099479_1.fastq.gz	-	ID:2h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099478_1.fastq.gz	-	ID:2h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099477_1.fastq.gz	-	ID:2h_replica_3
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099473_1.fastq.gz	-	ID:8h_replica_1
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099673_1.fastq.gz	-	ID:8h_replica_2
-/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099672_1.fastq.gz	-	ID:8h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099541_1.fastq.gz	-	ID:0h_replica_1	SM:0h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099540_1.fastq.gz	-	ID:0h_replica_2	SM:0h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099539_1.fastq.gz	-	ID:0h_replica_3	SM:0h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099535_1.fastq.gz	-	ID:1h_replica_1	SM:1h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099534_1.fastq.gz	-	ID:1h_replica_2	SM:1h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099533_1.fastq.gz	-	ID:1h_replica_3	SM:1h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099497_1.fastq.gz	-	ID:2h_replica_1	SM:2h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099496_1.fastq.gz	-	ID:2h_replica_2	SM:2h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099495_1.fastq.gz	-	ID:2h_replica_3	SM:2h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099491_1.fastq.gz	-	ID:2h_replica_1	SM:2h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099490_1.fastq.gz	-	ID:2h_replica_2	SM:2h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099489_1.fastq.gz	-	ID:2h_replica_3	SM:2h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099485_1.fastq.gz	-	ID:6h_replica_1	SM:6h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099484_1.fastq.gz	-	ID:6h_replica_2	SM:6h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099483_1.fastq.gz	-	ID:6h_replica_3	SM:6h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099479_1.fastq.gz	-	ID:2h_replica_1	SM:2h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099478_1.fastq.gz	-	ID:2h_replica_2	SM:2h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099477_1.fastq.gz	-	ID:2h_replica_3	SM:2h_replica_3
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099473_1.fastq.gz	-	ID:8h_replica_1	SM:8h_replica_1
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099673_1.fastq.gz	-	ID:8h_replica_2	SM:8h_replica_2
+/data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099672_1.fastq.gz	-	ID:8h_replica_3	SM:8h_replica_3
 Number of fastq files for each mate = 21
 
    Input read files for mate 1 :
@@ -173,7 +173,7 @@ Number of real (reference) chromosomes= 21
 20	scaffold_20	4011	40370176
 21	scaffold_21	2033	40632320
 --sjdbOverhang = 75 taken from the generated genome
-Started loading the genome: Sun Nov  8 20:21:53 2026
+Started loading the genome: Tue Nov 10 16:20:31 2026
 
 Genome: size given as a parameter = 50893986
 SA: size given as a parameter = 389421990
@@ -187,23 +187,23 @@ Loading Genome ... done! state: good=1 eof=0 fail=0 bad=0; loaded 50893986 bytes
 SA file size: 389421990 bytes; state: good=1 eof=0 fail=0 bad=0
 Loading SA ... done! state: good=1 eof=0 fail=0 bad=0; loaded 389421990 bytes
 Loading SAindex ... done: 391468491 bytes
-Finished loading the genome: Sun Nov  8 20:21:53 2026
+Finished loading the genome: Tue Nov 10 16:20:31 2026
 
 Processing splice junctions database sjdbN=66222,   pGe.sjdbOverhang=75 
 alignIntronMax=alignMatesGapMax=0, the max intron size will be approximately determined by (2^winBinNbits)*winAnchorDistNbins=589824
-Nov 08 20:21:53   Loaded database junctions from the generated genome ../2_genome_exploration/genome_hw_script/star_hmwk//sjdbList.out.tab: 66222 total junctions
+Nov 10 16:20:32   Loaded database junctions from the generated genome ../2_genome_exploration/genome_hw_script/star_hmwk//sjdbList.out.tab: 66222 total junctions
 
-Nov 08 20:21:53   Loaded database junctions from the pGe.sjdbFileChrStartEnd file(s), total number of junctions:149369
+Nov 10 16:20:32   Loaded database junctions from the pGe.sjdbFileChrStartEnd file(s), total number of junctions:149369
 
-Nov 08 20:21:53   Finished preparing junctions
-Nov 08 20:21:53 ..... inserting junctions into the genome indices
-Nov 08 20:21:55   Finished SA search: number of new junctions=42433, old junctions=66222
-Nov 08 20:21:58   Finished sorting SA indicesL nInd=12729558
+Nov 10 16:20:32   Finished preparing junctions
+Nov 10 16:20:32 ..... inserting junctions into the genome indices
+Nov 10 16:20:33   Finished SA search: number of new junctions=42433, old junctions=66222
+Nov 10 16:20:36   Finished sorting SA indicesL nInd=12729558
 Genome size with junctions=57301369  40894464   16406905
 GstrandBit1=32   GstrandBit=32
-Nov 08 20:21:59   Finished inserting junction indices
-Nov 08 20:22:02   Finished SAi
-Nov 08 20:22:02 ..... finished inserting junctions into genome
+Nov 10 16:20:37   Finished inserting junction indices
+Nov 10 16:20:40   Finished SAi
+Nov 10 16:20:40 ..... finished inserting junctions into genome
 Created thread # 1
 Starting to map file # 0
 mate 1:   /data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099541_1.fastq.gz
@@ -237,6 +237,38 @@ Created thread # 28
 Created thread # 29
 Created thread # 30
 Created thread # 31
+Created thread # 32
+Created thread # 33
+Created thread # 34
+Created thread # 35
+Created thread # 36
+Created thread # 37
+Created thread # 38
+Created thread # 39
+Created thread # 40
+Created thread # 41
+Created thread # 42
+Created thread # 43
+Created thread # 44
+Created thread # 45
+Created thread # 46
+Created thread # 47
+Created thread # 48
+Created thread # 49
+Created thread # 50
+Created thread # 51
+Created thread # 52
+Created thread # 53
+Created thread # 54
+Created thread # 55
+Created thread # 56
+Created thread # 57
+Created thread # 58
+Created thread # 59
+Created thread # 60
+Created thread # 61
+Created thread # 62
+Created thread # 63
 Starting to map file # 1
 mate 1:   /data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099540_1.fastq.gz
 Starting to map file # 2
@@ -277,55 +309,86 @@ Starting to map file # 19
 mate 1:   /data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099673_1.fastq.gz
 Starting to map file # 20
 mate 1:   /data/users/schwantp4798/BIOL343/5_fastq/hmwk_trimmed/SRR32099672_1.fastq.gz
-Thread #3 end of input stream, nextChar=-1
-Completed: thread #14
-Completed: thread #21
-Completed: thread #24
-Completed: thread #12
-Completed: thread #20
-Completed: thread #28
-Completed: thread #25
-Completed: thread #3
-Completed: thread #1
-Completed: thread #4
-Completed: thread #2
-Completed: thread #31
-Completed: thread #27
-Completed: thread #5
-Completed: thread #11
-Completed: thread #30
-Completed: thread #19
-Completed: thread #6
-Completed: thread #7
-Completed: thread #29
-Completed: thread #18
-Completed: thread #26
-Completed: thread #23
-Completed: thread #9
+Thread #61 end of input stream, nextChar=-1
+Completed: thread #56
 Completed: thread #22
+Completed: thread #20
+Completed: thread #57
+Completed: thread #34
+Completed: thread #40
+Completed: thread #53
+Completed: thread #60
+Completed: thread #59
 Completed: thread #0
+Completed: thread #62
+Completed: thread #30
+Completed: thread #29
+Completed: thread #44
+Completed: thread #37
+Completed: thread #61
+Completed: thread #42
+Completed: thread #58
+Completed: thread #28
+Completed: thread #63
+Completed: thread #21
+Completed: thread #45
+Completed: thread #24
+Completed: thread #46
+Completed: thread #31
+Completed: thread #43
+Completed: thread #41
+Completed: thread #55
+Completed: thread #38
+Completed: thread #33
+Completed: thread #4
+Completed: thread #35
+Completed: thread #39
+Completed: thread #1
 Joined thread # 1
+Completed: thread #10
+Completed: thread #36
+Completed: thread #3
+Completed: thread #8
+Completed: thread #47
+Completed: thread #2
 Joined thread # 2
 Joined thread # 3
 Joined thread # 4
+Completed: thread #32
+Completed: thread #9
+Completed: thread #14
+Completed: thread #17
+Completed: thread #7
+Completed: thread #51
+Completed: thread #23
+Completed: thread #26
+Completed: thread #16
+Completed: thread #15
+Completed: thread #25
+Completed: thread #18
+Completed: thread #19
+Completed: thread #13
+Completed: thread #12
+Completed: thread #5
 Joined thread # 5
+Completed: thread #27
+Completed: thread #6
 Joined thread # 6
 Joined thread # 7
-Completed: thread #15
-Completed: thread #16
-Completed: thread #8
 Joined thread # 8
 Joined thread # 9
-Completed: thread #10
 Joined thread # 10
+Completed: thread #49
+Completed: thread #50
+Completed: thread #48
+Completed: thread #52
+Completed: thread #11
 Joined thread # 11
 Joined thread # 12
-Completed: thread #13
 Joined thread # 13
 Joined thread # 14
 Joined thread # 15
 Joined thread # 16
-Completed: thread #17
 Joined thread # 17
 Joined thread # 18
 Joined thread # 19
@@ -341,9 +404,37 @@ Joined thread # 28
 Joined thread # 29
 Joined thread # 30
 Joined thread # 31
-Nov 08 20:41:56 ..... finished mapping
-RAM after mapping:
-VmPeak:	29761268 kB; VmSize:	20422040 kB; VmHWM:	 6889304 kB; VmRSS:	 6887084 kB; 
-RAM after freeing genome index memory:
-VmPeak:	29761268 kB; VmSize:	18245732 kB; VmHWM:	 6889304 kB; VmRSS:	 5635700 kB; 
+Joined thread # 32
+Joined thread # 33
+Joined thread # 34
+Joined thread # 35
+Joined thread # 36
+Joined thread # 37
+Joined thread # 38
+Joined thread # 39
+Joined thread # 40
+Joined thread # 41
+Joined thread # 42
+Joined thread # 43
+Joined thread # 44
+Joined thread # 45
+Joined thread # 46
+Joined thread # 47
+Joined thread # 48
+Joined thread # 49
+Joined thread # 50
+Joined thread # 51
+Joined thread # 52
+Joined thread # 53
+Completed: thread #54
+Joined thread # 54
+Joined thread # 55
+Joined thread # 56
+Joined thread # 57
+Joined thread # 58
+Joined thread # 59
+Joined thread # 60
+Joined thread # 61
+Joined thread # 62
+Joined thread # 63
 ALL DONE!
