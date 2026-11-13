@@ -1,0 +1,153 @@
+BamQC report
+-----------------------------------
+
+>>>>>>> Input
+
+     bam file = /data/users/schwantp4798/BIOL343/6_alignment/hmwk_alignment/hmwk_star/Aligned_sorted.out.bam
+     outfile = hmwk_qualimap/star/bam/genome_results.txt
+
+
+>>>>>>> Reference
+
+     number of bases = 37,271,365 bp
+     number of contigs = 21
+
+
+>>>>>>> Globals
+
+     number of windows = 420
+
+     number of reads = 273,516,328
+     number of mapped reads = 229,617,361 (83.95%)
+     number of secondary alignments = 73,240,441
+
+     number of mapped bases = 548,989,783,132 bp
+     number of sequenced bases = 13,870,198,431 bp
+     number of aligned bases = 0 bp
+     number of duplicated reads (estimated) = 198,362,475
+     duplication rate = 74.69%
+
+
+>>>>>>> Globals inside
+
+     regions size = 26,732,003 (71.72%)
+     number of mapped reads = 202,374,364 (73.99%)
+
+
+>>>>>>> Insert size
+
+     mean insert size = 0
+     std insert size = 0
+     median insert size = 0
+
+
+>>>>>>> Mapping quality
+
+     mean mapping quality = 238.9859
+
+
+>>>>>>> ACTG content
+
+     number of A's = 3,190,291,361 bp (23%)
+     number of C's = 3,174,011,339 bp (22.88%)
+     number of T's = 4,324,680,980 bp (31.18%)
+     number of G's = 3,180,957,297 bp (22.93%)
+     number of N's = 257,454 bp (0%)
+
+     GC percentage = 45.82%
+
+
+>>>>>>> Mismatches and indels
+
+    general error rate = 0
+    number of mismatches = 0
+    number of insertions = 285,720
+    mapped reads with insertion percentage = 0.12%
+    number of deletions = 501,776
+    mapped reads with deletion percentage = 0.22%
+    homopolymer indels = 31.6%
+
+
+>>>>>>> Coverage
+
+     mean coverageData = 20,536.7994X
+     std coverageData = 23,605.5687X
+
+     There is a 65.87% of reference with a coverageData >= 1X
+     There is a 57.22% of reference with a coverageData >= 2X
+     There is a 51.53% of reference with a coverageData >= 3X
+     There is a 47.26% of reference with a coverageData >= 4X
+     There is a 43.84% of reference with a coverageData >= 5X
+     There is a 41.09% of reference with a coverageData >= 6X
+     There is a 38.79% of reference with a coverageData >= 7X
+     There is a 36.85% of reference with a coverageData >= 8X
+     There is a 35.18% of reference with a coverageData >= 9X
+     There is a 33.72% of reference with a coverageData >= 10X
+     There is a 32.44% of reference with a coverageData >= 11X
+     There is a 31.31% of reference with a coverageData >= 12X
+     There is a 30.29% of reference with a coverageData >= 13X
+     There is a 29.38% of reference with a coverageData >= 14X
+     There is a 28.55% of reference with a coverageData >= 15X
+     There is a 27.8% of reference with a coverageData >= 16X
+     There is a 27.11% of reference with a coverageData >= 17X
+     There is a 26.47% of reference with a coverageData >= 18X
+     There is a 25.89% of reference with a coverageData >= 19X
+     There is a 25.36% of reference with a coverageData >= 20X
+     There is a 24.84% of reference with a coverageData >= 21X
+     There is a 24.37% of reference with a coverageData >= 22X
+     There is a 23.93% of reference with a coverageData >= 23X
+     There is a 23.52% of reference with a coverageData >= 24X
+     There is a 23.13% of reference with a coverageData >= 25X
+     There is a 22.77% of reference with a coverageData >= 26X
+     There is a 22.42% of reference with a coverageData >= 27X
+     There is a 22.09% of reference with a coverageData >= 28X
+     There is a 21.77% of reference with a coverageData >= 29X
+     There is a 21.47% of reference with a coverageData >= 30X
+     There is a 21.19% of reference with a coverageData >= 31X
+     There is a 20.92% of reference with a coverageData >= 32X
+     There is a 20.66% of reference with a coverageData >= 33X
+     There is a 20.41% of reference with a coverageData >= 34X
+     There is a 20.17% of reference with a coverageData >= 35X
+     There is a 19.94% of reference with a coverageData >= 36X
+     There is a 19.72% of reference with a coverageData >= 37X
+     There is a 19.51% of reference with a coverageData >= 38X
+     There is a 19.31% of reference with a coverageData >= 39X
+     There is a 19.12% of reference with a coverageData >= 40X
+     There is a 18.93% of reference with a coverageData >= 41X
+     There is a 18.75% of reference with a coverageData >= 42X
+     There is a 18.57% of reference with a coverageData >= 43X
+     There is a 18.4% of reference with a coverageData >= 44X
+     There is a 18.23% of reference with a coverageData >= 45X
+     There is a 18.07% of reference with a coverageData >= 46X
+     There is a 17.92% of reference with a coverageData >= 47X
+     There is a 17.77% of reference with a coverageData >= 48X
+     There is a 17.62% of reference with a coverageData >= 49X
+     There is a 17.48% of reference with a coverageData >= 50X
+     There is a 17.34% of reference with a coverageData >= 51X
+
+
+>>>>>>> Coverage per contig
+
+	scaffold_1	3375926	43891248698	13001.24727200774	13780.995689005085
+	scaffold_2	2858259	163085196039	57057.529089911026	61147.51056167186
+	scaffold_3	2572178	30544307027	11874.880753587038	14361.151452202768
+	scaffold_4	2845344	43307092758	15220.336366358513	17392.98359257469
+	scaffold_5	2736504	28001033248	10232.41085998778	10645.280692000631
+	scaffold_6	2117636	16838723336	7951.660878451255	16559.49654390504
+	scaffold_7	2032752	47607870845	23420.40290453533	24076.77544250936
+	scaffold_8	1676287	22666294210	13521.726416777079	15262.052749556977
+	scaffold_9	1186856	13004553266	10957.144983047649	16146.028428699643
+	scaffold_10	1555906	65536256867	42120.96159215274	45763.34722869487
+	scaffold_11	1433346	35787669110	24967.920592794762	26701.543289763707
+	scaffold_12	1404619	10678816072	7602.642476002389	10052.253444124688
+	scaffold_13	736320	8779906917	11924.036990710561	13625.958387687051
+	scaffold_14	76668	152581157	1990.1543929670788	4294.9505768217505
+	scaffold_15	83325	18189280	218.2931893189319	885.9288202588579
+	scaffold_16	26972	18952081264	702657.6176775916	701541.1766644664
+	scaffold_17	7024	204	0.029043280182232345	0.29374534621497134
+	scaffold_18	5203	168	0.032289064001537575	0.13649424462053147
+	scaffold_19	361	164230	454.93074792243766	403.83750461737486
+	scaffold_20	517	137798436	266534.6924564797	562443.343727988
+	scaffold_21	0	0	0.0	0.0
+
+
