@@ -243,3 +243,5 @@ whole_pipeline.ipynb
 6_alignment/_STARtmp/readFilesIn.info
 6_alignment/_STARtmp/readsCommand_read1
 6_alignment/_STARtmp/readsCommand_read2
+8_counting/cow_star.bam
+8_counting/cow_star_duplicates
