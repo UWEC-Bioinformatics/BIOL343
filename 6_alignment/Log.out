@@ -1,0 +1,27 @@
+STAR version=2.7.10b
+STAR compilation time,server,dir=2022-11-01T09:53:26-04:00 :/home/dobin/data/STAR/STARcode/STAR.master/source
+STAR git: On branch master ; commit c6f8efc2c7043ef83bf8b0d9bed36bbb6b9b1133 ; diff files: CHANGES.md 
+##### Command Line:
+STAR --runThreadN 32 --runMode alignReads --genomeDir ../2_genome_exploration/genome/star
+##### Initial USER parameters from Command Line:
+###### All USER parameters from Command Line:
+runThreadN                    32     ~RE-DEFINED
+runMode                       alignReads        ~RE-DEFINED
+genomeDir                     ../2_genome_exploration/genome/star     ~RE-DEFINED
+##### Finished reading parameters from all sources
+
+##### Final user re-defined parameters-----------------:
+runMode                           alignReads   
+runThreadN                        32
+genomeDir                         ../2_genome_exploration/genome/star
+
+-------------------------------
+##### Final effective command line:
+STAR   --runMode alignReads      --runThreadN 32   --genomeDir ../2_genome_exploration/genome/star
+----------------------------------------
+
+Number of fastq files for each mate = 1
+
+EXITING because of fatal input ERROR: could not open readFilesIn=Read1
+
+Nov 10 16:11:17 ...... FATAL ERROR, exiting
