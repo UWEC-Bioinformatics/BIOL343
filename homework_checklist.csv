@@ -6,5 +6,5 @@ homework,due date,pushed,in progress,done except for snakemake,done
 5 fastq,10/17,x,x,x
 6 alignment,10/24,x,x,x
 7 alignment qc,10/31,x,x,,needs jbrowse and snakemake
-8 counting,11/6,x,
+8 counting,11/6,x,x,,I really don't think 97% of my reads are duplicates
 9 diff exp,11/13,
