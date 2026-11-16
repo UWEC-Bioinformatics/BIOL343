@@ -223,7 +223,7 @@ pipelines/
 8_counting/homework/star.bam
 8_counting/homework/star.bam.bai
 8_counting/homework/logs/*.out
+8_counting/homework/*counts*
 
 whole_pipeline.ipynb
 stash.txt
-
