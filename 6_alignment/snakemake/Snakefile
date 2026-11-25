@@ -2,93 +2,122 @@ configfile: "config.yaml"
 
 rule all:
     input:
-        "plots/quals.svg"
+        "homework/multiqc/multiqc_report.html",
+        "homework/alignment/star/Aligned.out.bam"
 
 rule fetch_fastq:
     output:
-        "homework/fastq/{fastq_files}_1.fastq.gz"
+        "homework/fastq/{sample}_1.fastq.gz"
+    threads: 16
     shell:
-        "parallel-fastq-dump --split-files --sra-id {wildcard.fastq_files} --threads 16 --outdir homework/fastq --gzip"
+        "parallel-fastq-dump --split-files --sra-id {wildcards.sample} --threads {threads} --outdir homework/fastq --gzip"
         
 rule fastq_qc:
     input:
-        "homework/fastq/{fastq_files}_1.fastq.gz"
-        fastq_files = config["fastq_files"]
+        "homework/fastq/{sample}_1.fastq.gz"
     output:
-        "homework/qc/{fastq_files}_1_fastqc.zip"
-        "homework/qc/{fastq_files}_1_fastqc.html"
+        "homework/qc/{sample}_1_fastqc.zip",
+        "homework/qc/{sample}_1_fastqc.html"
+    threads: 32
     shell:
-        "fastqc -t 32 homework/fastq/{wildcards.fastq_files}.fastq.gz -o homework/qc"
+        "fastqc -t {threads} homework/fastq/{wildcards.sample}.fastq.gz -o homework/qc"
 
 rule trim_filter:
     input:
-        "homework/fastq/{fastq_files}_1.fastq.gz"
+        "homework/fastq/{sample}_1.fastq.gz",
+        "homework/qc/{sample}_1_fastqc.zip"
     output:
-        "homework/trimmed/{fastq_files}_1.fastq.gz"
+        "homework/trimmed/{sample}_1.fastq.gz"
+    threads: 32
     shell:
-        "cutadapt -j 32 -u 10 -m 20 \
-        -o ./homework/trimmed/{wildcards.fastq_files}_1.fastq.gz \
-        homework/fastq/{wildcards.fastq_files}_1.fastq.gz;"
+        "cutadapt -j {threads} -u 10 -m 20 "
+        "-o ./homework/trimmed/{wildcards.sample}_1.fastq.gz "
+        "homework/fastq/{wildcards.sample}_1.fastq.gz"
 
 rule trim_qc:
     input:
-        "homework/trimmed/{fastq_files}.fastq.gz"
+        "homework/trimmed/{sample}_1.fastq.gz"
     output:
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.zip"
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.html"
+        "homework/trimmed/qc/{sample}_1_fastqc.zip",
+        "homework/trimmed/qc/{sample}_1_fastqc.html"
+    threads: 32
     shell:
-        "fastqc -t 32 homework/trimmed/{wildcards.fastq_files}.fastq.gz -o homework/trimmed/qc"
+        "fastqc -t {threads} homework/trimmed/{wildcards.sample}.fastq.gz -o homework/trimmed/qc"
 
 rule report:
     input:
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.zip"
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.html"
+        expand("homework/trimmed/qc/{sample}_1_fastqc.zip", sample=config["fastq_files"]),
+        expand("homework/trimmed/qc/{sample}_1_fastqc.html", sample=config["fastq_files"])
     output:
-        "multiqc_report.html"
+        "homework/multiqc/multiqc_report.html"
     shell:
-        "multiqc --force -d homework/qc/ homework/trimmed/qc/"
+        "multiqc --force -d homework/qc/ homework/trimmed/qc/ -o homework/multiqc/ "
 
 rule fetch_genome:
-    input:
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.zip"
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.html"
     output:
-        "multiqc_report.html"
-    shell:
-        "multiqc --force -d homework/qc/ homework/trimmed/qc/"
+        "genome/my_genome.fna",
+        "genome/my_annotations.gtf"
+    run:
+        shell("wget -nc -O genome/my_genome.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/635/GCF_000001635.20_GRCm38/GCF_000001635.20_GRCm38_genomic.fna.gz")
+        shell("gzip -d -f genome/my_genome.fna.gz")
+        shell("wget -nc -O genome/my_annotations.gtf.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/635/GCF_000001635.20_GRCm38/GCF_000001635.20_GRCm38_genomic.gtf.gz")
+        shell("gzip -f -d genome/my_annotations.gtf.gz")
 
-rule star_sa:
+rule star_sa: 
     input:
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.zip"
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.html"
+        fna="genome/my_genome.fna",
+        gtf="genome/my_annotations.gtf"
     output:
-        "multiqc_report.html"
+        dir="genome/homework/star",
+        sa="genome/homework/star/SA",
+        sai="genome/homework/star/SAindex"
+    threads: 32
     shell:
-        "multiqc --force -d homework/qc/ homework/trimmed/qc/"
+        "STAR "
+        "--runThreadN {threads} "
+        "--runMode genomeGenerate "
+        "--genomeDir {output.dir} "
+        "--genomeFastaFiles {input.fna} "
+        "--sjdbGTFfile {input.gtf} "
+        "--sjdbOverhang 89 "
+        "--genomeSAindexNbases 13"
 
 rule star_align_first:
     input:
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.zip"
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.html"
+        manifest="homework_manifest.tsv",
+        genome = "genome/homework/star"
     output:
-        "multiqc_report.html"
+        "homework/alignment/star/SJ.out.tab",
+        "homework/alignment/star/first-pass.final.out"
+    threads: 32
     shell:
-        "multiqc --force -d homework/qc/ homework/trimmed/qc/"
+        "STAR "
+        "--runThreadN {threads} "
+        "--runMode alignReads "
+        "--genomeDir {input.genome} "
+        "--readFilesManifest {input.manifest} "
+        "--readFilesCommand zcat "
+        "--outSAMtype BAM Unsorted "
+        "--outSAMunmapped Within "
+        "--outFileNamePrefix homework/alignment/star/"
 
 rule star_align_second:
     input:
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.zip"
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.html"
+        manifest="homework_manifest.tsv",
+        SJ="homework/alignment/star/SJ.out.tab"
     output:
-        "multiqc_report.html"
+        "homework/alignment/star/Aligned.out.bam",
+        "homework/alignment/star/second-pass.final.out"
+    threads: 32
     shell:
-        "multiqc --force -d homework/qc/ homework/trimmed/qc/"
-
-rule report_second:
-    input:
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.zip"
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.html"
-    output:
-        "multiqc_report.html"
-    shell:
-        "multiqc --force -d homework/qc/ homework/trimmed/qc/"
+        "STAR "
+        "--runThreadN {threads} "
+        "--runMode alignReads "
+        "--genomeDir genome/homework/star "
+        "--readFilesManifest {input.manifest} "
+        "--readFilesCommand zcat "
+        "--outSAMtype BAM Unsorted "
+        "--outSAMunmapped Within "
+        "--outSAMattributes NH HI AS nM RG "
+        "--outFileNamePrefix homework/alignment/star/second/ "
+        "--sjdbFileChrStartEnd {input.SJ}"
