@@ -1,0 +1,196 @@
+configfile: "config.yaml"
+
+rule all:
+    input:
+        "homework/multiqc/multiqc_report.html"
+
+rule fetch_fastq:
+    output:
+        "homework/fastq/{sample}_1.fastq.gz"
+    threads: 16
+    shell:
+        "parallel-fastq-dump --split-files --sra-id {wildcards.sample} --threads {threads} --outdir homework/fastq --gzip"
+        
+rule fastq_qc:
+    input:
+        "homework/fastq/{sample}_1.fastq.gz"
+    output:
+        "homework/qc/{sample}_1_fastqc.zip",
+        "homework/qc/{sample}_1_fastqc.html"
+    threads: 32
+    shell:
+        "fastqc -t {threads} homework/fastq/{wildcards.sample}.fastq.gz -o homework/qc"
+
+rule trim_filter:
+    input:
+        "homework/fastq/{sample}_1.fastq.gz",
+        "homework/qc/{sample}_1_fastqc.zip"
+    output:
+        "homework/trimmed/{sample}_1.fastq.gz"
+    threads: 32
+    shell:
+        "cutadapt -j {threads} -u 10 -m 20 "
+        "-o ./homework/trimmed/{wildcards.sample}_1.fastq.gz "
+        "homework/fastq/{wildcards.sample}_1.fastq.gz"
+
+rule trim_qc:
+    input:
+        "homework/trimmed/{sample}_1.fastq.gz"
+    output:
+        "homework/trimmed/qc/{sample}_1_fastqc.zip",
+        "homework/trimmed/qc/{sample}_1_fastqc.html"
+    threads: 32
+    shell:
+        "fastqc -t {threads} homework/trimmed/{wildcards.sample}.fastq.gz -o homework/trimmed/qc"
+
+rule fetch_genome:
+    output:
+        "genome/my_genome.fna",
+        "genome/my_annotations.gtf"
+    run:
+        shell("wget -nc -O genome/my_genome.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/635/GCF_000001635.20_GRCm38/GCF_000001635.20_GRCm38_genomic.fna.gz")
+        shell("gzip -d -f genome/my_genome.fna.gz")
+        shell("wget -nc -O genome/my_annotations.gtf.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/635/GCF_000001635.20_GRCm38/GCF_000001635.20_GRCm38_genomic.gtf.gz")
+        shell("gzip -f -d genome/my_annotations.gtf.gz")
+
+rule star_sa: 
+    input:
+        fna="genome/my_genome.fna",
+        gtf="genome/my_annotations.gtf"
+    output:
+        dir="genome/homework/star",
+        sa="genome/homework/star/SA",
+        sai="genome/homework/star/SAindex"
+    threads: 32
+    shell:
+        "STAR "
+        "--runThreadN {threads} "
+        "--runMode genomeGenerate "
+        "--genomeDir {output.dir} "
+        "--genomeFastaFiles {input.fna} "
+        "--sjdbGTFfile {input.gtf} "
+        "--sjdbOverhang 89 "
+        "--genomeSAindexNbases 13"
+
+rule star_align_first:
+    input:
+        manifest="homework_manifest.tsv",
+        genome = "genome/homework/star"
+    output:
+        "homework/alignment/star/SJ.out.tab",
+        "homework/alignment/star/first-pass.final.out"
+    threads: 32
+    shell:
+        "STAR "
+        "--runThreadN {threads} "
+        "--runMode alignReads "
+        "--genomeDir {input.genome} "
+        "--readFilesManifest {input.manifest} "
+        "--readFilesCommand zcat "
+        "--outSAMtype BAM Unsorted "
+        "--outSAMunmapped Within "
+        "--outFileNamePrefix homework/alignment/star/"
+
+rule star_align_second:
+    input:
+        manifest="homework_manifest.tsv",
+        SJ="homework/alignment/star/SJ.out.tab"
+    output:
+        "homework/alignment/star/Aligned.out.bam",
+        "homework/alignment/star/second-pass.final.out"
+    threads: 32
+    shell:
+        "STAR "
+        "--runThreadN {threads} "
+        "--runMode alignReads "
+        "--genomeDir genome/homework/star "
+        "--readFilesManifest {input.manifest} "
+        "--readFilesCommand zcat "
+        "--outSAMtype BAM Unsorted "
+        "--outSAMunmapped Within "
+        "--outSAMattributes NH HI AS nM RG "
+        "--outFileNamePrefix homework/alignment/star/second/ "
+        "--sjdbFileChrStartEnd {input.SJ}"
+
+rule sort:
+    input:
+        "homework/alignment/star/Aligned.out.bam"
+    output:
+        "homework/alignment/star/Aligned.sorted.bam"
+    threads: 32
+    shell:
+        "samtools sort -@ {threads} -o {output} {input}"
+        
+
+rule index:
+    input:
+        "homework/alignment/star/Aligned.sorted.bam"
+    output:
+        "homework/alignment/star/Aligned.sorted.bam.bai"
+    threads: 32
+    shell:
+        "samtools index -@ {threads} {input}"
+
+rule flagstat:
+    input:
+        bam="homework/alignment/star/Aligned.sorted.bam"
+    output:
+        qc="bam_qc.txt"
+    shell:
+        "samtools flagstat {input.bam} > {output.qc}"
+
+rule qualimap:
+    input:
+        bam="homework/alignment/star/Aligned.sorted.bam",
+        gtf="genome/my_annotations.gtf"
+    output:
+        bam="homework/qualimap/star/bam",
+        rna="homework/qualimap/star/rnaseq"
+    threads: 32
+    run:
+        shell("qualimap bamqc -nt {threads} --java-mem-size=64G -outdir {output.bam} -bam {input.bam}  --feature-file {input.gtf}")
+        shell("qualimap rnaseq --java-mem-size=64G -outdir {output.rna} -bam {input.bam} -gtf {input.gtf}")
+
+rule mark_duplicates:
+    input:
+        "homework/alignment/star/Aligned.sorted.bam"
+    output:
+        txt="star_duplicates.txt",
+        bam="star.bam"
+    shell:
+        "picard MarkDuplicates "
+        "-I {input} "
+        "-M {output.txt} "
+        "-O {output.bam} "
+        "--VALIDATION_STRINGENCY SILENT"
+
+rule count:
+    input:
+        gtf="genome/my_annotations.gtf",
+        bam="star.bam"
+    output:
+        "my_star_counts.tsv"
+    shell:
+        "featureCounts "
+        "{input.bam} "
+        "-T {threads} "
+        "--byReadGroup "
+        "--ignoreDup "
+        "-M "
+        "--fraction "
+        "-s 0 "
+        "-a {input.gtf} "
+        "-o my_star_counts.tsv "
+        "--verbose"
+
+rule report:
+    input:
+        expand("homework/trimmed/qc/{sample}_1_fastqc.zip", sample=config["fastq_files"]),
+        expand("homework/trimmed/qc/{sample}_1_fastqc.html", sample=config["fastq_files"]),
+        "homework/qualimap/star/bam",
+        "homework/qualimap/star/bam",
+        "star.bam"
+    output:
+        "homework/multiqc/multiqc_report.html"
+    shell:
+        "multiqc --force -d homework/qc/ homework/trimmed/qc/ homework/alignment/star/ homework/qualimap/star/bam homework/qualimap/star/rnaseq homework/star.bam ../ -o homework/multiqc/"
