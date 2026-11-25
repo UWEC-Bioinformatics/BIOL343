@@ -2,48 +2,52 @@ configfile: "config.yaml"
 
 rule all:
     input:
-        "plots/quals.svg"
+        "homework/multiqc/multiqc_report.html"
 
 rule fetch_fastq:
     output:
-        "homework/fastq/{fastq_files}_1.fastq.gz"
+        "homework/fastq/{sample}_1.fastq.gz"
+    threads: 16
     shell:
-        "parallel-fastq-dump --split-files --sra-id {wildcard.fastq_files} --threads 16 --outdir homework/fastq --gzip"
+        "parallel-fastq-dump --split-files --sra-id {wildcards.sample} --threads 16 --outdir homework/fastq --gzip"
         
 rule fastq_qc:
     input:
-        "homework/fastq/{fastq_files}_1.fastq.gz"
-        fastq_files = config["fastq_files"]
+        "homework/fastq/{sample}_1.fastq.gz"
     output:
-        "homework/qc/{fastq_files}_1_fastqc.zip"
-        "homework/qc/{fastq_files}_1_fastqc.html"
+        "homework/qc/{sample}_1_fastqc.zip",
+        "homework/qc/{sample}_1_fastqc.html"
+    threads: 32
     shell:
-        "fastqc -t 32 homework/fastq/{wildcards.fastq_files}.fastq.gz -o homework/qc"
+        "fastqc -t 32 homework/fastq/{wildcards.sample}.fastq.gz -o homework/qc"
 
 rule trim_filter:
     input:
-        "homework/fastq/{fastq_files}_1.fastq.gz"
+        "homework/fastq/{sample}_1.fastq.gz",
+        "homework/qc/{sample}_1_fastqc.zip"
     output:
-        "homework/trimmed/{fastq_files}_1.fastq.gz"
+        "homework/trimmed/{sample}_1.fastq.gz"
     shell:
-        "cutadapt -j 32 -u 10 -m 20 \
-        -o ./homework/trimmed/{wildcards.fastq_files}_1.fastq.gz \
-        homework/fastq/{wildcards.fastq_files}_1.fastq.gz;"
+        "cutadapt -j 32 -u 10 -m 20 "
+        "-o ./homework/trimmed/{wildcards.sample}_1.fastq.gz "
+        "homework/fastq/{wildcards.sample}_1.fastq.gz"
 
 rule trim_qc:
     input:
-        "homework/trimmed/{fastq_files}.fastq.gz"
+        "homework/trimmed/{sample}_1.fastq.gz"
     output:
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.zip"
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.html"
+        "homework/trimmed/qc/{sample}_1_fastqc.zip",
+        "homework/trimmed/qc/{sample}_1_fastqc.html"
+    threads: 32
     shell:
-        "fastqc -t 32 homework/trimmed/{wildcards.fastq_files}.fastq.gz -o homework/trimmed/qc"
+        "fastqc -t 32 homework/trimmed/{wildcards.sample}.fastq.gz -o homework/trimmed/qc"
 
 rule report:
     input:
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.zip"
-        "homework/trimmed/qc/{fastq_files}_1_fastqc.html"
+        expand("homework/trimmed/qc/{sample}_1_fastqc.zip", sample=config["fastq_files"]),
+        expand("homework/trimmed/qc/{sample}_1_fastqc.html", sample=config["fastq_files"])
     output:
-        "multiqc_report.html"
+        "homework/multiqc/multiqc_report.html"
     shell:
-        "multiqc --force -d homework/qc/ homework/trimmed/qc/"
+        "multiqc --force -d homework/qc/ homework/trimmed/qc/ -o homework/multiqc/ "
+
