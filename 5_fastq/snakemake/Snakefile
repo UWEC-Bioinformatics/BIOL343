@@ -9,7 +9,7 @@ rule fetch_fastq:
         "homework/fastq/{sample}_1.fastq.gz"
     threads: 16
     shell:
-        "parallel-fastq-dump --split-files --sra-id {wildcards.sample} --threads 16 --outdir homework/fastq --gzip"
+        "parallel-fastq-dump --split-files --sra-id {wildcards.sample} --threads {threads} --outdir homework/fastq --gzip;"
         
 rule fastq_qc:
     input:
@@ -19,7 +19,7 @@ rule fastq_qc:
         "homework/qc/{sample}_1_fastqc.html"
     threads: 32
     shell:
-        "fastqc -t 32 homework/fastq/{wildcards.sample}.fastq.gz -o homework/qc"
+        "fastqc -t {threads} homework/fastq/{wildcards.sample}_1.fastq.gz -o homework/qc"
 
 rule trim_filter:
     input:
@@ -27,8 +27,9 @@ rule trim_filter:
         "homework/qc/{sample}_1_fastqc.zip"
     output:
         "homework/trimmed/{sample}_1.fastq.gz"
+    threads: 32
     shell:
-        "cutadapt -j 32 -u 10 -m 20 "
+        "cutadapt -j {threads} -u 10 -m 20 "
         "-o ./homework/trimmed/{wildcards.sample}_1.fastq.gz "
         "homework/fastq/{wildcards.sample}_1.fastq.gz"
 
@@ -40,7 +41,7 @@ rule trim_qc:
         "homework/trimmed/qc/{sample}_1_fastqc.html"
     threads: 32
     shell:
-        "fastqc -t 32 homework/trimmed/{wildcards.sample}.fastq.gz -o homework/trimmed/qc"
+        "fastqc -t {threads} homework/trimmed/{wildcards.sample}_1.fastq.gz -o homework/trimmed/qc"
 
 rule report:
     input:
